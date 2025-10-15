@@ -1,0 +1,26 @@
+{
+  "name": "fullstack-dev-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.3.3",
+    "@nuxt/image": "^1.7.0",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/motion": "^2.2.3",
+    "nuxt": "^3.12.4",
+    "vue": "^3.4.31"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@types/node": "^20.14.11",
+    "typescript": "^5.5.3"
+  }
+}
