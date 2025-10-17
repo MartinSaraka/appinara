@@ -87,6 +87,6 @@ const stats = [
   { value: '€50k+', label: 'Ušetrené náklady klientom' },
   { value: '30+', label: 'Úspešných projektov' },
   { value: '100%', label: 'Spokojných klientov' },
-  { value: '1-2 týždne', label: 'Priemerne na MVP' },
+  { value: '2-10 dní', label: 'Priemerne na MVP' },
 ]
 </script>
