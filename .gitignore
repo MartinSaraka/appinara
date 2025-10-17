@@ -23,6 +23,7 @@ logs
 .env.*
 !.env.example
 
+
 # Package manager
 .pnpm-debug.log*
 .yarn/*
@@ -34,3 +35,5 @@ logs
 pnpm-lock.yaml
 yarn.lock
 package-lock.json
+
+.salon-demo
