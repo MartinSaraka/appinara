@@ -9,7 +9,7 @@
             <span class="text-white">nara</span>
           </div>
           <p class="text-slate-400 mb-4 max-w-md">
-            Pomáhame firmám rásť pomocou AI integráciií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.
+            Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.
           </p>
           <div class="flex gap-4">
             <a 
