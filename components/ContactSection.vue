@@ -50,7 +50,7 @@
           
           <!-- Right Side - Contact Form -->
           <div v-motion-fade-visible :delay="200">
-            <form @submit.prevent="handleSubmit" class="glass-effect rounded-2xl p-8 space-y-6">
+            <form @submit.prevent="handleSubmit" class="glass-effect rounded-2xl p-8 space-y-6" novalidate>
               <div>
                 <label for="name" class="block text-sm font-medium text-slate-300 mb-2">
                   Meno
@@ -66,31 +66,35 @@
               
               <div>
                 <label for="email" class="block text-sm font-medium text-slate-300 mb-2">
-                  Email <span class="text-red-400">*</span>
+                  Email
                 </label>
                 <input
                   id="email"
                   v-model="form.email"
                   type="email"
-                  required
                   class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  :class="{ 'border-red-500': validationError && !form.email && !form.phone }"
                   placeholder="vas@email.com"
                 />
               </div>
               
               <div>
                 <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">
-                  Telefón <span class="text-red-400">*</span>
+                  Telefón
                 </label>
                 <input
                   id="phone"
                   v-model="form.phone"
                   type="tel"
-                  required
                   class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  :class="{ 'border-red-500': validationError && !form.email && !form.phone }"
                   placeholder="+421 XXX XXX XXX"
                 />
               </div>
+              
+              <p v-if="validationError && !form.email && !form.phone" class="text-sm text-red-400 -mt-2">
+                * Vyplňte prosím aspoň email alebo telefónne číslo
+              </p>
               
               <div>
                 <label for="project" class="block text-sm font-medium text-slate-300 mb-2">
@@ -201,8 +205,21 @@ const form = ref({
 const isSubmitting = ref(false)
 const submitMessage = ref('')
 const submitSuccess = ref(false)
+const validationError = ref(false)
 
 const handleSubmit = async () => {
+  // Validácia: aspoň email alebo telefón musí byť vyplnený
+  if (!form.value.email && !form.value.phone) {
+    validationError.value = true
+    submitMessage.value = '⚠️ Vyplňte prosím aspoň email alebo telefónne číslo'
+    submitSuccess.value = false
+    setTimeout(() => {
+      submitMessage.value = ''
+    }, 5000)
+    return
+  }
+  
+  validationError.value = false
   isSubmitting.value = true
   submitMessage.value = ''
   
@@ -228,6 +245,7 @@ const handleSubmit = async () => {
     // Success
     isSubmitting.value = false
     submitSuccess.value = true
+    validationError.value = false
     submitMessage.value = '✅ Správa bola úspešne odoslaná! Ozveme sa vám čoskoro.'
     
     // Reset form

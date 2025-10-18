@@ -66,15 +66,15 @@
         <div 
           v-motion-fade-visible
           :delay="600"
-          class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto"
+          class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mt-20 max-w-4xl mx-auto"
         >
           <div 
             v-for="stat in stats" 
             :key="stat.label"
-            class="glass-effect rounded-2xl p-6 card-hover"
+            class="glass-effect rounded-2xl p-4 sm:p-6 card-hover"
           >
-            <div class="text-4xl font-bold gradient-text mb-2">{{ stat.value }}</div>
-            <div class="text-slate-400 text-sm">{{ stat.label }}</div>
+            <div class="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-2">{{ stat.value }}</div>
+            <div class="text-slate-400 text-xs sm:text-sm">{{ stat.label }}</div>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@
 
 <script setup lang="ts">
 const stats = [
-  { value: '€50k+', label: 'Ušetrené náklady klientom' },
+  { value: '50k+', label: 'Ušetrené náklady klientom' },
   { value: '30+', label: 'Úspešných projektov' },
   { value: '100%', label: 'Spokojných klientov' },
   { value: '2-10 dní', label: 'Priemerne na MVP' },
