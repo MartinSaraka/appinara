@@ -89,7 +89,6 @@ const mobileMenuOpen = ref(false)
 const navItems = [
   { label: 'Služby', href: '#services' },
   { label: 'Ukážky prác', href: '#portfolio' },
-  { label: 'Kontakt', href: '#contact' },
 ]
 
 const handleScroll = () => {
