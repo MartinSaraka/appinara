@@ -1,0 +1,11 @@
+# robots.txt pre Appinara
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://appinara.sk/sitemap.xml
+
+# Blokované cesty (ak existujú)
+Disallow: /api/
+Disallow: /_nuxt/
+
