@@ -39,7 +39,7 @@
           class="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
           Pomáhame firmám automatizovať procesy, zvýšiť efektivitu a rásť pomocou 
-          <span class="text-primary-400 font-semibold">AI integráciíí</span> a vlastných webových riešení.
+          <span class="text-primary-400 font-semibold">AI integrácií</span> a vlastných webových riešení.
         </p>
         
         <!-- CTA Buttons -->
