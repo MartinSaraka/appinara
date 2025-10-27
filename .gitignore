@@ -37,3 +37,5 @@ yarn.lock
 package-lock.json
 
 .salon-demo
+.salon-retro
+.salon-artistic
