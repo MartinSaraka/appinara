@@ -210,7 +210,8 @@ import { computed } from 'vue'
 useHead({
   title: 'Obchodné podmienky | Appinara',
   meta: [
-    { name: 'description', content: 'Obchodné podmienky spoločnosti Appinara. Podmienky poskytovania služieb v oblasti vývoja webových aplikácií a AI integrácií.' }
+    { name: 'description', content: 'Obchodné podmienky spoločnosti Appinara. Podmienky poskytovania služieb v oblasti vývoja webových aplikácií a AI integrácií.' },
+    { name: 'robots', content: 'noindex, follow' }
   ]
 })
 

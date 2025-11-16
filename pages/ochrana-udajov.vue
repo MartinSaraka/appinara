@@ -129,7 +129,8 @@ import { computed } from 'vue'
 useHead({
   title: 'Ochrana osobných údajov | Appinara',
   meta: [
-    { name: 'description', content: 'Politika ochrany osobných údajov spoločnosti Appinara. Informácie o tom, ako spracovávame a chránime vaše osobné údaje.' }
+    { name: 'description', content: 'Politika ochrany osobných údajov spoločnosti Appinara. Informácie o tom, ako spracovávame a chránime vaše osobné údaje.' },
+    { name: 'robots', content: 'noindex, follow' }
   ]
 })
 

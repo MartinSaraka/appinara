@@ -16,16 +16,16 @@
   <url>
     <loc>https://appinara.sk/ochrana-udajov</loc>
     <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
 
   <!-- Obchodné podmienky -->
   <url>
     <loc>https://appinara.sk/obchodne-podmienky</loc>
     <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
 
   <!-- Blog -->
