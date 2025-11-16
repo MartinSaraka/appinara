@@ -1,0 +1,195 @@
+<template>
+  <div class="relative overflow-hidden bg-slate-950">
+    <Navigation />
+    
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 bg-gradient-to-b from-slate-900 to-slate-950">
+      <div class="absolute inset-0 grid-pattern opacity-20"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-5xl md:text-7xl font-display font-bold mb-6">
+            <span class="gradient-text">Blog</span> & Insights
+          </h1>
+          <p class="text-xl text-slate-300 mb-8">
+            Praktické tipy a návody ako využiť AI a moderné technológie vo vašom biznise
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Blog Posts Grid -->
+    <section class="py-20 bg-slate-950">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <NuxtLink 
+            v-for="post in blogPosts" 
+            :key="post.slug"
+            :to="`/blog/${post.slug}`"
+            class="group glass-effect rounded-2xl overflow-hidden card-hover"
+          >
+            <!-- Post Image -->
+            <div class="relative h-48 bg-gradient-to-br from-primary-600 to-purple-600 overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center text-6xl">
+                {{ post.emoji }}
+              </div>
+            </div>
+            
+            <!-- Post Content -->
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-xs font-medium">
+                  {{ post.category }}
+                </span>
+                <span class="text-sm text-slate-400">{{ post.readTime }}</span>
+              </div>
+              
+              <h2 class="text-xl font-display font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
+                {{ post.title }}
+              </h2>
+              
+              <p class="text-slate-400 text-sm mb-4 line-clamp-3">
+                {{ post.excerpt }}
+              </p>
+              
+              <div class="flex items-center text-primary-400 text-sm font-semibold">
+                Čítať viac
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+              
+              <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-slate-500">
+                {{ post.date }}
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+    
+    <Footer />
+  </div>
+</template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Blog - AI & Web Development Tipy | Appinara',
+  meta: [
+    { name: 'description', content: 'Praktické tipy, návody a insights o AI integrácii, vývoji webov a digitálnej transformácii pre slovenské firmy.' },
+    { name: 'keywords', content: 'AI blog, webový vývoj, AI integrácie, chatboty, automatizácia, slovensko, návody' }
+  ]
+})
+
+const blogPosts = [
+  {
+    slug: 'faceless-ai-videa-navod',
+    title: 'Faceless AI videá: Kompletný návod 2025',
+    excerpt: 'Ako zarábať 2000-5000€/mesiac na YouTube bez ukázania tváre. AI tools, workflow, monetizácia. Step-by-step tutoriál s reálnymi príkladmi.',
+    category: 'AI Video',
+    emoji: '🎬',
+    readTime: '15 min',
+    date: '16. November 2024'
+  },
+  {
+    slug: 'ai-vs-ludia-buducnost-prace',
+    title: 'AI vs. Ľudia: Ktoré joby prežijú?',
+    excerpt: 'Brutálne úprimná analýza: Ktoré profesie AI vymaže do 2030 a ktoré budú prosperovať? Risk assessment podľa kategórií + action plan.',
+    category: 'Budúcnosť práce',
+    emoji: '⚔️',
+    readTime: '14 min',
+    date: '16. November 2024'
+  },
+  {
+    slug: 'web-ai-trendy-2025',
+    title: 'TOP Web & AI trendy pre rok 2025',
+    excerpt: '10 trendov, ktoré zmenia digitálny svet v 2025. AI-first weby, voice search, micro-SaaS, zero-click content a viac. S predikciami a practical tips.',
+    category: 'Trendy 2025',
+    emoji: '🚀',
+    readTime: '12 min',
+    date: '16. November 2024'
+  },
+  {
+    slug: 'ai-chatbot-pre-maly-biznis',
+    title: 'AI Chatbot pre malý biznis: Kompletný sprievodca 2025',
+    excerpt: 'Zistite, ako môže AI chatbot ušetriť vašej firme desiatky hodín týždenne a zvýšiť predaje o 30-40%. Praktický návod krok za krokom.',
+    category: 'AI Návod',
+    emoji: '🤖',
+    readTime: '8 min',
+    date: '16. November 2024'
+  },
+  {
+    slug: 'kolko-stoji-webova-stranka-2024',
+    title: 'Koľko stojí webová stránka v roku 2025?',
+    excerpt: 'Transparentný prehľad cien webových stránok na Slovensku. Prečo niektoré weby stoja 300€ a iné 3000€? Rozložíme si to.',
+    category: 'Pricing',
+    emoji: '💰',
+    readTime: '10 min',
+    date: '12. November 2024'
+  },
+  {
+    slug: 'web-ktory-predava-checklist',
+    title: '10 vecí, ktoré musí mať web aby skutočne predával',
+    excerpt: 'Checklist overený stovkami projektov. Tieto elementy rozhodujú o tom, či váš web konvertuje návštevníkov na zákazníkov alebo nie.',
+    category: 'Checklist',
+    emoji: '✅',
+    readTime: '9 min',
+    date: '10. November 2024'
+  },
+  {
+    slug: 'preco-potrebuje-moja-firma-ai',
+    title: 'Prečo potrebuje moja firma AI? (A prečo práve teraz)',
+    excerpt: '5 konkrétnych príkladov, ako AI pomáha slovenským firmám šetriť náklady, zvyšovať predaje a predbehávať konkurenciu.',
+    category: 'AI Business',
+    emoji: '💡',
+    readTime: '8 min',
+    date: '8. November 2024'
+  },
+  {
+    slug: 'eshop-vs-marketplace',
+    title: 'Vlastný e-shop vs. Marketplace: Čo sa oplatí viac?',
+    excerpt: 'Predávate produkty? Zistite, či sa vám oplatí vlastný e-shop alebo radšej predávať cez Marketplace. Reálne čísla a porovnanie.',
+    category: 'E-commerce',
+    emoji: '🛒',
+    readTime: '9 min',
+    date: '5. November 2024'
+  },
+  {
+    slug: 'automatizacia-pre-zaciatocnikov',
+    title: 'Automatizácia pre začiatočníkov: Kde začať?',
+    excerpt: 'Ako automatizovať vaše prvé procesy vo firme bez programovania. 5 jednoduchých nástrojov, ktoré môžete použiť dnes.',
+    category: 'Automatizácia',
+    emoji: '⚙️',
+    readTime: '7 min',
+    date: '3. November 2024'
+  },
+  {
+    slug: 'ako-vybrat-web-developera',
+    title: 'Ako vybrať správneho web developera?',
+    excerpt: 'Checklist, otázky a red flags. Ako neprísť o peniaze a čas výberom zlého developera. Na základe 100+ projektov.',
+    category: 'Hiring Guide',
+    emoji: '👨‍💻',
+    readTime: '8 min',
+    date: '1. November 2024'
+  },
+  {
+    slug: 'top-10-ai-nastrojov-2024',
+    title: 'TOP 10 AI nástrojov pre firmy v 2025',
+    excerpt: 'Overené nástroje, ktoré používame denne. S cenami, pros/cons a reálnymi use cases. Ušetrite stovky hodín mesačne.',
+    category: 'AI Tools',
+    emoji: '🔧',
+    readTime: '10 min',
+    date: '16. November 2024'
+  },
+  {
+    slug: 'roi-modernizacie-webu',
+    title: 'ROI modernizácie webu: Oplatí sa to?',
+    excerpt: 'Ako počítať návratnosť investície do nového webu. Reálne case studies s číslami a kalkulačka. Väčšina webov sa vráti za 3-6 mesiacov.',
+    category: 'ROI & Analytics',
+    emoji: '📈',
+    readTime: '8 min',
+    date: '26. Október 2024'
+  }
+]
+</script>
+
