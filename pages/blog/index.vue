@@ -29,26 +29,37 @@
             class="group glass-effect rounded-2xl overflow-hidden card-hover"
           >
             <!-- Post Image -->
-            <div class="relative h-48 bg-gradient-to-br from-primary-600 to-purple-600 overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center text-6xl">
-                {{ post.emoji }}
+            <div class="relative h-48 overflow-hidden bg-slate-800">
+              <!-- Real photo -->
+              <img 
+                :src="post.image" 
+                :alt="post.title"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              
+              <!-- Gradient overlay for better text readability -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              
+              <!-- Category badge on image -->
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-slate-900 rounded-lg text-xs font-bold shadow-lg">
+                  {{ post.emoji }} {{ post.category }}
+                </span>
               </div>
             </div>
             
             <!-- Post Content -->
             <div class="p-6">
               <div class="flex items-center gap-3 mb-3">
-                <span class="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-xs font-medium">
-                  {{ post.category }}
-                </span>
-                <span class="text-sm text-slate-400">{{ post.readTime }}</span>
+                <span class="text-sm text-slate-400">{{ post.readTime }} čítania</span>
               </div>
               
-              <h2 class="text-xl font-display font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
+              <h2 class="text-xl font-display font-bold text-white mb-3 group-hover:text-primary-400 transition-colors leading-tight">
                 {{ post.title }}
               </h2>
               
-              <p class="text-slate-400 text-sm mb-4 line-clamp-3">
+              <p class="text-slate-300 text-sm mb-4 line-clamp-3 leading-relaxed">
                 {{ post.excerpt }}
               </p>
               
@@ -89,7 +100,8 @@ const blogPosts = [
     category: 'AI Video',
     emoji: '🎬',
     readTime: '15 min',
-    date: '16. November 2024'
+    date: '16. November 2024',
+    image: 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&q=80'
   },
   {
     slug: 'ai-vs-ludia-buducnost-prace',
@@ -98,7 +110,8 @@ const blogPosts = [
     category: 'Budúcnosť práce',
     emoji: '⚔️',
     readTime: '14 min',
-    date: '16. November 2024'
+    date: '16. November 2024',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80'
   },
   {
     slug: 'web-ai-trendy-2025',
@@ -107,7 +120,8 @@ const blogPosts = [
     category: 'Trendy 2025',
     emoji: '🚀',
     readTime: '12 min',
-    date: '16. November 2024'
+    date: '16. November 2024',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80'
   },
   {
     slug: 'ai-chatbot-pre-maly-biznis',
@@ -116,7 +130,8 @@ const blogPosts = [
     category: 'AI Návod',
     emoji: '🤖',
     readTime: '8 min',
-    date: '16. November 2024'
+    date: '16. November 2024',
+    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80'
   },
   {
     slug: 'kolko-stoji-webova-stranka-2024',
@@ -125,7 +140,8 @@ const blogPosts = [
     category: 'Pricing',
     emoji: '💰',
     readTime: '10 min',
-    date: '12. November 2024'
+    date: '12. November 2024',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80'
   },
   {
     slug: 'web-ktory-predava-checklist',
@@ -134,7 +150,8 @@ const blogPosts = [
     category: 'Checklist',
     emoji: '✅',
     readTime: '9 min',
-    date: '10. November 2024'
+    date: '10. November 2024',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
   },
   {
     slug: 'preco-potrebuje-moja-firma-ai',
@@ -143,7 +160,8 @@ const blogPosts = [
     category: 'AI Business',
     emoji: '💡',
     readTime: '8 min',
-    date: '8. November 2024'
+    date: '8. November 2024',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80'
   },
   {
     slug: 'eshop-vs-marketplace',
@@ -152,7 +170,8 @@ const blogPosts = [
     category: 'E-commerce',
     emoji: '🛒',
     readTime: '9 min',
-    date: '5. November 2024'
+    date: '5. November 2024',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80'
   },
   {
     slug: 'automatizacia-pre-zaciatocnikov',
@@ -161,7 +180,8 @@ const blogPosts = [
     category: 'Automatizácia',
     emoji: '⚙️',
     readTime: '7 min',
-    date: '3. November 2024'
+    date: '3. November 2024',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80'
   },
   {
     slug: 'ako-vybrat-web-developera',
@@ -170,7 +190,8 @@ const blogPosts = [
     category: 'Hiring Guide',
     emoji: '👨‍💻',
     readTime: '8 min',
-    date: '1. November 2024'
+    date: '1. November 2024',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80'
   },
   {
     slug: 'top-10-ai-nastrojov-2024',
@@ -179,7 +200,8 @@ const blogPosts = [
     category: 'AI Tools',
     emoji: '🔧',
     readTime: '10 min',
-    date: '16. November 2024'
+    date: '16. November 2024',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80'
   },
   {
     slug: 'roi-modernizacie-webu',
@@ -188,7 +210,8 @@ const blogPosts = [
     category: 'ROI & Analytics',
     emoji: '📈',
     readTime: '8 min',
-    date: '26. Október 2024'
+    date: '26. Október 2024',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'
   }
 ]
 </script>

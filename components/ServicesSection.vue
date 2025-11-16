@@ -19,7 +19,7 @@
       </div>
       
       <!-- Services Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
         <div 
           v-for="(service, index) in services" 
           :key="service.title"
@@ -30,7 +30,7 @@
           <!-- Gradient border effect -->
           <div class="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
           
-          <div class="relative glass-effect rounded-2xl p-8 h-full card-hover">
+          <div class="relative glass-effect rounded-2xl p-10 h-full card-hover">
             <!-- Icon -->
             <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <component :is="service.icon" class="w-8 h-8 text-white" />
@@ -40,7 +40,7 @@
             <h3 class="text-2xl font-display font-bold mb-4 text-white">
               {{ service.title }}
             </h3>
-            <p class="text-slate-400 mb-6 leading-relaxed">
+            <p class="text-slate-300 mb-6 leading-relaxed">
               {{ service.description }}
             </p>
             
@@ -93,68 +93,50 @@ const BriefcaseIcon = () => h('svg', { fill: 'none', stroke: 'currentColor', vie
 
 const services = [
   {
-    title: 'AI Integrácie pre firmy',
+    title: 'AI Integrácie & Chatboty',
     description: 'Automatizujte opakujúce sa úlohy, ušetrite čas a znížte náklady pomocou inteligentných AI riešení šitých na mieru vášmu biznisu.',
     icon: SparklesIcon,
     features: [
-      'AI chatboti pre zákaznícky servis (24/7)',
+      'AI chatboti pre zákaznícky servis 24/7',
       'Automatizácia e-mailovej komunikácie',
       'Inteligentné spracovanie dokumentov',
-      'Predikcie a business analytics'
+      'Predikcie a business analytics',
+      'Integrácia s vašimi systémami'
     ]
   },
   {
-    title: 'Weby čo predávajú',
-    description: 'Moderné webové stránky s dokonalým dizajnom a UX, ktoré premieňajú návštevníkov na zákazníkov. S AI funkciami pre lepšie výsledky.',
+    title: 'Webové stránky & Aplikácie',
+    description: 'Moderné webové stránky a aplikácie s dokonalým dizajnom a UX, ktoré premieňajú návštevníkov na zákazníkov. Od landing pages po komplexné platformy.',
     icon: CodeIcon,
     features: [
+      'Responzívny dizajn pre všetky zariadenia',
       'Vysoká konverzná optimalizácia',
-      'AI chatbot pre lepšiu konverziu',
-      'Responzívny dizajn (mobil, tablet, desktop)',
-      'SEO optimalizácia pre Google'
+      'SEO optimalizácia pre vyhľadávače',
+      'Rýchle načítanie a moderný tech stack',
+      'Bezpečnosť a škálovateľnosť'
     ]
   },
   {
-    title: 'Webové aplikácie',
-    description: 'Vytvorím pre vás aplikáciu presne podľa vašich požiadaviek. Od jednoduchých nástrojov až po komplexné platformy.',
-    icon: DeviceIcon,
-    features: [
-      'Riešenia šité na mieru vášho biznisu',
-      'Rýchle, moderné a bezpečné',
-      'Funguje na všetkých zariadeniach',
-      'Ľahko škálovateľné s rastom firmy'
-    ]
-  },
-  {
-    title: 'Business dashboardy',
-    description: 'Majte prehľad o vašom biznise v reálnom čase. Všetky dôležité čísla a metriky na jednom mieste s prehľadnými grafmi.',
-    icon: DatabaseIcon,
-    features: [
-      'Real-time monitoring vášho biznisu',
-      'Vizualizácie a prehľadné grafy',
-      'Automatické reporty a exporty',
-      'Prepojenie s vašimi systémami'
-    ]
-  },
-  {
-    title: 'E-shopy & E-commerce',
-    description: 'Výkonný online obchod, ktorý predáva 24/7. S AI odporúčaniami produktov, automatickým skladom a platobnými bránami.',
+    title: 'E-commerce & Online predaj',
+    description: 'Výkonný online obchod, ktorý predáva 24/7. S AI odporúčaniami produktov, automatickým skladom, platobnými bránami a prepojením na dopravu.',
     icon: ShoppingIcon,
     features: [
-      'AI odporúčania pre vyššie predaje',
-      'Platobné brány (kartou, prevodom)',
-      'Automatický sklad a objednávky',
-      'Prepojenie s dopravcami'
+      'AI odporúčania pre zvýšené predaje',
+      'Platobné brány a faktúry',
+      'Automatická správa skladu',
+      'Prepojenie s dopravcami',
+      'Marketing a loyalty programy'
     ]
   },
   {
-    title: 'Firemné riešenia',
-    description: 'Interné systémy pre efektívnejšiu prácu vášho tímu. CRM, project management, automatizácie a integrácie všetkých služieb.',
-    icon: BriefcaseIcon,
+    title: 'Business nástroje & Dashboardy',
+    description: 'Vlastné firemné systémy pre efektívnejšiu prácu. CRM, dashboardy, project management a automatizácie pre váš rast.',
+    icon: DatabaseIcon,
     features: [
-      'CRM systémy pre lepší sales',
+      'Real-time business dashboardy',
+      'CRM systémy pre lepší predaj',
       'Automatizácia workflow procesov',
-      'Project management nástroje',
+      'Reporty a vizualizácie dát',
       'Integrácie s existujúcimi systémami'
     ]
   }

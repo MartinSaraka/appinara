@@ -9,8 +9,8 @@
               Poďme rásť
               <span class="gradient-text block">spolu</span>
             </h2>
-            <p class="text-xl text-slate-300 mb-8 leading-relaxed">
-              Máte otázku alebo konkrétny projekt? Napíšte mi a do 24 hodín sa vám ozveme s návrhom riešenia. Prvá konzultácia je vždy zdarma.
+            <p class="text-xl text-slate-200 mb-8 leading-relaxed">
+              Máte otázku alebo konkrétny projekt? Napíšte mi a do 24 hodín sa vám ozvem s návrhom riešenia. Prvá konzultácia je vždy zdarma.
             </p>
             
             <!-- Contact Info -->
@@ -61,40 +61,49 @@
                   type="text"
                   class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   placeholder="Vaše meno"
+                  aria-label="Vaše meno"
                 />
+                <p class="text-xs text-slate-400 mt-1">Ako sa k vám mám oslovovať</p>
               </div>
               
               <div>
                 <label for="email" class="block text-sm font-medium text-slate-300 mb-2">
-                  Email
+                  Email <span class="text-slate-500">(aspoň email alebo telefón)</span>
                 </label>
                 <input
                   id="email"
                   v-model="form.email"
+                  @blur="validateEmail"
                   type="email"
                   class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  :class="{ 'border-red-500': validationError && !form.email && !form.phone }"
+                  :class="{ 'border-red-500 focus:ring-red-500': emailError || (validationError && !form.email && !form.phone), 'border-green-500': emailValid }"
                   placeholder="vas@email.com"
+                  aria-label="Váš email"
+                  aria-describedby="email-helper"
                 />
+                <p id="email-helper" class="text-xs mt-1" :class="emailError ? 'text-red-400' : emailValid ? 'text-green-400' : 'text-slate-400'">
+                  {{ emailError || (emailValid ? '✓ Email je platný' : 'Pre spätnú komunikáciu') }}
+                </p>
               </div>
               
               <div>
                 <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">
-                  Telefón
+                  Telefón <span class="text-slate-500">(voliteľné)</span>
                 </label>
                 <input
                   id="phone"
                   v-model="form.phone"
                   type="tel"
                   class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  :class="{ 'border-red-500': validationError && !form.email && !form.phone }"
+                  :class="{ 'border-red-500 focus:ring-red-500': validationError && !form.email && !form.phone }"
                   placeholder="+421 XXX XXX XXX"
+                  aria-label="Váš telefón"
+                  aria-describedby="phone-helper"
                 />
+                <p id="phone-helper" class="text-xs text-slate-400 mt-1">
+                  {{ validationError && !form.email && !form.phone ? '⚠️ Vyplňte aspoň email alebo telefón' : 'Pre rýchlejší kontakt' }}
+                </p>
               </div>
-              
-              <p v-if="validationError && !form.email && !form.phone" class="text-sm text-red-400 -mt-2">
-                * Vyplňte prosím aspoň email alebo telefónne číslo
-              </p>
               
               <div>
                 <label for="project" class="block text-sm font-medium text-slate-300 mb-2">
@@ -105,28 +114,42 @@
                   v-model="form.projectType"
                   required
                   class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  :class="{ 'border-red-500 focus:ring-red-500': projectTypeError }"
+                  aria-label="Typ projektu"
+                  aria-describedby="project-helper"
                 >
                   <option value="">Vyberte typ projektu</option>
-                  <option value="ai-integration">AI Integrácia</option>
-                  <option value="web-app">Webová aplikácia</option>
-                  <option value="ecommerce">E-shop</option>
-                  <option value="enterprise">Firemná aplikácia</option>
+                  <option value="ai-integration">AI Integrácia & Chatbot</option>
+                  <option value="web-app">Webová stránka / Aplikácia</option>
+                  <option value="ecommerce">E-shop / E-commerce</option>
+                  <option value="business-tool">Business nástroj / Dashboard</option>
                   <option value="other">Iné</option>
                 </select>
+                <p id="project-helper" class="text-xs mt-1" :class="projectTypeError ? 'text-red-400' : 'text-slate-400'">
+                  {{ projectTypeError || 'Pomôže mi pripraviť lepšiu ponuku' }}
+                </p>
               </div>
               
               <div>
                 <label for="message" class="block text-sm font-medium text-slate-300 mb-2">
-                  Správa
+                  Správa <span class="text-red-400">*</span>
                 </label>
                 <textarea
                   id="message"
                   v-model="form.message"
                   required
-                  rows="3"
+                  rows="4"
                   class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                  :class="{ 'border-red-500 focus:ring-red-500': messageError }"
                   placeholder="Povedzte mi viac o vašom projekte..."
+                  aria-label="Vaša správa"
+                  aria-describedby="message-helper"
+                  maxlength="1000"
                 ></textarea>
+                <p id="message-helper" class="text-xs mt-1 flex justify-between" :class="messageError ? 'text-red-400' : 'text-slate-400'">
+                  <span>{{ messageError || 'Čím viac detailov, tým lepšie' }}</span>
+                  <span>{{ form.message.length }}/1000</span>
+                </p>
               </div>
               
               <button
@@ -206,8 +229,35 @@ const isSubmitting = ref(false)
 const submitMessage = ref('')
 const submitSuccess = ref(false)
 const validationError = ref(false)
+const emailError = ref('')
+const emailValid = ref(false)
+const projectTypeError = ref('')
+const messageError = ref('')
+
+const validateEmail = () => {
+  if (!form.value.email) {
+    emailError.value = ''
+    emailValid.value = false
+    return
+  }
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(form.value.email)) {
+    emailError.value = '⚠️ Neplatná emailová adresa'
+    emailValid.value = false
+  } else {
+    emailError.value = ''
+    emailValid.value = true
+  }
+}
 
 const handleSubmit = async () => {
+  // Reset errors
+  validationError.value = false
+  emailError.value = ''
+  projectTypeError.value = ''
+  messageError.value = ''
+  
   // Validácia: aspoň email alebo telefón musí byť vyplnený
   if (!form.value.email && !form.value.phone) {
     validationError.value = true
@@ -219,7 +269,32 @@ const handleSubmit = async () => {
     return
   }
   
-  validationError.value = false
+  // Validácia emailu ak je vyplnený
+  if (form.value.email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(form.value.email)) {
+      emailError.value = '⚠️ Neplatná emailová adresa'
+      submitMessage.value = '⚠️ Skontrolujte vyplnené údaje'
+      submitSuccess.value = false
+      return
+    }
+  }
+  
+  // Validácia typu projektu
+  if (!form.value.projectType) {
+    projectTypeError.value = '⚠️ Vyberte typ projektu'
+    submitMessage.value = '⚠️ Skontrolujte vyplnené údaje'
+    submitSuccess.value = false
+    return
+  }
+  
+  // Validácia správy
+  if (!form.value.message || form.value.message.trim().length < 10) {
+    messageError.value = '⚠️ Správa musí mať aspoň 10 znakov'
+    submitMessage.value = '⚠️ Skontrolujte vyplnené údaje'
+    submitSuccess.value = false
+    return
+  }
   isSubmitting.value = true
   submitMessage.value = ''
   
@@ -246,7 +321,11 @@ const handleSubmit = async () => {
     isSubmitting.value = false
     submitSuccess.value = true
     validationError.value = false
-    submitMessage.value = '✅ Správa bola úspešne odoslaná! Ozveme sa vám čoskoro.'
+    emailError.value = ''
+    emailValid.value = false
+    projectTypeError.value = ''
+    messageError.value = ''
+    submitMessage.value = '✅ Správa bola úspešne odoslaná! Ozvem sa vám čoskoro.'
     
     // Reset form
     form.value = {

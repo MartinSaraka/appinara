@@ -18,10 +18,10 @@
               :href="social.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center hover:bg-primary-500/20 transition-all duration-300"
-              :aria-label="social.name"
+              class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center hover:bg-primary-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400/50"
+              :aria-label="`Navštíviť ${social.name} profil Appinara`"
             >
-              <component :is="social.icon" class="w-5 h-5 text-slate-300" />
+              <component :is="social.icon" class="w-5 h-5 text-slate-300" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -33,7 +33,8 @@
             <li v-for="link in quickLinks" :key="link.href">
               <a 
                 :href="link.href"
-                class="text-slate-400 hover:text-primary-400 transition-colors"
+                class="text-slate-400 hover:text-primary-400 transition-colors focus:outline-none focus:text-primary-400 focus:underline"
+                :aria-label="`Prejsť na: ${link.label}`"
               >
                 {{ link.label }}
               </a>
@@ -58,10 +59,10 @@
           © {{ currentYear }} Appinara. Všetky práva vyhradené.
         </p>
         <div class="flex gap-6 text-sm">
-          <NuxtLink to="/ochrana-udajov" class="text-slate-500 hover:text-primary-400 transition-colors">
+          <NuxtLink to="/ochrana-udajov" class="text-slate-500 hover:text-primary-400 transition-colors focus:outline-none focus:text-primary-400 focus:underline">
             Ochrana údajov
           </NuxtLink>
-          <NuxtLink to="/obchodne-podmienky" class="text-slate-500 hover:text-primary-400 transition-colors">
+          <NuxtLink to="/obchodne-podmienky" class="text-slate-500 hover:text-primary-400 transition-colors focus:outline-none focus:text-primary-400 focus:underline">
             Obchodné podmienky
           </NuxtLink>
         </div>
@@ -83,15 +84,16 @@ const socialLinks = [
 
 const quickLinks = [
   { label: 'Služby', href: '#services' },
-  { label: 'Ukážky prác', href: '#portfolio' },
+  { label: 'Prečo my', href: '#why-us' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Kontakt', href: '#contact' }
 ]
 
 const services = [
-  'AI Integrácie',
-  'Webové aplikácie',
-  'E-shopy',
-  'Firemné systémy'
+  'AI Integrácie & Chatboty',
+  'Webové stránky & Aplikácie',
+  'E-commerce & Online predaj',
+  'Business nástroje & Dashboardy'
 ]
 
 const currentYear = computed(() => new Date().getFullYear())

@@ -3,20 +3,23 @@
     <!-- Navigation -->
     <Navigation />
     
-    <!-- Hero Section -->
-    <HeroSection />
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <HeroSection />
     
     <!-- Services Section -->
     <ServicesSection />
     
-    <!-- Portfolio/Projects Section -->
-    <PortfolioSection />
+    <!-- Why Choose Us Section -->
+    <WhyChooseUsSection />
     
     <!-- CTA Section -->
     <CTASection />
     
-    <!-- Contact Section -->
-    <ContactSection />
+      <!-- Contact Section -->
+      <ContactSection />
+    </main>
     
     <!-- Footer -->
     <Footer />

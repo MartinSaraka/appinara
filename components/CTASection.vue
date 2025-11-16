@@ -9,18 +9,18 @@
         v-motion-fade-visible
         class="max-w-4xl mx-auto text-center"
       >
-        <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
           Pripravení posunúť váš
           <span class="gradient-text block">biznis na ďalší level?</span>
         </h2>
-        <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Napíšte mi o vašom projekte a dostanete nezáväznú konzultáciu zdarma. Spolu nájdeme najlepšie riešenie pre váš biznis.
+        <p class="text-xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed">
+          Napíšte mi o vašom projekte a dostanete nezáväznú konzultáciu zdarma. Spolu preberieme vaše potreby a nájdeme najlepšie riešenie.
         </p>
         
         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="#contact" class="btn-primary text-lg group">
+          <a href="#contact" class="btn-primary text-lg group" aria-label="Kontaktovať nás a začať nový projekt">
             Začať projekt
-            <svg class="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
@@ -47,18 +47,18 @@
 const features = [
   {
     icon: '⚡',
-    title: 'Rýchla návratnosť investície',
-    description: 'Projekty, ktoré sa vám vrátia priemerne do 3 mesiacov'
+    title: 'Rýchla realizácia',
+    description: 'Väčšinu projektov dokončíme do 2-4 týždňov'
   },
   {
     icon: '🎯',
     title: 'Zamerané na výsledky',
-    description: 'Nie len pekný dizajn, ale riešenia čo skutočne fungujú a zarábajú'
+    description: 'Nie len dizajn, ale funkčné riešenia pre váš biznis'
   },
   {
     icon: '🤝',
-    title: 'Podpora keď ju potrebujete',
-    description: 'Som tu pre vás aj po spustení projektu, nie ste odkázaný sám'
+    title: 'Dlhodobá podpora',
+    description: 'Technická podpora a pomoc aj po spustení projektu'
   }
 ]
 </script>
