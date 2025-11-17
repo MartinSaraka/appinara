@@ -5,4 +5,6 @@
 </template>
 
 <script setup lang="ts">
+// Initialize theme management
+const { theme } = useTheme()
 </script>

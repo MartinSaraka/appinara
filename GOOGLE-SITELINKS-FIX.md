@@ -270,3 +270,6 @@ Napíš: "Legal pages incorrectly shown as sitelinks, please re-evaluate"
 **Last updated:** 16. November 2024
 **Status:** ✅ Fixed, waiting for Google re-index
 
+
+
+

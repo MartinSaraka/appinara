@@ -1,15 +1,15 @@
 <template>
-  <section id="contact" class="relative py-32 bg-slate-950">
+  <section id="contact" class="relative py-32 dark:bg-slate-950 bg-white">
     <div class="container mx-auto px-6">
       <div class="max-w-6xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <!-- Left Side - Info -->
           <div v-motion-fade-visible>
-            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 dark:text-white text-gray-900">
               Poďme rásť
               <span class="gradient-text block">spolu</span>
             </h2>
-            <p class="text-xl text-slate-200 mb-8 leading-relaxed">
+            <p class="text-xl dark:text-slate-200 text-gray-700 mb-8 leading-relaxed">
               Máte otázku alebo konkrétny projekt? Napíšte mi a do 24 hodín sa vám ozvem s návrhom riešenia. Prvá konzultácia je vždy zdarma.
             </p>
             
@@ -24,8 +24,8 @@
                   <component :is="contact.icon" class="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <div class="text-sm text-slate-400">{{ contact.label }}</div>
-                  <a :href="contact.href" class="text-white font-medium hover:text-primary-400 transition-colors">
+                  <div class="text-sm dark:text-slate-400 text-gray-600">{{ contact.label }}</div>
+                  <a :href="contact.href" class="dark:text-white text-gray-900 font-medium dark:hover:text-primary-400 hover:text-primary-600 transition-colors">
                     {{ contact.value }}
                   </a>
                 </div>
@@ -40,10 +40,10 @@
                 :href="social.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:bg-primary-500/20 transition-all duration-300 hover:scale-110"
+                class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:bg-primary-500/10 dark:hover:bg-primary-500/20 transition-all duration-300 hover:scale-110"
                 :aria-label="social.name"
               >
-                <component :is="social.icon" class="w-6 h-6 text-slate-300" />
+                <component :is="social.icon" class="w-6 h-6 dark:text-slate-300 text-gray-600" />
               </a>
             </div>
           </div>
@@ -52,68 +52,68 @@
           <div v-motion-fade-visible :delay="200">
             <form @submit.prevent="handleSubmit" class="glass-effect rounded-2xl p-8 space-y-6" novalidate>
               <div>
-                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">
+                <label for="name" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Meno
                 </label>
                 <input
                   id="name"
                   v-model="form.name"
                   type="text"
-                  class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   placeholder="Vaše meno"
                   aria-label="Vaše meno"
                 />
-                <p class="text-xs text-slate-400 mt-1">Ako sa k vám mám oslovovať</p>
+                <p class="text-xs dark:text-slate-400 text-gray-600 mt-1">Ako sa k vám mám oslovovať</p>
               </div>
               
               <div>
-                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">
-                  Email <span class="text-slate-500">(aspoň email alebo telefón)</span>
+                <label for="email" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
+                  Email <span class="dark:text-slate-500 text-gray-500">(aspoň email alebo telefón)</span>
                 </label>
                 <input
                   id="email"
                   v-model="form.email"
                   @blur="validateEmail"
                   type="email"
-                  class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   :class="{ 'border-red-500 focus:ring-red-500': emailError || (validationError && !form.email && !form.phone), 'border-green-500': emailValid }"
                   placeholder="vas@email.com"
                   aria-label="Váš email"
                   aria-describedby="email-helper"
                 />
-                <p id="email-helper" class="text-xs mt-1" :class="emailError ? 'text-red-400' : emailValid ? 'text-green-400' : 'text-slate-400'">
+                <p id="email-helper" class="text-xs mt-1" :class="emailError ? 'text-red-400' : emailValid ? 'text-green-400' : 'dark:text-slate-400 text-gray-600'">
                   {{ emailError || (emailValid ? '✓ Email je platný' : 'Pre spätnú komunikáciu') }}
                 </p>
               </div>
               
               <div>
-                <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">
-                  Telefón <span class="text-slate-500">(voliteľné)</span>
+                <label for="phone" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
+                  Telefón <span class="dark:text-slate-500 text-gray-500">(voliteľné)</span>
                 </label>
                 <input
                   id="phone"
                   v-model="form.phone"
                   type="tel"
-                  class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   :class="{ 'border-red-500 focus:ring-red-500': validationError && !form.email && !form.phone }"
                   placeholder="+421 XXX XXX XXX"
                   aria-label="Váš telefón"
                   aria-describedby="phone-helper"
                 />
-                <p id="phone-helper" class="text-xs text-slate-400 mt-1">
+                <p id="phone-helper" class="text-xs dark:text-slate-400 text-gray-600 mt-1">
                   {{ validationError && !form.email && !form.phone ? '⚠️ Vyplňte aspoň email alebo telefón' : 'Pre rýchlejší kontakt' }}
                 </p>
               </div>
               
               <div>
-                <label for="project" class="block text-sm font-medium text-slate-300 mb-2">
+                <label for="project" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Typ projektu <span class="text-red-400">*</span>
                 </label>
                 <select
                   id="project"
                   v-model="form.projectType"
                   required
-                  class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   :class="{ 'border-red-500 focus:ring-red-500': projectTypeError }"
                   aria-label="Typ projektu"
                   aria-describedby="project-helper"
@@ -125,13 +125,13 @@
                   <option value="business-tool">Business nástroj / Dashboard</option>
                   <option value="other">Iné</option>
                 </select>
-                <p id="project-helper" class="text-xs mt-1" :class="projectTypeError ? 'text-red-400' : 'text-slate-400'">
+                <p id="project-helper" class="text-xs mt-1" :class="projectTypeError ? 'text-red-400' : 'dark:text-slate-400 text-gray-600'">
                   {{ projectTypeError || 'Pomôže mi pripraviť lepšiu ponuku' }}
                 </p>
               </div>
               
               <div>
-                <label for="message" class="block text-sm font-medium text-slate-300 mb-2">
+                <label for="message" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Správa <span class="text-red-400">*</span>
                 </label>
                 <textarea
@@ -139,14 +139,14 @@
                   v-model="form.message"
                   required
                   rows="4"
-                  class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
                   :class="{ 'border-red-500 focus:ring-red-500': messageError }"
                   placeholder="Povedzte mi viac o vašom projekte..."
                   aria-label="Vaša správa"
                   aria-describedby="message-helper"
                   maxlength="1000"
                 ></textarea>
-                <p id="message-helper" class="text-xs mt-1 flex justify-between" :class="messageError ? 'text-red-400' : 'text-slate-400'">
+                <p id="message-helper" class="text-xs mt-1 flex justify-between" :class="messageError ? 'text-red-400' : 'dark:text-slate-400 text-gray-600'">
                   <span>{{ messageError || 'Čím viac detailov, tým lepšie' }}</span>
                   <span>{{ form.message.length }}/1000</span>
                 </p>

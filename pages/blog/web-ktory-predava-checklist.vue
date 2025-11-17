@@ -1,31 +1,31 @@
 <template>
-  <div class="relative overflow-hidden bg-slate-950">
+  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
     <Navigation />
     
     <article class="relative pt-32 pb-20">
       <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto">
           <nav class="mb-8 text-sm">
-            <NuxtLink to="/" class="text-slate-400 hover:text-primary-400">Domov</NuxtLink>
-            <span class="text-slate-600 mx-2">/</span>
-            <NuxtLink to="/blog" class="text-slate-400 hover:text-primary-400">Blog</NuxtLink>
-            <span class="text-slate-600 mx-2">/</span>
-            <span class="text-slate-300">Web ktorý predáva</span>
+            <NuxtLink to="/" class="dark:text-slate-400 text-gray-600 dark:hover:text-primary-400 text-gray-600 hover:text-primary-600">Domov</NuxtLink>
+            <span class="dark:text-slate-600 text-gray-400 mx-2">/</span>
+            <NuxtLink to="/blog" class="dark:text-slate-400 text-gray-600 dark:hover:text-primary-400 text-gray-600 hover:text-primary-600">Blog</NuxtLink>
+            <span class="dark:text-slate-600 text-gray-400 mx-2">/</span>
+            <span class="dark:text-slate-300 text-gray-700">Web ktorý predáva</span>
           </nav>
           
           <div class="flex items-center gap-4 mb-6">
-            <span class="px-4 py-2 bg-primary-500/20 text-primary-300 rounded-full text-sm font-medium">
+            <span class="px-4 py-2 bg-primary-500/20 dark:text-primary-300 text-primary-700 rounded-full text-sm font-medium">
               Checklist
             </span>
-            <span class="text-slate-400">📖 9 min čítania</span>
-            <span class="text-slate-400">📅 10. November 2024</span>
+            <span class="dark:text-slate-400 text-gray-600">📖 9 min čítania</span>
+            <span class="dark:text-slate-400 text-gray-600">📅 10. November 2024</span>
           </div>
           
           <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
             10 vecí, ktoré <span class="gradient-text">musí mať web</span> aby skutočne predával
           </h1>
           
-          <p class="text-xl text-slate-300 mb-12 leading-relaxed">
+          <p class="text-xl dark:text-slate-300 text-gray-700 mb-12 leading-relaxed">
             Overený checklist zo stoviek projektov. Tieto elementy rozhodujú o tom, či váš web konvertuje návštevníkov na zákazníkov alebo nie. Stačí jedno z nich pokaziť a prichádzate o peniaze.
           </p>
           
@@ -36,11 +36,11 @@
             </div>
           </div>
           
-          <div class="prose prose-invert prose-lg max-w-none">
+          <div class="prose dark:prose-invert prose-lg max-w-none">
             
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-green-500">
-              <h3 class="text-2xl font-bold text-white mb-4">🎯 Pre koho je tento článok?</h3>
-              <ul class="space-y-2 text-slate-300">
+              <h3 class="text-2xl font-bold dark:text-white text-gray-900 mb-4">🎯 Pre koho je tento článok?</h3>
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700">
                 <li>✓ Máte web, ale neprichádza z neho dosť objednávok/leadov</li>
                 <li>✓ Chystáte sa vytvoriť nový web a chcete to spraviť správne</li>
                 <li>✓ Platíte za reklamu, ale konverzie sú nízke</li>
@@ -48,43 +48,43 @@
               </ul>
             </div>
 
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Prečo väčšina webov NEpredáva?</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Prečo väčšina webov NEpredáva?</h2>
             
-            <p class="text-slate-300 leading-relaxed mb-6">
+            <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-6">
               95% slovenských firemných webov sú len "digitálne vizitky" - pekné na pohľad, ale neprinášajú peniaze. Prečo? Lebo ich tvorcovia sa zameriavali na dizajn namiesto na <strong>konverzie</strong>.
             </p>
 
             <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 mb-8">
               <p class="text-red-400 font-bold mb-3">⚠️ Varovné signály:</p>
-              <ul class="space-y-2 text-slate-300 text-sm">
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                 <li>• "Máme 500 návštev mesačne, ale len 2 objednávky"</li>
                 <li>• "Návštevníci odídu po 10 sekundách"</li>
                 <li>• "Ľudia sa pýtajú na veci, ktoré sú na webe"</li>
                 <li>• "Platíme za Google reklamy, ale návratnosť je slabá"</li>
               </ul>
-              <p class="text-slate-300 text-sm mt-4">
+              <p class="dark:text-slate-300 text-gray-700 text-sm mt-4">
                 Ak ste povedali "áno" na čokoľvek vyššie, tento článok je pre vás. 👇
               </p>
             </div>
 
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Checklist: 10 vecí, ktoré MUSÍ mať web</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Checklist: 10 vecí, ktoré MUSÍ mať web</h2>
 
             <!-- Item 1 -->
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-primary-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">1️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Jasná value proposition (do 5 sekúnd)</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Jasná value proposition (do 5 sekúnd)</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Problém:</strong> Návštevník príde na web a nevie, čo robíte a prečo by mal ostať.
               </p>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Riešenie:</strong> V prvých 5 sekundách musí byť krištáľovo jasné:
               </p>
               
-              <ul class="space-y-2 text-slate-300 mb-4">
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700 mb-4">
                 <li>✓ Čo ponúkate</li>
                 <li>✓ Pre koho to je</li>
                 <li>✓ Aký benefit to má</li>
@@ -93,18 +93,18 @@
               <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
                   <p class="text-red-400 font-bold mb-2">❌ Zlý príklad:</p>
-                  <p class="text-slate-300 text-sm italic">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm italic">
                     "Vitajte v našej firme. Ponúkame kvalitné služby už od roku 2010..."
                   </p>
-                  <p class="text-slate-400 text-xs mt-2">→ Nuda, žiadna špecifickosť</p>
+                  <p class="dark:text-slate-400 text-gray-600 text-xs mt-2">→ Nuda, žiadna špecifickosť</p>
                 </div>
                 
                 <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
                   <p class="text-green-400 font-bold mb-2">✅ Dobrý príklad:</p>
-                  <p class="text-slate-300 text-sm italic">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm italic">
                     "AI chatbot, ktorý ušetrí vašej firme 20 hodín týždenne. Prvých 5 klientov -50%."
                   </p>
-                  <p class="text-slate-400 text-xs mt-2">→ Jasné čo, pre koho, benefit, urgencia</p>
+                  <p class="dark:text-slate-400 text-gray-600 text-xs mt-2">→ Jasné čo, pre koho, benefit, urgencia</p>
                 </div>
               </div>
             </div>
@@ -113,18 +113,18 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-purple-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">2️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Okamžite viditeľné CTA (Call-to-Action)</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Okamžite viditeľné CTA (Call-to-Action)</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Problém:</strong> Návštevník chce kúpiť/kontaktovať, ale nevie ako.
               </p>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Riešenie:</strong> CTA tlačidlá musia byť viditeľné BEZ scrollovania:
               </p>
               
-              <ul class="space-y-2 text-slate-300 mb-4">
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700 mb-4">
                 <li>✓ Kontrastné farby (napr. zelená/oranžová na tmavom pozadí)</li>
                 <li>✓ Akčný text: "Získať ponuku", "Objednať teraz", "Zavolať" (NIE "Kliknite tu")</li>
                 <li>✓ Veľkosť minimálne 48x48px (ľahko klikateľné)</li>
@@ -133,7 +133,7 @@
               
               <div class="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4">
                 <p class="text-blue-400 font-bold mb-2">💡 Pro tip:</p>
-                <p class="text-slate-300 text-sm">
+                <p class="dark:text-slate-300 text-gray-700 text-sm">
                   Sticky (prilepené) CTA tlačidlo, ktoré zostáva viditeľné pri scrollovaní, zvyšuje konverzie o 15-30%. Skúste to!
                 </p>
               </div>
@@ -143,18 +143,18 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-pink-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">3️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Social proof (dôkazy, že to funguje)</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Social proof (dôkazy, že to funguje)</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Problém:</strong> "Prečo by som im mal veriť? Môžu mi nahovárať čokoľvek..."
               </p>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Riešenie:</strong> Ukážte, že iní vám dôverujú:
               </p>
               
-              <ul class="space-y-3 text-slate-300 mb-4">
+              <ul class="space-y-3 dark:text-slate-300 text-gray-700 mb-4">
                 <li><strong>Testimonials:</strong> "Zvýšili sme predaje o 40% za 2 mesiace" - Jana K., majiteľka e-shopu</li>
                 <li><strong>Čísla:</strong> "500+ spokojných klientov", "98% spokojnosť", "15 rokov na trhu"</li>
                 <li><strong>Logo klientov:</strong> Ak ste robili pre známe firmy</li>
@@ -172,16 +172,16 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-green-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">4️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Rýchle načítanie (pod 3 sekundy)</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Rýchle načítanie (pod 3 sekundy)</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Šokujúca štatistika:</strong> 53% návštevníkov odíde, ak sa web načítava viac ako 3 sekundy.
               </p>
               
               <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-4">
                 <p class="text-red-400 font-bold mb-2">💸 Koľko vás to stojí?</p>
-                <p class="text-slate-300 text-sm">
+                <p class="dark:text-slate-300 text-gray-700 text-sm">
                   Ak máte 1000 návštev/mes a konverzia 3% (30 objednávok) pri priemernej hodnote 50€ = 1500€ mesačne.<br/>
                   <br/>
                   <strong>Pomalý web (strata 40% návštevníkov):</strong> Len 600 návštev → 18 objednávok → 900€ mesačne.<br/>
@@ -190,8 +190,8 @@
                 </p>
               </div>
               
-              <p class="text-slate-300 mb-3"><strong>Ako to napraviť:</strong></p>
-              <ul class="space-y-2 text-slate-300 text-sm mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-3"><strong>Ako to napraviť:</strong></p>
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm mb-4">
                 <li>✓ Optimalizujte obrázky (WebP formát, komprimácia)</li>
                 <li>✓ Použite CDN (Content Delivery Network)</li>
                 <li>✓ Minimalizujte CSS/JavaScript</li>
@@ -208,15 +208,15 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-orange-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">5️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Mobilná optimalizácia (KRITICKÉ!)</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Mobilná optimalizácia (KRITICKÉ!)</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Fact:</strong> 70-80% návštevníkov prichádza z mobilu. Ak váš web na mobile nefunguje dobre, prichádzate o 70% potenciálnych zákazníkov!
               </p>
               
-              <p class="text-slate-300 mb-3"><strong>Checkboxes pre mobile:</strong></p>
-              <ul class="space-y-2 text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-3"><strong>Checkboxes pre mobile:</strong></p>
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700 mb-4">
                 <li>✓ Text čitateľný bez zoomovania (min 16px)</li>
                 <li>✓ Tlačidlá dostatočne veľké na kliknutie prstom</li>
                 <li>✓ Menu funkčné a ľahko dostupné</li>
@@ -227,7 +227,7 @@
               
               <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
                 <p class="text-green-400 font-bold mb-2">✅ Ako otestovať:</p>
-                <p class="text-slate-300 text-sm">
+                <p class="dark:text-slate-300 text-gray-700 text-sm">
                   1. Otvorte váš web na mobile<br/>
                   2. Skúste urobiť objednávku/kontakt<br/>
                   3. Ak je to frustrujúce pre vás, je to frustrujúce aj pre zákazníkov
@@ -239,17 +239,17 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-blue-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">6️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Jasná navigácia (3-klik rule)</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Jasná navigácia (3-klik rule)</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Pravidlo:</strong> Návštevník by mal nájsť čokoľvek na webe max do 3 klikov.
               </p>
               
               <div class="grid md:grid-cols-2 gap-6 mb-4">
                 <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
                   <p class="text-red-400 font-bold mb-2">❌ Zlá navigácia:</p>
-                  <ul class="text-slate-300 text-sm space-y-1">
+                  <ul class="dark:text-slate-300 text-gray-700 text-sm space-y-1">
                     <li>• 10+ položiek v menu</li>
                     <li>• Nejasné názvy ("Riešenia", "Nástroje")</li>
                     <li>• Viacúrovňové dropdown menu</li>
@@ -259,7 +259,7 @@
                 
                 <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
                   <p class="text-green-400 font-bold mb-2">✅ Dobrá navigácia:</p>
-                  <ul class="text-slate-300 text-sm space-y-1">
+                  <ul class="dark:text-slate-300 text-gray-700 text-sm space-y-1">
                     <li>• Max 5-7 položiek v menu</li>
                     <li>• Jasné názvy ("Služby", "Cenník", "Kontakt")</li>
                     <li>• Viditeľný search (pre väčšie weby)</li>
@@ -268,7 +268,7 @@
                 </div>
               </div>
               
-              <p class="text-slate-300 text-sm">
+              <p class="dark:text-slate-300 text-gray-700 text-sm">
                 <strong>Test:</strong> Dajte vášmu kamarátovi, ktorý web nepozná, nájsť nejaký produkt/info. Ak to trvá dlhšie ako 30 sekúnd, máte problém.
               </p>
             </div>
@@ -277,34 +277,34 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-yellow-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">7️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Transparentné ceny (ak je to možné)</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Transparentné ceny (ak je to možné)</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Kontroverzia:</strong> "Mám dávať ceny na web alebo nie?"
               </p>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Odpoveď:</strong> Ak môžete, ÁNO! Tu prečo:
               </p>
               
-              <ul class="space-y-2 text-slate-300 mb-4">
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700 mb-4">
                 <li>✓ Filtruje nekvalitných leadov (ľudia, čo si to nemôžu dovoliť)</li>
                 <li>✓ Buduje dôveru (transparentnosť)</li>
                 <li>✓ Kvalifikuje leady (kto kontaktuje, už vie čo to stojí)</li>
                 <li>✓ Zvyšuje konverzie o 20-40% (study z CXL Institute)</li>
               </ul>
               
-              <p class="text-slate-300 mb-3"><strong>Ako to urobiť:</strong></p>
+              <p class="dark:text-slate-300 text-gray-700 mb-3"><strong>Ako to urobiť:</strong></p>
               <div class="space-y-3">
-                <div class="bg-slate-800 rounded-lg p-4">
-                  <p class="text-slate-300 text-sm"><strong>Ak máte fixné ceny:</strong> Ukážte ich priamo (napr. SaaS, produkty)</p>
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-lg p-4">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm"><strong>Ak máte fixné ceny:</strong> Ukážte ich priamo (napr. SaaS, produkty)</p>
                 </div>
-                <div class="bg-slate-800 rounded-lg p-4">
-                  <p class="text-slate-300 text-sm"><strong>Ak to závisí:</strong> "Od 800€" alebo rozsah "800-2000€"</p>
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-lg p-4">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm"><strong>Ak to závisí:</strong> "Od 800€" alebo rozsah "800-2000€"</p>
                 </div>
-                <div class="bg-slate-800 rounded-lg p-4">
-                  <p class="text-slate-300 text-sm"><strong>Ak je to komplexné:</strong> "Cenová kalkulačka" alebo 3 balíky (Basic, Premium, Enterprise)</p>
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-lg p-4">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm"><strong>Ak je to komplexné:</strong> "Cenová kalkulačka" alebo 3 balíky (Basic, Premium, Enterprise)</p>
                 </div>
               </div>
             </div>
@@ -313,17 +313,17 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-teal-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">8️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Jednoduchý kontaktný formulár</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Jednoduchý kontaktný formulár</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Každé pole vo formulári = -10% konverzia</strong>
               </p>
               
               <div class="grid md:grid-cols-2 gap-6 mb-4">
                 <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
                   <p class="text-red-400 font-bold mb-2">❌ Zlý formulár (12 polí):</p>
-                  <ul class="text-slate-300 text-sm space-y-1">
+                  <ul class="dark:text-slate-300 text-gray-700 text-sm space-y-1">
                     <li>• Meno, Priezvisko</li>
                     <li>• Email, Telefón</li>
                     <li>• Firma, IČO, DIČ</li>
@@ -336,7 +336,7 @@
                 
                 <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
                   <p class="text-green-400 font-bold mb-2">✅ Dobrý formulár (3-4 polia):</p>
-                  <ul class="text-slate-300 text-sm space-y-1">
+                  <ul class="dark:text-slate-300 text-gray-700 text-sm space-y-1">
                     <li>• Meno</li>
                     <li>• Email ALEBO Telefón</li>
                     <li>• Správa (voliteľné)</li>
@@ -355,15 +355,15 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-indigo-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">9️⃣</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Urgencia & FOMO (Fear of Missing Out)</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Urgencia & FOMO (Fear of Missing Out)</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Psychológia:</strong> Ľudia odkladajú rozhodnutia. Dajte im dôvod konať TERAZ.
               </p>
               
-              <p class="text-slate-300 mb-3"><strong>Osvedčené techniky:</strong></p>
-              <ul class="space-y-3 text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-3"><strong>Osvedčené techniky:</strong></p>
+              <ul class="space-y-3 dark:text-slate-300 text-gray-700 mb-4">
                 <li><strong>Časová limitácia:</strong> "Ponuka platí do konca týždňa" ⏰</li>
                 <li><strong>Množstvová limitácia:</strong> "Zostáva len 5 kusov na sklade" 📦</li>
                 <li><strong>Exkluzivita:</strong> "Prvých 10 klientov -30%" 🎁</li>
@@ -373,7 +373,7 @@
               
               <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4">
                 <p class="text-orange-400 font-bold mb-2">⚠️ Dôležité:</p>
-                <p class="text-slate-300 text-sm">
+                <p class="dark:text-slate-300 text-gray-700 text-sm">
                   Urgencia musí byť PRAVDIVÁ! Falošné "zostávajú 2 kusy" (ktoré sú tam už 3 mesiace) ničí dôveru. Používajte len real urgentnosti.
                 </p>
               </div>
@@ -383,17 +383,17 @@
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-red-500">
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">🔟</div>
-                <h3 class="text-2xl font-bold text-white mt-2">Live chat alebo chatbot</h3>
+                <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-2">Live chat alebo chatbot</h3>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Štatistika:</strong> 44% online shoppers povedalo, že live chat počas nákupu je jedna z najdôležitejších funkcií.
               </p>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Prečo to funguje:</strong>
               </p>
-              <ul class="space-y-2 text-slate-300 mb-4">
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700 mb-4">
                 <li>✓ Okamžité odpovede na otázky (menej abandonment)</li>
                 <li>✓ Môžete zachytiť ľudí pred odchodom</li>
                 <li>✓ Personal touch (zákazník nie je sám)</li>
@@ -401,18 +401,18 @@
               </ul>
               
               <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-slate-800 rounded-lg p-4">
-                  <p class="font-bold text-white mb-2">💬 Live chat (človek)</p>
-                  <p class="text-slate-300 text-sm mb-2"><strong>Výhody:</strong> Personal, kvalitné odpovede</p>
-                  <p class="text-slate-300 text-sm mb-2"><strong>Nevýhody:</strong> Drahé, funguje len keď ste online</p>
-                  <p class="text-slate-400 text-xs">Náklady: 50-200€/mes</p>
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-lg p-4">
+                  <p class="font-bold dark:text-white text-gray-900 mb-2">💬 Live chat (človek)</p>
+                  <p class="dark:text-slate-300 text-gray-700 text-sm mb-2"><strong>Výhody:</strong> Personal, kvalitné odpovede</p>
+                  <p class="dark:text-slate-300 text-gray-700 text-sm mb-2"><strong>Nevýhody:</strong> Drahé, funguje len keď ste online</p>
+                  <p class="dark:text-slate-400 text-gray-600 text-xs">Náklady: 50-200€/mes</p>
                 </div>
                 
-                <div class="bg-slate-800 rounded-lg p-4">
-                  <p class="font-bold text-white mb-2">🤖 AI chatbot</p>
-                  <p class="text-slate-300 text-sm mb-2"><strong>Výhody:</strong> 24/7, lacnejšie, škálovateľné</p>
-                  <p class="text-slate-300 text-sm mb-2"><strong>Nevýhody:</strong> Menej personal, pri zložitých otázkach slabší</p>
-                  <p class="text-slate-400 text-xs">Náklady: 50-100€/mes prevádzka</p>
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-lg p-4">
+                  <p class="font-bold dark:text-white text-gray-900 mb-2">🤖 AI chatbot</p>
+                  <p class="dark:text-slate-300 text-gray-700 text-sm mb-2"><strong>Výhody:</strong> 24/7, lacnejšie, škálovateľné</p>
+                  <p class="dark:text-slate-300 text-gray-700 text-sm mb-2"><strong>Nevýhody:</strong> Menej personal, pri zložitých otázkach slabší</p>
+                  <p class="dark:text-slate-400 text-gray-600 text-xs">Náklady: 50-100€/mes prevádzka</p>
                 </div>
               </div>
               
@@ -421,15 +421,15 @@
               </p>
             </div>
 
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Ako to všetko implementovať?</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Ako to všetko implementovať?</h2>
             
             <div class="glass-effect rounded-2xl p-8 mb-8">
               <h3 class="text-2xl font-bold gradient-text mb-6">Akčný plán (prioritizovaný)</h3>
               
               <div class="space-y-6">
                 <div>
-                  <p class="text-white font-bold mb-2">🔥 Tento týždeň (quick wins):</p>
-                  <ol class="list-decimal list-inside space-y-1 text-slate-300 text-sm">
+                  <p class="dark:text-white text-gray-900 font-bold mb-2">🔥 Tento týždeň (quick wins):</p>
+                  <ol class="list-decimal list-inside space-y-1 dark:text-slate-300 text-gray-700 text-sm">
                     <li>Zmeňte headline na jasný value proposition</li>
                     <li>Pridajte viditeľné CTA tlačidlo</li>
                     <li>Otestujte web na mobile - opravte chyby</li>
@@ -438,8 +438,8 @@
                 </div>
                 
                 <div>
-                  <p class="text-white font-bold mb-2">⚡ Tento mesiac (medium effort):</p>
-                  <ol class="list-decimal list-inside space-y-1 text-slate-300 text-sm">
+                  <p class="dark:text-white text-gray-900 font-bold mb-2">⚡ Tento mesiac (medium effort):</p>
+                  <ol class="list-decimal list-inside space-y-1 dark:text-slate-300 text-gray-700 text-sm">
                     <li>Pridajte testimonials a social proof</li>
                     <li>Optimalizujte rýchlosť (PageSpeed Insights)</li>
                     <li>Zjednodušte navigáciu</li>
@@ -448,8 +448,8 @@
                 </div>
                 
                 <div>
-                  <p class="text-white font-bold mb-2">🚀 Tento kvartál (bigger projects):</p>
-                  <ol class="list-decimal list-inside space-y-1 text-slate-300 text-sm">
+                  <p class="dark:text-white text-gray-900 font-bold mb-2">🚀 Tento kvartál (bigger projects):</p>
+                  <ol class="list-decimal list-inside space-y-1 dark:text-slate-300 text-gray-700 text-sm">
                     <li>Implementujte AI chatbot alebo live chat</li>
                     <li>Pridajte urgentnosti a FOMO elementy</li>
                     <li>A/B testing - testujte čo funguje najlepšie</li>
@@ -458,12 +458,12 @@
               </div>
             </div>
 
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Reálny príklad: Pred vs Po</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Reálny príklad: Pred vs Po</h2>
             
             <div class="grid md:grid-cols-2 gap-8 mb-8">
               <div class="glass-effect rounded-xl p-6 border-2 border-red-500/30">
                 <h4 class="text-xl font-bold text-red-400 mb-4">❌ PRED (konverzia 0.8%)</h4>
-                <ul class="space-y-2 text-slate-300 text-sm">
+                <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                   <li>• Generický headline: "Vitajte"</li>
                   <li>• CTA v footeri (invisible)</li>
                   <li>• Žiadne testimonials</li>
@@ -480,7 +480,7 @@
               
               <div class="glass-effect rounded-xl p-6 border-2 border-green-500/30">
                 <h4 class="text-xl font-bold text-green-400 mb-4">✅ PO (konverzia 4.2%)</h4>
-                <ul class="space-y-2 text-slate-300 text-sm">
+                <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                   <li>• Jasný value prop: "Zvýšte predaje o 30%"</li>
                   <li>• CTA tlačidlo hneď viditeľné</li>
                   <li>• 5 testimonials s fotkami</li>
@@ -498,29 +498,29 @@
             
             <div class="glass-effect rounded-2xl p-6 text-center">
               <p class="text-3xl font-bold gradient-text mb-2">+425% zvýšenie konverzií! 🚀</p>
-              <p class="text-slate-300 text-sm">
+              <p class="dark:text-slate-300 text-gray-700 text-sm">
                 = +34 zákazníkov mesačne × 50€ priemerná hodnota = <strong>+1700€ mesačne</strong>
               </p>
-              <p class="text-slate-400 text-xs mt-2">
+              <p class="dark:text-slate-400 text-gray-600 text-xs mt-2">
                 Investícia do redesignu: 1500€ → Návratnosť za 1 mesiac!
               </p>
             </div>
 
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Záver</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Záver</h2>
             
-            <p class="text-slate-300 leading-relaxed mb-6">
+            <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-6">
               Väčšina problémov s konverziami nie je o dizajne, ale o <strong>psychológii a user experience</strong>. Týchto 10 vecí sme overili na stovkách projektov a fungujú across the board.
             </p>
             
-            <p class="text-slate-300 leading-relaxed mb-6">
+            <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-6">
               Nemusíte implementovať všetko naraz. Začnite s top 3-5 a sledujte výsledky. Často už malé zmeny prinesú veľké výsledky.
             </p>
 
             <div class="glass-effect rounded-2xl p-8 my-12 text-center">
-              <h3 class="text-3xl font-display font-bold text-white mb-4">
+              <h3 class="text-3xl font-display font-bold dark:text-white text-gray-900 mb-4">
                 Potrebujete pomoc s optimalizáciou?
               </h3>
-              <p class="text-slate-300 mb-8 max-w-2xl mx-auto">
+              <p class="dark:text-slate-300 text-gray-700 mb-8 max-w-2xl mx-auto">
                 Urobíme vám <strong>bezplatný audit</strong> vášho webu a povieme vám presne, čo treba zmeniť pre lepšie konverzie.
               </p>
               <NuxtLink to="/#contact" class="btn-primary inline-block">
@@ -533,8 +533,8 @@
 
             <div class="glass-effect rounded-2xl p-6 mt-12 flex items-center justify-between">
               <div>
-                <div class="text-sm text-slate-400 mb-1">Autor článku</div>
-                <div class="text-white font-semibold">Martin Saraka - Appinara</div>
+                <div class="text-sm dark:text-slate-400 text-gray-600 mb-1">Autor článku</div>
+                <div class="dark:text-white text-gray-900 font-semibold">Martin Saraka - Appinara</div>
               </div>
               <div class="flex gap-3">
                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://appinara.sk/blog/web-ktory-predava-checklist" target="_blank" class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center hover:bg-primary-500/20 transition-colors">

@@ -1,18 +1,18 @@
 <template>
-  <section id="services" class="relative py-32 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+  <section id="services" class="relative py-32 dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 bg-gradient-to-b from-gray-50 via-white to-gray-50">
     <div class="container mx-auto px-6">
       <!-- Section Header -->
       <div class="text-center mb-20">
         <h2 
           v-motion-fade-visible
-          class="text-4xl md:text-6xl font-display font-bold mb-6"
+          class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-gray-900"
         >
           Ako vám môžem <span class="gradient-text">pomôcť</span>
         </h2>
         <p 
           v-motion-fade-visible
           :delay="200"
-          class="text-xl text-slate-400 max-w-2xl mx-auto"
+          class="text-xl text-gray-700 dark:text-slate-400 max-w-2xl mx-auto"
         >
           Riešenia, ktoré prinesú vášmu biznisu reálne výsledky a návratnosť investície
         </p>
@@ -30,17 +30,17 @@
           <!-- Gradient border effect -->
           <div class="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
           
-          <div class="relative glass-effect rounded-2xl p-10 h-full card-hover">
+          <div class="relative glass-effect rounded-2xl p-10 h-full card-hover hover:bg-gray-50 dark:hover:bg-white/5">
             <!-- Icon -->
             <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <component :is="service.icon" class="w-8 h-8 text-white" />
             </div>
             
             <!-- Content -->
-            <h3 class="text-2xl font-display font-bold mb-4 text-white">
+            <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-gray-900">
               {{ service.title }}
             </h3>
-            <p class="text-slate-300 mb-6 leading-relaxed">
+            <p class="dark:text-slate-300 text-gray-700 mb-6 leading-relaxed">
               {{ service.description }}
             </p>
             
@@ -49,9 +49,9 @@
               <li 
                 v-for="feature in service.features" 
                 :key="feature"
-                class="flex items-start gap-2 text-slate-300 text-sm"
+                class="flex items-start gap-2 dark:text-slate-300 text-gray-600 text-sm"
               >
-                <svg class="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 dark:text-primary-400 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span>{{ feature }}</span>

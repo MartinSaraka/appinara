@@ -1,17 +1,17 @@
 <template>
-  <div class="relative overflow-hidden bg-slate-950">
+  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
     <Navigation />
     
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 bg-gradient-to-b from-slate-900 to-slate-950">
+    <section class="relative pt-32 pb-20 dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950 bg-gradient-to-b from-gray-50 to-white">
       <div class="absolute inset-0 grid-pattern opacity-20"></div>
       
       <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-5xl md:text-7xl font-display font-bold mb-6">
+          <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 dark:text-white text-gray-900">
             <span class="gradient-text">Blog</span> & Insights
           </h1>
-          <p class="text-xl text-slate-300 mb-8">
+          <p class="text-xl dark:text-slate-300 text-gray-700 mb-8">
             Praktické tipy a návody ako využiť AI a moderné technológie vo vašom biznise
           </p>
         </div>
@@ -19,7 +19,7 @@
     </section>
     
     <!-- Blog Posts Grid -->
-    <section class="py-20 bg-slate-950">
+    <section class="py-20 dark:bg-slate-950 bg-gray-50">
       <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <NuxtLink 
@@ -29,7 +29,7 @@
             class="group glass-effect rounded-2xl overflow-hidden card-hover"
           >
             <!-- Post Image -->
-            <div class="relative h-48 overflow-hidden bg-slate-800">
+            <div class="relative h-48 overflow-hidden dark:bg-slate-800 bg-gray-200">
               <!-- Real photo -->
               <img 
                 :src="post.image" 
@@ -52,25 +52,25 @@
             <!-- Post Content -->
             <div class="p-6">
               <div class="flex items-center gap-3 mb-3">
-                <span class="text-sm text-slate-400">{{ post.readTime }} čítania</span>
+                <span class="text-sm dark:text-slate-400 text-gray-600">{{ post.readTime }} čítania</span>
               </div>
               
-              <h2 class="text-xl font-display font-bold text-white mb-3 group-hover:text-primary-400 transition-colors leading-tight">
+              <h2 class="text-xl font-display font-bold dark:text-white text-gray-900 mb-3 dark:group-hover:text-primary-400 group-hover:text-primary-600 transition-colors leading-tight">
                 {{ post.title }}
               </h2>
               
-              <p class="text-slate-300 text-sm mb-4 line-clamp-3 leading-relaxed">
+              <p class="dark:text-slate-300 text-gray-700 text-sm mb-4 line-clamp-3 leading-relaxed">
                 {{ post.excerpt }}
               </p>
               
-              <div class="flex items-center text-primary-400 text-sm font-semibold">
+              <div class="flex items-center dark:text-primary-400 text-primary-600 text-sm font-semibold">
                 Čítať viac
                 <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
               
-              <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-slate-500">
+              <div class="mt-4 pt-4 border-t dark:border-slate-700 border-gray-200 text-xs dark:text-slate-500 text-gray-500">
                 {{ post.date }}
               </div>
             </div>

@@ -1,18 +1,18 @@
 <template>
-  <section id="why-us" class="relative py-32 bg-slate-950">
+  <section id="why-us" class="relative py-32 dark:bg-slate-950 bg-white">
     <div class="container mx-auto px-6">
       <!-- Section Header -->
       <div class="text-center mb-20">
         <h2 
           v-motion-fade-visible
-          class="text-4xl md:text-6xl font-display font-bold mb-6"
+          class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-gray-900"
         >
           Prečo práve <span class="gradient-text">Appinara</span>?
         </h2>
         <p 
           v-motion-fade-visible
           :delay="200"
-          class="text-xl text-slate-300 max-w-2xl mx-auto"
+          class="text-xl text-gray-700 dark:text-slate-300 max-w-2xl mx-auto"
         >
           Moderné technológie, osobný prístup a zameranie na vaše výsledky
         </p>
@@ -28,17 +28,17 @@
           class="group relative"
         >
           <!-- Card -->
-          <div class="relative glass-effect rounded-2xl p-10 h-full hover:bg-white/10 transition-all duration-300">
+          <div class="relative glass-effect rounded-2xl p-10 h-full hover:bg-gray-100/50 dark:hover:bg-white/10 transition-all duration-300">
             <!-- Icon -->
             <div class="w-20 h-20 bg-gradient-to-br from-primary-500/20 to-purple-600/20 border-2 border-primary-500/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <div class="text-4xl">{{ benefit.icon }}</div>
             </div>
             
             <!-- Content -->
-            <h3 class="text-2xl font-display font-bold mb-4 text-white">
+            <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-gray-900">
               {{ benefit.title }}
             </h3>
-            <p class="text-slate-300 leading-relaxed">
+            <p class="dark:text-slate-300 text-gray-700 leading-relaxed">
               {{ benefit.description }}
             </p>
           </div>
@@ -50,14 +50,14 @@
         <div class="text-center mb-16">
           <h3 
             v-motion-fade-visible
-            class="text-3xl md:text-5xl font-display font-bold mb-4"
+            class="text-3xl md:text-5xl font-display font-bold mb-4 dark:text-white text-gray-900"
           >
             Ako <span class="gradient-text">spolupracujeme</span>
           </h3>
           <p 
             v-motion-fade-visible
             :delay="200"
-            class="text-lg text-slate-300"
+            class="text-lg text-gray-700 dark:text-slate-300"
           >
             Jednoduchý, transparentný proces od prvého kontaktu po spustenie
           </p>
@@ -77,10 +77,10 @@
             </div>
             
             <!-- Step Content -->
-            <div class="flex-1 glass-effect rounded-2xl p-8 group-hover:bg-white/10 transition-all duration-300">
-              <h4 class="text-xl font-display font-bold mb-2 text-white">{{ step.title }}</h4>
-              <p class="text-slate-300 leading-relaxed">{{ step.description }}</p>
-              <div class="mt-3 text-primary-400 text-sm font-semibold">{{ step.duration }}</div>
+            <div class="flex-1 glass-effect rounded-2xl p-8 group-hover:bg-gray-100/50 dark:group-hover:bg-white/10 transition-all duration-300">
+              <h4 class="text-xl font-display font-bold mb-2 dark:text-white text-gray-900">{{ step.title }}</h4>
+              <p class="dark:text-slate-300 text-gray-700 leading-relaxed">{{ step.description }}</p>
+              <div class="mt-3 dark:text-primary-400 text-primary-600 text-sm font-semibold">{{ step.duration }}</div>
             </div>
           </div>
         </div>

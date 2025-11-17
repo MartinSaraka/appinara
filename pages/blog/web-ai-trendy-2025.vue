@@ -1,31 +1,31 @@
 <template>
-  <div class="relative overflow-hidden bg-slate-950">
+  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
     <Navigation />
     
     <article class="relative pt-32 pb-20">
       <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto">
           <nav class="mb-8 text-sm">
-            <NuxtLink to="/" class="text-slate-400 hover:text-primary-400">Domov</NuxtLink>
-            <span class="text-slate-600 mx-2">/</span>
-            <NuxtLink to="/blog" class="text-slate-400 hover:text-primary-400">Blog</NuxtLink>
-            <span class="text-slate-600 mx-2">/</span>
-            <span class="text-slate-300">Web & AI trendy 2025</span>
+            <NuxtLink to="/" class="dark:text-slate-400 text-gray-600 dark:hover:text-primary-400 text-gray-600 hover:text-primary-600">Domov</NuxtLink>
+            <span class="dark:text-slate-600 text-gray-400 mx-2">/</span>
+            <NuxtLink to="/blog" class="dark:text-slate-400 text-gray-600 dark:hover:text-primary-400 text-gray-600 hover:text-primary-600">Blog</NuxtLink>
+            <span class="dark:text-slate-600 text-gray-400 mx-2">/</span>
+            <span class="dark:text-slate-300 text-gray-700">Web & AI trendy 2025</span>
           </nav>
           
           <div class="flex items-center gap-4 mb-6">
-            <span class="px-4 py-2 bg-primary-500/20 text-primary-300 rounded-full text-sm font-medium">
+            <span class="px-4 py-2 bg-primary-500/20 dark:text-primary-300 text-primary-700 rounded-full text-sm font-medium">
               Trendy 2025
             </span>
-            <span class="text-slate-400">📖 12 min čítania</span>
-            <span class="text-slate-400">📅 16. November 2024</span>
+            <span class="dark:text-slate-400 text-gray-600">📖 12 min čítania</span>
+            <span class="dark:text-slate-400 text-gray-600">📅 16. November 2024</span>
           </div>
           
           <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
             TOP <span class="gradient-text">Web & AI trendy</span> pre rok 2025
           </h1>
           
-          <p class="text-xl text-slate-300 mb-12 leading-relaxed">
+          <p class="text-xl dark:text-slate-300 text-gray-700 mb-12 leading-relaxed">
             Čo bude dominovať v digitálnom svete v roku 2025? 10 trendov, ktoré zmenia spôsob, ako robíme biznis online. S predikciami a praktickými tipmi.
           </p>
           
@@ -36,11 +36,11 @@
             </div>
           </div>
           
-          <div class="prose prose-invert prose-lg max-w-none">
+          <div class="prose dark:prose-invert prose-lg max-w-none">
             
             <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-violet-500">
-              <h3 class="text-2xl font-bold text-white mb-4">🔮 Prečo to má význam?</h3>
-              <p class="text-slate-300 mb-3">
+              <h3 class="text-2xl font-bold dark:text-white text-gray-900 mb-4">🔮 Prečo to má význam?</h3>
+              <p class="dark:text-slate-300 text-gray-700 mb-3">
                 Firmy, ktoré adoptujú trendy skoro, majú <strong>2-3 roky náskok</strong> pred konkurenciou. V digitálnom svete to znamená dominanciu trhu.
               </p>
               <p class="text-green-400 text-sm">
@@ -53,18 +53,18 @@
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">1️⃣</div>
                 <div>
-                  <h2 class="text-3xl font-bold text-white mt-2">AI-first weby (nie AI ako doplnok)</h2>
-                  <p class="text-slate-400 text-sm">Impact: ⭐⭐⭐⭐⭐ | Adopcia: Rýchla</p>
+                  <h2 class="text-3xl font-bold dark:text-white text-gray-900 mt-2">AI-first weby (nie AI ako doplnok)</h2>
+                  <p class="dark:text-slate-400 text-gray-600 text-sm">Impact: ⭐⭐⭐⭐⭐ | Adopcia: Rýchla</p>
                 </div>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Čo sa mení:</strong> V 2024 firmy "pridávali AI" na existujúce weby. V 2025 sa weby budujú <strong>okolo AI</strong> od začiatku.
               </p>
               
-              <div class="bg-slate-800 rounded-xl p-6 mb-4">
-                <h4 class="text-white font-bold mb-3">Konkrétne príklady:</h4>
-                <ul class="space-y-2 text-slate-300 text-sm">
+              <div class="dark:bg-slate-800 bg-gray-100 rounded-xl p-6 mb-4">
+                <h4 class="dark:text-white text-gray-900 font-bold mb-3">Konkrétne príklady:</h4>
+                <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                   <li>🤖 <strong>AI Search namiesto klasického vyhľadávania</strong> - Návštevník sa pýta "Aký produkt je pre mňa najlepší?" namiesto browsingu</li>
                   <li>🎨 <strong>Personalizovaný homepage pre každého</strong> - AI mení obsah na základe správania návštevníka</li>
                   <li>💬 <strong>Conversational commerce</strong> - Chatbot nie je support, ale hlavný sales channel</li>
@@ -74,7 +74,7 @@
               
               <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
                 <p class="text-blue-400 font-bold text-sm mb-2">💡 Ako sa pripraviť:</p>
-                <p class="text-slate-300 text-xs">
+                <p class="dark:text-slate-300 text-gray-700 text-xs">
                   Začnite s AI chatbotom a personalizáciou. V 2025 to bude štandard, nie konkurenčná výhoda. Kto nemá AI, vyzerá zaostalo.
                 </p>
               </div>
@@ -85,19 +85,19 @@
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">2️⃣</div>
                 <div>
-                  <h2 class="text-3xl font-bold text-white mt-2">Voice & Visual search dominancia</h2>
-                  <p class="text-slate-400 text-sm">Impact: ⭐⭐⭐⭐ | Adopcia: Stredná</p>
+                  <h2 class="text-3xl font-bold dark:text-white text-gray-900 mt-2">Voice & Visual search dominancia</h2>
+                  <p class="dark:text-slate-400 text-gray-600 text-sm">Impact: ⭐⭐⭐⭐ | Adopcia: Stredná</p>
                 </div>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Stat:</strong> Do konca 2025 bude <strong>50% vyhľadávaní voice alebo visual</strong> (Google Lens, ChatGPT Voice).
               </p>
               
               <div class="grid md:grid-cols-2 gap-4 mb-4">
-                <div class="bg-slate-800 rounded-lg p-4">
-                  <h4 class="text-white font-bold mb-2 text-sm">🎤 Voice Search</h4>
-                  <p class="text-slate-300 text-xs mb-2">
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-lg p-4">
+                  <h4 class="dark:text-white text-gray-900 font-bold mb-2 text-sm">🎤 Voice Search</h4>
+                  <p class="dark:text-slate-300 text-gray-700 text-xs mb-2">
                     Ľudia hovoria inak než píšu. Optimalizujte pre conversational queries.
                   </p>
                   <p class="text-green-400 text-xs">
@@ -105,9 +105,9 @@
                   </p>
                 </div>
                 
-                <div class="bg-slate-800 rounded-lg p-4">
-                  <h4 class="text-white font-bold mb-2 text-sm">📸 Visual Search</h4>
-                  <p class="text-slate-300 text-xs mb-2">
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-lg p-4">
+                  <h4 class="dark:text-white text-gray-900 font-bold mb-2 text-sm">📸 Visual Search</h4>
+                  <p class="dark:text-slate-300 text-gray-700 text-xs mb-2">
                     Upload fotky → nájdi podobné produkty. Google Lens už má 12 miliárd searches/mes.
                   </p>
                   <p class="text-green-400 text-xs">
@@ -118,7 +118,7 @@
               
               <div class="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
                 <p class="text-purple-400 font-bold text-sm mb-2">💡 Action plan:</p>
-                <ul class="text-slate-300 text-xs space-y-1">
+                <ul class="dark:text-slate-300 text-gray-700 text-xs space-y-1">
                   <li>✓ FAQ v natural language (ako ľudia hovoria)</li>
                   <li>✓ Schema markup pre voice assistants</li>
                   <li>✓ High-quality obrázky s proper alt texts</li>
@@ -131,18 +131,18 @@
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">3️⃣</div>
                 <div>
-                  <h2 class="text-3xl font-bold text-white mt-2">Micro-SaaS boom</h2>
-                  <p class="text-slate-400 text-sm">Impact: ⭐⭐⭐⭐⭐ | Adopcia: Exploduje</p>
+                  <h2 class="text-3xl font-bold dark:text-white text-gray-900 mt-2">Micro-SaaS boom</h2>
+                  <p class="dark:text-slate-400 text-gray-600 text-sm">Impact: ⭐⭐⭐⭐⭐ | Adopcia: Exploduje</p>
                 </div>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Trend:</strong> Namiesto veľkých platforiem, malé špecializované SaaS nástroje pre niche problems. Jeden človek môže postaviť SaaS za mesiac.
               </p>
               
-              <div class="bg-slate-800 rounded-xl p-6 mb-4">
-                <h4 class="text-white font-bold mb-3">Prečo práve teraz?</h4>
-                <ul class="space-y-2 text-slate-300 text-sm">
+              <div class="dark:bg-slate-800 bg-gray-100 rounded-xl p-6 mb-4">
+                <h4 class="dark:text-white text-gray-900 font-bold mb-3">Prečo práve teraz?</h4>
+                <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                   <li>✓ AI generuje kód → development 10x rýchlejší</li>
                   <li>✓ No-code tools (Bubble, Webflow) → tech nie je bariéra</li>
                   <li>✓ Micro-payments easy (Stripe, Lemon Squeezy)</li>
@@ -150,9 +150,9 @@
                 </ul>
               </div>
               
-              <div class="bg-slate-800 rounded-xl p-6 mb-4">
-                <h4 class="text-white font-bold mb-3">📊 Reálne príklady z 2024:</h4>
-                <ul class="space-y-2 text-slate-300 text-sm">
+              <div class="dark:bg-slate-800 bg-gray-100 rounded-xl p-6 mb-4">
+                <h4 class="dark:text-white text-gray-900 font-bold mb-3">📊 Reálne príklady z 2024:</h4>
+                <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                   <li>• <strong>TweetHunter:</strong> $500k/rok (1 človek, AI Twitter tool)</li>
                   <li>• <strong>Typefully:</strong> $2M ARR (scheduling tweets)</li>
                   <li>• <strong>Hypefury:</strong> $1M ARR (Twitter automation)</li>
@@ -162,7 +162,7 @@
               
               <div class="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
                 <p class="text-green-400 font-bold text-sm mb-2">💡 Príležitosť pre slovenský trh:</p>
-                <p class="text-slate-300 text-xs">
+                <p class="dark:text-slate-300 text-gray-700 text-xs">
                   Väčšina micro-SaaS je global (anglicky). Príležitosť: Slovenské/české niche SaaS. Napríklad: "Faktúry pre živnostníkov", "CRM pre slovenské realitky", "Booking pre kaderníctva".
                 </p>
               </div>
@@ -173,36 +173,36 @@
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">4️⃣</div>
                 <div>
-                  <h2 class="text-3xl font-bold text-white mt-2">Zero-click content</h2>
-                  <p class="text-slate-400 text-sm">Impact: ⭐⭐⭐⭐ | Adopcia: Už tu je</p>
+                  <h2 class="text-3xl font-bold dark:text-white text-gray-900 mt-2">Zero-click content</h2>
+                  <p class="dark:text-slate-400 text-gray-600 text-sm">Impact: ⭐⭐⭐⭐ | Adopcia: Už tu je</p>
                 </div>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Realita:</strong> Google AI Overviews, ChatGPT, Perplexity → Ľudia dostanú odpoveď BEZ kliknutia na váš web.
               </p>
               
               <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-4 mb-4">
                 <p class="text-red-400 font-bold text-sm mb-2">⚠️ Problém:</p>
-                <p class="text-slate-300 text-xs">
+                <p class="dark:text-slate-300 text-gray-700 text-xs">
                   Google zobrazí odpoveď priamo → návštevníci nekliknú → váš traffic klesá. <strong>SEO ako sme ho poznali, zomiera.</strong>
                 </p>
               </div>
               
-              <div class="bg-slate-800 rounded-xl p-6 mb-4">
-                <h4 class="text-white font-bold mb-3">✅ Ako sa adaptovať:</h4>
+              <div class="dark:bg-slate-800 bg-gray-100 rounded-xl p-6 mb-4">
+                <h4 class="dark:text-white text-gray-900 font-bold mb-3">✅ Ako sa adaptovať:</h4>
                 <div class="space-y-3 text-sm">
                   <div>
                     <p class="text-green-400 font-bold mb-1">1. Brand building > SEO</p>
-                    <p class="text-slate-300 text-xs">Ľudia budú hľadať "Appinara AI chatbot" nie "AI chatbot slovensko"</p>
+                    <p class="dark:text-slate-300 text-gray-700 text-xs">Ľudia budú hľadať "Appinara AI chatbot" nie "AI chatbot slovensko"</p>
                   </div>
                   <div>
                     <p class="text-green-400 font-bold mb-1">2. Community first</p>
-                    <p class="text-slate-300 text-xs">Newsletter, social media, direct traffic. Nespoliehajte sa len na Google.</p>
+                    <p class="dark:text-slate-300 text-gray-700 text-xs">Newsletter, social media, direct traffic. Nespoliehajte sa len na Google.</p>
                   </div>
                   <div>
                     <p class="text-green-400 font-bold mb-1">3. Interactive content</p>
-                    <p class="text-slate-300 text-xs">Kalkulačky, tools, quizzes - AI nemôže replikovať, ľudia musia prísť k vám.</p>
+                    <p class="dark:text-slate-300 text-gray-700 text-xs">Kalkulačky, tools, quizzes - AI nemôže replikovať, ľudia musia prísť k vám.</p>
                   </div>
                 </div>
               </div>
@@ -213,18 +213,18 @@
               <div class="flex items-start gap-4 mb-4">
                 <div class="text-5xl">5️⃣</div>
                 <div>
-                  <h2 class="text-3xl font-bold text-white mt-2">Hyper-personalizácia (creepy level)</h2>
-                  <p class="text-slate-400 text-sm">Impact: ⭐⭐⭐⭐⭐ | Adopcia: Tech giants už používajú</p>
+                  <h2 class="text-3xl font-bold dark:text-white text-gray-900 mt-2">Hyper-personalizácia (creepy level)</h2>
+                  <p class="dark:text-slate-400 text-gray-600 text-sm">Impact: ⭐⭐⭐⭐⭐ | Adopcia: Tech giants už používajú</p>
                 </div>
               </div>
               
-              <p class="text-slate-300 mb-4">
+              <p class="dark:text-slate-300 text-gray-700 mb-4">
                 <strong>Ako ďaleko to zájde:</strong> Web vie vaše meno, lokáciu, browsing history, purchase intent, sentiment... a prispôsobí VŠETKO.
               </p>
               
-              <div class="bg-slate-800 rounded-xl p-6 mb-4">
-                <h4 class="text-white font-bold mb-3">Príklady hyper-personalizácie:</h4>
-                <ul class="space-y-2 text-slate-300 text-sm">
+              <div class="dark:bg-slate-800 bg-gray-100 rounded-xl p-6 mb-4">
+                <h4 class="dark:text-white text-gray-900 font-bold mb-3">Príklady hyper-personalizácie:</h4>
+                <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                   <li>🎯 <strong>Dynamic pricing:</strong> Cena sa mení na základe vašej lokácie, zariadenia, času</li>
                   <li>🖼️ <strong>Visual personalization:</strong> Obrázky produktov sa menia podľa vášho štýlu</li>
                   <li>📝 <strong>Content tone adaptation:</strong> Formálne/neformálne na základe vášho správania</li>
@@ -234,22 +234,22 @@
               
               <div class="bg-pink-500/10 border border-pink-500/30 rounded-lg p-4">
                 <p class="text-pink-400 font-bold text-sm mb-2">💡 Pre malé firmy:</p>
-                <p class="text-slate-300 text-xs">
+                <p class="dark:text-slate-300 text-gray-700 text-xs">
                   Začnite s basic personalizáciou: returning visitor vs new visitor, geo-targeting, behavior-based popups. Tools: OptinMonster, ConvertKit, Klaviyo.
                 </p>
               </div>
             </div>
 
             <!-- Quick trends 6-10 -->
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Ďalších 5 trendov, ktoré musíte sledovať:</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Ďalších 5 trendov, ktoré musíte sledovať:</h2>
             
             <div class="space-y-6 mb-12">
               <div class="glass-effect rounded-xl p-6 border-l-4 border-cyan-500">
                 <div class="flex items-start justify-between mb-3">
-                  <h3 class="text-xl font-bold text-white">6️⃣ Composable architecture</h3>
+                  <h3 class="text-xl font-bold dark:text-white text-gray-900">6️⃣ Composable architecture</h3>
                   <span class="text-cyan-400 text-sm">⭐⭐⭐⭐</span>
                 </div>
-                <p class="text-slate-300 text-sm mb-2">
+                <p class="dark:text-slate-300 text-gray-700 text-sm mb-2">
                   Namiesto monolitných CMS (WordPress), "skladanie" webu z best-of-breed služieb. Headless CMS (Sanity) + Nuxt/Next + Stripe + Algolia...
                 </p>
                 <p class="text-cyan-400 text-xs"><strong>Prečo:</strong> 10x rýchlejšie, flexibilnejšie, škálovateľné.</p>
@@ -257,10 +257,10 @@
               
               <div class="glass-effect rounded-xl p-6 border-l-4 border-orange-500">
                 <div class="flex items-start justify-between mb-3">
-                  <h3 class="text-xl font-bold text-white">7️⃣ Sustainability & Green hosting</h3>
+                  <h3 class="text-xl font-bold dark:text-white text-gray-900">7️⃣ Sustainability & Green hosting</h3>
                   <span class="text-orange-400 text-sm">⭐⭐⭐</span>
                 </div>
-                <p class="text-slate-300 text-sm mb-2">
+                <p class="dark:text-slate-300 text-gray-700 text-sm mb-2">
                   Spotrebitelia požadujú eco-friendly firmy. "Carbon neutral website" bude marketing plus. Google uprednostňuje energy-efficient weby.
                 </p>
                 <p class="text-orange-400 text-xs"><strong>Ako:</strong> Green hosting (GreenGeeks), optimalizované obrázky, minimal JS.</p>
@@ -268,10 +268,10 @@
               
               <div class="glass-effect rounded-xl p-6 border-l-4 border-indigo-500">
                 <div class="flex items-start justify-between mb-3">
-                  <h3 class="text-xl font-bold text-white">8️⃣ AR/VR v e-commerce</h3>
+                  <h3 class="text-xl font-bold dark:text-white text-gray-900">8️⃣ AR/VR v e-commerce</h3>
                   <span class="text-indigo-400 text-sm">⭐⭐⭐⭐</span>
                 </div>
-                <p class="text-slate-300 text-sm mb-2">
+                <p class="dark:text-slate-300 text-gray-700 text-sm mb-2">
                   "Vyskúšaj predtým než kúpiš" cez AR. Apple Vision Pro spustilo mainstream adopciu. IKEA, Amazon už používajú.
                 </p>
                 <p class="text-indigo-400 text-xs"><strong>Use case:</strong> Nábytok, oblečenie, makeup - všetko AR "try-on".</p>
@@ -279,10 +279,10 @@
               
               <div class="glass-effect rounded-xl p-6 border-l-4 border-teal-500">
                 <div class="flex items-start justify-between mb-3">
-                  <h3 class="text-xl font-bold text-white">9️⃣ Blockchain pre transparency</h3>
+                  <h3 class="text-xl font-bold dark:text-white text-gray-900">9️⃣ Blockchain pre transparency</h3>
                   <span class="text-teal-400 text-sm">⭐⭐⭐</span>
                 </div>
-                <p class="text-slate-300 text-sm mb-2">
+                <p class="dark:text-slate-300 text-gray-700 text-sm mb-2">
                   Nie crypto hype, ale praktické use cases: Supply chain tracking, autentifikácia produktov, proof of ownership. Luxury brands už používajú.
                 </p>
                 <p class="text-teal-400 text-xs"><strong>Príklad:</strong> NFT certifikát autenticity pre premium produkty.</p>
@@ -290,23 +290,23 @@
               
               <div class="glass-effect rounded-xl p-6 border-l-4 border-rose-500">
                 <div class="flex items-start justify-between mb-3">
-                  <h3 class="text-xl font-bold text-white">🔟 Privacy-first marketing</h3>
+                  <h3 class="text-xl font-bold dark:text-white text-gray-900">🔟 Privacy-first marketing</h3>
                   <span class="text-rose-400 text-sm">⭐⭐⭐⭐⭐</span>
                 </div>
-                <p class="text-slate-300 text-sm mb-2">
+                <p class="dark:text-slate-300 text-gray-700 text-sm mb-2">
                   Koniec 3rd party cookies (Google 2025). GDPR enforcement tvrdší. First-party data = jediný spôsob. Email lists, membership, communities.
                 </p>
                 <p class="text-rose-400 text-xs"><strong>Invest NOW:</strong> Newsletter, loyalty programs, vlastná customer data.</p>
               </div>
             </div>
 
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Ako sa pripraviť na 2025? Action plan</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Ako sa pripraviť na 2025? Action plan</h2>
             
             <div class="glass-effect rounded-2xl p-8 mb-8">
               <div class="space-y-6">
-                <div class="bg-slate-800 rounded-xl p-6">
-                  <h4 class="text-white font-bold mb-3">📅 Q1 2025 (Január-Marec)</h4>
-                  <ul class="space-y-2 text-slate-300 text-sm">
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-xl p-6">
+                  <h4 class="dark:text-white text-gray-900 font-bold mb-3">📅 Q1 2025 (Január-Marec)</h4>
+                  <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                     <li>✓ Implementujte AI chatbot (ak ešte nemáte)</li>
                     <li>✓ Audit webu pre voice search readiness</li>
                     <li>✓ Začnite newsletter/community building</li>
@@ -314,9 +314,9 @@
                   </ul>
                 </div>
                 
-                <div class="bg-slate-800 rounded-xl p-6">
-                  <h4 class="text-white font-bold mb-3">📅 Q2 2025 (Apríl-Jún)</h4>
-                  <ul class="space-y-2 text-slate-300 text-sm">
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-xl p-6">
+                  <h4 class="dark:text-white text-gray-900 font-bold mb-3">📅 Q2 2025 (Apríl-Jún)</h4>
+                  <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                     <li>✓ Pridajte personalizáciu (basic level)</li>
                     <li>✓ Vytvorte interactive content (kalkulačky, tools)</li>
                     <li>✓ Test AR features (ak relevantné)</li>
@@ -324,9 +324,9 @@
                   </ul>
                 </div>
                 
-                <div class="bg-slate-800 rounded-xl p-6">
-                  <h4 class="text-white font-bold mb-3">📅 Q3-Q4 2025 (Júl-December)</h4>
-                  <ul class="space-y-2 text-slate-300 text-sm">
+                <div class="dark:bg-slate-800 bg-gray-100 rounded-xl p-6">
+                  <h4 class="dark:text-white text-gray-900 font-bold mb-3">📅 Q3-Q4 2025 (Júl-December)</h4>
+                  <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                     <li>✓ Full AI-first redesign (ak treba)</li>
                     <li>✓ Composable architecture (pre large projects)</li>
                     <li>✓ Hyper-personalization implementation</li>
@@ -336,56 +336,56 @@
               </div>
             </div>
 
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Predikcie: Čo sa stane v 2025</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Predikcie: Čo sa stane v 2025</h2>
             
             <div class="glass-effect rounded-2xl p-8 mb-8">
               <div class="space-y-4">
                 <div class="flex items-start gap-3">
                   <span class="text-green-400 text-2xl">✓</span>
-                  <p class="text-slate-300 text-sm">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm">
                     <strong>50% webov bude mať AI chatbot</strong> - Kto nemá, vyzerá zaostalo
                   </p>
                 </div>
                 
                 <div class="flex items-start gap-3">
                   <span class="text-green-400 text-2xl">✓</span>
-                  <p class="text-slate-300 text-sm">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm">
                     <strong>Google traffic klesne o 20-30%</strong> - AI Overviews "ukradnú" clicks
                   </p>
                 </div>
                 
                 <div class="flex items-start gap-3">
                   <span class="text-green-400 text-2xl">✓</span>
-                  <p class="text-slate-300 text-sm">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm">
                     <strong>10,000+ nových micro-SaaS</strong> - Každý druhý developer spustí side project
                   </p>
                 </div>
                 
                 <div class="flex items-start gap-3">
                   <span class="text-green-400 text-2xl">✓</span>
-                  <p class="text-slate-300 text-sm">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm">
                     <strong>Voice search = 50% mobile queries</strong> - Text search začne stagnovať
                   </p>
                 </div>
                 
                 <div class="flex items-start gap-3">
                   <span class="text-green-400 text-2xl">✓</span>
-                  <p class="text-slate-300 text-sm">
+                  <p class="dark:text-slate-300 text-gray-700 text-sm">
                     <strong>Prvý slovenský micro-SaaS unicorn</strong> - Someone builds $1M ARR product solo
                   </p>
                 </div>
               </div>
             </div>
 
-            <h2 class="text-3xl font-display font-bold text-white mt-12 mb-6">Záver: Opportunity vs Threat</h2>
+            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Záver: Opportunity vs Threat</h2>
             
-            <p class="text-slate-300 leading-relaxed mb-6">
+            <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-6">
               Každý trend je <strong>opportunity pre early adopters</strong> a threat pre laggards. Rozdiel medzi firmou, ktorá thrives v 2025 a firmou, ktorá zápasí, bude <strong>rýchlosť adopcie</strong>.
             </p>
             
             <div class="bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 border border-violet-500/30 rounded-xl p-6 mb-8">
               <p class="text-violet-400 font-bold text-lg mb-3">🎯 Bottom line:</p>
-              <ul class="space-y-2 text-slate-300 text-sm">
+              <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-sm">
                 <li>• Investujte do AI teraz, nie "keď to všetci budú mať"</li>
                 <li>• Diverzifikujte traffic sources (nespoliehajte sa len na Google)</li>
                 <li>• Build in public, grow community</li>
@@ -394,10 +394,10 @@
             </div>
 
             <div class="glass-effect rounded-2xl p-8 my-12 text-center">
-              <h3 class="text-3xl font-display font-bold text-white mb-4">
+              <h3 class="text-3xl font-display font-bold dark:text-white text-gray-900 mb-4">
                 Pripravíme vás na 2025
               </h3>
-              <p class="text-slate-300 mb-8 max-w-2xl mx-auto">
+              <p class="dark:text-slate-300 text-gray-700 mb-8 max-w-2xl mx-auto">
                 Pomôžeme vám implementovať trendy, ktoré majú zmysel pre váš biznis. AI integrácie, personalizácia, modernizácia - all-in-one.
               </p>
               <NuxtLink to="/#contact" class="btn-primary inline-block">
@@ -410,8 +410,8 @@
 
             <div class="glass-effect rounded-2xl p-6 mt-12 flex items-center justify-between">
               <div>
-                <div class="text-sm text-slate-400 mb-1">Autor článku</div>
-                <div class="text-white font-semibold">Martin Saraka - Appinara</div>
+                <div class="text-sm dark:text-slate-400 text-gray-600 mb-1">Autor článku</div>
+                <div class="dark:text-white text-gray-900 font-semibold">Martin Saraka - Appinara</div>
               </div>
               <div class="flex gap-3">
                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://appinara.sk/blog/web-ai-trendy-2025" target="_blank" class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center hover:bg-primary-500/20 transition-colors">

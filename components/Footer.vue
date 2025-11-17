@@ -1,14 +1,14 @@
 <template>
-  <footer class="relative bg-slate-900 border-t border-slate-800">
+  <footer class="relative dark:bg-slate-900 bg-gray-50 border-t dark:border-slate-800 border-gray-200">
     <div class="container mx-auto px-6 py-12">
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <!-- Brand -->
         <div class="md:col-span-2">
           <div class="text-2xl font-display font-bold mb-4">
             <span class="gradient-text">Appi</span>
-            <span class="text-white">nara</span>
+            <span class="dark:text-white text-gray-900">nara</span>
           </div>
-          <p class="text-slate-400 mb-4 max-w-md">
+          <p class="dark:text-slate-400 text-gray-600 mb-4 max-w-md">
             Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.
           </p>
           <div class="flex gap-4">
@@ -18,22 +18,22 @@
               :href="social.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center hover:bg-primary-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400/50"
+              class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center hover:bg-primary-500/10 dark:hover:bg-primary-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400/50"
               :aria-label="`Navštíviť ${social.name} profil Appinara`"
             >
-              <component :is="social.icon" class="w-5 h-5 text-slate-300" aria-hidden="true" />
+              <component :is="social.icon" class="w-5 h-5 dark:text-slate-300 text-gray-600" aria-hidden="true" />
             </a>
           </div>
         </div>
         
         <!-- Quick Links -->
         <div>
-          <h3 class="text-white font-semibold mb-4">Rýchle odkazy</h3>
+          <h3 class="dark:text-white text-gray-900 font-semibold mb-4">Rýchle odkazy</h3>
           <ul class="space-y-2">
             <li v-for="link in quickLinks" :key="link.href">
               <a 
                 :href="link.href"
-                class="text-slate-400 hover:text-primary-400 transition-colors focus:outline-none focus:text-primary-400 focus:underline"
+                class="dark:text-slate-400 text-gray-600 dark:hover:text-primary-400 hover:text-primary-600 transition-colors focus:outline-none dark:focus:text-primary-400 focus:text-primary-600 focus:underline"
                 :aria-label="`Prejsť na: ${link.label}`"
               >
                 {{ link.label }}
@@ -44,25 +44,25 @@
         
         <!-- Services -->
         <div>
-          <h3 class="text-white font-semibold mb-4">Služby</h3>
+          <h3 class="dark:text-white text-gray-900 font-semibold mb-4">Služby</h3>
           <ul class="space-y-2">
             <li v-for="service in services" :key="service">
-              <span class="text-slate-400">{{ service }}</span>
+              <span class="dark:text-slate-400 text-gray-600">{{ service }}</span>
             </li>
           </ul>
         </div>
       </div>
       
       <!-- Bottom Bar -->
-      <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-slate-500 text-sm">
+      <div class="pt-8 border-t dark:border-slate-800 border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="dark:text-slate-500 text-gray-500 text-sm">
           © {{ currentYear }} Appinara. Všetky práva vyhradené.
         </p>
         <div class="flex gap-6 text-sm">
-          <NuxtLink to="/ochrana-udajov" class="text-slate-500 hover:text-primary-400 transition-colors focus:outline-none focus:text-primary-400 focus:underline">
+          <NuxtLink to="/ochrana-udajov" class="dark:text-slate-500 text-gray-500 dark:hover:text-primary-400 hover:text-primary-600 transition-colors focus:outline-none dark:focus:text-primary-400 focus:text-primary-600 focus:underline">
             Ochrana údajov
           </NuxtLink>
-          <NuxtLink to="/obchodne-podmienky" class="text-slate-500 hover:text-primary-400 transition-colors focus:outline-none focus:text-primary-400 focus:underline">
+          <NuxtLink to="/obchodne-podmienky" class="dark:text-slate-500 text-gray-500 dark:hover:text-primary-400 hover:text-primary-600 transition-colors focus:outline-none dark:focus:text-primary-400 focus:text-primary-600 focus:underline">
             Obchodné podmienky
           </NuxtLink>
         </div>

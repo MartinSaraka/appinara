@@ -1,5 +1,5 @@
 <template>
-  <section class="relative py-32 bg-slate-900 overflow-hidden">
+  <section class="relative py-32 dark:bg-slate-900 bg-gray-50 overflow-hidden">
     <!-- Background Elements -->
     <div class="absolute inset-0 grid-pattern opacity-20"></div>
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/10 rounded-full blur-3xl"></div>
@@ -9,11 +9,11 @@
         v-motion-fade-visible
         class="max-w-4xl mx-auto text-center"
       >
-        <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 dark:text-white text-gray-900">
           Pripravení posunúť váš
           <span class="gradient-text block">biznis na ďalší level?</span>
         </h2>
-        <p class="text-xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-xl dark:text-slate-200 text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
           Napíšte mi o vašom projekte a dostanete nezáväznú konzultáciu zdarma. Spolu preberieme vaše potreby a nájdeme najlepšie riešenie.
         </p>
         
@@ -34,8 +34,8 @@
             class="text-center"
           >
             <div class="text-4xl mb-4">{{ feature.icon }}</div>
-            <h3 class="text-lg font-semibold text-white mb-2">{{ feature.title }}</h3>
-            <p class="text-slate-400 text-sm">{{ feature.description }}</p>
+            <h3 class="text-lg font-semibold dark:text-white text-gray-900 mb-2">{{ feature.title }}</h3>
+            <p class="text-gray-700 dark:text-slate-400 text-sm">{{ feature.description }}</p>
           </div>
         </div>
       </div>
