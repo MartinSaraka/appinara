@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appinara Multi-Channel Outreach Tool</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --facebook: #1877f2;
+            --instagram: #e4405f;
+            --linkedin: #0a66c2;
+            --email: #ea4335;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container { max-width: 1600px; margin: 0 auto; }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, var(--primary), var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle { color: var(--text-muted); margin-bottom: 25px; }
+        
+        /* Channel Stats */
+        .channel-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .channel-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        .channel-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 15px;
+            border: 2px solid var(--border);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .channel-card:hover { transform: translateY(-2px); }
+        .channel-card.active { border-color: var(--primary); }
+        .channel-card.fb { border-left: 4px solid var(--facebook); }
+        .channel-card.ig { border-left: 4px solid var(--instagram); }
+        .channel-card.li { border-left: 4px solid var(--linkedin); }
+        .channel-card.em { border-left: 4px solid var(--email); }
+        
+        .channel-icon { font-size: 1.5rem; margin-bottom: 5px; }
+        .channel-name { font-weight: 600; font-size: 0.9rem; }
+        .channel-count { font-size: 1.8rem; font-weight: bold; color: var(--primary); }
+        .channel-goal { font-size: 0.75rem; color: var(--text-muted); }
+        
+        /* Daily Progress */
+        .daily-progress {
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .daily-progress { grid-template-columns: 1fr 1fr; }
+        }
+        
+        .progress-item { text-align: center; }
+        .progress-label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 5px; }
+        .progress-value { font-size: 1.5rem; font-weight: bold; }
+        .progress-bar { height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; margin-top: 8px; }
+        .progress-fill { height: 100%; background: white; border-radius: 4px; transition: width 0.3s; }
+        
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 1100px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+        
+        .card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Forms */
+        .form-group { margin-bottom: 12px; }
+        
+        label {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-success { background: var(--success); color: white; }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+        .btn-outline:hover { background: var(--border); }
+        .btn-small { padding: 6px 12px; font-size: 0.85rem; }
+        
+        .btn-group { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 8px 14px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        
+        .tab:hover, .tab.active {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .tab.fb.active { background: var(--facebook); border-color: var(--facebook); }
+        .tab.ig.active { background: var(--instagram); border-color: var(--instagram); }
+        .tab.li.active { background: var(--linkedin); border-color: var(--linkedin); }
+        .tab.em.active { background: var(--email); border-color: var(--email); }
+        
+        /* Demo Links */
+        .demo-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .demo-link {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .demo-link:hover { border-color: var(--primary); }
+        .demo-link.active { border-color: var(--success); background: rgba(34, 197, 94, 0.1); }
+        .demo-link-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 3px; }
+        .demo-link-url { font-size: 0.75rem; color: var(--text-muted); word-break: break-all; }
+        
+        /* Message Preview */
+        .message-preview {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 15px;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border: 1px solid var(--border);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .copy-btn {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 12px;
+        }
+        
+        .copy-btn:hover { opacity: 0.9; }
+        
+        /* Prospect List */
+        .prospect-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 5px 12px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        .prospect-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .prospect-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            gap: 10px;
+        }
+        
+        .prospect-item:last-child { border-bottom: none; }
+        
+        .prospect-info { flex: 1; min-width: 0; }
+        .prospect-name { font-weight: 600; font-size: 0.95rem; }
+        .prospect-meta { font-size: 0.8rem; color: var(--text-muted); }
+        
+        .prospect-channel {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .prospect-channel.fb { background: var(--facebook); }
+        .prospect-channel.ig { background: var(--instagram); }
+        .prospect-channel.li { background: var(--linkedin); }
+        .prospect-channel.em { background: var(--email); }
+        
+        .prospect-actions {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        
+        .prospect-actions select {
+            padding: 5px 8px;
+            font-size: 0.8rem;
+            width: auto;
+        }
+        
+        .delete-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            opacity: 0.6;
+        }
+        
+        .delete-btn:hover { opacity: 1; }
+        
+        /* Alert */
+        .alert {
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+        
+        .hidden { display: none; }
+        
+        /* Email subject */
+        .email-subject {
+            background: var(--warning);
+            color: black;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .email-subject strong { font-weight: 600; }
+        
+        /* Stats Cards */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 1200px) {
+            .stats-row { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        .stat-card {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-value { font-size: 1.8rem; font-weight: bold; color: var(--primary); }
+        .stat-label { color: var(--text-muted); font-size: 0.8rem; margin-top: 3px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Appinara Multi-Channel Outreach</h1>
+        <p class="subtitle">Facebook • Instagram • Email • LinkedIn | Demo: Moderný + Retro štýl</p>
+        
+        <!-- Channel Quick Stats -->
+        <div class="channel-stats">
+            <div class="channel-card fb" onclick="setChannel('Facebook')">
+                <div class="channel-icon">📘</div>
+                <div class="channel-name">Facebook</div>
+                <div class="channel-count" id="fbCount">0</div>
+                <div class="channel-goal">Cieľ: 10/deň</div>
+            </div>
+            <div class="channel-card ig" onclick="setChannel('Instagram')">
+                <div class="channel-icon">📸</div>
+                <div class="channel-name">Instagram</div>
+                <div class="channel-count" id="igCount">0</div>
+                <div class="channel-goal">Cieľ: 5/deň</div>
+            </div>
+            <div class="channel-card em" onclick="setChannel('Email')">
+                <div class="channel-icon">📧</div>
+                <div class="channel-name">Email</div>
+                <div class="channel-count" id="emCount">0</div>
+                <div class="channel-goal">Cieľ: 20/deň</div>
+            </div>
+            <div class="channel-card li" onclick="setChannel('LinkedIn')">
+                <div class="channel-icon">💼</div>
+                <div class="channel-name">LinkedIn</div>
+                <div class="channel-count" id="liCount">0</div>
+                <div class="channel-goal">Cieľ: 5/deň</div>
+            </div>
+        </div>
+        
+        <!-- Daily Progress -->
+        <div class="daily-progress">
+            <div class="progress-item">
+                <div class="progress-label">📊 Dnes celkom</div>
+                <div class="progress-value"><span id="todayTotal">0</span>/40</div>
+                <div class="progress-bar"><div class="progress-fill" id="totalProgress" style="width: 0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">💬 Odpovede dnes</div>
+                <div class="progress-value" id="todayReplies">0</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">📞 Cally tento týždeň</div>
+                <div class="progress-value" id="weekCalls">0</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">🎉 Uzavreté celkom</div>
+                <div class="progress-value" id="totalClosed">0</div>
+            </div>
+        </div>
+        
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" id="totalProspects">0</div>
+                <div class="stat-label">Prospektov</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalContacted">0</div>
+                <div class="stat-label">Oslovených</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalReplies">0</div>
+                <div class="stat-label">Odpovedí</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalCallsAll">0</div>
+                <div class="stat-label">Callov</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalClosedAll">0</div>
+                <div class="stat-label">Uzavretých</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="conversionRate">0%</div>
+                <div class="stat-label">Konverzia</div>
+            </div>
+        </div>
+        
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Column - Add Prospect & Message Generator -->
+            <div>
+                <!-- Add Prospect -->
+                <div class="card" style="margin-bottom: 20px;">
+                    <h2>➕ Pridať prospekta</h2>
+                    <div id="successAlert" class="alert hidden">✅ Prospekt pridaný!</div>
+                    
+                    <form id="prospectForm">
+                        <div class="form-group">
+                            <label>Názov salónu/firmy *</label>
+                            <input type="text" id="name" required placeholder="napr. Salón Krásy">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Mesto</label>
+                                <input type="text" id="city" placeholder="Bratislava">
+                            </div>
+                            <div class="form-group">
+                                <label>Kanál *</label>
+                                <select id="platform" required>
+                                    <option value="Facebook">📘 Facebook</option>
+                                    <option value="Instagram">📸 Instagram</option>
+                                    <option value="Email">📧 Email</option>
+                                    <option value="LinkedIn">💼 LinkedIn</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email (pre email outreach)</label>
+                            <input type="email" id="email" placeholder="salon@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>URL profilu / Web</label>
+                            <input type="url" id="url" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label>Poznámka</label>
+                            <input type="text" id="note" placeholder="napr. Aktívny profil, 2k followers">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Pridať prospekta</button>
+                    </form>
+                </div>
+                
+                <!-- Message Generator -->
+                <div class="card">
+                    <h2>✉️ Generátor správ</h2>
+                    
+                    <!-- Channel Tabs -->
+                    <div class="tabs">
+                        <button class="tab fb active" data-channel="facebook">📘 Facebook</button>
+                        <button class="tab ig" data-channel="instagram">📸 Instagram</button>
+                        <button class="tab em" data-channel="email">📧 Email</button>
+                        <button class="tab li" data-channel="linkedin">💼 LinkedIn</button>
+                    </div>
+                    
+                    <!-- Demo Links Selection -->
+                    <label style="margin-bottom: 8px; display: block;">Vyber demo stránku:</label>
+                    <div class="demo-links">
+                        <div class="demo-link active" data-demo="modern" onclick="selectDemo('modern')">
+                            <div class="demo-link-title">🎨 Moderný štýl</div>
+                            <div class="demo-link-url">salonelegance.vercel.app</div>
+                        </div>
+                        <div class="demo-link" data-demo="retro" onclick="selectDemo('retro')">
+                            <div class="demo-link-title">🕰️ Retro štýl</div>
+                            <div class="demo-link-url">salonretro.vercel.app</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Template Type Tabs -->
+                    <div class="tabs" id="templateTabs">
+                        <button class="tab active" data-template="first">Prvý kontakt</button>
+                        <button class="tab" data-template="followup3">Follow-up 3d</button>
+                        <button class="tab" data-template="followup7">Follow-up 7d</button>
+                        <button class="tab" data-template="interest">Záujem</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Meno salónu (personalizácia)</label>
+                        <input type="text" id="salonName" placeholder="napr. Salón Krásy" oninput="updateMessage()">
+                    </div>
+                    
+                    <!-- Email Subject (only for email) -->
+                    <div id="emailSubject" class="email-subject hidden">
+                        <strong>Predmet:</strong> <span id="subjectText"></span>
+                    </div>
+                    
+                    <div class="message-preview" id="messagePreview"></div>
+                    
+                    <button class="copy-btn" onclick="copyMessage()">📋 Kopírovať správu</button>
+                </div>
+            </div>
+            
+            <!-- Right Column - Prospect List -->
+            <div class="card">
+                <h2>📋 Zoznam prospektov</h2>
+                
+                <!-- Filters -->
+                <div class="prospect-filters">
+                    <button class="filter-btn active" data-filter="all">Všetky</button>
+                    <button class="filter-btn" data-filter="pending">⏳ Čakajú</button>
+                    <button class="filter-btn" data-filter="contacted">📨 Oslovení</button>
+                    <button class="filter-btn" data-filter="replied">💬 Odpovedali</button>
+                    <button class="filter-btn" data-filter="call">📞 Call</button>
+                    <button class="filter-btn" data-filter="closed">🎉 Uzavretí</button>
+                </div>
+                
+                <div class="prospect-list" id="prospectList">
+                    <p style="color: var(--text-muted); text-align: center; padding: 40px;">
+                        Zatiaľ žiadni prospekti. Pridajte prvého! ☝️
+                    </p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-outline btn-small" onclick="exportCSV()">📥 Export CSV</button>
+                    <button class="btn btn-outline btn-small" onclick="clearAll()">🗑️ Vymazať všetko</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Demo URLs
+        const demoUrls = {
+            modern: 'salonelegance.vercel.app',
+            retro: 'salonretro.vercel.app'
+        };
+        
+        let selectedDemo = 'modern';
+        let currentChannel = 'facebook';
+        let currentTemplate = 'first';
+        let currentFilter = 'all';
+        
+        // Templates by channel
+        const templates = {
+            facebook: {
+                first: {
+                    message: `Ahoj! 😊
+
+Vidím, že máte krásny salón{salonName}!
+
+Vytvoril som demo stránku s AI chatbotom a online rezerváciami:
+👉 {demoUrl}
+
+✅ AI chatbot odpovedá 24/7
+✅ Online rezervácie
+✅ Moderný dizajn
+
+Prvým 3 klientom dávam 50% zľavu! 🎉
+
+Čo poviete?
+
+Martin
+Appinara`
+                },
+                followup3: {
+                    message: `Ahoj! 👋
+
+Pozreli ste si demo stránku?
+👉 {demoUrl}
+
+Rád zodpoviem otázky!
+Zľava 50% ešte platí 😊
+
+Martin`
+                },
+                followup7: {
+                    message: `Ahoj!
+
+Posledný pokus - viem že ste busy! 😊
+
+Keby ste niekedy chceli modernú stránku s chatbotom:
+👉 {demoUrl}
+
+Stačí napísať!
+Martin`
+                },
+                interest: {
+                    message: `Super, teší ma! 🎉
+
+Kedy by vám vyhovovalo 15 min na krátky call?
+Ukážem vám demo naživo.
+
+Mám voľno:
+• [Deň] o [čas]
+• [Deň] o [čas]
+
+Martin`
+                }
+            },
+            instagram: {
+                first: {
+                    message: `Ahoj! 😊
+
+Páči sa mi váš profil{salonName}! 
+
+Robím weby pre salóny s AI chatbotom:
+👉 {demoUrl}
+
+Chatbot odpovedá zákazníkom 24/7 a rezervuje termíny automaticky 🤖
+
+Prvým klientom 50% zľava!
+
+Napíšte ak máte záujem ✨
+
+Martin`
+                },
+                followup3: {
+                    message: `Ahoj! 👋
+
+Videli ste demo? 
+👉 {demoUrl}
+
+Dajte vedieť čo si myslíte! 😊`
+                },
+                followup7: {
+                    message: `Hey! 
+
+Keby ste chceli modernú stránku - stačí napísať 😊
+Demo: {demoUrl}`
+                },
+                interest: {
+                    message: `Yay! 🎉
+
+Máte 15 min na call?
+Ukážem vám všetko naživo!
+
+Kedy vám pasuje?`
+                }
+            },
+            email: {
+                first: {
+                    subject: `{salonName} - Ušetrite 20 hodín týždenne`,
+                    message: `Dobrý deň,
+
+videl som váš salón{salonName} a zaujalo ma, že ste aktívni na sociálnych sieťach.
+
+Rád by som vám ukázal riešenie, ktoré pomáha salónom:
+✅ Ušetriť 20+ hodín týždenne (AI chatbot odpovedá za vás)
+✅ Zvýšiť rezervácie o 30% (online booking 24/7)
+✅ Profesionálny web za zlomok ceny
+
+Vytvoril som demo stránku:
+👉 https://{demoUrl}
+
+Prvým 3 klientom ponúkam 50% zľavu (zostávajú 2 miesta).
+
+Máte 15 minút tento týždeň na krátky call?
+
+S pozdravom,
+Martin Saraka
+Appinara - AI riešenia pre salóny
+
+📧 appinarasolutions@gmail.com
+📱 +421 917 566 722
+🔗 https://appinara.sk`
+                },
+                followup3: {
+                    subject: `Re: {salonName} - Ušetrite 20 hodín týždenne`,
+                    message: `Dobrý deň,
+
+posielal som vám email minulý týždeň ohľadom modernizácie webu vášho salónu.
+
+Pozreli ste si demo stránku?
+👉 https://{demoUrl}
+
+Konkrétny príklad:
+Salón v Bratislave po implementácii:
+• -22 hodín admin práce týždenne
+• +35% viac rezervácií
+• 0 stratených zákazníkov
+
+Rád vám to ukážem na 15-min calle.
+
+Máte čas tento týždeň?
+
+S pozdravom,
+Martin`
+                },
+                followup7: {
+                    subject: `Posledná správa - {salonName}`,
+                    message: `Dobrý deň,
+
+toto je môj posledný follow-up.
+
+Ak by ste niekedy mali záujem o:
+• Moderný web s AI chatbotom
+• Online rezervačný systém
+• Automatické odpovede zákazníkom
+
+Demo: https://{demoUrl}
+
+Stačí odpovedať na tento email.
+
+Prajem pekný deň!
+
+Martin
+Appinara`
+                },
+                interest: {
+                    subject: `Re: {salonName} - Ďalšie kroky`,
+                    message: `Dobrý deň,
+
+ďakujem za odpoveď!
+
+Navrhol by som 15-20 minútový call kde vám ukážem:
+1. Demo stránku naživo
+2. Ako funguje AI chatbot
+3. Ceny a možnosti
+
+Mám voľno:
+• [Deň] o [čas]
+• [Deň] o [čas]
+
+Kedy vám to pasuje?
+
+S pozdravom,
+Martin
+
+P.S. Link na call vám pošlem po potvrdení termínu.`
+                }
+            },
+            linkedin: {
+                first: {
+                    message: `Ahoj!
+
+Videl som váš profil - zaujala ma vaša práca v beauty industry.
+
+Špecializujem sa na AI riešenia pre salóny:
+→ AI chatbot (odpovedá 24/7)
+→ Online rezervácie
+→ Moderné weby
+
+Demo: {demoUrl}
+
+Prvým 3 klientom dávam 50% zľavu.
+
+Máte 10 min na krátky call?
+
+Martin
+Appinara`
+                },
+                followup3: {
+                    message: `Ahoj!
+
+Pozreli ste si demo?
+{demoUrl}
+
+Rád zodpoviem otázky!
+
+Martin`
+                },
+                followup7: {
+                    message: `Ahoj,
+
+posledný follow-up - nechcem byť otravný 😊
+
+Keby ste mali záujem o modernú stránku s AI, stačí napísať.
+
+Martin`
+                },
+                interest: {
+                    message: `Super!
+
+Kedy by vám vyhovovalo 15 min call?
+
+• [Deň] o [čas]
+• [Deň] o [čas]
+
+Čo pasuje?
+
+Martin`
+                }
+            }
+        };
+        
+        // Load data from localStorage
+        let prospects = JSON.parse(localStorage.getItem('prospects') || '[]');
+        let todayData = JSON.parse(localStorage.getItem('todayData') || '{}');
+        
+        // Check if new day
+        const today = new Date().toDateString();
+        if (todayData.date !== today) {
+            todayData = { date: today, fb: 0, ig: 0, em: 0, li: 0, replies: 0 };
+            localStorage.setItem('todayData', JSON.stringify(todayData));
+        }
+        
+        // Demo selection
+        function selectDemo(demo) {
+            selectedDemo = demo;
+            document.querySelectorAll('.demo-link').forEach(el => el.classList.remove('active'));
+            document.querySelector(`[data-demo="${demo}"]`).classList.add('active');
+            updateMessage();
+        }
+        
+        // Channel tabs
+        document.querySelectorAll('.tabs .tab[data-channel]').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tabs .tab[data-channel]').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentChannel = this.dataset.channel;
+                updateMessage();
+            });
+        });
+        
+        // Template tabs
+        document.querySelectorAll('#templateTabs .tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('#templateTabs .tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentTemplate = this.dataset.template;
+                updateMessage();
+            });
+        });
+        
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                renderProspects();
+            });
+        });
+        
+        function setChannel(channel) {
+            document.getElementById('platform').value = channel;
+        }
+        
+        function updateMessage() {
+            const template = templates[currentChannel][currentTemplate];
+            const salonName = document.getElementById('salonName').value;
+            const demoUrl = demoUrls[selectedDemo];
+            
+            let message = template.message
+                .replace('{demoUrl}', demoUrl)
+                .replace('{salonName}', salonName ? ` ${salonName}` : '');
+            
+            document.getElementById('messagePreview').textContent = message;
+            
+            // Handle email subject
+            const subjectEl = document.getElementById('emailSubject');
+            if (currentChannel === 'email' && template.subject) {
+                subjectEl.classList.remove('hidden');
+                document.getElementById('subjectText').textContent = template.subject
+                    .replace('{salonName}', salonName || 'Váš salón');
+            } else {
+                subjectEl.classList.add('hidden');
+            }
+        }
+        
+        function copyMessage() {
+            const message = document.getElementById('messagePreview').textContent;
+            let fullText = message;
+            
+            // For email, include subject
+            if (currentChannel === 'email') {
+                const subject = document.getElementById('subjectText').textContent;
+                fullText = `Predmet: ${subject}\n\n${message}`;
+            }
+            
+            navigator.clipboard.writeText(fullText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅ Skopírované!';
+                setTimeout(() => {
+                    btn.textContent = '📋 Kopírovať správu';
+                }, 2000);
+            });
+        }
+        
+        // Form submission
+        document.getElementById('prospectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const prospect = {
+                id: Date.now(),
+                name: document.getElementById('name').value,
+                city: document.getElementById('city').value,
+                platform: document.getElementById('platform').value,
+                email: document.getElementById('email').value,
+                url: document.getElementById('url').value,
+                note: document.getElementById('note').value,
+                status: 'pending',
+                dateAdded: new Date().toISOString(),
+                dateContacted: null
+            };
+            
+            prospects.push(prospect);
+            saveProspects();
+            renderProspects();
+            updateStats();
+            
+            document.getElementById('successAlert').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('successAlert').classList.add('hidden');
+            }, 2000);
+            
+            this.reset();
+        });
+        
+        function saveProspects() {
+            localStorage.setItem('prospects', JSON.stringify(prospects));
+        }
+        
+        function renderProspects() {
+            const list = document.getElementById('prospectList');
+            
+            let filtered = prospects;
+            if (currentFilter !== 'all') {
+                filtered = prospects.filter(p => p.status === currentFilter);
+            }
+            
+            if (filtered.length === 0) {
+                list.innerHTML = `<p style="color: var(--text-muted); text-align: center; padding: 40px;">
+                    ${currentFilter === 'all' ? 'Zatiaľ žiadni prospekti.' : 'Žiadni prospekti v tejto kategórii.'}
+                </p>`;
+                return;
+            }
+            
+            const channelClass = { Facebook: 'fb', Instagram: 'ig', Email: 'em', LinkedIn: 'li' };
+            
+            list.innerHTML = filtered.reverse().map(p => `
+                <div class="prospect-item">
+                    <div class="prospect-info">
+                        <div class="prospect-name">
+                            <span class="prospect-channel ${channelClass[p.platform]}">${p.platform}</span>
+                            ${p.name}
+                        </div>
+                        <div class="prospect-meta">
+                            ${p.city || ''} ${p.email ? '• ' + p.email : ''} ${p.note ? '• ' + p.note : ''}
+                        </div>
+                    </div>
+                    <div class="prospect-actions">
+                        <select onchange="updateStatus(${p.id}, this.value)">
+                            <option value="pending" ${p.status === 'pending' ? 'selected' : ''}>⏳ Čaká</option>
+                            <option value="contacted" ${p.status === 'contacted' ? 'selected' : ''}>📨 Oslovený</option>
+                            <option value="replied" ${p.status === 'replied' ? 'selected' : ''}>💬 Odpovedal</option>
+                            <option value="call" ${p.status === 'call' ? 'selected' : ''}>📞 Call</option>
+                            <option value="closed" ${p.status === 'closed' ? 'selected' : ''}>🎉 Uzavretý</option>
+                        </select>
+                        <button class="delete-btn" onclick="deleteProspect(${p.id})">🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function updateStatus(id, status) {
+            const prospect = prospects.find(p => p.id === id);
+            if (prospect) {
+                const oldStatus = prospect.status;
+                prospect.status = status;
+                
+                // Track today's stats
+                if (oldStatus === 'pending' && status === 'contacted') {
+                    prospect.dateContacted = new Date().toISOString();
+                    const channelKey = { Facebook: 'fb', Instagram: 'ig', Email: 'em', LinkedIn: 'li' };
+                    todayData[channelKey[prospect.platform]]++;
+                    localStorage.setItem('todayData', JSON.stringify(todayData));
+                }
+                
+                if (status === 'replied' && oldStatus !== 'replied') {
+                    todayData.replies++;
+                    localStorage.setItem('todayData', JSON.stringify(todayData));
+                }
+                
+                saveProspects();
+                renderProspects();
+                updateStats();
+            }
+        }
+        
+        function deleteProspect(id) {
+            if (confirm('Vymazať prospekta?')) {
+                prospects = prospects.filter(p => p.id !== id);
+                saveProspects();
+                renderProspects();
+                updateStats();
+            }
+        }
+        
+        function updateStats() {
+            const total = prospects.length;
+            const contacted = prospects.filter(p => p.status !== 'pending').length;
+            const replies = prospects.filter(p => ['replied', 'call', 'closed'].includes(p.status)).length;
+            const calls = prospects.filter(p => ['call', 'closed'].includes(p.status)).length;
+            const closed = prospects.filter(p => p.status === 'closed').length;
+            
+            // Main stats
+            document.getElementById('totalProspects').textContent = total;
+            document.getElementById('totalContacted').textContent = contacted;
+            document.getElementById('totalReplies').textContent = replies;
+            document.getElementById('totalCallsAll').textContent = calls;
+            document.getElementById('totalClosedAll').textContent = closed;
+            document.getElementById('conversionRate').textContent = contacted > 0 ? Math.round(closed / contacted * 100) + '%' : '0%';
+            
+            // Channel counts (contacted today)
+            document.getElementById('fbCount').textContent = todayData.fb || 0;
+            document.getElementById('igCount').textContent = todayData.ig || 0;
+            document.getElementById('emCount').textContent = todayData.em || 0;
+            document.getElementById('liCount').textContent = todayData.li || 0;
+            
+            // Daily progress
+            const todayTotal = (todayData.fb || 0) + (todayData.ig || 0) + (todayData.em || 0) + (todayData.li || 0);
+            document.getElementById('todayTotal').textContent = todayTotal;
+            document.getElementById('totalProgress').style.width = Math.min(todayTotal / 40 * 100, 100) + '%';
+            document.getElementById('todayReplies').textContent = todayData.replies || 0;
+            document.getElementById('weekCalls').textContent = calls;
+            document.getElementById('totalClosed').textContent = closed;
+        }
+        
+        function exportCSV() {
+            const headers = ['Názov', 'Mesto', 'Kanál', 'Email', 'URL', 'Stav', 'Poznámka', 'Dátum pridania', 'Dátum kontaktu'];
+            const rows = prospects.map(p => [
+                p.name, p.city, p.platform, p.email, p.url, p.status, p.note, p.dateAdded, p.dateContacted || ''
+            ]);
+            
+            const csv = [headers, ...rows].map(row => row.map(cell => `"${cell || ''}"`).join(',')).join('\n');
+            const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'prospects-' + new Date().toISOString().split('T')[0] + '.csv';
+            link.click();
+        }
+        
+        function clearAll() {
+            if (confirm('Vymazať VŠETKÝCH prospektov?')) {
+                prospects = [];
+                saveProspects();
+                renderProspects();
+                updateStats();
+            }
+        }
+        
+        // Initialize
+        updateMessage();
+        renderProspects();
+        updateStats();
+    </script>
+</body>
+</html>

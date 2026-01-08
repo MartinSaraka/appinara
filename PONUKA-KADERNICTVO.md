@@ -4,7 +4,9 @@
 
 Vytvoril som pre vás **demo stránku**, ktorá ukazuje, ako by mohla vyzerať vaša nová webová stránka s modernými funkciami.
 
-**🔗 Pozrite si demo: [appinara.vercel.app/demo-kadernictvo](https://appinara.vercel.app/demo-kadernictvo)**
+**🔗 Pozrite si demo stránky:**
+- 🎨 **Moderný štýl:** [salonelegance.vercel.app](https://salonelegance.vercel.app)
+- 🕰️ **Retro štýl:** [salonretro.vercel.app](https://salonretro.vercel.app)
 
 ---
 
@@ -63,7 +65,7 @@ Vytvoril som pre vás **demo stránku**, ktorá ukazuje, ako by mohla vyzerať v
 
 ## 📞 ĎALŠIE KROKY
 
-1. **Pozrite si demo stránku** - [appinara.vercel.app/demo-kadernictvo](https://appinara.vercel.app/demo-kadernictvo)
+1. **Pozrite si demo stránky** - [salonelegance.vercel.app](https://salonelegance.vercel.app) alebo [salonretro.vercel.app](https://salonretro.vercel.app)
 2. **Napíšte mi** - Ak sa vám páči, napíšte mi správu
 3. **Krátky hovor** - 15 minút na diskusiu o vašich potrebách
 4. **Začneme spoluprácu** - Začneme pracovať na vašej stránke
