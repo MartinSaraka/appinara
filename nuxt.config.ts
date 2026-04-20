@@ -2,20 +2,28 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+  /** Server-only: set via NUXT_* env. Legacy EmailJS defaults keep current deployment working until you migrate to .env. */
+  runtimeConfig: {
+    /** Optional: MiniMax API kľúč len na serveri (text/TTS/video) — env: NUXT_MINIMAX_API_KEY */
+    minimaxApiKey: '',
+    emailjsServiceId: 'service_is1zj0v',
+    emailjsTemplateId: 'template_xjtb39p',
+    emailjsPublicKey: 'OkHjN5RiYSgxDL-5S'
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/motion/nuxt'
   ],
   app: {
     head: {
-      title: 'Appinara | AI Integrácie & Moderné Webové Riešenia',
+      title: 'Appinara | AI automatizácie a digitálne riešenia',
       htmlAttrs: {
         lang: 'sk'
       },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.' },
+        { name: 'description', content: 'AI automatizácie, lead follow-up, chatboty, weby a interné nástroje pre firmy na Slovensku. Praktické výsledky namiesto hype.' },
         { name: 'keywords', content: 'AI integrácie, webové riešenia, vývoj aplikácií, chatboty, automatizácia, fullstack development, Nuxt, Vue, Slovensko' },
         { name: 'author', content: 'Appinara' },
         { name: 'theme-color', content: '#6366f1' },
@@ -24,8 +32,8 @@ export default defineNuxtConfig({
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://appinara.sk/' },
-        { property: 'og:title', content: 'Appinara | AI Integrácie & Moderné Webové Riešenia' },
-        { property: 'og:description', content: 'Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.' },
+        { property: 'og:title', content: 'Appinara | AI automatizácie a digitálne riešenia' },
+        { property: 'og:description', content: 'AI automatizácie, lead follow-up, chatboty, weby a interné nástroje pre firmy na Slovensku.' },
         { property: 'og:image', content: 'https://appinara.sk/logo.svg' },
         { property: 'og:locale', content: 'sk_SK' },
         { property: 'og:site_name', content: 'Appinara' },
@@ -33,8 +41,8 @@ export default defineNuxtConfig({
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:url', content: 'https://appinara.sk/' },
-        { name: 'twitter:title', content: 'Appinara | AI Integrácie & Moderné Webové Riešenia' },
-        { name: 'twitter:description', content: 'Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.' },
+        { name: 'twitter:title', content: 'Appinara | AI automatizácie a digitálne riešenia' },
+        { name: 'twitter:description', content: 'AI automatizácie, lead follow-up, chatboty, weby a interné nástroje pre firmy na Slovensku.' },
         { name: 'twitter:image', content: 'https://appinara.sk/logo.svg' }
       ],
       link: [
