@@ -72,13 +72,13 @@
         class="text-center mt-12 text-gray-600 dark:text-slate-400 text-sm md:text-base"
       >
         Neviete, kde začať?
-        <NuxtLink
-          to="/ai-audit"
+        <a
+          href="#contact"
           class="font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline-offset-2 hover:underline"
         >
-          Krátky AI audit
-        </NuxtLink>
-        zarovná smer ešte pred vývojom.
+          Napíšte mi
+        </a>
+        a navrhnem ďalší krok.
       </p>
     </div>
   </section>

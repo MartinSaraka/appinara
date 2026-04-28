@@ -4,9 +4,7 @@
 
     <main id="main-content">
       <HeroSection />
-      <PortfolioSection />
-      <CollaborationStepsSection />
-      <FaqSection />
+      <ServicesSection />
       <ContactSection />
     </main>
 

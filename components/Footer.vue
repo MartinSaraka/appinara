@@ -93,13 +93,9 @@ const socialLinks = [
 ]
 
 const quickLinks = [
-  { label: 'Príklady', href: '/#portfolio' },
-  { label: 'Postup', href: '/#spolupraca' },
-  { label: 'O mne', href: '/o-mne' },
-  { label: 'FAQ', href: '/#faq' },
-  { label: 'AI audit', href: '/ai-audit' },
+  { label: 'Služby', href: '#services' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Kontakt', href: '/#contact' }
+  { label: 'Kontakt', href: '#contact' }
 ]
 
 const services = [

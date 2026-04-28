@@ -49,13 +49,6 @@
             <span class="theme-toggle-label">{{ isDark ? 'Noc' : 'Deň' }}</span>
           </button>
 
-          <NuxtLink
-            to="/ai-audit"
-            class="btn-nav-ghost hidden lg:inline-flex"
-            aria-label="Bezplatný AI audit"
-          >
-            AI audit
-          </NuxtLink>
           <a href="/#contact" class="btn-nav-primary" aria-label="Kontaktovať Appinara">
             Kontakt
           </a>
@@ -108,14 +101,7 @@
           >
             {{ item.label }}
           </a>
-          <NuxtLink
-            to="/ai-audit"
-            class="btn-nav-ghost mt-3 justify-center"
-            @click="mobileMenuOpen = false"
-          >
-            AI audit
-          </NuxtLink>
-          <a href="/#contact" class="btn-nav-primary justify-center mt-1.5" @click="mobileMenuOpen = false">
+          <a href="/#contact" class="btn-nav-primary justify-center mt-3" @click="mobileMenuOpen = false">
             Kontakt
           </a>
         </div>
@@ -142,10 +128,7 @@ const progress = ref(0)
 const { toggleTheme, isDark } = useTheme()
 
 const navItems = [
-  { label: 'Príklady', href: '/#portfolio' },
-  { label: 'Postup', href: '/#spolupraca' },
-  { label: 'O mne', href: '/o-mne' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: 'Služby', href: '/#services' },
   { label: 'Blog', href: '/blog' }
 ]
 
