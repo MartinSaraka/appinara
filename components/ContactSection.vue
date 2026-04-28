@@ -1,46 +1,63 @@
 <template>
   <section
     id="contact"
-    class="relative section-tall border-t border-gray-200/80 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/80 overflow-hidden"
+    class="relative section-tall bg-bone dark:bg-anthracite overflow-hidden"
   >
-    <div class="absolute -top-32 -right-32 w-[420px] h-[420px] mesh-1 rounded-full opacity-30 blur-3xl pointer-events-none" aria-hidden="true" />
-
     <div class="container mx-auto px-6 relative">
       <div class="max-w-6xl mx-auto">
+
+        <header v-motion-fade-visible class="text-center mb-20 md:mb-28 max-w-3xl mx-auto">
+          <span class="block mx-auto mb-10" aria-hidden="true">
+            <NuxtImg
+              src="/images/decorative/yellow-lines.svg"
+              alt=""
+              width="80"
+              height="22"
+              class="inline-block"
+            />
+          </span>
+          <h2 class="font-display font-normal text-display-2xl text-ink-900 dark:text-bone-100 text-balance leading-[0.94]">
+            Napíšme <em class="italic font-normal">si</em>.
+          </h2>
+          <p class="mt-8 text-lg md:text-xl text-ink-700 dark:text-bone-100/80 leading-relaxed text-pretty">
+            Stručný popis projektu — ozvem sa do 24 hodín s konkrétnym ďalším krokom.
+            Bez záväzkov, bez agentúrneho šumu.
+          </p>
+        </header>
+
         <div class="grid md:grid-cols-2 gap-12 lg:gap-20 md:items-start">
           <div v-motion-fade-visible class="md:pt-2">
-            <p class="eyebrow mb-4">Kontakt</p>
-            <h2 class="text-display-lg font-display font-bold mb-5 text-gray-900 dark:text-white text-balance leading-[1.05]">
-              Napíšte mi stručne,
-              <span class="italic font-medium gradient-text">čo riešite.</span>
-            </h2>
-            <p class="text-lg md:text-xl text-gray-600 dark:text-slate-300 mb-10 leading-relaxed max-w-md text-pretty">
-              Ozvem sa s konkrétnym ďalším krokom. Bez záväzkov.
+            <p class="eyebrow mb-7">
+              Priamy kontakt
             </p>
 
-            <div class="space-y-4">
-              <div v-for="contact in contactInfo" :key="contact.label" class="flex items-center gap-4">
-                <div class="w-11 h-11 bg-primary-100 dark:bg-primary-900/40 rounded-xl flex items-center justify-center flex-shrink-0 text-primary-700 dark:text-primary-300">
-                  <component :is="contact.icon" class="w-5 h-5" />
-                </div>
-                <div>
-                  <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-500">{{ contact.label }}</div>
-                  <a
-                    v-if="contact.href"
-                    :href="contact.href"
-                    class="text-gray-900 dark:text-white font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                  >
-                    {{ contact.value }}
-                  </a>
-                  <span v-else class="text-gray-900 dark:text-white font-medium">{{ contact.value }}</span>
-                </div>
+            <div class="space-y-5">
+              <div v-for="(contact, i) in contactInfo" :key="contact.label" class="flex items-start gap-5" :class="i > 0 ? 'pt-5' : ''">
+                <span class="font-mono text-[10px] tracking-mono-wide uppercase text-ink-500 dark:text-ink-300 pt-1 w-20 shrink-0">
+                  {{ contact.label }}
+                </span>
+                <a
+                  v-if="contact.href"
+                  :href="contact.href"
+                  class="text-ink-900 dark:text-bone-100 font-display text-2xl md:text-3xl leading-tight hover:underline underline-offset-4 decoration-ink-300 decoration-1 transition-colors"
+                >
+                  {{ contact.value }}
+                </a>
+                <span v-else class="text-ink-900 dark:text-bone-100 font-display text-2xl md:text-3xl leading-tight">{{ contact.value }}</span>
               </div>
             </div>
+
+            <p class="mt-10 font-mono text-[11px] tracking-mono-wide uppercase text-ink-500 dark:text-ink-300 max-w-xs leading-relaxed">
+              Najradšej riešim do 24 hodín. Píšete priamo so mnou — žiadny manažér medzi nami.
+            </p>
           </div>
 
           <div v-motion-fade-visible :delay="200">
+            <p class="eyebrow mb-7">
+              Formulár
+            </p>
             <form
-              class="relative rounded-2xl border border-gray-200/90 dark:border-slate-700/80 bg-gray-50/50 dark:bg-slate-900/40 p-6 md:p-8 space-y-5 shadow-sm"
+              class="relative border border-mist dark:border-anthracite-mist bg-bone-50 dark:bg-anthracite-elev p-6 md:p-9 space-y-5"
               novalidate
               @submit.prevent="handleSubmit"
             >
@@ -50,8 +67,8 @@
               </div>
 
               <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                  Meno <span class="text-red-500">*</span>
+                <label for="name" class="block font-mono text-[10px] uppercase tracking-mono-wide text-ink-500 dark:text-ink-300 mb-2">
+                  Meno *
                 </label>
                 <input
                   id="name"
@@ -59,68 +76,54 @@
                   type="text"
                   required
                   class="input-app"
-                  :class="{ 'border-red-500 ring-red-500/30': nameError }"
+                  :class="{ 'border-ink-900 dark:border-bone-100': nameError }"
                   placeholder="Vaše meno"
                   aria-label="Vaše meno"
                   autocomplete="name"
                 />
-                <p v-if="nameError" class="text-xs text-red-500 mt-1">{{ nameError }}</p>
+                <p v-if="nameError" class="text-xs text-ink-900 dark:text-bone-100 mt-1.5">{{ nameError }}</p>
               </div>
 
               <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                  Email <span class="text-gray-500 dark:text-slate-500 font-normal">(alebo telefón nižšie)</span>
+                <label for="email" class="block font-mono text-[10px] uppercase tracking-mono-wide text-ink-500 dark:text-ink-300 mb-2">
+                  Email <span class="normal-case">(alebo telefón nižšie)</span>
                 </label>
                 <input
                   id="email"
                   v-model="form.email"
                   type="email"
                   class="input-app"
-                  :class="{
-                    'border-red-500': emailError || (validationError && !form.email && !form.phone),
-                    'border-emerald-500/60': emailValid
-                  }"
                   placeholder="vas@email.com"
                   aria-label="Váš email"
                   autocomplete="email"
                   @blur="validateEmailField"
                 />
                 <p
-                  class="text-xs mt-1"
-                  :class="
-                    emailError ? 'text-red-500' : emailValid ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-500 dark:text-slate-500'
-                  "
+                  class="text-xs mt-1.5"
+                  :class="emailError ? 'text-ink-900 dark:text-bone-100' : 'text-ink-500 dark:text-ink-300'"
                 >
-                  {{ emailError || (emailValid ? 'Email vyzerá v poriadku' : 'Na odpoveď vám stačí email alebo telefón') }}
+                  {{ emailError || (emailValid ? 'Email vyzerá v poriadku' : 'Stačí email alebo telefón') }}
                 </p>
               </div>
 
               <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                  Telefón <span class="text-gray-500 dark:text-slate-500 font-normal">(voliteľné)</span>
+                <label for="phone" class="block font-mono text-[10px] uppercase tracking-mono-wide text-ink-500 dark:text-ink-300 mb-2">
+                  Telefón <span class="normal-case">(voliteľné)</span>
                 </label>
                 <input
                   id="phone"
                   v-model="form.phone"
                   type="tel"
                   class="input-app"
-                  :class="{ 'border-red-500': validationError && !form.email && !form.phone }"
                   placeholder="+421 XXX XXX XXX"
                   aria-label="Váš telefón"
                   autocomplete="tel"
                 />
-                <p class="text-xs text-gray-500 dark:text-slate-500 mt-1">
-                  {{
-                    validationError && !form.email && !form.phone
-                      ? 'Vyplňte aspoň email alebo telefón'
-                      : ''
-                  }}
-                </p>
               </div>
 
               <div>
-                <label for="company" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                  Firma <span class="text-gray-500 dark:text-slate-500 font-normal">(voliteľné)</span>
+                <label for="company" class="block font-mono text-[10px] uppercase tracking-mono-wide text-ink-500 dark:text-ink-300 mb-2">
+                  Firma <span class="normal-case">(voliteľné)</span>
                 </label>
                 <input
                   id="company"
@@ -133,15 +136,14 @@
               </div>
 
               <div>
-                <label for="project" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                  Typ projektu <span class="text-red-500">*</span>
+                <label for="project" class="block font-mono text-[10px] uppercase tracking-mono-wide text-ink-500 dark:text-ink-300 mb-2">
+                  Typ projektu *
                 </label>
                 <select
                   id="project"
                   v-model="form.projectType"
                   required
                   class="input-app"
-                  :class="{ 'border-red-500': projectTypeError }"
                   aria-label="Typ projektu"
                 >
                   <option value="">Vyberte typ</option>
@@ -151,14 +153,14 @@
                   <option value="business-tool">Interný nástroj / dashboard</option>
                   <option value="other">Iné</option>
                 </select>
-                <p class="text-xs mt-1" :class="projectTypeError ? 'text-red-500' : 'text-gray-500 dark:text-slate-500'">
+                <p class="text-xs mt-1.5 text-ink-500 dark:text-ink-300">
                   {{ projectTypeError || 'Stručne mi pomôže zacieliť odpoveď' }}
                 </p>
               </div>
 
               <div>
-                <label for="budget" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                  Rozpočet <span class="text-gray-500 dark:text-slate-500 font-normal">(voliteľné)</span>
+                <label for="budget" class="block font-mono text-[10px] uppercase tracking-mono-wide text-ink-500 dark:text-ink-300 mb-2">
+                  Rozpočet <span class="normal-case">(voliteľné)</span>
                 </label>
                 <select id="budget" v-model="form.budgetRange" class="input-app">
                   <option value="">Zatiaľ neviem</option>
@@ -170,8 +172,8 @@
               </div>
 
               <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                  Správa <span class="text-red-500">*</span>
+                <label for="message" class="block font-mono text-[10px] uppercase tracking-mono-wide text-ink-500 dark:text-ink-300 mb-2">
+                  Správa *
                 </label>
                 <textarea
                   id="message"
@@ -180,15 +182,10 @@
                   rows="4"
                   maxlength="1000"
                   class="input-app resize-none"
-                  :class="{ 'border-red-500': messageError }"
                   placeholder="Čo chcete zlepšiť a čo by malo byť výsledkom…"
                   aria-label="Vaša správa"
                 />
-                <p
-                  id="message-helper"
-                  class="text-xs mt-1 flex justify-between gap-2"
-                  :class="messageError ? 'text-red-500' : 'text-gray-500 dark:text-slate-500'"
-                >
+                <p class="text-xs mt-1.5 flex justify-between gap-2 text-ink-500 dark:text-ink-300">
                   <span>{{ messageError || 'Aspoň 10 znakov' }}</span>
                   <span class="flex-shrink-0">{{ form.message.length }}/1000</span>
                 </p>
@@ -200,25 +197,10 @@
 
               <div
                 v-if="submitMessage"
-                class="rounded-xl p-4 flex gap-3 items-start text-sm"
-                :class="
-                  submitSuccess
-                    ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-100 border border-emerald-200/80 dark:border-emerald-800/60'
-                    : 'bg-red-50 dark:bg-red-950/30 text-red-800 dark:text-red-200 border border-red-200/80 dark:border-red-900/50'
-                "
+                class="border border-mist dark:border-anthracite-mist p-4 text-sm text-ink-900 dark:text-bone-100"
                 role="status"
               >
-                <span v-if="submitSuccess" class="flex-shrink-0 mt-0.5" aria-hidden="true">
-                  <svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                <span v-else class="flex-shrink-0 mt-0.5" aria-hidden="true">
-                  <svg class="w-5 h-5 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                </span>
-                <span>{{ submitMessage }}</span>
+                {{ submitMessage }}
               </div>
             </form>
           </div>
@@ -229,51 +211,15 @@
 </template>
 
 <script setup lang="ts">
-import { h, ref } from 'vue'
+import { ref } from 'vue'
 import { formatContactSummary, submitLeadIntake } from '~/services/leadIntake'
 
 const { trackEvent } = useAnalytics()
 
-const EmailIcon = () =>
-  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      'stroke-width': '2',
-      d: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-    })
-  ])
-
-const PhoneIcon = () =>
-  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      'stroke-width': '2',
-      d: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
-    })
-  ])
-
-const LocationIcon = () =>
-  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      'stroke-width': '2',
-      d: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z'
-    }),
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      'stroke-width': '2',
-      d: 'M15 11a3 3 0 11-6 0 3 3 0 016 0z'
-    })
-  ])
-
 const contactInfo = [
-  { label: 'Email', value: 'appinarasolutions@gmail.com', href: 'mailto:appinarasolutions@gmail.com', icon: EmailIcon },
-  { label: 'Telefón', value: '+421 917 566 722', href: 'tel:+421917566722', icon: PhoneIcon },
-  { label: 'Lokácia', value: 'Slovensko', href: null as string | null, icon: LocationIcon }
+  { label: 'Email', value: 'appinarasolutions@gmail.com', href: 'mailto:appinarasolutions@gmail.com' },
+  { label: 'Telefón', value: '+421 917 566 722', href: 'tel:+421917566722' },
+  { label: 'Lokácia', value: 'Slovensko', href: null as string | null }
 ]
 
 const form = ref({

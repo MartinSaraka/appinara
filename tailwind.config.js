@@ -16,121 +16,148 @@ export default {
         mono:    ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       colors: {
-        // Cinnabar — single sharp accent (replaces indigo)
-        primary: {
-          50:  '#FDF2EE',
-          100: '#FCE0D6',
-          200: '#F8BBA8',
-          300: '#F2937A',
-          400: '#E96849',
-          500: '#DC2F1A',
-          600: '#B5240F',
-          700: '#8E1B0B',
-          800: '#6B1408',
-          900: '#4A0D05',
-        },
-        // ── Default scale OVERRIDES ─────────────────────────────────
-        // Remap Tailwind's neutral + chromatic scales onto the
-        // bone / anthracite / cinnabar / plum / lichen / marigold
-        // palette so any unmigrated component class auto-aligns.
+        // ── Monochrome editorial — single ink scale ────────────────
+        // No chromatic accent. All "primary" / "indigo" / "rose" etc.
+        // map to the ink scale so any legacy class auto-aligns.
 
-        // Warm neutrals (replaces both gray & slate)
+        primary: {
+          50:  '#F2F2F0',
+          100: '#E2E2DE',
+          200: '#C1C1BC',
+          300: '#9A9A95',
+          400: '#6E6E68',
+          500: '#1A1A18',  // primary action — near-black
+          600: '#101010',
+          700: '#0A0A0A',
+          800: '#050505',
+          900: '#000000',
+        },
+
+        // Map all chromatic Tailwind defaults to ink scale
         slate: {
-          50:  '#FBF8F2',
-          100: '#F4EFE6',
-          200: '#EAE3D5',
-          300: '#E0DACB',
-          400: '#9CA0AB',
-          500: '#6B7180',
-          600: '#3A3F4A',
-          700: '#2A2D36',
-          800: '#1C1E25',
-          900: '#131419',
-          950: '#0B0C10',
+          50:  '#F7F5F0',
+          100: '#EFEDE6',
+          200: '#E2DFD7',
+          300: '#CFCAC0',
+          400: '#9C9890',
+          500: '#6B6862',
+          600: '#3F3D38',
+          700: '#2A2825',
+          800: '#1A1916',
+          900: '#111110',
+          950: '#0A0A09',
         },
         gray: {
-          50:  '#FBF8F2',
-          100: '#F4EFE6',
-          200: '#EAE3D5',
-          300: '#E0DACB',
-          400: '#9CA0AB',
-          500: '#6B7180',
-          600: '#3A3F4A',
-          700: '#2A2D36',
-          800: '#1C1E25',
-          900: '#131419',
-          950: '#0B0C10',
+          50:  '#F7F5F0',
+          100: '#EFEDE6',
+          200: '#E2DFD7',
+          300: '#CFCAC0',
+          400: '#9C9890',
+          500: '#6B6862',
+          600: '#3F3D38',
+          700: '#2A2825',
+          800: '#1A1916',
+          900: '#111110',
+          950: '#0A0A09',
+        },
+        zinc: {
+          50:  '#F7F5F0',
+          100: '#EFEDE6',
+          200: '#E2DFD7',
+          300: '#CFCAC0',
+          400: '#9C9890',
+          500: '#6B6862',
+          600: '#3F3D38',
+          700: '#2A2825',
+          800: '#1A1916',
+          900: '#111110',
+          950: '#0A0A09',
         },
 
-        // Cinnabar family — replaces indigo / violet / fuchsia / rose / red
-        indigo:  { 50:'#FDF2EE',100:'#FCE0D6',200:'#F8BBA8',300:'#F2937A',400:'#E96849',500:'#DC2F1A',600:'#B5240F',700:'#8E1B0B',800:'#6B1408',900:'#4A0D05',950:'#2A0703' },
-        fuchsia: { 50:'#FDF2EE',100:'#FCE0D6',200:'#F8BBA8',300:'#F2937A',400:'#E96849',500:'#DC2F1A',600:'#B5240F',700:'#8E1B0B',800:'#6B1408',900:'#4A0D05',950:'#2A0703' },
-        rose:    { 50:'#FDF2EE',100:'#FCE0D6',200:'#F8BBA8',300:'#F2937A',400:'#E96849',500:'#DC2F1A',600:'#B5240F',700:'#8E1B0B',800:'#6B1408',900:'#4A0D05',950:'#2A0703' },
-        red:     { 50:'#FDF2EE',100:'#FCE0D6',200:'#F8BBA8',300:'#F2937A',400:'#E96849',500:'#DC2F1A',600:'#B5240F',700:'#8E1B0B',800:'#6B1408',900:'#4A0D05',950:'#2A0703' },
+        // Old chromatic family aliases — all collapsed to ink
+        indigo:  { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        fuchsia: { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        rose:    { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        red:     { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        violet:  { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        purple:  { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        pink:    { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        emerald: { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        green:   { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        teal:    { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        amber:   { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        yellow:  { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        orange:  { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        sky:     { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        blue:    { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
+        cyan:    { 50:'#F2F2F0',100:'#E2E2DE',200:'#C1C1BC',300:'#9A9A95',400:'#6E6E68',500:'#1A1A18',600:'#101010',700:'#0A0A0A',800:'#050505',900:'#000000',950:'#000000' },
 
-        // Plum family — replaces violet, purple, pink (deeper blooming)
-        violet:  { 50:'#F8EFF2',100:'#EFD8E0',200:'#E0B0C0',300:'#CD8298',400:'#B45A75',500:'#8C3953',600:'#6F2A41',700:'#591F33',800:'#4A1F2E',900:'#2C0F1A',950:'#1B080F' },
-        purple:  { 50:'#F8EFF2',100:'#EFD8E0',200:'#E0B0C0',300:'#CD8298',400:'#B45A75',500:'#8C3953',600:'#6F2A41',700:'#591F33',800:'#4A1F2E',900:'#2C0F1A',950:'#1B080F' },
-        pink:    { 50:'#FBEEF2',100:'#F5D5DF',200:'#EAACBE',300:'#DC819B',400:'#C9607C',500:'#A8425C',600:'#882F47',700:'#6E2538',800:'#561C2C',900:'#3A1220',950:'#220A13' },
-
-        // Lichen family — replaces emerald / green / teal (natural success)
-        emerald: { 50:'#F1F4EF',100:'#DFE6DB',200:'#C2CFBC',300:'#A8BFA0',400:'#849978',500:'#6E8266',600:'#566850',700:'#445040',800:'#363F33',900:'#252B23',950:'#141813' },
-        green:   { 50:'#F1F4EF',100:'#DFE6DB',200:'#C2CFBC',300:'#A8BFA0',400:'#849978',500:'#6E8266',600:'#566850',700:'#445040',800:'#363F33',900:'#252B23',950:'#141813' },
-        teal:    { 50:'#F1F4EF',100:'#DFE6DB',200:'#C2CFBC',300:'#A8BFA0',400:'#849978',500:'#6E8266',600:'#566850',700:'#445040',800:'#363F33',900:'#252B23',950:'#141813' },
-
-        // Marigold family — replaces amber / yellow / orange (warm signal)
-        amber:   { 50:'#FBF1DC',100:'#F6E2B5',200:'#F1CB7A',300:'#EAB344',400:'#D89422',500:'#B5781A',600:'#8E5E14',700:'#6E490F',800:'#54380C',900:'#3A2608',950:'#221604' },
-        yellow:  { 50:'#FBF1DC',100:'#F6E2B5',200:'#F1CB7A',300:'#EAB344',400:'#D89422',500:'#B5781A',600:'#8E5E14',700:'#6E490F',800:'#54380C',900:'#3A2608',950:'#221604' },
-        orange:  { 50:'#FBF1DC',100:'#F6E2B5',200:'#F1CB7A',300:'#EAB344',400:'#D89422',500:'#B5781A',600:'#8E5E14',700:'#6E490F',800:'#54380C',900:'#3A2608',950:'#221604' },
-
-        // Cool blues — softened to slate-blue, kept distinct from cinnabar
-        sky:     { 50:'#EEF2F4',100:'#D7DFE5',200:'#B3C2CD',300:'#8AA1B0',400:'#647F92',500:'#475F73',600:'#374C5C',700:'#2B3D49',800:'#212F39',900:'#161F26',950:'#0C1217' },
-        blue:    { 50:'#EEF2F4',100:'#D7DFE5',200:'#B3C2CD',300:'#8AA1B0',400:'#647F92',500:'#475F73',600:'#374C5C',700:'#2B3D49',800:'#212F39',900:'#161F26',950:'#0C1217' },
-        cyan:    { 50:'#EEF2F4',100:'#D7DFE5',200:'#B3C2CD',300:'#8AA1B0',400:'#647F92',500:'#475F73',600:'#374C5C',700:'#2B3D49',800:'#212F39',900:'#161F26',950:'#0C1217' },
-        // Warm paper
+        // Cream / off-white paper canvas
         bone: {
-          DEFAULT: '#F4EFE6',
-          50:  '#FBF8F2',
-          100: '#F4EFE6',
-          200: '#EAE3D5',
-          300: '#E0DACB',
+          DEFAULT: '#F5F2ED',
+          50:  '#FAF8F4',
+          100: '#F5F2ED',
+          200: '#EDEAE3',
+          300: '#E2DED5',
         },
         // Deep ink type
         ink: {
-          DEFAULT: '#14171C',
-          100: '#C8CBD2',
-          300: '#9CA0AB',
-          500: '#6B7180',
-          700: '#3A3F4A',
-          900: '#14171C',
+          DEFAULT: '#0F0F0E',
+          100: '#D6D4CF',
+          300: '#9C9890',
+          500: '#6B6862',
+          700: '#3F3D38',
+          900: '#0F0F0E',
         },
+        // Single accent — warm champagne / sienna for KPI moments only
+        accent: {
+          DEFAULT: '#B8946A',
+          50:  '#FBF6EE',
+          100: '#F2E5CE',
+          200: '#E5CCA0',
+          300: '#D2AF77',
+          400: '#B8946A',
+          500: '#9C7A4D',
+          600: '#7E613A',
+          700: '#5E482A',
+          800: '#3F301B',
+          900: '#26200E',
+        },
+
+        // Signature honey-yellow — geometric lines, highlight underlines, chips
+        sun: {
+          DEFAULT: '#F4D35E',
+          50:  '#FFF8DC',
+          100: '#FCEFB4',
+          200: '#FAE694',
+          300: '#F8E08E',
+          400: '#F6D976',
+          500: '#F4D35E',
+          600: '#E5BE45',
+          700: '#D9B23B',
+          800: '#A88826',
+          900: '#8C6F1E',
+        },
+
+        // Aliases retained so old references don't shatter — all neutral
         cinnabar: {
-          DEFAULT: '#DC2F1A',
-          deep:    '#B5240F',
-          soft:    '#FDF2EE',
-          glow:    '#FF5037', // dark-mode bright variant
+          DEFAULT: '#0F0F0E',
+          deep:    '#000000',
+          soft:    '#F5F2ED',
+          glow:    '#FAF8F4',
         },
-        plum: {
-          DEFAULT: '#4A1F2E',
-          light:   '#C97294',
-        },
-        lichen: {
-          DEFAULT: '#6E8266',
-          light:   '#A8BFA0',
-        },
-        marigold: {
-          DEFAULT: '#D89422',
-          light:   '#F6CC6F',
-        },
+        plum:     { DEFAULT: '#1A1916', light: '#9C9890' },
+        lichen:   { DEFAULT: '#3F3D38', light: '#9C9890' },
+        marigold: { DEFAULT: '#3F3D38', light: '#9C9890' },
         mist: {
-          DEFAULT: '#E0DACB',
-          dark:    '#2A2D36',
+          DEFAULT: '#E2DED5',
+          dark:    '#1A1916',
         },
         anthracite: {
-          DEFAULT: '#131419',
-          elev:    '#1C1E25',
-          deep:    '#0B0C10',
-          mist:    '#2A2D36',
+          DEFAULT: '#0F0F0E',
+          elev:    '#1A1916',
+          deep:    '#0A0A09',
+          mist:    '#2A2825',
         },
       },
       fontSize: {
@@ -148,14 +175,10 @@ export default {
         'wipe-x':         'wipe-x 700ms cubic-bezier(0.65, 0, 0.35, 1) both',
         'reveal-up':      'reveal-up 900ms cubic-bezier(0.22, 1, 0.36, 1) both',
         'reveal-clip':    'reveal-clip 900ms cubic-bezier(0.22, 1, 0.36, 1) both',
-        'swoop-in':       'swoop-in 1100ms cubic-bezier(0.22, 1, 0.36, 1) both',
         'fade-in':        'fade-in 700ms ease-out both',
         'rise-soft':      'rise-soft 800ms cubic-bezier(0.22, 1, 0.36, 1) both',
-        'caret-blink':    'caret-blink 1.05s step-end infinite',
         'hairline-grow':  'hairline-grow 600ms cubic-bezier(0.65, 0, 0.35, 1) both',
         'marquee-x':      'marquee-x 60s linear infinite',
-        'marquee-x-rev':  'marquee-x-rev 60s linear infinite',
-        'glow':           'glow 3s ease-in-out infinite alternate',
         'pulse-slow':     'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
@@ -171,11 +194,6 @@ export default {
           '0%':   { 'clip-path': 'inset(105% 0 0 0)', transform: 'translateY(8%)' },
           '100%': { 'clip-path': 'inset(-5% 0 -5% 0)', transform: 'translateY(0)' },
         },
-        'swoop-in': {
-          '0%':   { opacity: '0', transform: 'translateX(-28px) rotate(-2deg)', filter: 'blur(10px)' },
-          '60%':  { opacity: '1', filter: 'blur(0)' },
-          '100%': { opacity: '1', transform: 'translateX(0) rotate(0)',          filter: 'blur(0)' },
-        },
         'fade-in': {
           '0%':   { opacity: '0' },
           '100%': { opacity: '1' },
@@ -183,10 +201,6 @@ export default {
         'rise-soft': {
           '0%':   { opacity: '0', transform: 'translateY(12px) scale(0.985)' },
           '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
-        },
-        'caret-blink': {
-          '0%, 49%':   { opacity: '1' },
-          '50%, 100%': { opacity: '0' },
         },
         'hairline-grow': {
           '0%':   { transform: 'scaleX(0)' },
@@ -196,31 +210,11 @@ export default {
           '0%':   { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
-        'marquee-x-rev': {
-          '0%':   { transform: 'translateX(-50%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
-        'glow': {
-          '0%':   { opacity: '0.4' },
-          '100%': { opacity: '0.7' },
-        },
       },
       boxShadow: {
-        // Letterpress: pressed-into-paper effect
-        'letterpress':       '0 1px 0 rgba(255,255,255,0.55) inset, 0 -1px 0 rgba(20,23,28,0.04) inset, 0 14px 40px -18px rgba(20,23,28,0.16), 0 3px 10px -4px rgba(20,23,28,0.08)',
-        'letterpress-deep':  '0 1px 0 rgba(255,255,255,0.55) inset, 0 -1px 0 rgba(20,23,28,0.05) inset, 0 30px 70px -22px rgba(74,31,46,0.22), 0 8px 24px -10px rgba(20,23,28,0.16)',
-        // Editorial cinnabar shadow (was indigo)
-        'editorial':         '0 30px 80px -22px rgba(220,47,26,0.22), 0 10px 30px -12px rgba(20,23,28,0.14)',
-        'editorial-dark':    '0 30px 80px -20px rgba(255,80,55,0.30), 0 10px 30px -10px rgba(0,0,0,0.55)',
-      },
-      backgroundImage: {
-        // halftone dots — for riso/screenprint atmosphere
-        'halftone':       'radial-gradient(circle at 1px 1px, rgba(20,23,28,0.18) 1px, transparent 1.6px)',
-        'halftone-dark':  'radial-gradient(circle at 1px 1px, rgba(244,239,230,0.10) 1px, transparent 1.6px)',
-      },
-      backgroundSize: {
-        'halftone':  '14px 14px',
-        'halftone-lg': '22px 22px',
+        // soft editorial shadow only
+        'soft':       '0 1px 0 rgba(255,255,255,0.6) inset, 0 24px 60px -28px rgba(15,15,14,0.18), 0 6px 18px -8px rgba(15,15,14,0.08)',
+        'soft-deep':  '0 1px 0 rgba(255,255,255,0.6) inset, 0 40px 90px -32px rgba(15,15,14,0.22), 0 12px 30px -12px rgba(15,15,14,0.12)',
       },
     },
   },

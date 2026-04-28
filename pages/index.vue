@@ -4,7 +4,12 @@
 
     <main id="main-content">
       <HeroSection />
+      <LogoStrip />
       <ServicesSection />
+      <ProcessSection />
+      <WorkSection />
+      <MarqueeRibbon />
+      <TestimonialSection />
       <ContactSection />
     </main>
 

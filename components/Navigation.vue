@@ -37,6 +37,11 @@
             <span class="nav-link-text">{{ item.label }}</span>
           </a>
 
+          <span class="local-chip" aria-hidden="true">
+            <span class="local-dot" />
+            <span class="local-label">BA · {{ localTime }}</span>
+          </span>
+
           <button
             type="button"
             class="theme-toggle group"
@@ -108,10 +113,10 @@
       </Transition>
     </div>
 
-    <!-- Cinnabar scroll progress bar at the bottom of the nav -->
+    <!-- Ink scroll progress hairline at the bottom of the nav -->
     <div
       aria-hidden="true"
-      class="absolute left-0 bottom-0 h-[2px] bg-primary-500 dark:bg-cinnabar-glow origin-left will-change-transform"
+      class="absolute left-0 bottom-0 h-px bg-ink-900 dark:bg-bone-100 origin-left will-change-transform"
       :style="{ transform: `scaleX(${progress})` }"
       style="width: 100%; transition: transform 80ms linear;"
     />
@@ -124,6 +129,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const scrolled = ref(false)
 const mobileMenuOpen = ref(false)
 const progress = ref(0)
+const localTime = ref('—')
 
 const { toggleTheme, isDark } = useTheme()
 
@@ -144,14 +150,34 @@ function readScroll() {
   })
 }
 
+let timeInterval: ReturnType<typeof setInterval> | null = null
+function updateLocalTime() {
+  try {
+    const d = new Date()
+    const fmt = new Intl.DateTimeFormat('sk-SK', {
+      timeZone: 'Europe/Bratislava',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    })
+    localTime.value = fmt.format(d).replace(/\s/g, '')
+  } catch {
+    const d = new Date()
+    localTime.value = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`
+  }
+}
+
 onMounted(() => {
   readScroll()
   window.addEventListener('scroll', readScroll, { passive: true })
+  updateLocalTime()
+  timeInterval = setInterval(updateLocalTime, 30_000)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', readScroll)
   if (raf) window.cancelAnimationFrame(raf)
+  if (timeInterval) clearInterval(timeInterval)
 })
 </script>
 
@@ -176,11 +202,12 @@ onUnmounted(() => {
   position: absolute;
   left: 0; right: 0; bottom: -4px;
   height: 1px;
-  background-color: theme('colors.primary.500');
+  background-color: theme('colors.ink.900');
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 320ms cubic-bezier(0.65, 0, 0.35, 1);
 }
+:global(.dark) .nav-link-text::after { background-color: theme('colors.bone.100'); }
 .nav-link:hover .nav-link-text::after { transform: scaleX(1); }
 
 /* Theme toggle — small mono button with day/night dot */
@@ -238,8 +265,48 @@ onUnmounted(() => {
   letter-spacing: 0.18em;
 }
 
+/* Live local time chip */
+.local-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 4px;
+  border: 1px solid theme('colors.mist.DEFAULT');
+  font-family: theme('fontFamily.mono')[0];
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: theme('colors.ink.500');
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+}
+:global(.dark) .local-chip {
+  border-color: theme('colors.anthracite.mist');
+  color: theme('colors.ink.300');
+}
+.local-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: theme('colors.ink.900');
+  box-shadow: 0 0 0 0 rgba(15, 15, 14, 0.35);
+  animation: local-pulse 2.4s ease-out infinite;
+}
+:global(.dark) .local-dot {
+  background-color: theme('colors.bone.100');
+  box-shadow: 0 0 0 0 rgba(245, 242, 237, 0.30);
+}
+@keyframes local-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(15, 15, 14, 0.35); }
+  70%  { box-shadow: 0 0 0 6px rgba(15, 15, 14, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(15, 15, 14, 0); }
+}
+.local-label { letter-spacing: 0.18em; }
+
 @media (prefers-reduced-motion: reduce) {
   .nav-link-text::after,
   .theme-toggle-dot { transition: none; }
+  .local-dot { animation: none; }
 }
 </style>

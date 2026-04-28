@@ -1,160 +1,323 @@
 <template>
   <section
     id="services"
-    class="relative section-spacing border-t border-gray-200/80 dark:border-slate-800 bg-bone dark:bg-anthracite"
+    class="relative section-spacing bg-bone dark:bg-anthracite overflow-hidden"
+    @mousemove="onMove"
+    @mouseleave="hovered = -1"
   >
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+    <div class="container mx-auto px-6 relative max-w-6xl">
+
+      <header class="text-center mb-16 md:mb-24 max-w-3xl mx-auto">
+        <p class="eyebrow mb-6">Služby</p>
         <h2
           v-motion-fade-visible
-          class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 text-gray-900 dark:text-white"
+          class="font-display font-normal text-display-lg text-ink-900 dark:text-bone-100 text-balance"
+          style="line-height: 1.02;"
         >
-          Čo pre vás <span class="gradient-text">pripravím</span>
+          Štyri oblasti, v ktorých
+          <em class="italic font-normal">viem najviac</em>
+          pomôcť.
         </h2>
-        <p
-          v-motion-fade-visible
-          :delay="120"
-          class="text-lg text-gray-600 dark:text-slate-400 leading-relaxed"
-        >
-          Štyri oblasti, ktoré najčastejšie riešime od návrhu po nasadenie.
+        <p class="mt-7 text-lg text-ink-700 dark:text-bone-100/80 leading-relaxed text-pretty">
+          Najradšej pracujem na projektoch, ktoré bežia po nasadení mesiace bez údržby.
         </p>
-      </div>
+      </header>
 
-      <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-        <article
+      <ol class="services-list">
+        <li
           v-for="(service, index) in services"
           :key="service.title"
-          v-motion-fade-visible
-          :delay="index * 80"
-          class="flex flex-col h-full rounded-2xl border border-gray-200/90 dark:border-slate-700/80 bg-gray-50/80 dark:bg-slate-900/40 p-8 card-hover hover:border-primary-300/60 dark:hover:border-primary-600/40"
+          class="service-row group"
+          :class="{ 'is-hovered': hovered === index }"
+          @mouseenter="hovered = index"
+          @focusin="hovered = index"
+          @focusout="hovered = -1"
         >
-          <div
-            class="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-          >
-            <component :is="service.icon" class="w-6 h-6 text-white" />
-          </div>
+          <a :href="service.href" class="service-link" :aria-label="`${service.title} — ${service.description}`">
+            <span class="service-num font-mono">({{ String(index + 1).padStart(2, '0') }})</span>
 
-          <p
-            v-if="index === 0"
-            class="text-xs font-semibold uppercase tracking-wide text-primary-600 dark:text-primary-400 mb-2"
-          >
-            Častý štart
-          </p>
-          <h3 class="text-xl font-display font-bold mb-3 text-gray-900 dark:text-white">
-            {{ service.title }}
-          </h3>
-          <p class="text-gray-600 dark:text-slate-300 mb-6 text-sm md:text-base leading-relaxed flex-grow">
-            {{ service.description }}
-          </p>
+            <span class="service-icon" aria-hidden="true">
+              <img :src="service.icon" alt="" class="w-7 h-7 md:w-8 md:h-8" loading="lazy" />
+            </span>
 
-          <ul class="space-y-2.5 mt-auto">
-            <li
-              v-for="feature in service.features"
-              :key="feature"
-              class="flex items-start gap-2 text-sm text-gray-600 dark:text-slate-400"
-            >
-              <svg
-                class="w-4 h-4 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>{{ feature }}</span>
-            </li>
-          </ul>
-        </article>
+            <span class="service-title font-display">
+              <span class="service-title-text">{{ service.title }}</span>
+              <span class="service-title-arrow" aria-hidden="true">→</span>
+            </span>
+
+            <span class="service-desc">{{ service.description }}</span>
+
+            <span class="service-tag font-mono" aria-hidden="true">{{ service.tag }}</span>
+          </a>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Cursor-following preview image (desktop only) -->
+    <div
+      class="service-preview"
+      :class="hovered >= 0 ? 'is-visible' : ''"
+      :style="{ transform: `translate3d(${cursor.x}px, ${cursor.y}px, 0) translate(-50%, -50%)` }"
+      aria-hidden="true"
+    >
+      <div class="service-preview-frame img-placeholder">
+        <img
+          v-if="hovered >= 0"
+          :src="services[hovered]?.preview"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div class="service-preview-meta font-mono">
+          <span>{{ hovered >= 0 ? services[hovered]?.tag : '' }}</span>
+          <span>↗</span>
+        </div>
       </div>
-
-      <p
-        v-motion-fade-visible
-        class="text-center mt-12 text-gray-600 dark:text-slate-400 text-sm md:text-base"
-      >
-        Neviete, kde začať?
-        <a
-          href="#contact"
-          class="font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline-offset-2 hover:underline"
-        >
-          Napíšte mi
-        </a>
-        a navrhnem ďalší krok.
-      </p>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { h } from 'vue'
-
-const SparklesIcon = () =>
-  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      'stroke-width': '2',
-      d: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z'
-    })
-  ])
-
-const CodeIcon = () =>
-  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      'stroke-width': '2',
-      d: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
-    })
-  ])
-
-const ShoppingIcon = () =>
-  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      'stroke-width': '2',
-      d: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z'
-    })
-  ])
-
-const DatabaseIcon = () =>
-  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      'stroke-width': '2',
-      d: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4'
-    })
-  ])
+import { ref } from 'vue'
 
 const services = [
   {
     title: 'AI a automatizácia',
     description:
       'Chatboty, follow-up a úlohy, ktoré by inak padali na ľudí alebo do schránky.',
-    icon: SparklesIcon,
-    features: ['AI chatbot a prvý kontakt so zákazníkom', 'Automatizácia emailov a notifikácií', 'Napojenie na váš existujúci stack']
+    tag: 'AI · automation',
+    icon: '/images/service-ai.svg',
+    preview: '/images/work-01.svg',
+    href: '#contact'
   },
   {
     title: 'Weby a aplikácie',
     description:
       'Rýchle weby a interné nástroje, ktoré zvládnu dopyty aj každodennú prevádzku.',
-    icon: CodeIcon,
-    features: ['Responzívny dizajn', 'SEO a výkon', 'Bezpečnosť a údržba']
+    tag: 'Web · app',
+    icon: '/images/service-web.svg',
+    preview: '/images/work-02.svg',
+    href: '#contact'
   },
   {
     title: 'E‑commerce',
     description:
       'Predaj online s platbami a prevádzkovými procesmi pod kontrolou.',
-    icon: ShoppingIcon,
-    features: ['Objednávky a platby', 'Sklad a prepojenia', 'Úpravy podľa rastu']
+    tag: 'Shop · pay',
+    icon: '/images/service-shop.svg',
+    preview: '/images/work-03.svg',
+    href: '#contact'
   },
   {
     title: 'Firemné nástroje',
     description:
       'CRM, prehľady a dashboardy namiesto tabuliek roztrúsených po tíme.',
-    icon: DatabaseIcon,
-    features: ['Prehľad leadov a úloh', 'Reporty na mieru', 'Integrácie s nástrojmi, ktoré už používate']
+    tag: 'CRM · BI',
+    icon: '/images/service-data.svg',
+    preview: '/images/work-04.svg',
+    href: '#contact'
   }
 ]
+
+const hovered = ref(-1)
+const cursor = ref({ x: 0, y: 0 })
+
+function onMove(e: MouseEvent) {
+  const target = e.currentTarget as HTMLElement
+  const rect = target.getBoundingClientRect()
+  cursor.value = { x: e.clientX - rect.left, y: e.clientY - rect.top }
+}
 </script>
+
+<style scoped>
+.services-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(15, 15, 14, 0.10);
+}
+:global(.dark) .services-list { border-top-color: rgba(245, 242, 237, 0.10); }
+
+.service-row {
+  border-bottom: 1px solid rgba(15, 15, 14, 0.10);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+:global(.dark) .service-row { border-bottom-color: rgba(245, 242, 237, 0.10); }
+
+.service-row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: theme('colors.ink.900');
+  transform: translateY(101%);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+:global(.dark) .service-row::before { background-color: theme('colors.bone.50'); }
+.service-row.is-hovered::before { transform: translateY(0); }
+
+.service-link {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 4rem 2.5rem 1fr 6rem;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  padding: 1.6rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: color 320ms ease;
+}
+@media (min-width: 768px) {
+  .service-link {
+    grid-template-columns: 5rem 3rem 1fr minmax(18rem, 30rem) 8rem;
+    gap: 1.25rem 2rem;
+    padding: 2.4rem 0;
+  }
+}
+.service-row.is-hovered .service-link { color: theme('colors.bone.50'); }
+:global(.dark) .service-row.is-hovered .service-link { color: theme('colors.ink.900'); }
+
+.service-num {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: theme('colors.ink.500');
+  align-self: start;
+  padding-top: 0.55rem;
+  transition: color 320ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+:global(.dark) .service-num { color: theme('colors.ink.300'); }
+.service-row.is-hovered .service-num { color: theme('colors.bone.50'); transform: translateX(0.35rem); }
+:global(.dark) .service-row.is-hovered .service-num { color: theme('colors.ink.900'); }
+
+.service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  padding-top: 0.4rem;
+  transition: filter 320ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+:global(.dark) .service-icon img { filter: invert(0.92); transition: filter 320ms ease; }
+.service-row.is-hovered .service-icon { transform: translateX(0.4rem); }
+.service-row.is-hovered .service-icon img { filter: invert(1); }
+:global(.dark) .service-row.is-hovered .service-icon img { filter: invert(0); }
+
+.service-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 400;
+  color: theme('colors.ink.900');
+  font-size: clamp(1.9rem, 1.2rem + 2.3vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.012em;
+  transition: color 320ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+:global(.dark) .service-title { color: theme('colors.bone.100'); }
+.service-row.is-hovered .service-title { color: theme('colors.bone.50'); transform: translateX(0.5rem); }
+:global(.dark) .service-row.is-hovered .service-title { color: theme('colors.ink.900'); }
+
+.service-title-text {
+  position: relative;
+  display: inline-block;
+}
+
+.service-title-arrow {
+  font-family: theme('fontFamily.sans')[0];
+  font-size: 1.25rem;
+  opacity: 0;
+  transform: translateX(-0.5rem);
+  transition: opacity 320ms ease, transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-row.is-hovered .service-title-arrow { opacity: 1; transform: translateX(0); }
+
+.service-desc {
+  display: none;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: theme('colors.ink.700');
+  max-width: 32rem;
+  transition: color 320ms ease;
+}
+:global(.dark) .service-desc { color: theme('colors.bone.100'); }
+.service-row.is-hovered .service-desc { color: rgba(245, 242, 237, 0.78); }
+:global(.dark) .service-row.is-hovered .service-desc { color: rgba(15, 15, 14, 0.78); }
+@media (min-width: 768px) {
+  .service-desc { display: block; }
+}
+
+.service-tag {
+  display: none;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: theme('colors.ink.500');
+  text-align: right;
+  padding-top: 0.45rem;
+  align-self: start;
+  transition: color 320ms ease;
+}
+:global(.dark) .service-tag { color: theme('colors.ink.300'); }
+.service-row.is-hovered .service-tag { color: rgba(245, 242, 237, 0.7); }
+:global(.dark) .service-row.is-hovered .service-tag { color: rgba(15, 15, 14, 0.7); }
+@media (min-width: 768px) {
+  .service-tag { display: block; }
+}
+
+/* Cursor-follow preview image */
+.service-preview {
+  position: absolute;
+  top: 0; left: 0;
+  pointer-events: none;
+  width: 260px;
+  height: 320px;
+  z-index: 30;
+  opacity: 0;
+  transition: opacity 280ms ease;
+  display: none;
+}
+@media (min-width: 1024px) and (hover: hover) {
+  .service-preview { display: block; }
+}
+.service-preview.is-visible { opacity: 1; }
+
+.service-preview-frame {
+  position: relative;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background-color: theme('colors.bone.200');
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 40px 90px -32px rgba(15,15,14,0.32),
+    0 12px 30px -12px rgba(15,15,14,0.20);
+}
+:global(.dark) .service-preview-frame { background-color: theme('colors.anthracite.elev'); }
+
+.service-preview-meta {
+  position: absolute;
+  left: 0.85rem; right: 0.85rem; bottom: 0.85rem;
+  color: theme('colors.ink.900');
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+  mix-blend-mode: difference;
+  color: #FFFFFF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-row::before,
+  .service-num,
+  .service-icon,
+  .service-title,
+  .service-title-arrow,
+  .service-link,
+  .service-preview { transition: none !important; }
+}
+</style>
