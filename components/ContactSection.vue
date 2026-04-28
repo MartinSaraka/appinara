@@ -1,168 +1,225 @@
 <template>
-  <section id="contact" class="relative py-32 dark:bg-slate-950 bg-white">
-    <div class="container mx-auto px-6">
+  <section
+    id="contact"
+    class="relative section-tall border-t border-gray-200/80 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/80 overflow-hidden"
+  >
+    <div class="absolute -top-32 -right-32 w-[420px] h-[420px] mesh-1 rounded-full opacity-30 blur-3xl pointer-events-none" aria-hidden="true" />
+
+    <div class="container mx-auto px-6 relative">
       <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- Left Side - Info -->
-          <div v-motion-fade-visible>
-            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 dark:text-white text-gray-900">
-              Poďme rásť
-              <span class="gradient-text block">spolu</span>
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 md:items-start">
+          <div v-motion-fade-visible class="md:pt-2">
+            <p class="eyebrow mb-4">Kontakt</p>
+            <h2 class="text-display-lg font-display font-bold mb-5 text-gray-900 dark:text-white text-balance leading-[1.05]">
+              Napíšte mi stručne,
+              <span class="italic font-medium gradient-text">čo riešite.</span>
             </h2>
-            <p class="text-xl dark:text-slate-200 text-gray-700 mb-8 leading-relaxed">
-              Máte otázku alebo konkrétny projekt? Napíšte mi a do 24 hodín sa vám ozvem s návrhom riešenia. Prvá konzultácia je vždy zdarma.
+            <p class="text-lg md:text-xl text-gray-600 dark:text-slate-300 mb-10 leading-relaxed max-w-md text-pretty">
+              Ozvem sa s konkrétnym ďalším krokom. Bez záväzkov.
             </p>
-            
-            <!-- Contact Info -->
-            <div class="space-y-6">
-              <div 
-                v-for="contact in contactInfo" 
-                :key="contact.label"
-                class="flex items-center gap-4"
-              >
-                <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <component :is="contact.icon" class="w-6 h-6 text-white" />
+
+            <div class="space-y-4">
+              <div v-for="contact in contactInfo" :key="contact.label" class="flex items-center gap-4">
+                <div class="w-11 h-11 bg-primary-100 dark:bg-primary-900/40 rounded-xl flex items-center justify-center flex-shrink-0 text-primary-700 dark:text-primary-300">
+                  <component :is="contact.icon" class="w-5 h-5" />
                 </div>
                 <div>
-                  <div class="text-sm dark:text-slate-400 text-gray-600">{{ contact.label }}</div>
-                  <a :href="contact.href" class="dark:text-white text-gray-900 font-medium dark:hover:text-primary-400 hover:text-primary-600 transition-colors">
+                  <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-500">{{ contact.label }}</div>
+                  <a
+                    v-if="contact.href"
+                    :href="contact.href"
+                    class="text-gray-900 dark:text-white font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
                     {{ contact.value }}
                   </a>
+                  <span v-else class="text-gray-900 dark:text-white font-medium">{{ contact.value }}</span>
                 </div>
               </div>
             </div>
-            
-            <!-- Social Links -->
-            <div class="flex gap-4 mt-8">
-              <a 
-                v-for="social in socialLinks" 
-                :key="social.name"
-                :href="social.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:bg-primary-500/10 dark:hover:bg-primary-500/20 transition-all duration-300 hover:scale-110"
-                :aria-label="social.name"
-              >
-                <component :is="social.icon" class="w-6 h-6 dark:text-slate-300 text-gray-600" />
-              </a>
-            </div>
           </div>
-          
-          <!-- Right Side - Contact Form -->
+
           <div v-motion-fade-visible :delay="200">
-            <form @submit.prevent="handleSubmit" class="glass-effect rounded-2xl p-8 space-y-6" novalidate>
+            <form
+              class="relative rounded-2xl border border-gray-200/90 dark:border-slate-700/80 bg-gray-50/50 dark:bg-slate-900/40 p-6 md:p-8 space-y-5 shadow-sm"
+              novalidate
+              @submit.prevent="handleSubmit"
+            >
+              <div class="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" v-model="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+
               <div>
-                <label for="name" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
-                  Meno
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
+                  Meno <span class="text-red-500">*</span>
                 </label>
                 <input
                   id="name"
                   v-model="form.name"
                   type="text"
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  required
+                  class="input-app"
+                  :class="{ 'border-red-500 ring-red-500/30': nameError }"
                   placeholder="Vaše meno"
                   aria-label="Vaše meno"
+                  autocomplete="name"
                 />
-                <p class="text-xs dark:text-slate-400 text-gray-600 mt-1">Ako sa k vám mám oslovovať</p>
+                <p v-if="nameError" class="text-xs text-red-500 mt-1">{{ nameError }}</p>
               </div>
-              
+
               <div>
-                <label for="email" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
-                  Email <span class="dark:text-slate-500 text-gray-500">(aspoň email alebo telefón)</span>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
+                  Email <span class="text-gray-500 dark:text-slate-500 font-normal">(alebo telefón nižšie)</span>
                 </label>
                 <input
                   id="email"
                   v-model="form.email"
-                  @blur="validateEmail"
                   type="email"
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  :class="{ 'border-red-500 focus:ring-red-500': emailError || (validationError && !form.email && !form.phone), 'border-green-500': emailValid }"
+                  class="input-app"
+                  :class="{
+                    'border-red-500': emailError || (validationError && !form.email && !form.phone),
+                    'border-emerald-500/60': emailValid
+                  }"
                   placeholder="vas@email.com"
                   aria-label="Váš email"
-                  aria-describedby="email-helper"
+                  autocomplete="email"
+                  @blur="validateEmailField"
                 />
-                <p id="email-helper" class="text-xs mt-1" :class="emailError ? 'text-red-400' : emailValid ? 'text-green-400' : 'dark:text-slate-400 text-gray-600'">
-                  {{ emailError || (emailValid ? '✓ Email je platný' : 'Pre spätnú komunikáciu') }}
+                <p
+                  class="text-xs mt-1"
+                  :class="
+                    emailError ? 'text-red-500' : emailValid ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-500 dark:text-slate-500'
+                  "
+                >
+                  {{ emailError || (emailValid ? 'Email vyzerá v poriadku' : 'Na odpoveď vám stačí email alebo telefón') }}
                 </p>
               </div>
-              
+
               <div>
-                <label for="phone" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
-                  Telefón <span class="dark:text-slate-500 text-gray-500">(voliteľné)</span>
+                <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
+                  Telefón <span class="text-gray-500 dark:text-slate-500 font-normal">(voliteľné)</span>
                 </label>
                 <input
                   id="phone"
                   v-model="form.phone"
                   type="tel"
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  :class="{ 'border-red-500 focus:ring-red-500': validationError && !form.email && !form.phone }"
+                  class="input-app"
+                  :class="{ 'border-red-500': validationError && !form.email && !form.phone }"
                   placeholder="+421 XXX XXX XXX"
                   aria-label="Váš telefón"
-                  aria-describedby="phone-helper"
+                  autocomplete="tel"
                 />
-                <p id="phone-helper" class="text-xs dark:text-slate-400 text-gray-600 mt-1">
-                  {{ validationError && !form.email && !form.phone ? '⚠️ Vyplňte aspoň email alebo telefón' : 'Pre rýchlejší kontakt' }}
+                <p class="text-xs text-gray-500 dark:text-slate-500 mt-1">
+                  {{
+                    validationError && !form.email && !form.phone
+                      ? 'Vyplňte aspoň email alebo telefón'
+                      : ''
+                  }}
                 </p>
               </div>
-              
+
               <div>
-                <label for="project" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
-                  Typ projektu <span class="text-red-400">*</span>
+                <label for="company" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
+                  Firma <span class="text-gray-500 dark:text-slate-500 font-normal">(voliteľné)</span>
+                </label>
+                <input
+                  id="company"
+                  v-model="form.company"
+                  type="text"
+                  class="input-app"
+                  placeholder="Názov firmy alebo projektu"
+                  autocomplete="organization"
+                />
+              </div>
+
+              <div>
+                <label for="project" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
+                  Typ projektu <span class="text-red-500">*</span>
                 </label>
                 <select
                   id="project"
                   v-model="form.projectType"
                   required
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  :class="{ 'border-red-500 focus:ring-red-500': projectTypeError }"
+                  class="input-app"
+                  :class="{ 'border-red-500': projectTypeError }"
                   aria-label="Typ projektu"
-                  aria-describedby="project-helper"
                 >
-                  <option value="">Vyberte typ projektu</option>
-                  <option value="ai-integration">AI Integrácia & Chatbot</option>
-                  <option value="web-app">Webová stránka / Aplikácia</option>
-                  <option value="ecommerce">E-shop / E-commerce</option>
-                  <option value="business-tool">Business nástroj / Dashboard</option>
+                  <option value="">Vyberte typ</option>
+                  <option value="ai-integration">AI / chatbot / automatizácia</option>
+                  <option value="web-app">Web / aplikácia</option>
+                  <option value="ecommerce">E‑shop</option>
+                  <option value="business-tool">Interný nástroj / dashboard</option>
                   <option value="other">Iné</option>
                 </select>
-                <p id="project-helper" class="text-xs mt-1" :class="projectTypeError ? 'text-red-400' : 'dark:text-slate-400 text-gray-600'">
-                  {{ projectTypeError || 'Pomôže mi pripraviť lepšiu ponuku' }}
+                <p class="text-xs mt-1" :class="projectTypeError ? 'text-red-500' : 'text-gray-500 dark:text-slate-500'">
+                  {{ projectTypeError || 'Stručne mi pomôže zacieliť odpoveď' }}
                 </p>
               </div>
-              
+
               <div>
-                <label for="message" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
-                  Správa <span class="text-red-400">*</span>
+                <label for="budget" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
+                  Rozpočet <span class="text-gray-500 dark:text-slate-500 font-normal">(voliteľné)</span>
+                </label>
+                <select id="budget" v-model="form.budgetRange" class="input-app">
+                  <option value="">Zatiaľ neviem</option>
+                  <option value="do-500">Do 500 €</option>
+                  <option value="500-1500">500 – 1 500 €</option>
+                  <option value="1500-5000">1 500 – 5 000 €</option>
+                  <option value="5000plus">5 000 € +</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
+                  Správa <span class="text-red-500">*</span>
                 </label>
                 <textarea
                   id="message"
                   v-model="form.message"
                   required
                   rows="4"
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
-                  :class="{ 'border-red-500 focus:ring-red-500': messageError }"
-                  placeholder="Povedzte mi viac o vašom projekte..."
-                  aria-label="Vaša správa"
-                  aria-describedby="message-helper"
                   maxlength="1000"
-                ></textarea>
-                <p id="message-helper" class="text-xs mt-1 flex justify-between" :class="messageError ? 'text-red-400' : 'dark:text-slate-400 text-gray-600'">
-                  <span>{{ messageError || 'Čím viac detailov, tým lepšie' }}</span>
-                  <span>{{ form.message.length }}/1000</span>
+                  class="input-app resize-none"
+                  :class="{ 'border-red-500': messageError }"
+                  placeholder="Čo chcete zlepšiť a čo by malo byť výsledkom…"
+                  aria-label="Vaša správa"
+                />
+                <p
+                  id="message-helper"
+                  class="text-xs mt-1 flex justify-between gap-2"
+                  :class="messageError ? 'text-red-500' : 'text-gray-500 dark:text-slate-500'"
+                >
+                  <span>{{ messageError || 'Aspoň 10 znakov' }}</span>
+                  <span class="flex-shrink-0">{{ form.message.length }}/1000</span>
                 </p>
               </div>
-              
-              <button
-                type="submit"
-                class="w-full btn-primary text-center"
-                :disabled="isSubmitting"
-              >
-                {{ isSubmitting ? 'Odosielam...' : 'Odoslať správu' }}
+
+              <button type="submit" class="w-full btn-primary justify-center" :disabled="isSubmitting">
+                {{ isSubmitting ? 'Odosielam…' : 'Odoslať' }}
               </button>
-              
-              <p v-if="submitMessage" class="text-center text-sm" :class="submitSuccess ? 'text-green-400' : 'text-red-400'">
-                {{ submitMessage }}
-              </p>
+
+              <div
+                v-if="submitMessage"
+                class="rounded-xl p-4 flex gap-3 items-start text-sm"
+                :class="
+                  submitSuccess
+                    ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-100 border border-emerald-200/80 dark:border-emerald-800/60'
+                    : 'bg-red-50 dark:bg-red-950/30 text-red-800 dark:text-red-200 border border-red-200/80 dark:border-red-900/50'
+                "
+                role="status"
+              >
+                <span v-if="submitSuccess" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <span v-else class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <svg class="w-5 h-5 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                </span>
+                <span>{{ submitMessage }}</span>
+              </div>
             </form>
           </div>
         </div>
@@ -172,59 +229,64 @@
 </template>
 
 <script setup lang="ts">
-import { ref, h } from 'vue'
-import emailjs from '@emailjs/browser'
+import { h, ref } from 'vue'
+import { formatContactSummary, submitLeadIntake } from '~/services/leadIntake'
 
-const EmailIcon = () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-  h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' })
-])
+const { trackEvent } = useAnalytics()
 
-const PhoneIcon = () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-  h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' })
-])
+const EmailIcon = () =>
+  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
+    h('path', {
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+      'stroke-width': '2',
+      d: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+    })
+  ])
 
-const LocationIcon = () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-  h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' }),
-  h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M15 11a3 3 0 11-6 0 3 3 0 016 0z' })
-])
+const PhoneIcon = () =>
+  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
+    h('path', {
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+      'stroke-width': '2',
+      d: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
+    })
+  ])
 
-const LinkedInIcon = () => h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
-  h('path', { d: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' })
-])
+const LocationIcon = () =>
+  h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
+    h('path', {
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+      'stroke-width': '2',
+      d: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z'
+    }),
+    h('path', {
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+      'stroke-width': '2',
+      d: 'M15 11a3 3 0 11-6 0 3 3 0 016 0z'
+    })
+  ])
 
 const contactInfo = [
-  {
-    label: 'Email',
-    value: 'appinarasolutions@gmail.com',
-    href: 'mailto:appinarasolutions@gmail.com',
-    icon: EmailIcon
-  },
-  {
-    label: 'Telefón',
-    value: '+421 917 566 722',
-    href: 'tel:+421917566722',
-    icon: PhoneIcon
-  },
-  {
-    label: 'Lokácia',
-    value: 'Slovensko',
-    href: '#',
-    icon: LocationIcon
-  }
-]
-
-const socialLinks = [
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/appinara/', icon: LinkedInIcon }
+  { label: 'Email', value: 'appinarasolutions@gmail.com', href: 'mailto:appinarasolutions@gmail.com', icon: EmailIcon },
+  { label: 'Telefón', value: '+421 917 566 722', href: 'tel:+421917566722', icon: PhoneIcon },
+  { label: 'Lokácia', value: 'Slovensko', href: null as string | null, icon: LocationIcon }
 ]
 
 const form = ref({
   name: '',
   email: '',
   phone: '',
+  company: '',
   projectType: '',
+  budgetRange: '',
   message: ''
 })
 
+const honeypot = ref('')
 const isSubmitting = ref(false)
 const submitMessage = ref('')
 const submitSuccess = ref(false)
@@ -233,17 +295,17 @@ const emailError = ref('')
 const emailValid = ref(false)
 const projectTypeError = ref('')
 const messageError = ref('')
+const nameError = ref('')
 
-const validateEmail = () => {
+function validateEmailField() {
   if (!form.value.email) {
     emailError.value = ''
     emailValid.value = false
     return
   }
-  
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(form.value.email)) {
-    emailError.value = '⚠️ Neplatná emailová adresa'
+    emailError.value = 'Neplatná emailová adresa'
     emailValid.value = false
   } else {
     emailError.value = ''
@@ -251,106 +313,102 @@ const validateEmail = () => {
   }
 }
 
-const handleSubmit = async () => {
-  // Reset errors
+async function handleSubmit() {
+  nameError.value = ''
   validationError.value = false
   emailError.value = ''
   projectTypeError.value = ''
   messageError.value = ''
-  
-  // Validácia: aspoň email alebo telefón musí byť vyplnený
-  if (!form.value.email && !form.value.phone) {
-    validationError.value = true
-    submitMessage.value = '⚠️ Vyplňte prosím aspoň email alebo telefónne číslo'
-    submitSuccess.value = false
-    setTimeout(() => {
-      submitMessage.value = ''
-    }, 5000)
+  submitMessage.value = ''
+
+  if (!form.value.name.trim()) {
+    nameError.value = 'Vyplňte meno.'
+    submitMessage.value = 'Skontrolujte povinné polia.'
     return
   }
-  
-  // Validácia emailu ak je vyplnený
+
+  if (!form.value.email && !form.value.phone) {
+    validationError.value = true
+    submitMessage.value = 'Vyplňte aspoň email alebo telefón.'
+    return
+  }
+
   if (form.value.email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(form.value.email)) {
-      emailError.value = '⚠️ Neplatná emailová adresa'
-      submitMessage.value = '⚠️ Skontrolujte vyplnené údaje'
-      submitSuccess.value = false
+      emailError.value = 'Neplatná emailová adresa'
+      submitMessage.value = 'Skontrolujte email.'
       return
     }
   }
-  
-  // Validácia typu projektu
+
   if (!form.value.projectType) {
-    projectTypeError.value = '⚠️ Vyberte typ projektu'
-    submitMessage.value = '⚠️ Skontrolujte vyplnené údaje'
-    submitSuccess.value = false
+    projectTypeError.value = 'Vyberte typ projektu.'
+    submitMessage.value = 'Skontrolujte povinné polia.'
     return
   }
-  
-  // Validácia správy
+
   if (!form.value.message || form.value.message.trim().length < 10) {
-    messageError.value = '⚠️ Správa musí mať aspoň 10 znakov'
-    submitMessage.value = '⚠️ Skontrolujte vyplnené údaje'
-    submitSuccess.value = false
+    messageError.value = 'Správa musí mať aspoň 10 znakov.'
+    submitMessage.value = 'Skontrolujte správu.'
     return
   }
-  isSubmitting.value = true
-  submitMessage.value = ''
-  
-  try {
-    // EmailJS configuration
-    const serviceId = 'service_is1zj0v'
-    const templateId = 'template_xjtb39p'
-    const publicKey = 'OkHjN5RiYSgxDL-5S'
-    
-    // Prepare template parameters
-    const templateParams = {
-      from_name: form.value.name,
-      from_email: form.value.email,
-      phone: form.value.phone,
-      project_type: form.value.projectType,
-      message: form.value.message,
-      to_email: 'appinarasolutions@gmail.com'
-    }
-    
-    // Send email via EmailJS
-    await emailjs.send(serviceId, templateId, templateParams, publicKey)
-    
-    // Success
-    isSubmitting.value = false
+
+  if (honeypot.value.trim() !== '') {
     submitSuccess.value = true
-    validationError.value = false
-    emailError.value = ''
-    emailValid.value = false
-    projectTypeError.value = ''
-    messageError.value = ''
-    submitMessage.value = '✅ Správa bola úspešne odoslaná! Ozvem sa vám čoskoro.'
-    
-    // Reset form
+    submitMessage.value = 'Ďakujeme — správa bola odoslaná.'
+    trackEvent('contact_form_submitted', { honeypot: true })
+    return
+  }
+
+  const summary = formatContactSummary({
+    name: form.value.name.trim(),
+    email: form.value.email.trim(),
+    phone: form.value.phone.trim() || undefined,
+    company: form.value.company.trim() || undefined,
+    projectType: form.value.projectType,
+    budgetRange: form.value.budgetRange || undefined,
+    message: form.value.message.trim()
+  })
+
+  isSubmitting.value = true
+  try {
+    await submitLeadIntake({
+      type: 'contact',
+      summary,
+      contact: {
+        name: form.value.name.trim(),
+        email: form.value.email.trim(),
+        phone: form.value.phone.trim() || undefined,
+        company: form.value.company.trim() || undefined
+      },
+      projectType: form.value.projectType,
+      budgetRange: form.value.budgetRange || undefined,
+      message: form.value.message.trim(),
+      _hp: ''
+    })
+
+    submitSuccess.value = true
+    submitMessage.value = 'Ďakujem — správa je odoslaná. Ozvem sa najneskôr do 24 hodín.'
+    trackEvent('contact_form_submitted')
+    trackEvent('lead_submit_success', { source: 'contact' })
+
     form.value = {
       name: '',
       email: '',
       phone: '',
+      company: '',
       projectType: '',
+      budgetRange: '',
       message: ''
     }
-    
-    // Clear message after 5 seconds
-    setTimeout(() => {
-      submitMessage.value = ''
-    }, 5000)
-  } catch (error) {
-    // Error handling
-    console.error('EmailJS Error:', error)
-    isSubmitting.value = false
+    emailValid.value = false
+  } catch {
     submitSuccess.value = false
-    submitMessage.value = '❌ Nepodarilo sa odoslať správu. Skúste to prosím znova alebo nás kontaktujte priamo na email.'
-    
-    // Clear error message after 7 seconds
-    setTimeout(() => {
-      submitMessage.value = ''
-    }, 7000)
+    submitMessage.value = 'Odoslanie sa nepodarilo. Skúste znova alebo napíšte na appinarasolutions@gmail.com.'
+    trackEvent('lead_submit_error', { source: 'contact' })
+  } finally {
+    isSubmitting.value = false
   }
 }
 </script>

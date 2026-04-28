@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
+  <div class="relative overflow-hidden dark:bg-anthracite bg-bone">
     <Navigation />
     
     <article class="relative pt-32 pb-20">

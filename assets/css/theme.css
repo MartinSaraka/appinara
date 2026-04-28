@@ -1,0 +1,168 @@
+/* Atelier Bratislava — semantic theme tokens
+ *
+ * Tier 1 (--ref-*): raw palette, theme-agnostic.
+ * Tier 2 (--color-*): semantic tokens, named by purpose. Use these in components.
+ *
+ * Selection (no JS required on first paint):
+ *   1. Default            -> :root tokens (light / bone paper)
+ *   2. System dark        -> @media (prefers-color-scheme: dark) override (anthracite)
+ *   3. User-forced light  -> <html class="theme-light">  (suppresses #2)
+ *   4. User-forced dark   -> <html class="theme-dark">   (wins over #1, #2)
+ *
+ * Palette intent — one dominant pair (bone/ink) with a single sharp cinnabar accent.
+ * Ancillary plum / lichen / marigold for depth, used sparingly.
+ */
+
+:root {
+  /* --- Tier 1: reference palette ----------------------------------- */
+
+  /* Paper / ink — Atelier core */
+  --ref-bone-50:   #FBF8F2;
+  --ref-bone-100:  #F4EFE6;   /* primary paper */
+  --ref-bone-200:  #EAE3D5;
+  --ref-bone-300:  #E0DACB;   /* mist */
+
+  --ref-ink-100:   #C8CBD2;
+  --ref-ink-300:   #9CA0AB;
+  --ref-ink-500:   #6B7180;
+  --ref-ink-700:   #3A3F4A;
+  --ref-ink-900:   #14171C;   /* primary text */
+
+  /* Anthracite (dark side) */
+  --ref-anthracite-deep: #0B0C10;
+  --ref-anthracite:      #131419;
+  --ref-anthracite-elev: #1C1E25;
+  --ref-anthracite-mist: #2A2D36;
+
+  /* Cinnabar — sharp accent */
+  --ref-cinnabar-soft: #FDF2EE;
+  --ref-cinnabar-300:  #F2937A;
+  --ref-cinnabar-500:  #DC2F1A;
+  --ref-cinnabar-deep: #B5240F;
+  --ref-cinnabar-glow: #FF5037;   /* dark-mode bright */
+
+  /* Editorial accents (used sparingly) */
+  --ref-plum:        #4A1F2E;
+  --ref-plum-light:  #C97294;
+  --ref-lichen:      #6E8266;
+  --ref-lichen-light:#A8BFA0;
+  --ref-marigold:    #D89422;
+  --ref-marigold-light:#F6CC6F;
+
+  /* --- Tier 2: light theme (paper) --------------------------------- */
+  color-scheme: light;
+
+  --color-bg:           var(--ref-bone-100);   /* warm off-white paper */
+  --color-bg-subtle:    var(--ref-bone-50);
+  --color-bg-muted:     var(--ref-bone-200);
+  --color-bg-elevated:  var(--ref-bone-50);
+  --color-bg-inverse:   var(--ref-ink-900);
+  --color-bg-deep:      var(--ref-plum);
+
+  --color-fg:           var(--ref-ink-900);   /* 16.4 : 1 on bone — AAA */
+  --color-fg-muted:     var(--ref-ink-700);   /*  8.6 : 1 on bone — AAA */
+  --color-fg-subtle:    var(--ref-ink-500);   /*  4.7 : 1 on bone — AA  */
+  --color-fg-meta:      var(--ref-ink-300);
+  --color-fg-inverse:   var(--ref-bone-100);
+
+  --color-border:        var(--ref-bone-300);  /* mist */
+  --color-border-subtle: var(--ref-bone-200);
+  --color-border-strong: var(--ref-ink-300);
+  --color-rule:          rgba(20, 23, 28, 0.08);
+
+  --color-accent:        var(--ref-cinnabar-500);
+  --color-accent-hover:  var(--ref-cinnabar-deep);
+  --color-accent-fg:     var(--ref-bone-50);   /* on cinnabar: 4.6:1 — AA */
+  --color-accent-subtle: var(--ref-cinnabar-soft);
+
+  --color-success:       var(--ref-lichen);
+  --color-success-bg:    rgba(110, 130, 102, 0.12);
+  --color-warning:       var(--ref-marigold);
+  --color-warning-bg:    rgba(216, 148, 34, 0.14);
+  --color-danger:        var(--ref-cinnabar-deep);
+  --color-danger-bg:     var(--ref-cinnabar-soft);
+
+  --color-focus-ring:    var(--ref-cinnabar-500);
+  --color-selection-bg:  var(--ref-cinnabar-500);
+  --color-selection-fg:  var(--ref-bone-50);
+}
+
+/* System preference: applies unless user has forced light */
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    color-scheme: dark;
+
+    --color-bg:           var(--ref-anthracite);
+    --color-bg-subtle:    var(--ref-anthracite-deep);
+    --color-bg-muted:     var(--ref-anthracite-elev);
+    --color-bg-elevated:  var(--ref-anthracite-elev);
+    --color-bg-inverse:   var(--ref-bone-100);
+    --color-bg-deep:      var(--ref-plum);
+
+    --color-fg:           var(--ref-bone-100);   /* 14.8 : 1 — AAA */
+    --color-fg-muted:     var(--ref-ink-100);
+    --color-fg-subtle:    var(--ref-ink-300);
+    --color-fg-meta:      var(--ref-ink-500);
+    --color-fg-inverse:   var(--ref-ink-900);
+
+    --color-border:        var(--ref-anthracite-mist);
+    --color-border-subtle: var(--ref-anthracite-elev);
+    --color-border-strong: var(--ref-ink-500);
+    --color-rule:          rgba(244, 239, 230, 0.10);
+
+    --color-accent:        var(--ref-cinnabar-glow);
+    --color-accent-hover:  var(--ref-cinnabar-300);
+    --color-accent-fg:     var(--ref-anthracite-deep);
+    --color-accent-subtle: rgba(255, 80, 55, 0.14);
+
+    --color-success:       var(--ref-lichen-light);
+    --color-success-bg:    rgba(168, 191, 160, 0.12);
+    --color-warning:       var(--ref-marigold-light);
+    --color-warning-bg:    rgba(246, 204, 111, 0.12);
+    --color-danger:        var(--ref-cinnabar-glow);
+    --color-danger-bg:     rgba(255, 80, 55, 0.14);
+
+    --color-focus-ring:    var(--ref-cinnabar-glow);
+    --color-selection-bg:  var(--ref-cinnabar-glow);
+    --color-selection-fg:  var(--ref-anthracite-deep);
+  }
+}
+
+/* Explicit user choice: wins over both default and system preference */
+:root.theme-dark {
+  color-scheme: dark;
+
+  --color-bg:           var(--ref-anthracite);
+  --color-bg-subtle:    var(--ref-anthracite-deep);
+  --color-bg-muted:     var(--ref-anthracite-elev);
+  --color-bg-elevated:  var(--ref-anthracite-elev);
+  --color-bg-inverse:   var(--ref-bone-100);
+  --color-bg-deep:      var(--ref-plum);
+
+  --color-fg:           var(--ref-bone-100);
+  --color-fg-muted:     var(--ref-ink-100);
+  --color-fg-subtle:    var(--ref-ink-300);
+  --color-fg-meta:      var(--ref-ink-500);
+  --color-fg-inverse:   var(--ref-ink-900);
+
+  --color-border:        var(--ref-anthracite-mist);
+  --color-border-subtle: var(--ref-anthracite-elev);
+  --color-border-strong: var(--ref-ink-500);
+  --color-rule:          rgba(244, 239, 230, 0.10);
+
+  --color-accent:        var(--ref-cinnabar-glow);
+  --color-accent-hover:  var(--ref-cinnabar-300);
+  --color-accent-fg:     var(--ref-anthracite-deep);
+  --color-accent-subtle: rgba(255, 80, 55, 0.14);
+
+  --color-success:       var(--ref-lichen-light);
+  --color-success-bg:    rgba(168, 191, 160, 0.12);
+  --color-warning:       var(--ref-marigold-light);
+  --color-warning-bg:    rgba(246, 204, 111, 0.12);
+  --color-danger:        var(--ref-cinnabar-glow);
+  --color-danger-bg:     rgba(255, 80, 55, 0.14);
+
+  --color-focus-ring:    var(--ref-cinnabar-glow);
+  --color-selection-bg:  var(--ref-cinnabar-glow);
+  --color-selection-fg:  var(--ref-anthracite-deep);
+}
