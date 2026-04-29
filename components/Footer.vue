@@ -4,16 +4,26 @@
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <!-- Brand -->
         <div class="md:col-span-2">
-          <div class="text-2xl font-display font-bold mb-4">
-            <span class="gradient-text">Appi</span>
-            <span class="dark:text-white text-gray-900">nara</span>
+          <div class="mb-4">
+            <AppinaraLogo size="lg" />
           </div>
-          <p class="dark:text-slate-400 text-gray-600 mb-4 max-w-md">
-            Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.
+          <p class="dark:text-slate-300 text-gray-700 mb-2 max-w-md text-sm leading-relaxed">
+            <span class="font-semibold dark:text-white text-gray-900">Martin Saraka</span> — freelance developer zo Slovenska.
           </p>
+          <p class="dark:text-slate-400 text-gray-600 mb-5 max-w-md text-sm leading-relaxed">
+            Žiadne agentúrne marže, žiadny manažér medzi nami. Píšete priamo.
+          </p>
+          <div class="flex flex-col gap-1.5 mb-5 text-sm">
+            <a href="mailto:appinarasolutions@gmail.com" class="dark:text-slate-300 text-gray-700 dark:hover:text-primary-400 hover:text-primary-600 transition-colors">
+              appinarasolutions@gmail.com
+            </a>
+            <a href="tel:+421917566722" class="dark:text-slate-300 text-gray-700 dark:hover:text-primary-400 hover:text-primary-600 transition-colors">
+              +421 917 566 722
+            </a>
+          </div>
           <div class="flex gap-4">
-            <a 
-              v-for="social in socialLinks" 
+            <a
+              v-for="social in socialLinks"
               :key="social.name"
               :href="social.href"
               target="_blank"
@@ -56,7 +66,7 @@
       <!-- Bottom Bar -->
       <div class="pt-8 border-t dark:border-slate-800 border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="dark:text-slate-500 text-gray-500 text-sm">
-          © {{ currentYear }} Appinara. Všetky práva vyhradené.
+          © {{ currentYear }} Martin Saraka — Appinara · Slovensko
         </p>
         <div class="flex gap-6 text-sm">
           <NuxtLink to="/ochrana-udajov" class="dark:text-slate-500 text-gray-500 dark:hover:text-primary-400 hover:text-primary-600 transition-colors focus:outline-none dark:focus:text-primary-400 focus:text-primary-600 focus:underline">
@@ -83,10 +93,13 @@ const socialLinks = [
 ]
 
 const quickLinks = [
-  { label: 'Služby', href: '#services' },
-  { label: 'Prečo my', href: '#why-us' },
+  { label: 'Príklady', href: '/#portfolio' },
+  { label: 'Postup', href: '/#spolupraca' },
+  { label: 'O mne', href: '/o-mne' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'AI audit', href: '/ai-audit' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Kontakt', href: '#contact' }
+  { label: 'Kontakt', href: '/#contact' }
 ]
 
 const services = [

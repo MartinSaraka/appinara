@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#internal/nuxt/paths": "./nuxt-internal-paths.mjs"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "generate-og": "node scripts/generate-og-image.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.3.3",
     "@nuxt/image": "^1.7.0",
     "@vueuse/core": "^10.11.0",
     "@vueuse/motion": "^2.2.3",
@@ -21,6 +24,7 @@
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@types/node": "^20.14.11",
+    "sharp": "^0.33.5",
     "typescript": "^5.5.3"
   }
 }

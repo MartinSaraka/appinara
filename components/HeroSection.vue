@@ -1,89 +1,170 @@
 <template>
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden animated-gradient pb-8">
-    <!-- Grid Pattern Overlay -->
-    <div class="absolute inset-0 grid-pattern opacity-30"></div>
-    
-    <!-- Animated gradient orb -->
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary-500/20 via-purple-500/15 to-pink-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-    
-    <div class="container mx-auto px-6 relative z-10 pt-20">
-      <div class="max-w-5xl mx-auto text-center">
-        <!-- Badge -->
-        <div 
-          v-motion-fade-visible
-          class="inline-flex items-center gap-2 px-4 py-2 glass-effect rounded-full mb-8 animate-glow"
-        >
-          <span class="relative flex h-3 w-3">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-          </span>
-          <span class="text-sm font-medium text-gray-900 dark:text-white">Dostupný pre nové projekty</span>
+  <section
+    ref="root"
+    class="relative overflow-hidden hero-surface paper-grain section-tall pt-32 md:pt-40"
+  >
+    <!-- One single-color riso glow. No second blob, no halftone overlay. -->
+    <span class="riso-glow cinnabar w-[480px] h-[480px] -top-32 -right-24" aria-hidden="true" />
+
+    <div class="container mx-auto px-6 relative z-10 max-w-5xl">
+
+      <!-- Top editorial rule -->
+      <div
+        class="editorial-rule reveal-fade is-revealed mb-6"
+        :style="{ animationDelay: '0ms' }"
+      >
+        § 01 — Príjem · AI asistent
+      </div>
+
+      <!-- Status badge, single line -->
+      <p
+        class="eyebrow reveal-fade mb-10 md:mb-14 flex items-center gap-2"
+        :style="{ animationDelay: '180ms' }"
+      >
+        <span class="relative flex h-1.5 w-1.5">
+          <span class="absolute inline-flex h-full w-full rounded-full bg-primary-500 dark:bg-cinnabar-glow opacity-60 animate-ping" />
+          <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary-500 dark:bg-cinnabar-glow" />
+        </span>
+        Beriem nové projekty · odpoveď do 24 h
+      </p>
+
+      <!-- Headline: single italic accent word, no multi-line stagger -->
+      <h1
+        class="font-display font-normal text-ink-900 dark:text-bone-100 text-display-xl text-balance max-w-4xl reveal-clip"
+        :style="{ animationDelay: '380ms', lineHeight: '0.98' }"
+      >
+        AI a weby pre prevádzky, ktoré majú
+        <em class="italic font-normal text-primary-500 dark:text-cinnabar-glow not-italic-rule">dosť</em>
+        pretekov s emailom.
+      </h1>
+
+      <!-- Body lede -->
+      <p
+        class="text-lg md:text-xl text-ink-700 dark:text-bone-100 leading-snug max-w-2xl mt-8 reveal-rise"
+        :style="{ animationDelay: '720ms' }"
+      >
+        Asistent dvíha 70&nbsp;% bežných dopytov sám. Vy odpisujete len na to, kde to dáva zmysel.
+      </p>
+
+      <!-- Founder byline -->
+      <div
+        class="mt-8 flex items-center gap-4 max-w-xl reveal-rise"
+        :style="{ animationDelay: '780ms' }"
+      >
+        <div class="relative flex items-center justify-center w-12 h-12 bg-bone-200 dark:bg-anthracite-elev border border-ink-900 dark:border-bone-100 overflow-hidden flex-shrink-0">
+          <NuxtImg
+            v-if="hasPortrait"
+            src="/photos/portrait.jpg"
+            alt="Martin Saraka — zakladateľ Appinara"
+            sizes="48px"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <span v-else class="font-display italic text-base text-ink-900 dark:text-bone-100 leading-none translate-y-[1px]" aria-hidden="true">M.S.</span>
+          <span class="absolute -top-[2px] -left-[2px] w-1.5 h-1.5 bg-primary-500 dark:bg-cinnabar-glow" aria-hidden="true" />
+          <span class="absolute -bottom-[2px] -right-[2px] w-1.5 h-1.5 bg-primary-500 dark:bg-cinnabar-glow" aria-hidden="true" />
         </div>
-        
-        <!-- Main Heading -->
-        <h1 
-          v-motion-fade-visible
-          class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 leading-tight text-gray-900 dark:text-white"
-        >
-          Zvýšte vaše
-          <span class="block gradient-text animate-gradient">zisky pomocou AI</span>
-          a moderných technológií
-        </h1>
-        
-        <!-- Subheading -->
-        <p 
-          v-motion-fade-visible
-          :delay="200"
-          class="text-xl md:text-2xl text-gray-800 dark:text-slate-200 mb-16 max-w-3xl mx-auto leading-relaxed"
-        >
-          Pomáhame firmám automatizovať procesy, zvýšiť efektivitu a rásť pomocou 
-          <span class="dark:text-primary-400 text-primary-600 font-semibold">AI integrácií</span> a vlastných webových riešení.
-        </p>
-        
-        <!-- CTA Buttons -->
-        <div 
-          v-motion-fade-visible
-          :delay="400"
-          class="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <a href="#contact" class="btn-primary group" aria-label="Kontaktovať nás a začať spoluprácu">
-            Začnime spoluprácu
-            <svg class="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a href="#services" class="btn-secondary group" aria-label="Prejsť na sekciu služby">
-            Pozrieť služby
-            <svg class="inline-block w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
-        </div>
-        
-        <!-- Stats -->
-        <div 
-          v-motion-fade-visible
-          :delay="600"
-          class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-24 max-w-3xl mx-auto"
-        >
-          <div 
-            v-for="stat in stats" 
-            :key="stat.label"
-            class="glass-effect rounded-2xl p-6 sm:p-8 card-hover"
-          >
-            <div class="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-3">{{ stat.value }}</div>
-            <div class="text-gray-700 dark:text-slate-300 text-sm sm:text-base leading-snug">{{ stat.label }}</div>
-          </div>
+        <div class="text-sm leading-snug">
+          <p class="font-sans font-medium text-ink-900 dark:text-bone-100">Martin Saraka</p>
+          <p class="text-ink-700 dark:text-bone-200">Robím Appinaru sám — píšete priamo so mnou.</p>
         </div>
       </div>
+
+      <!-- CTA pair -->
+      <div
+        class="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-10 reveal-rise"
+        :style="{ animationDelay: '880ms' }"
+      >
+        <a
+          href="#contact"
+          class="btn-primary group"
+          aria-label="Prejsť na kontaktný formulár"
+          @click="trackEvent('hero_primary_cta_click', { target: 'contact' })"
+        >
+          Napísať mi
+          <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+        <NuxtLink
+          to="/ai-audit"
+          class="btn-secondary"
+          aria-label="Spustiť bezplatný AI audit"
+          @click="trackEvent('hero_secondary_cta_click', { target: 'ai-audit' })"
+        >
+          Bezplatný AI audit
+        </NuxtLink>
+      </div>
+
+      <!-- Device showcase -->
+      <div
+        class="relative mt-20 md:mt-24 max-w-4xl reveal-clip"
+        :style="{ animationDelay: '950ms' }"
+      >
+        <div class="paper-card-deep overflow-hidden">
+          <DeviceFrame
+            device="browser"
+            url="appinara.sk/asistent"
+            container-class="relative"
+          >
+            <div class="relative w-full h-full bg-bone-50 dark:bg-anthracite-elev p-5 md:p-7 flex flex-col gap-4">
+
+              <!-- Header -->
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="relative flex items-center justify-center w-9 h-9 bg-bone-50 dark:bg-anthracite-elev border border-ink-900 dark:border-bone-100">
+                    <span class="font-display italic text-[16px] text-ink-900 dark:text-bone-100 leading-none translate-y-[1px]">A</span>
+                    <span class="absolute -top-[2px] -left-[2px] w-1.5 h-1.5 bg-primary-500 dark:bg-cinnabar-glow" />
+                    <span class="absolute -bottom-[2px] -right-[2px] w-1.5 h-1.5 bg-primary-500 dark:bg-cinnabar-glow" />
+                  </span>
+                  <div>
+                    <p class="font-mono text-[11px] tracking-mono-wide uppercase text-ink-700 dark:text-bone-100">Asistent · príjem dopytov</p>
+                    <p class="text-[11px] text-ink-500 dark:text-ink-300 mt-0.5">Online · v1.4</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chat conversation -->
+              <div class="flex-1 space-y-3">
+                <div class="flex justify-end">
+                  <div class="max-w-[78%] rounded-md bg-bone-200 dark:bg-anthracite-mist px-3.5 py-2 text-sm text-ink-900 dark:text-bone-100 font-sans">
+                    Dobrý deň, máte voľný termín tento týždeň?
+                  </div>
+                </div>
+                <div class="flex">
+                  <div class="max-w-[88%] rounded-md bg-cinnabar-soft dark:bg-cinnabar-glow/10 border border-primary-500/30 dark:border-cinnabar-glow/40 px-3.5 py-2.5 text-sm text-ink-900 dark:text-bone-100 font-sans">
+                    Áno — voľné sú
+                    <em class="font-display italic font-normal text-primary-500 dark:text-cinnabar-glow not-italic-rule">štvrtok 14:30</em>
+                    a
+                    <em class="font-display italic font-normal text-primary-500 dark:text-cinnabar-glow not-italic-rule">piatok 11:00</em>.
+                    <div class="mt-2 flex gap-2 flex-wrap">
+                      <span class="text-[10px] font-mono tracking-mono-wide uppercase px-2 py-1 bg-primary-500 text-bone-50 dark:bg-cinnabar-glow dark:text-anthracite">Štv 14:30</span>
+                      <span class="text-[10px] font-mono tracking-mono-wide uppercase px-2 py-1 bg-primary-500 text-bone-50 dark:bg-cinnabar-glow dark:text-anthracite">Pia 11:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </DeviceFrame>
+        </div>
+      </div>
+
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const stats = [
-  { value: '5+', label: 'Rokov skúseností' },
-  { value: '2-4', label: 'Týždne na realizáciu' },
-  { value: '24/7', label: 'Podpora pre klientov' },
-]
+import { ref } from 'vue'
+
+const { trackEvent } = useAnalytics()
+const root = ref<HTMLElement | null>(null)
+
+// Toggle to true once /public/photos/portrait.jpg exists.
+const hasPortrait = ref(false)
 </script>
+
+<style scoped>
+/* When Tailwind's utility `italic` lands on the same span as a font-display rule,
+   ensure font-style:italic still wins. */
+.not-italic-rule { font-style: italic; }
+</style>

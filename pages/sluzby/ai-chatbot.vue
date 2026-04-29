@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden bg-slate-950">
+  <div class="relative overflow-hidden bg-bone dark:bg-anthracite">
     <Navigation />
     
     <!-- Hero Section -->

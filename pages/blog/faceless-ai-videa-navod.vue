@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
+  <div class="relative overflow-hidden dark:bg-anthracite bg-bone">
     <Navigation />
     
     <article class="relative pt-32 pb-20">
@@ -13,12 +13,12 @@
             <span class="dark:text-slate-300 text-gray-700">Faceless AI videá</span>
           </nav>
           
-          <div class="flex items-center gap-4 mb-6">
-            <span class="px-4 py-2 bg-primary-500/20 dark:text-primary-300 text-primary-700 rounded-full text-sm font-medium">
+          <div class="flex flex-wrap items-center gap-4 mb-6">
+            <span class="px-3 py-1 bg-primary-500/15 text-primary-700 dark:text-cinnabar-glow font-mono text-[11px] tracking-mono-wide uppercase rounded-sm">
               AI Video
             </span>
-            <span class="dark:text-slate-400 text-gray-600">📖 15 min čítania</span>
-            <span class="dark:text-slate-400 text-gray-600">📅 16. November 2024</span>
+            <span class="font-mono text-[11px] tracking-mono-wide uppercase text-ink-500 dark:text-ink-300">Read · 15 min</span>
+            <span class="font-mono text-[11px] tracking-mono-wide uppercase text-ink-500 dark:text-ink-300">16 nov 2024</span>
           </div>
           
           <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
@@ -29,11 +29,8 @@
             Ako zarábať 2000-5000€/mesiac na YouTube a TikTok BEZ ukázania tváre. Step-by-step tutoriál s návojmi, nástrojmi a reálnymi príkladmi kanálov, ktoré to robia.
           </p>
           
-          <div class="relative h-96 bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 rounded-3xl overflow-hidden mb-12">
-            <div class="absolute inset-0 grid-pattern opacity-30"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-9xl">
-              🎬
-            </div>
+          <div class="relative h-72 md:h-80 bg-bone-50 dark:bg-anthracite-elev border border-mist dark:border-anthracite-mist halftone-field overflow-hidden mb-12 flex items-center justify-center">
+            <span class="font-display italic text-display-xl text-primary-500 dark:text-cinnabar-glow leading-none">faceless.</span>
           </div>
           
           <div class="prose dark:prose-invert prose-lg max-w-none">
