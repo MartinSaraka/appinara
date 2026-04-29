@@ -1,24 +1,65 @@
+@import './theme.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Base — Editorial Brutalist
+   ───────────────────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply bg-white text-gray-900 font-sans antialiased;
-    @apply dark:bg-slate-950 dark:text-slate-100;
-    line-height: 1.7;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-feature-settings: 'ss01' on, 'ss02' on, 'cv11' on;
+    line-height: 1.6;
+    transition: background-color 240ms ease, color 240ms ease;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  
-  /* Improved accessibility for reduced motion */
+
+  /* Editorial paper texture — subtle grain on the page itself */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  :root.dark body::before,
+  :root.theme-dark body::before {
+    opacity: 0.07;
+    mix-blend-mode: screen;
+  }
+
+  ::selection {
+    background-color: var(--color-selection-bg);
+    color: var(--color-selection-fg);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-feature-settings: 'ss01' on, 'ss02' on;
+    letter-spacing: -0.02em;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--color-rule);
+    height: 0;
+    margin: 0;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -26,99 +67,216 @@
   }
 }
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Components — typography helpers, buttons, layout primitives
+   ───────────────────────────────────────────────────────────────────────── */
 @layer components {
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
-    @apply dark:from-primary-400 dark:via-purple-400 dark:to-pink-400;
+
+  /* Editorial eyebrow — monospaced, uppercase, ticker-style */
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-fg-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
-  
-  .gradient-border {
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1px;
+    background: currentColor;
+  }
+  .eyebrow.no-rule::before { display: none; }
+
+  /* Section folio — large monospaced ordinal pinned to a section */
+  .folio {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-fg-muted);
+  }
+
+  /* Italic accent — replaces gradient-text. Fraunces italic, drop-shadow optional */
+  .accent-italic {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+    font-feature-settings: 'ss01' on;
+  }
+
+  /* Ink underline accent — for inline emphasis under text */
+  .ink-underline {
     position: relative;
-    background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
-    padding: 2px;
-    border-radius: 0.75rem;
+    display: inline-block;
   }
-  
-  .gradient-border-inner {
-    @apply bg-slate-900 rounded-[10px] w-full h-full;
-    @apply dark:bg-slate-900 bg-white;
+  .ink-underline::after {
+    content: '';
+    position: absolute;
+    left: -0.05em;
+    right: -0.05em;
+    bottom: 0.04em;
+    height: 0.2em;
+    background: var(--color-accent);
+    z-index: -1;
+    opacity: 0.85;
   }
-  
-  .glass-effect {
-    @apply bg-gray-900/5 backdrop-blur-md border border-gray-200/20;
-    @apply dark:bg-white/5 dark:border-white/10;
+
+  /* Section spacing — generous, magazine-like */
+  .section-tall {
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(4rem, 8vw, 7rem);
   }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary-500/30;
-    @apply dark:hover:shadow-primary-500/20;
+  .section-spacing {
+    padding-top: clamp(5rem, 10vw, 9rem);
+    padding-bottom: clamp(5rem, 10vw, 9rem);
   }
-  
+  .content-spacing > * + * { margin-top: 1.5rem; }
+
+  /* Editorial rule — heavier than a default border */
+  .rule-strong {
+    border-color: var(--color-rule);
+  }
+  .rule-soft {
+    border-color: var(--color-rule-soft);
+  }
+
+  /* ─── Buttons — editorial flat, no rounded pills ─────────────── */
   .btn-primary {
-    @apply px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 rounded-full font-semibold text-white shadow-lg shadow-primary-500/50 hover:shadow-xl hover:shadow-primary-500/70 transition-all duration-300 hover:scale-[1.03];
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.5rem;
+    background: var(--color-accent);
+    color: var(--color-accent-fg);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    border: 1px solid var(--color-accent);
+    border-radius: 0;
+    transition: transform 180ms ease, background 180ms ease, color 180ms ease;
   }
-  
+  .btn-primary:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--color-fg);
+  }
+
   .btn-secondary {
-    @apply px-8 py-4 bg-gray-100 backdrop-blur-md border border-gray-300 rounded-full font-semibold text-gray-900 hover:bg-gray-200 transition-all duration-300 hover:scale-[1.03];
-    @apply dark:bg-white/10 dark:border-white/20 dark:text-white dark:hover:bg-white/20;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.5rem;
+    background: transparent;
+    color: var(--color-fg);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    border: 1px solid var(--color-fg);
+    border-radius: 0;
+    transition: transform 180ms ease, background 180ms ease, color 180ms ease;
   }
-  
-  /* Focus states for accessibility */
+  .btn-secondary:hover {
+    background: var(--color-fg);
+    color: var(--color-bg);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--color-accent);
+  }
+
   .btn-primary:focus-visible,
   .btn-secondary:focus-visible {
-    @apply outline-none ring-4 ring-primary-400/50 ring-offset-2 ring-offset-slate-950;
-    @apply dark:ring-offset-slate-950 ring-offset-white;
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 3px;
   }
-  
-  /* Better spacing utilities */
-  .section-spacing {
-    @apply py-24 md:py-32 lg:py-40;
+
+  /* ─── Cards — flat, edge-to-edge, no rounded corners ─────────── */
+  .card-flat {
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-rule);
+    transition: transform 220ms ease, box-shadow 220ms ease;
   }
-  
-  .content-spacing {
-    @apply space-y-6;
+  .card-flat:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--color-accent);
   }
-  
-  /* Prose styling for blog articles */
+
+  /* Numbered ordinal — large serif numeric used in cards/lists */
+  .ordinal {
+    font-family: 'Fraunces', serif;
+    font-feature-settings: 'tnum' on, 'ss01' on;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.05em;
+    line-height: 0.85;
+    color: var(--color-fg);
+  }
+
+  /* Prose */
   .prose {
-    @apply text-gray-900 dark:text-slate-100;
+    color: var(--color-fg);
   }
-  
-  .prose strong {
-    @apply text-gray-900 dark:text-white font-bold;
-  }
-  
+  .prose strong { color: var(--color-fg); font-weight: 700; }
   .prose a {
-    @apply text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
   }
-
-  /* Ensure buttons inside prose keep their colors */
-  .prose .btn-primary,
-  .prose .btn-secondary {
-    @apply no-underline;
-  }
-
-  .prose .btn-primary {
-    @apply text-white hover:text-white;
-  }
-
-  .prose .btn-secondary {
-    @apply text-gray-900 dark:text-white hover:text-gray-900 dark:hover:text-white;
-  }
-  
+  .prose a:hover { color: var(--color-accent-hover); }
   .prose code {
-    @apply bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-slate-100 px-1.5 py-0.5 rounded text-sm;
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--color-bg-muted);
+    padding: 0.1rem 0.4rem;
+    font-size: 0.85em;
   }
-  
   .prose pre {
-    @apply bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg;
+    background: var(--color-bg-muted);
+    border: 1px solid var(--color-rule-soft);
   }
-  
   .prose blockquote {
-    @apply border-l-4 border-primary-500 bg-gray-50 dark:bg-slate-800/50 text-gray-800 dark:text-slate-200;
+    border-left: 2px solid var(--color-accent);
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: var(--color-fg-muted);
   }
-  
-  /* Screen reader only utility */
+
+  /* Marquee strip */
+  .marquee-strip {
+    background: var(--color-fg);
+    color: var(--color-bg);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    overflow: hidden;
+    padding: 0.85rem 0;
+  }
+  .marquee-track {
+    display: inline-flex;
+    gap: 3rem;
+    animation: marquee 32s linear infinite;
+    white-space: nowrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* A11y */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -126,11 +284,10 @@
     padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip: rect(0,0,0,0);
     white-space: nowrap;
     border-width: 0;
   }
-  
   .focus\:not-sr-only:focus {
     position: static;
     width: auto;
@@ -143,45 +300,55 @@
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
+/* ─── Custom scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track {
-  @apply bg-slate-900 dark:bg-slate-900 bg-gray-100;
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-rule-faint);
 }
-
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-600 rounded-full;
+  background: var(--color-fg);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-500;
+  background: var(--color-accent);
 }
 
-/* Gradient animation background */
-.animated-gradient {
-  background: linear-gradient(-45deg, #f0f9ff, #fdf4ff, #fff7ed, #f0fdf4);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+/* ─── Editorial dot grid (subtle structure for canvas sections) ──── */
+.dot-grid {
+  background-image: radial-gradient(circle, var(--color-rule-soft) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-.dark .animated-gradient {
-  background: linear-gradient(-45deg, #1e1b4b, #312e81, #4c1d95, #1e293b);
-  background-size: 400% 400%;
+/* ─── Hatched ruling — a band of 45° ink lines, magazine-style ──── */
+.hatched {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-fg) 0,
+    var(--color-fg) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+  opacity: 0.85;
 }
 
-/* Grid pattern overlay */
-.grid-pattern {
-  background-image: 
-    linear-gradient(rgba(99, 102, 241, 0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.2) 1px, transparent 1px);
-  background-size: 50px 50px;
+/* ─── Numbered offset stamp — tiny meta above headings ──── */
+.stamp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-fg-meta);
+  display: inline-block;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--color-rule);
+  background: var(--color-bg);
 }
 
-.dark .grid-pattern {
-  background-image: 
-    linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+/* Reveal animation — used by v-motion */
+@keyframes editorial-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise-in {
+  animation: editorial-rise 720ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }

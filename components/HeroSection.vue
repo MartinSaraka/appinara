@@ -1,89 +1,122 @@
 <template>
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden animated-gradient pb-8">
-    <!-- Grid Pattern Overlay -->
-    <div class="absolute inset-0 grid-pattern opacity-30"></div>
-    
-    <!-- Animated gradient orb -->
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary-500/20 via-purple-500/15 to-pink-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-    
-    <div class="container mx-auto px-6 relative z-10 pt-20">
-      <div class="max-w-5xl mx-auto text-center">
-        <!-- Badge -->
-        <div 
-          v-motion-fade-visible
-          class="inline-flex items-center gap-2 px-4 py-2 glass-effect rounded-full mb-8 animate-glow"
-        >
-          <span class="relative flex h-3 w-3">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-          </span>
-          <span class="text-sm font-medium text-gray-900 dark:text-white">Dostupný pre nové projekty</span>
+  <section class="relative pt-14 md:pt-20 pb-20 md:pb-28 overflow-hidden" style="background: var(--color-bg);">
+    <!-- subtle dot grid as canvas structure -->
+    <div class="absolute inset-0 dot-grid opacity-50 pointer-events-none" aria-hidden="true" />
+
+    <div class="container mx-auto px-6 relative">
+      <!-- Top index row — editorial folio strip -->
+      <div class="flex items-end justify-between pb-6 border-b mb-10 md:mb-14" style="border-color: var(--color-rule);">
+        <div class="flex items-center gap-4">
+          <span class="folio">№ 00 / Index</span>
+          <span class="hidden md:inline folio opacity-50">— Vol. {{ new Date().getFullYear() }}</span>
         </div>
-        
-        <!-- Main Heading -->
-        <h1 
-          v-motion-fade-visible
-          class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 leading-tight text-gray-900 dark:text-white"
-        >
-          Zvýšte vaše
-          <span class="block gradient-text animate-gradient">zisky pomocou AI</span>
-          a moderných technológií
-        </h1>
-        
-        <!-- Subheading -->
-        <p 
-          v-motion-fade-visible
-          :delay="200"
-          class="text-xl md:text-2xl text-gray-800 dark:text-slate-200 mb-16 max-w-3xl mx-auto leading-relaxed"
-        >
-          Pomáhame firmám automatizovať procesy, zvýšiť efektivitu a rásť pomocou 
-          <span class="dark:text-primary-400 text-primary-600 font-semibold">AI integrácií</span> a vlastných webových riešení.
-        </p>
-        
-        <!-- CTA Buttons -->
-        <div 
-          v-motion-fade-visible
-          :delay="400"
-          class="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <a href="#contact" class="btn-primary group" aria-label="Kontaktovať nás a začať spoluprácu">
-            Začnime spoluprácu
-            <svg class="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a href="#services" class="btn-secondary group" aria-label="Prejsť na sekciu služby">
-            Pozrieť služby
-            <svg class="inline-block w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
-        </div>
-        
-        <!-- Stats -->
-        <div 
-          v-motion-fade-visible
-          :delay="600"
-          class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-24 max-w-3xl mx-auto"
-        >
-          <div 
-            v-for="stat in stats" 
-            :key="stat.label"
-            class="glass-effect rounded-2xl p-6 sm:p-8 card-hover"
-          >
-            <div class="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-3">{{ stat.value }}</div>
-            <div class="text-gray-700 dark:text-slate-300 text-sm sm:text-base leading-snug">{{ stat.label }}</div>
-          </div>
+        <div class="hidden md:flex items-center gap-4 folio">
+          <span>AI · Web · Tools</span>
+          <span class="opacity-50">/</span>
+          <span>SK · CZ · EN</span>
         </div>
       </div>
+
+      <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-end">
+        <!-- Headline -->
+        <div class="md:col-span-9">
+          <p
+            class="eyebrow no-rule mb-8 rise-in"
+            style="color: var(--color-accent); animation-delay: 0ms;"
+          >
+            <span class="inline-block w-2.5 h-2.5" style="background: var(--color-accent);"></span>
+            Pre slovenské firmy & prevádzky
+          </p>
+
+          <h1
+            class="font-display text-display-xl font-medium tracking-tight rise-in"
+            style="color: var(--color-fg); animation-delay: 80ms;"
+          >
+            <span class="block">AI a weby,</span>
+            <span class="block">ktoré
+              <span class="accent-italic">reálne</span>
+              <span class="inline-block w-[0.4em]"></span>
+              <span class="accent-italic">ušetria</span>
+            </span>
+            <span class="block">čas tímu.</span>
+          </h1>
+        </div>
+
+        <!-- Right column — caption -->
+        <div class="md:col-span-3 md:pl-6 md:border-l" style="border-color: var(--color-rule-soft);">
+          <p
+            class="text-base md:text-[17px] leading-relaxed rise-in"
+            style="color: var(--color-fg-muted); animation-delay: 180ms;"
+          >
+            Freelance studio Martina Saraku.
+            Pracujete priamo so mnou — bez project managerov, sales sekvencií a pitch deckov.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA row -->
+      <div class="mt-12 md:mt-16 flex flex-wrap gap-3 items-center">
+        <NuxtLink
+          to="/balicky"
+          class="btn-primary rise-in"
+          style="animation-delay: 240ms;"
+        >
+          Pozrieť balíčky
+          <span aria-hidden="true">→</span>
+        </NuxtLink>
+        <NuxtLink
+          to="/ai-audit"
+          class="btn-secondary rise-in"
+          style="animation-delay: 300ms;"
+        >
+          Spustiť AI audit
+        </NuxtLink>
+        <a
+          href="#contact"
+          class="ml-2 md:ml-4 font-mono text-[11px] uppercase underline underline-offset-4 decoration-2 rise-in"
+          style="letter-spacing:0.16em; color: var(--color-fg); text-decoration-color: var(--color-accent); animation-delay: 360ms;"
+        >
+          Alebo napíšte priamo
+        </a>
+      </div>
+
+      <!-- Footer of hero — three-up proof -->
+      <dl
+        class="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 border-t border-b divide-y md:divide-y-0 md:divide-x rise-in"
+        style="border-color: var(--color-rule); --tw-divide-opacity:1; border-color: var(--color-rule); animation-delay: 420ms;"
+      >
+        <div
+          v-for="(point, idx) in proofPoints"
+          :key="point.label"
+          class="py-6 md:py-7 md:px-7 first:md:pl-0 last:md:pr-0"
+          :style="{ borderColor: 'var(--color-rule-soft)' }"
+        >
+          <div class="flex items-baseline gap-3 mb-3">
+            <span class="ordinal text-3xl md:text-4xl">{{ String(idx + 1).padStart(2, '0') }}</span>
+            <dt class="folio" style="color: var(--color-fg-muted);">{{ point.label }}</dt>
+          </div>
+          <dd class="text-[15px] md:text-base leading-snug text-pretty" style="color: var(--color-fg);">
+            {{ point.value }}
+          </dd>
+        </div>
+      </dl>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const stats = [
-  { value: '5+', label: 'Rokov skúseností' },
-  { value: '2-4', label: 'Týždne na realizáciu' },
-  { value: '24/7', label: 'Podpora pre klientov' },
+const proofPoints = [
+  { label: 'Pracujem priamo', value: 'Žiadny project manager v strede. Mailom, callom alebo Slackom — vždy s tým, kto píše kód.' },
+  { label: 'Fixný rozsah', value: 'Dohodneme čo presne vznikne, dokedy a za koľko. Bez postupne narastajúcej cenovky.' },
+  { label: 'Vlastníte všetko', value: 'Kód, dáta, prístupy aj domény ostávajú u vás. Nie sú zamknuté u dodávateľa.' }
 ]
 </script>
+
+<style scoped>
+/* fix divide-x with custom border colors */
+dl > div + div { border-color: var(--color-rule-soft); }
+@media (min-width: 768px) {
+  dl { border-left: 0; border-right: 0; }
+  dl > div + div { border-left: 1px solid var(--color-rule-soft); border-top: 0; }
+}
+</style>

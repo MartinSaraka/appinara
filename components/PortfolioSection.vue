@@ -1,402 +1,158 @@
 <template>
-  <section id="portfolio" class="relative py-32 bg-slate-950">
-    <div class="container mx-auto px-6">
-      <!-- Section Header -->
-      <div class="text-center mb-20">
-        <h2 
-          v-motion-fade-visible
-          class="text-4xl md:text-6xl font-display font-bold mb-6"
+  <section
+    id="portfolio"
+    class="relative section-tall border-t border-gray-200/80 dark:border-anthracite-mist bg-bone-50 dark:bg-anthracite-elev/40 overflow-hidden"
+  >
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="max-w-2xl mb-14 md:mb-20">
+        <p
+          class="eyebrow mb-4"
         >
-          Ukážky <span class="gradient-text">mojej práce</span>
+          Práca
+        </p>
+        <h2
+          class="text-display-lg font-display font-bold dark:text-white text-gray-900 text-balance"
+        >
+          Demo projekty a referenčné riešenia.
+          <span class="block italic font-medium gradient-text">Bez vymyslených klientov.</span>
         </h2>
-        <p 
-          v-motion-fade-visible
-          :delay="200"
-          class="text-xl text-slate-400 max-w-2xl mx-auto"
+        <p
+          class="mt-5 text-base dark:text-slate-300 text-gray-700 leading-relaxed text-pretty"
         >
-          Reálne projekty, ktoré priniesli výsledky a posunuli biznis klientov vpred
+          Klientske projekty bývajú pod NDA. Tu sú demá a referencie, ktoré ukazujú, ako pracujem — môžete si ich preklikať a vyskúšať.
         </p>
       </div>
-      
-      <!-- Projects Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        <div 
-          v-for="(project, index) in projects" 
+
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        <article
+          v-for="(project, index) in projects"
           :key="project.title"
-          v-motion-fade-visible
-          :delay="index * 100"
-          @click="openProject(project)"
-          class="group relative glass-effect rounded-2xl overflow-hidden card-hover cursor-pointer"
+          class="group relative rounded-2xl border border-gray-200/90 dark:border-anthracite-mist/80 bg-bone dark:bg-anthracite-elev/70 overflow-hidden transition-colors hover:border-cinnabar-500/60 dark:hover:border-cinnabar-glow/60"
         >
-          <!-- Project Image with Gradient -->
-          <div class="relative h-64 bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600 overflow-hidden">
-            <!-- Animated Background Pattern -->
-            <div class="absolute inset-0 opacity-30">
-              <div class="absolute inset-0 grid-pattern"></div>
-            </div>
-            
-            <!-- Icon -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-8xl opacity-60 group-hover:scale-110 transition-transform duration-500">
-                {{ project.emoji }}
-              </div>
-            </div>
-            
-            <!-- Overlay on hover -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <div class="text-white font-bold text-xl animate-pulse">Zobraziť detail →</div>
-            </div>
-            
-            <!-- Category Badge -->
-            <div class="absolute top-4 right-4">
-              <span class="px-4 py-2 bg-white/20 backdrop-blur-xl rounded-full text-white text-sm font-semibold border border-white/30">
-                {{ project.category }}
-              </span>
-            </div>
+          <!-- Header strip -->
+          <div class="px-7 md:px-8 pt-6 md:pt-7 flex items-center justify-between">
+            <p class="eyebrow">{{ String(index + 1).padStart(2, '0') }} · {{ project.kind }}</p>
+            <span class="text-[11px] font-mono uppercase tracking-wider text-ink-500 dark:text-ink-300">
+              {{ project.tag }}
+            </span>
           </div>
-          
-          <!-- Project Info -->
-          <div class="p-6">
-            <h3 class="text-xl font-display font-bold mb-2 text-white group-hover:text-primary-400 transition-colors">
+
+          <div class="px-7 md:px-8 pt-4 pb-7 md:pb-8">
+            <h3 class="text-2xl md:text-3xl font-display font-bold mb-3 dark:text-white text-gray-900 leading-[1.15] text-balance">
               {{ project.title }}
             </h3>
-            <p class="text-slate-400 mb-4 text-sm leading-relaxed">
+            <p class="text-base dark:text-slate-300 text-gray-700 mb-5 leading-relaxed text-pretty">
               {{ project.description }}
             </p>
-            
-            <!-- Results -->
-            <div class="flex items-center gap-2 mb-4 text-green-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-              <span class="text-sm font-semibold">{{ project.result }}</span>
-            </div>
-            
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-2">
-              <span 
-                v-for="tag in project.tags" 
-                :key="tag"
-                class="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-xs font-medium"
+
+            <ul class="space-y-1.5 text-sm dark:text-slate-300 text-gray-700 mb-6">
+              <li
+                v-for="bullet in project.bullets"
+                :key="bullet"
+                class="flex items-start gap-2"
               >
-                {{ tag }}
+                <span class="mt-2 w-1 h-1 rounded-full bg-cinnabar-500 dark:bg-cinnabar-glow flex-shrink-0" aria-hidden="true" />
+                <span>{{ bullet }}</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span
+                v-for="t in project.stack"
+                :key="t"
+                class="px-2.5 py-1 text-xs font-mono rounded-full border border-gray-200 dark:border-anthracite-mist text-ink-700 dark:text-ink-100"
+              >
+                {{ t }}
               </span>
             </div>
+
+            <a
+              v-if="project.demoUrl"
+              :href="project.demoUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-semibold text-cinnabar-500 dark:text-cinnabar-glow inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
+            >
+              Otvoriť demo
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 3h7m0 0v7m0-7L10 14M5 5h4a2 2 0 012 2v4M5 5v14a2 2 0 002 2h12" />
+              </svg>
+            </a>
           </div>
-        </div>
+        </article>
+      </div>
+
+      <div class="mt-12 text-sm dark:text-slate-400 text-gray-600 max-w-2xl">
+        Reálne klientske referencie pošlem na vyžiadanie — väčšina projektov je pod dohodou o mlčanlivosti.
       </div>
     </div>
-    
-    <!-- Project Detail Modal -->
-    <Teleport to="body">
-      <Transition
-        enter-active-class="transition-opacity duration-300"
-        enter-from-class="opacity-0"
-        enter-to-class="opacity-100"
-        leave-active-class="transition-opacity duration-300"
-        leave-from-class="opacity-100"
-        leave-to-class="opacity-0"
-      >
-        <div 
-          v-if="selectedProject"
-          class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl"
-          @click="closeProject"
-        >
-          <Transition
-            enter-active-class="transition-all duration-300"
-            enter-from-class="opacity-0 scale-95"
-            enter-to-class="opacity-100 scale-100"
-            leave-active-class="transition-all duration-300"
-            leave-from-class="opacity-100 scale-100"
-            leave-to-class="opacity-0 scale-95"
-          >
-            <div 
-              v-if="selectedProject"
-              @click.stop
-              class="relative max-w-5xl w-full max-h-[90vh] overflow-y-auto bg-slate-900 rounded-3xl shadow-2xl"
-            >
-              <!-- Close Button -->
-              <button 
-                @click="closeProject"
-                class="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-xl"
-              >
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              
-              <!-- Header Image -->
-              <div class="relative h-80 bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600 overflow-hidden">
-                <div class="absolute inset-0 grid-pattern opacity-30"></div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-9xl opacity-60 animate-float">
-                    {{ selectedProject.emoji }}
-                  </div>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent p-8">
-                  <div class="max-w-4xl mx-auto">
-                    <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-xl rounded-full text-white text-sm font-semibold border border-white/30 mb-4">
-                      {{ selectedProject.category }}
-                    </span>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">
-                      {{ selectedProject.title }}
-                    </h2>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Content -->
-              <div class="p-8 md:p-12">
-                <div class="max-w-4xl mx-auto space-y-8">
-                  <!-- Description -->
-                  <div>
-                    <p class="text-xl text-slate-300 leading-relaxed">
-                      {{ selectedProject.fullDescription }}
-                    </p>
-                  </div>
-                  
-                  <!-- Key Results -->
-                  <div class="glass-effect rounded-2xl p-8">
-                    <h3 class="text-2xl font-display font-bold text-white mb-6 flex items-center gap-3">
-                      <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Dosiahnuté výsledky
-                    </h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                      <div 
-                        v-for="metric in selectedProject.metrics" 
-                        :key="metric.label"
-                        class="text-center"
-                      >
-                        <div class="text-4xl font-bold gradient-text mb-2">{{ metric.value }}</div>
-                        <div class="text-slate-400">{{ metric.label }}</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Features -->
-                  <div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-6">Kľúčové funkcie</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                      <div 
-                        v-for="feature in selectedProject.features" 
-                        :key="feature"
-                        class="flex items-start gap-3 glass-effect rounded-xl p-4"
-                      >
-                        <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                        <span class="text-slate-300">{{ feature }}</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Technologies -->
-                  <div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-6">Použité technológie</h3>
-                    <div class="flex flex-wrap gap-3">
-                      <span 
-                        v-for="tag in selectedProject.tags" 
-                        :key="tag"
-                        class="px-4 py-2 bg-gradient-to-r from-primary-500/20 to-purple-500/20 border border-primary-500/30 text-primary-300 rounded-full text-sm font-medium"
-                      >
-                        {{ tag }}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <!-- Client Quote (if exists) -->
-                  <div v-if="selectedProject.clientQuote" class="relative">
-                    <div class="glass-effect rounded-2xl p-8 border-l-4 border-primary-500">
-                      <svg class="w-12 h-12 text-primary-500/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                      </svg>
-                      <p class="text-lg text-slate-300 italic mb-4">
-                        "{{ selectedProject.clientQuote }}"
-                      </p>
-                      <p class="text-primary-400 font-semibold">{{ selectedProject.clientName }}</p>
-                    </div>
-                  </div>
-                  
-                  <!-- CTA -->
-                  <div class="text-center pt-8">
-                    <a href="#contact" @click="closeProject" class="btn-primary inline-block">
-                      Chcem podobný projekt
-                      <svg class="inline-block w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Transition>
-        </div>
-      </Transition>
-    </Teleport>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const selectedProject = ref<typeof projects[0] | null>(null)
-
-const openProject = (project: typeof projects[0]) => {
-  selectedProject.value = project
-  document.body.style.overflow = 'hidden'
+type Project = {
+  kind: string
+  tag: string
+  title: string
+  description: string
+  bullets: string[]
+  stack: string[]
+  demoUrl?: string
 }
 
-const closeProject = () => {
-  selectedProject.value = null
-  document.body.style.overflow = ''
-}
-
-const projects = [
+const projects: Project[] = [
   {
-    title: 'AI Chatbot pre E-commerce',
-    description: 'Inteligentný chatbot s GPT-4 pre automatizáciu zákazníckeho servisu a zvýšenie predaja.',
-    fullDescription: 'Implementoval som pokročilý AI chatbot systém pre stredne veľký e-shop, ktorý dokáže odpovedať na otázky zákazníkov 24/7, odporúčať produkty na základe ich preferencií a spracovať objednávky. Systém využíva GPT-4 pre prirodzenú konverzáciu a je integrovaný s interným skladovým systémom pre real-time informácie o dostupnosti.',
-    category: 'AI Riešenie',
-    emoji: '🤖',
-    result: '40 hodín/týždeň ušetrených',
-    tags: ['OpenAI GPT-4', 'Vue.js', 'Python', 'FastAPI', 'PostgreSQL'],
-    features: [
-      'Automatické odpovede na otázky zákazníkov',
-      'Inteligentné odporúčanie produktov',
-      'Spracovanie objednávok cez chat',
-      'Multilingual podpora (SK, CZ, EN)',
-      'Integrácia so skladovým systémom',
-      'Analytics a reporting pre majiteľa'
+    kind: 'Demo · Prevádzka',
+    tag: 'Salón Elegance',
+    title: 'Web s rezerváciami pre kaderníctvo',
+    description: 'Šablóna jednostránkového webu pre lokálnu prevádzku — galéria, cenník, online rezervačný formulár. Slúži ako východisko pre klientov, ktorí potrebujú web do dvoch týždňov.',
+    bullets: [
+      'Online rezervácia s notifikáciou na email',
+      'Galéria prác s lightbox náhľadom',
+      'Mobile-first, optimalizované pre kontakt na telefón',
+      'SEO basics — schema markup, meta tagy, sitemap'
     ],
-    metrics: [
-      { value: '+35%', label: 'Konverzný pomer' },
-      { value: '40h/týždeň', label: 'Ušetrený čas na support' },
-      { value: '4.8/5', label: 'Spokojnosť zákazníkov' }
-    ],
-    clientQuote: 'Chatbot nám ušetril desiatky hodín týždenne a zákazníci sú spokojnejší. ROI sa vrátilo za 3 mesiace.',
-    clientName: 'Majiteľ e-shopu s elektronikou'
+    stack: ['Nuxt 3', 'Vue 3', 'Tailwind', 'TypeScript']
   },
   {
-    title: 'Real-time Business Dashboard',
-    description: 'Komplexný dashboard pre vizualizáciu business metrík v reálnom čase s predikciami.',
-    fullDescription: 'Vytvoril som pokročilý business intelligence dashboard pre rastúcu firmu, ktorý poskytuje real-time prehľad o predajoch, zákazníckych metrikách a finančnom zdraví firmy. Systém zahŕňa AI predikcie trendov a automatické reporty.',
-    category: 'Business Intelligence',
-    emoji: '📊',
-    result: '8 hodín/týždeň ušetrených na reporty',
-    tags: ['Nuxt 3', 'WebSocket', 'D3.js', 'Python', 'PostgreSQL', 'Redis'],
-    features: [
-      'Real-time monitoring kľúčových metrík',
-      'AI predikcie predajov a trendov',
-      'Automatické generovanie reportov',
-      'Vizualizácie a grafy',
-      'Multi-user prístup s rolami',
-      'Export dát do PDF/Excel'
+    kind: 'Demo · Retro brand',
+    tag: 'Salon Retro',
+    title: 'Editorial web pre brand s príbehom',
+    description: 'Druhá šablóna — pre prevádzky, ktoré chcú výraznejší vizuál, nie len rezervačný formulár. Typografia, story-telling, sekcie s históriou a tímom.',
+    bullets: [
+      'Vizuálne odlišný, pomalší rytmus stránky',
+      'Story sekcia, tím, prevádzkový čas',
+      'Príprava na multi-jazyk',
+      'Mesh gradient + film grain ako brand prvok'
     ],
-    metrics: [
-      { value: '8h/týždeň', label: 'Ušetrený čas na reporty' },
-      { value: '15 min', label: 'Priemerný čas na analýzu' },
-      { value: '100%', label: 'Real-time presnosť dát' }
-    ],
-    clientQuote: 'Konečne vidíme všetky dôležité čísla na jednom mieste v reálnom čase. Game changer pre náš biznis.',
-    clientName: 'CEO logistickej firmy'
+    stack: ['Nuxt 3', 'Tailwind', 'Custom theme tokens']
   },
   {
-    title: 'Premium E-shop s AI',
-    description: 'Výkonná e-commerce platforma s AI odporúčaniami a automatizovaným inventory managementom.',
-    fullDescription: 'Komplexný e-shop systém postavený od nuly s dôrazom na user experience a konverzie. Zahŕňa AI-powered vyhľadávanie, personalizované odporúčania, automatický inventory management a integrácie s platobnými bránami a prepravcami.',
-    category: 'E-commerce',
-    emoji: '🛍️',
-    result: '+€45k mesačný obrat',
-    tags: ['Next.js', 'Stripe', 'MongoDB', 'Redis', 'AI Recommendations'],
-    features: [
-      'AI-powered vyhľadávanie a filtre',
-      'Personalizované odporúčania produktov',
-      'Automatický inventory management',
-      'Multi-channel predaj (web, social)',
-      'Integrácie s dopravcami',
-      'Loyalty program a kupóny'
+    kind: 'Tooling · AI',
+    tag: 'Audit wizard',
+    title: 'AI audit ako qualifier pre dopyty',
+    description: 'Krátky 5-krokový dotazník priamo na Appinara. Po vyplnení vráti odporúčaný smer a posunie kontakt mailom — namiesto generického "napíšte nám".',
+    bullets: [
+      'Pravidlové odporúčania (žiadne LLM v rozhodovaní)',
+      'Validácia, povinné polia, GDPR súhlas',
+      'Štruktúrovaný email s tagmi pre triedenie',
+      'Tracking eventov pre conversion analytics'
     ],
-    metrics: [
-      { value: '+€45k', label: 'Mesačný obrat navyše' },
-      { value: '+42%', label: 'Konverzný pomer' },
-      { value: '4.8/5', label: 'Hodnotenie zákazníkov' }
-    ],
-    clientQuote: 'Predaje nám vzrástli viac než dvojnásobne a zákazníci milujú nový web. Najlepšia investícia.',
-    clientName: 'Majiteľka fashion e-shopu'
+    stack: ['Nuxt 3', 'TypeScript', 'EmailJS', 'Custom rules engine'],
+    demoUrl: '/ai-audit'
   },
   {
-    title: 'Firemný CRM Systém',
-    description: 'Vlastný CRM systém s automatizáciou workflow a pokročilými integráciami.',
-    fullDescription: 'Navrhol a implementoval som custom CRM systém prispôsobený špecifickým potrebám rastúcej B2B firmy. Systém automatizuje sales proces, spravuje kontakty a príležitosti, a poskytuje detailné analytics pre management.',
-    category: 'Enterprise SaaS',
-    emoji: '💼',
-    result: '12 hodín/týždeň ušetrených',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'],
-    features: [
-      'Kompletný lead a contact management',
-      'Sales pipeline s automatizáciou',
-      'Email integrácie a tracking',
-      'Task management a reminders',
-      'Pokročilé reporting a analytics',
-      'API integrácie so službami'
+    kind: 'Tooling · Chat',
+    tag: 'Frondo bot',
+    title: 'Chatbot ako asistent pre návštevníka',
+    description: 'Floating chat widget na pravom dolnom rohu stránky. Odpovedá na bežné otázky o službách, cenách a procese — vie aj zachytiť kontakt a kvalifikovať dopyt.',
+    bullets: [
+      'Slovenský a český jazyk',
+      'Z knowledge base konkrétneho klienta',
+      'Lead capture s tagmi (typ firmy, kanál dopytov)',
+      'Server-side anti-spam a rate limit'
     ],
-    metrics: [
-      { value: '12h/týždeň', label: 'Ušetrený čas sales tímu' },
-      { value: '-8 dní', label: 'Rýchlejšie uzatváranie dealov' },
-      { value: '50+', label: 'Aktívnych používateľov' }
-    ],
-    clientQuote: 'Náš sales tím je teraz oveľa efektívnejší. Všetko je na jednom mieste a nič sa nestratí.',
-    clientName: 'Sales Director IT firmy'
-  },
-  {
-    title: 'AI Content Generator',
-    description: 'Aplikácia na generovanie marketingového obsahu s AI a zachovaním brand voice.',
-    fullDescription: 'Vytvoril som nástroj pre marketing tímy, ktorý využíva AI na generovanie high-quality content pre rôzne platformy. Systém sa učí brand voice firmy a dokáže vytvárať blog posty, social media content, email kampane a viac.',
-    category: 'AI Marketing Tool',
-    emoji: '✍️',
-    result: '20 hodín/týždeň ušetrených',
-    tags: ['Vue 3', 'OpenAI', 'LangChain', 'Pinecone', 'Python'],
-    features: [
-      'Generovanie obsahu pre všetky platformy',
-      'Zachovanie brand voice a tónu',
-      'SEO optimalizácia content',
-      'Multi-jazyková podpora',
-      'Content calendar a plánovanie',
-      'A/B testing návrhov'
-    ],
-    metrics: [
-      { value: '20h/týždeň', label: 'Ušetrený čas na tvorbu' },
-      { value: '€2k/mesiac', label: 'Ušetrené náklady' },
-      { value: '50+ článkov', label: 'Mesačná produkcia' }
-    ],
-    clientQuote: 'Tento nástroj nám úplně zmenil spôsob práce. Teraz zvládneme 10x viac content.',
-    clientName: 'Marketing Manager SaaS firmy'
-  },
-  {
-    title: 'Project Management Platform',
-    description: 'Moderný nástroj na riadenie projektov s real-time kolaboráciou a AI asistentom.',
-    fullDescription: 'Komplexná project management platforma určená pre malé a stredné firmy. Zahŕňa Kanban boards, Gantt charts, time tracking, resource management a AI asistenta, ktorý pomáha s plánovať a optimalizovať projekty.',
-    category: 'SaaS Platform',
-    emoji: '📋',
-    result: '15 hodín/týždeň ušetrených',
-    tags: ['Nuxt 3', 'Supabase', 'TypeScript', 'Tailwind', 'OpenAI'],
-    features: [
-      'Kanban boards a Gantt charts',
-      'Time tracking a reporting',
-      'AI asistent pre plánovanie',
-      'Real-time kolaborácia',
-      'Resource management',
-      'Integrácie (Slack, Google, etc.)'
-    ],
-    metrics: [
-      { value: '15h/týždeň', label: 'Ušetrený čas na meetings' },
-      { value: '95%', label: 'On-time delivery projektov' },
-      { value: '8 tímov', label: 'Aktívne používa' }
-    ],
-    clientQuote: 'Najlepší project management tool, aký sme použili. Jednoduché, výkonné a funguje.',
-    clientName: 'CEO digitálnej agentúry'
+    stack: ['Nuxt 3', 'OpenAI', 'Edge functions', 'Custom KB']
   }
 ]
 </script>

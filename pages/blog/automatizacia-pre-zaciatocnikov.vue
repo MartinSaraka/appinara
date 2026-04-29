@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
+  <div class="relative dark:bg-anthracite bg-bone min-h-screen">
     <Navigation />
     
     <article class="relative pt-32 pb-20">
@@ -28,13 +28,6 @@
           <p class="text-xl dark:text-slate-300 text-gray-700 mb-12 leading-relaxed">
             Ako automatizovať vaše prvé procesy vo firme bez programovania. 5 jednoduchých nástrojov a automatizácií, ktoré môžete použiť dnes a ušetriť 10+ hodín týždenne.
           </p>
-          
-          <div class="relative h-96 bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-600 rounded-3xl overflow-hidden mb-12">
-            <div class="absolute inset-0 grid-pattern opacity-30"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-9xl">
-              ⚙️
-            </div>
-          </div>
           
           <div class="prose dark:prose-invert prose-lg max-w-none">
             

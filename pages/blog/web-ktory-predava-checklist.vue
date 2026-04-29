@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
+  <div class="relative dark:bg-anthracite bg-bone min-h-screen">
     <Navigation />
     
     <article class="relative pt-32 pb-20">
@@ -28,13 +28,6 @@
           <p class="text-xl dark:text-slate-300 text-gray-700 mb-12 leading-relaxed">
             Overený checklist zo stoviek projektov. Tieto elementy rozhodujú o tom, či váš web konvertuje návštevníkov na zákazníkov alebo nie. Stačí jedno z nich pokaziť a prichádzate o peniaze.
           </p>
-          
-          <div class="relative h-96 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-600 rounded-3xl overflow-hidden mb-12">
-            <div class="absolute inset-0 grid-pattern opacity-30"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-9xl">
-              ✅
-            </div>
-          </div>
           
           <div class="prose dark:prose-invert prose-lg max-w-none">
             

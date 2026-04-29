@@ -1,331 +1,135 @@
 <template>
-  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
+  <div class="relative dark:bg-anthracite bg-bone min-h-screen">
     <Navigation />
-    
-    <!-- Article Hero -->
-    <article class="relative pt-32 pb-20">
-      <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
-          <!-- Breadcrumbs -->
-          <nav class="mb-8 text-sm">
-            <NuxtLink to="/" class="dark:text-slate-400 text-gray-600 dark:hover:text-primary-400 text-gray-600 hover:text-primary-600">Domov</NuxtLink>
-            <span class="dark:text-slate-600 text-gray-400 mx-2">/</span>
-            <NuxtLink to="/blog" class="dark:text-slate-400 text-gray-600 dark:hover:text-primary-400 text-gray-600 hover:text-primary-600">Blog</NuxtLink>
-            <span class="dark:text-slate-600 text-gray-400 mx-2">/</span>
-            <span class="dark:text-slate-300 text-gray-700">AI Chatbot pre malý biznis</span>
-          </nav>
-          
-          <!-- Category & Read Time -->
-          <div class="flex items-center gap-4 mb-6">
-            <span class="px-4 py-2 bg-primary-500/20 dark:text-primary-300 text-primary-700 rounded-full text-sm font-medium">
-              AI Návod
-            </span>
-            <span class="dark:text-slate-400 text-gray-600">📖 8 min čítania</span>
-            <span class="dark:text-slate-400 text-gray-600">📅 15. November 2024</span>
-          </div>
-          
-          <!-- Title -->
-          <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
-            AI Chatbot pre malý biznis: <span class="gradient-text">Kompletný sprievodca 2025</span>
+
+    <article class="relative pt-32 md:pt-40 pb-20">
+      <div class="container mx-auto px-6 max-w-3xl">
+        <nav class="mb-10 text-sm" aria-label="Drobky">
+          <NuxtLink to="/" class="dark:text-slate-400 text-gray-600 hover:text-cinnabar-500 dark:hover:text-cinnabar-glow">Domov</NuxtLink>
+          <span class="dark:text-slate-600 text-gray-400 mx-2" aria-hidden="true">/</span>
+          <NuxtLink to="/blog" class="dark:text-slate-400 text-gray-600 hover:text-cinnabar-500 dark:hover:text-cinnabar-glow">Blog</NuxtLink>
+          <span class="dark:text-slate-600 text-gray-400 mx-2" aria-hidden="true">/</span>
+          <span class="dark:text-slate-300 text-gray-700">AI chatbot pre malý biznis</span>
+        </nav>
+
+        <header class="mb-12">
+          <p class="eyebrow mb-5">AI · 7 min čítania · 15. november 2024</p>
+
+          <h1 class="text-display-xl font-display font-bold mb-6 leading-[1.0] dark:text-white text-gray-900 text-balance">
+            AI chatbot pre malý biznis —
+            <span class="italic font-medium gradient-text">kedy má a kedy nemá zmysel.</span>
           </h1>
-          
-          <!-- Excerpt -->
-          <p class="text-xl dark:text-slate-300 text-gray-700 mb-12 leading-relaxed">
-            Zistite, ako môže AI chatbot ušetriť vašej firme <strong>desiatky hodín týždenne</strong> a zvýšiť predaje o 30-40%. Praktický návod krok za krokom s reálnymi príkladmi zo Slovenska.
+
+          <p class="text-xl dark:text-slate-300 text-gray-700 leading-relaxed text-pretty">
+            Chatbot nie je univerzálne riešenie. V niektorých firmách ušetrí desiatky hodín mesačne, v iných je to len ďalší support kanál, ktorý treba spravovať. Tu je realistický pohľad na to, kedy sa oplatí — a kedy radšej vyhodiť pár tisíc inde.
           </p>
-          
-          <!-- Featured Image -->
-          <div class="relative h-96 bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600 rounded-3xl overflow-hidden mb-12">
-            <div class="absolute inset-0 grid-pattern opacity-30"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-9xl">
-              🤖
-            </div>
-          </div>
-          
-          <!-- Article Content -->
-          <div class="prose dark:prose-invert prose-lg max-w-none">
-            
-            <div class="glass-effect rounded-2xl p-8 mb-8 border-l-4 border-primary-500">
-              <h3 class="text-2xl font-bold dark:text-white text-gray-900 mb-4">📌 TL;DR - Stručné zhrnutie</h3>
-              <ul class="space-y-2 dark:text-slate-300 text-gray-700">
-                <li>✅ AI chatbot dokáže nahradiť 20-40 hodín manuálnej práce týždenne</li>
-                <li>✅ Priemerný návrat investície za 2-4 mesiace</li>
-                <li>✅ Zvýšenie konverzií o 25-40% je reálne</li>
-                <li>✅ Implementácia trvá 1-2 týždne</li>
-                <li>✅ Náklady: 300-1200€ jednorazovo + 50-200€/mesiac</li>
-              </ul>
-            </div>
+        </header>
 
-            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Čo je AI chatbot a prečo ho potrebujete?</h2>
-            
-            <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-6">
-              <strong>AI chatbot</strong> je softvérový nástroj, ktorý využíva umelú inteligenciu na komunikáciu s vašimi zákazníkmi. Na rozdiel od klasických chatbotov s vopred naprogramovanými odpoveďami, <strong>AI chatbot rozumie kontextu</strong> a dokáže komunikovať prirodzene - ako reálny človek.
+        <div class="prose prose-lg max-w-none">
+          <p>
+            Posledné dva roky sa o chatbotoch píše akoby boli novou elektrinou. V praxi vidím spektrum výsledkov — od „nahradil jednu pracovnú silu na inboxe" po „zdvojnásobil prácu, lebo teraz musíme kontrolovať, čo zákazníkom napísal". Rozhodujúce nie je, aký model použijete, ale či vaša firma spadá do scenárov, kde chatbot reálne pomáha.
+          </p>
+
+          <h2>Tri otázky, ktoré rozhodnú</h2>
+
+          <p>
+            Pred tým, než platíte za vývoj alebo za nejakú „SaaS chatbot platformu", odpovedzte si na toto:
+          </p>
+
+          <h3>1. Dostávate aspoň 30–50 podobných otázok mesačne?</h3>
+
+          <p>
+            Chatbot dáva zmysel pri opakujúcich sa dopytoch — otváracie hodiny, ceny, dostupnosť, ako rezervovať, čo robiť pri probléme. Ak vám zákazníci píšu zriedkavo a vždy s niečím iným, chatbot vám len pridá medzivrstvu, ktorou si treba prejsť, kým sa dostanú k vám.
+          </p>
+
+          <h3>2. Máte stabilný obsah, na ktorý môže odpovedať?</h3>
+
+          <p>
+            Bot je len tak dobrý, ako dobre štruktúrovaný obsah, z ktorého čerpá. Ak váš cenník mení sa každé dva týždne a dostupnosť sa eviduje v hlave človeka pri pulte, žiaden chatbot to nedohonia. Najprv usporiadajte informácie, potom riešte automatizáciu.
+          </p>
+
+          <h3>3. Je rozumný kompromis akceptovateľný pre vašu značku?</h3>
+
+          <p>
+            Bot povie z času na čas niečo nepresne. Pre lokálny food truck je to OK. Pre právnu kanceláriu, ktorá pracuje s presnosťou, je to riziko. Otázku „ako reagujem, keď bot povie hlúposť" treba mať vyriešenú vopred.
+          </p>
+
+          <h2>Kde chatbot reálne sedí</h2>
+
+          <p>
+            Tieto scenáre vidím opakovane fungovať:
+          </p>
+
+          <ul>
+            <li><strong>E-shopy</strong> — typicky 60–80 % otázok sa točí okolo dostupnosti, dodávky a vrátenia tovaru. Bot s napojením na sklad odpovedá v sekunde.</li>
+            <li><strong>Prevádzky s rezerváciami</strong> — kaderníctva, kozmetika, fyzioterapia. Bot pošle voľné termíny a zachytí kontakt, kým si majiteľ stíha venovať klientovi pri kresle.</li>
+            <li><strong>B2B firmy s kvalifikáciou leadov</strong> — bot sa pýta typ firmy, veľkosť, rozpočtový rámec. Filtrované leady idú obchodníkovi, zvyšok dostane šablónu.</li>
+            <li><strong>FAQ pri zložitých produktoch</strong> — softvér, finančné služby, poistenia. Bot odpovedá na 70 % bežných otázok bez rušenia tímu.</li>
+          </ul>
+
+          <h2>Kde chatbot nesedí</h2>
+
+          <ul>
+            <li><strong>Servisy a remeslá s individuálnym ocenením</strong> — vždy treba diagnostiku alebo obhliadku. Bot vás len oddialený od skutočnej konverzácie.</li>
+            <li><strong>Veľmi malý objem dopytov</strong> — pod 20 mesačne. Náklady na vývoj a údržbu sa nezaplatia.</li>
+            <li><strong>Highly regulovaný biznis</strong> — zdravotnícke služby, právne poradenstvo, finančné poradenstvo. Riziko presahuje benefit.</li>
+            <li><strong>Brand, kde je osobný kontakt hodnotou</strong> — prémiové butiky, gastronómia, niektoré agentúry. Chatbot tam šliape na to, za čo si platíte.</li>
+          </ul>
+
+          <h2>Náklady a očakávania</h2>
+
+          <p>
+            Pre kontext: jednoduchý FAQ chatbot napojený na obsah vašej stránky vyjde na 400–800 € jednorazovo a 30–80 €/mesiac (API cena podľa objemu konverzácií). Chatbot s integráciou do CRM, skladu alebo rezervačného systému je 1 200–2 500 € jednorazovo a 80–200 €/mesiac.
+          </p>
+
+          <p>
+            Hrubá orientácia: ak chatbot vyrieši 50 otázok mesačne, ktoré by inak stáli 3–5 minút človeka, pri sadzbe 15 €/h to je úspora 40–60 €/mesiac. Pri menšom objeme matematika nesedí — preto ten 30+ otázok mesačne benchmark vyššie.
+          </p>
+
+          <h2>Ako to overiť bez veľkej investície</h2>
+
+          <p>
+            Nepotrebujete hneď platiť za custom vývoj. Skúste tento postup:
+          </p>
+
+          <ol>
+            <li>Týždeň si zaznamenávajte všetky otázky, ktoré dostanete cez email, formulár, Messenger, Instagram. Bez výnimky.</li>
+            <li>Po týždni ich prejdite a označte: ktoré sa opakujú, ktoré majú jednoznačnú odpoveď, ktoré vyžadujú človeka.</li>
+            <li>Ak je „opakujú sa + jednoznačná odpoveď" pod 40 % všetkých dopytov, chatbot vám pravdepodobne neuľaví. Riešte iný problém.</li>
+            <li>Ak je nad 60 %, postavte si jednoduchý prototyp v <a href="https://chatbot.com" target="_blank" rel="noopener noreferrer">no-code nástroji</a> alebo cez ChatGPT custom GPT a otestujte mesiac. Ak to fungovalo, máte dáta na rozhodnutie o serióznom riešení.</li>
+          </ol>
+
+          <p>
+            Tento prieskum vás bude stáť pár hodín času, nie pár tisíc eur. A na konci budete vedieť, či má vaša firma chatbot v tej kategórii „šetrí čas", alebo „znie dobre v marketingu, ale neuľaví".
+          </p>
+
+          <div class="not-prose mt-12 rounded-2xl border border-cinnabar-500/40 dark:border-cinnabar-glow/40 bg-cinnabar-soft/50 dark:bg-cinnabar-glow/10 p-7 md:p-8">
+            <p class="eyebrow mb-3">Ďalší krok</p>
+            <p class="text-xl md:text-2xl font-display font-bold dark:text-white text-gray-900 mb-3">
+              Neviete, či chatbot u vás dáva zmysel?
             </p>
-
-            <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-8 mb-4">🎯 Pre koho je AI chatbot určený?</h3>
-            
-            <div class="grid md:grid-cols-2 gap-4 my-6">
-              <div class="glass-effect rounded-xl p-6">
-                <h4 class="text-xl font-bold text-green-400 mb-3">✅ Ideálne pre:</h4>
-                <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-base">
-                  <li>• E-shopy a online obchody</li>
-                  <li>• Služby s rezerváciami (salóny, servisy)</li>
-                  <li>• B2B firmy s opakujúcimi sa otázkami</li>
-                  <li>• Firmy s limitovaným customer service</li>
-                  <li>• Startupy šetriace náklady</li>
-                </ul>
-              </div>
-              
-              <div class="glass-effect rounded-xl p-6">
-                <h4 class="text-xl font-bold text-orange-400 mb-3">⚠️ Možno nie je pre:</h4>
-                <ul class="space-y-2 dark:text-slate-300 text-gray-700 text-base">
-                  <li>• Firmy s veľmi špecifickými produtkami</li>
-                  <li>• Služby vyžadujúce iba osobný kontakt</li>
-                  <li>• Malé množstvo zákazníckych otázok</li>
-                  <li>• Veľmi nízky rozpočet (&lt;300€)</li>
-                </ul>
-              </div>
-            </div>
-
-            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Reálne prínosy: Čísla, ktoré hovoria</h2>
-            
-            <div class="glass-effect rounded-2xl p-8 my-8">
-              <h3 class="text-2xl font-bold gradient-text mb-6">📊 Priemerné výsledky našich klientov:</h3>
-              
-              <div class="grid md:grid-cols-3 gap-6">
-                <div class="text-center">
-                  <div class="text-5xl font-bold text-green-400 mb-2">-35h</div>
-                  <div class="dark:text-slate-400 text-gray-600">týždenne ušetrený čas na odpovede</div>
-                </div>
-                <div class="text-center">
-                  <div class="text-5xl font-bold text-blue-400 mb-2">+32%</div>
-                  <div class="dark:text-slate-400 text-gray-600">nárast konverzií návštevníkov</div>
-                </div>
-                <div class="text-center">
-                  <div class="text-5xl font-bold text-purple-400 mb-2">24/7</div>
-                  <div class="dark:text-slate-400 text-gray-600">dostupnosť pre zákazníkov</div>
-                </div>
-              </div>
-            </div>
-
-            <h3 class="text-2xl font-bold dark:text-white text-gray-900 mt-8 mb-4">💰 Konkrétny príklad: Kaderníctvo v Bratislave</h3>
-            
-            <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-4">
-              <strong>Situácia pred:</strong> Majiteľka kaderníctva trávila 3-4 hodiny denne odpovedaním na správy na Facebooku a Instagrame. Otázky typu "Koľko stojí melír?", "Môžem prísť zajtra o 14:00?", "Robíte aj pánske strihy?" sa opakovali stále dokola.
+            <p class="dark:text-slate-300 text-gray-700 mb-5 leading-relaxed">
+              5 otázok, 3–4 minúty. AI audit prejde vašu situáciu a vráti odporúčaný smer — alebo poviem, že to nie je dobrý fit.
             </p>
-            
-            <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-4">
-              <strong>Riešenie:</strong> AI chatbot na webe a prepojený s Facebookom. Chatbot:
-            </p>
-            
-            <ul class="space-y-2 dark:text-slate-300 text-gray-700 mb-4">
-              <li>✅ Odpovedá na otázky o cenách a službách</li>
-              <li>✅ Ukazuje voľné termíny na rezerváciu</li>
-              <li>✅ Posiela fotky prác a referencie</li>
-              <li>✅ Pri zložitých otázkach odkazuje na majiteľku</li>
-            </ul>
-            
-            <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-6">
-              <strong>Výsledok po 3 mesiacoch:</strong>
-            </p>
-            
-            <ul class="space-y-2 dark:text-slate-300 text-gray-700 mb-6">
-              <li>🎯 <strong>22 hodín/týždeň ušetrených</strong> - môže sa venovať klientom</li>
-              <li>🎯 <strong>+28% viac rezervácií</strong> - ľudia rezervujú aj v noci</li>
-              <li>🎯 <strong>ROI za 2.5 mesiaca</strong> - investícia 800€ sa vrátila</li>
-              <li>🎯 <strong>4.9/5 hodnotenie</strong> - zákazníci oceňujú rýchle odpovede</li>
-            </ul>
-
-            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Ako funguje AI chatbot? (Jednoducho)</h2>
-            
-            <div class="space-y-6 my-8">
-              <div class="glass-effect rounded-xl p-6 border-l-4 border-primary-500">
-                <h4 class="text-xl font-bold text-primary-400 mb-3">1️⃣ Tréning na vašich dátach</h4>
-                <p class="dark:text-slate-300 text-gray-700">
-                  Chatbot sa "naučí" z vašich dokumentov - cenník, FAQ, katalóg produktov, predošlé konverzácie. Čím viac relevantných informácií, tým lepšie odpovede.
-                </p>
-              </div>
-              
-              <div class="glass-effect rounded-xl p-6 border-l-4 border-purple-500">
-                <h4 class="text-xl font-bold text-purple-400 mb-3">2️⃣ Zákazník sa pýta</h4>
-                <p class="dark:text-slate-300 text-gray-700">
-                  Návštevník vášho webu otvorí chat a napíše otázku prirodzeným jazykom. Nemusí použiť presné slová - AI rozumie kontextu.
-                </p>
-              </div>
-              
-              <div class="glass-effect rounded-xl p-6 border-l-4 border-green-500">
-                <h4 class="text-xl font-bold text-green-400 mb-3">3️⃣ AI generuje odpoveď</h4>
-                <p class="dark:text-slate-300 text-gray-700">
-                  Na základe natrénovaných dát chatbot vytvorí relevantnú, prirodzenú odpoveď. Môže ponúknuť produkty, zarezervovať termín, alebo posunúť na človeka.
-                </p>
-              </div>
-              
-              <div class="glass-effect rounded-xl p-6 border-l-4 border-blue-500">
-                <h4 class="text-xl font-bold text-blue-400 mb-3">4️⃣ Neustále sa zlepšuje</h4>
-                <p class="dark:text-slate-300 text-gray-700">
-                  Chatbot sa učí z každej konverzácie. Pravidelne kontrolujete logy a vylepšujete odpovede pre najlepšie výsledky.
-                </p>
-              </div>
+            <div class="flex flex-wrap gap-3">
+              <NuxtLink to="/ai-audit" class="btn-primary">Spustiť AI audit</NuxtLink>
+              <NuxtLink to="/balicky#ai" class="btn-secondary">AI balíčky</NuxtLink>
             </div>
-
-            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Koľko to stojí? Transparentný cenník</h2>
-            
-            <div class="grid md:grid-cols-3 gap-6 my-8">
-              <!-- Basic -->
-              <div class="glass-effect rounded-2xl p-6 border dark:border-slate-700 border-gray-200">
-                <h4 class="text-xl font-bold dark:text-white text-gray-900 mb-2">🥉 Basic</h4>
-                <div class="text-3xl font-bold text-primary-400 mb-4">400€</div>
-                <p class="dark:text-slate-400 text-gray-600 text-sm mb-6">Jednorazovo</p>
-                <ul class="space-y-3 text-sm dark:text-slate-300 text-gray-700 mb-6">
-                  <li>✅ Chatbot na webe</li>
-                  <li>✅ Základné trénovanie</li>
-                  <li>✅ FAQ odpovede</li>
-                  <li>✅ 1 mesiac podpora</li>
-                </ul>
-                <div class="dark:text-slate-400 text-gray-600 text-xs">+ 50€/mesiac prevádzka</div>
-              </div>
-              
-              <!-- Premium -->
-              <div class="glass-effect rounded-2xl p-6 border-2 border-primary-500 relative">
-                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-primary-500 rounded-full text-white text-xs font-bold">
-                  ODPORÚČANÉ
-                </div>
-                <h4 class="text-xl font-bold dark:text-white text-gray-900 mb-2">🥈 Premium</h4>
-                <div class="text-3xl font-bold text-primary-400 mb-4">800€</div>
-                <p class="dark:text-slate-400 text-gray-600 text-sm mb-6">Jednorazovo</p>
-                <ul class="space-y-3 text-sm dark:text-slate-300 text-gray-700 mb-6">
-                  <li>✅ Všetko z Basic +</li>
-                  <li>✅ Facebook/Instagram</li>
-                  <li>✅ Rezervačný systém</li>
-                  <li>✅ Pokročilé analytics</li>
-                  <li>✅ 3 mesiace podpora</li>
-                </ul>
-                <div class="dark:text-slate-400 text-gray-600 text-xs">+ 100€/mesiac prevádzka</div>
-              </div>
-              
-              <!-- Enterprise -->
-              <div class="glass-effect rounded-2xl p-6 border dark:border-slate-700 border-gray-200">
-                <h4 class="text-xl font-bold dark:text-white text-gray-900 mb-2">🥇 Enterprise</h4>
-                <div class="text-3xl font-bold text-primary-400 mb-4">1500€+</div>
-                <p class="dark:text-slate-400 text-gray-600 text-sm mb-6">Jednorazovo</p>
-                <ul class="space-y-3 text-sm dark:text-slate-300 text-gray-700 mb-6">
-                  <li>✅ Všetko z Premium +</li>
-                  <li>✅ CRM integrácia</li>
-                  <li>✅ Multi-jazyk podpora</li>
-                  <li>✅ API prepojenia</li>
-                  <li>✅ 6 mesiacov podpora</li>
-                </ul>
-                <div class="dark:text-slate-400 text-gray-600 text-xs">+ 150-300€/mesiac</div>
-              </div>
-            </div>
-
-            <h2 class="text-3xl font-display font-bold dark:text-white text-gray-900 mt-12 mb-6">Časté otázky (FAQ)</h2>
-            
-            <div class="space-y-4 my-8">
-              <details class="glass-effect rounded-xl p-6 cursor-pointer">
-                <summary class="text-lg font-bold dark:text-white text-gray-900 mb-2">Je AI chatbot lepší ako klasický chatbot?</summary>
-                <p class="dark:text-slate-300 text-gray-700 mt-4">
-                  Áno, výrazne! Klasický chatbot funguje na "ak-potom" princípe - musíte naprogramovať každú možnú otázku. AI chatbot rozumie kontextu a dokáže odpovedať aj na otázky, ktoré presne nepredvídáte. Je oveľa prirodzenejší a flexibilnejší.
-                </p>
-              </details>
-              
-              <details class="glass-effect rounded-xl p-6 cursor-pointer">
-                <summary class="text-lg font-bold dark:text-white text-gray-900 mb-2">Dokáže chatbot úplne nahradiť zákaznícky servis?</summary>
-                <p class="dark:text-slate-300 text-gray-700 mt-4">
-                  Nie úplne, ale dokáže pokryť 70-90% bežných otázok. Pri zložitých alebo citlivých témach odkazuje na reálneho človeka. Cieľ nie je nahradiť ľudí, ale ušetriť im čas na hodnotnejšie úlohy.
-                </p>
-              </details>
-              
-              <details class="glass-effect rounded-xl p-6 cursor-pointer">
-                <summary class="text-lg font-bold dark:text-white text-gray-900 mb-2">Ako dlho trvá implementácia?</summary>
-                <p class="dark:text-slate-300 text-gray-700 mt-4">
-                  Základný chatbot: 3-5 dní. Pokročilé riešenie s integráciami: 1-2 týždne. Po spustení ešte 1-2 týždne optimalizácie na základe reálnych konverzácií.
-                </p>
-              </details>
-              
-              <details class="glass-effect rounded-xl p-6 cursor-pointer">
-                <summary class="text-lg font-bold dark:text-white text-gray-900 mb-2">Môžem chatbota vyskúšať pred kúpou?</summary>
-                <p class="dark:text-slate-300 text-gray-700 mt-4">
-                  Áno! Vytvoríme vám demo verziu chatbota s vašimi dátami. Môžete si ho otestovať 7 dní zdarma pred rozhodnutím. <a href="/#contact" class="text-primary-400 hover:underline">Kontaktujte nás</a> pre demo.
-                </p>
-              </details>
-            </div>
-
-            <div class="glass-effect rounded-2xl p-8 my-12 text-center">
-              <h3 class="text-3xl font-display font-bold dark:text-white text-gray-900 mb-4">
-                Pripravení na vlastného AI asistenta?
-              </h3>
-              <p class="dark:text-slate-300 text-gray-700 mb-8 max-w-2xl mx-auto">
-                Prvá konzultácia je zdarma. Povieme vám presne, či sa chatbot pre váš biznis oplatí a aký návrat investície môžete očakávať.
-              </p>
-              <NuxtLink to="/#contact" class="btn-primary inline-block">
-                Chcem bezplatnú konzultáciu
-                <svg class="inline-block w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </NuxtLink>
-            </div>
-
-            <!-- Author & Share -->
-            <div class="glass-effect rounded-2xl p-6 mt-12 flex items-center justify-between">
-              <div>
-                <div class="text-sm dark:text-slate-400 text-gray-600 mb-1">Autor článku</div>
-                <div class="dark:text-white text-gray-900 font-semibold">Martin Saraka - Appinara</div>
-              </div>
-              <div class="flex gap-3">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://appinara.sk/blog/ai-chatbot-pre-maly-biznis" target="_blank" class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center hover:bg-primary-500/20 transition-colors">
-                  <span class="sr-only">Zdieľať na Facebooku</span>
-                  📘
-                </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://appinara.sk/blog/ai-chatbot-pre-maly-biznis" target="_blank" class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center hover:bg-primary-500/20 transition-colors">
-                  <span class="sr-only">Zdieľať na LinkedIne</span>
-                  💼
-                </a>
-              </div>
-            </div>
-            
           </div>
         </div>
       </div>
     </article>
-    
+
     <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
 useHead({
-  title: 'AI Chatbot pre malý biznis: Kompletný sprievodca 2025 | Appinara',
+  title: 'AI chatbot pre malý biznis — kedy má a nemá zmysel | Appinara',
   meta: [
-    { name: 'description', content: 'Zistite, ako môže AI chatbot ušetriť vašej firme desiatky hodín týždenne a zvýšiť predaje o 30-40%. Reálne príklady, ceny a praktický návod.' },
-    { name: 'keywords', content: 'AI chatbot, chatbot pre firmu, AI chatbot slovensko, chatbot cena, automatizácia zákazníckeho servisu, AI asistent' },
-    
-    // Open Graph
-    { property: 'og:title', content: 'AI Chatbot pre malý biznis: Kompletný sprievodca 2024' },
-    { property: 'og:description', content: 'Zistite, ako môže AI chatbot ušetriť desiatky hodín týždenne a zvýšiť predaje o 30-40%. Reálne príklady a ceny.' },
-    { property: 'og:type', content: 'article' },
-    { property: 'og:url', content: 'https://appinara.sk/blog/ai-chatbot-pre-maly-biznis' },
-    
-    // Article meta
-    { property: 'article:published_time', content: '2024-11-15T10:00:00Z' },
-    { property: 'article:author', content: 'Martin Saraka' },
-    { property: 'article:section', content: 'AI & Automatizácia' }
-  ],
-  link: [
-    { rel: 'canonical', href: 'https://appinara.sk/blog/ai-chatbot-pre-maly-biznis' }
+    { name: 'description', content: 'Bez „revolúcie zákazníckeho servisu". Realistický pohľad na to, kedy chatbot ušetrí čas a kedy je len ďalší support kanál.' },
+    { name: 'keywords', content: 'AI chatbot, chatbot pre malú firmu, AI asistent Slovensko, chatbot cena, chatbot kedy sa oplatí' }
   ]
 })
 </script>
-
-<style scoped>
-details summary {
-  list-style: none;
-}
-details summary::-webkit-details-marker {
-  display: none;
-}
-details[open] summary {
-  color: rgb(129, 140, 248);
-}
-</style>
-

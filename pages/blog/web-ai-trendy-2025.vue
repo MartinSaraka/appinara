@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden dark:bg-slate-950 bg-white">
+  <div class="relative dark:bg-anthracite bg-bone min-h-screen">
     <Navigation />
     
     <article class="relative pt-32 pb-20">
@@ -28,13 +28,6 @@
           <p class="text-xl dark:text-slate-300 text-gray-700 mb-12 leading-relaxed">
             Čo bude dominovať v digitálnom svete v roku 2025? 10 trendov, ktoré zmenia spôsob, ako robíme biznis online. S predikciami a praktickými tipmi.
           </p>
-          
-          <div class="relative h-96 bg-gradient-to-br from-violet-600 via-fuchsia-500 to-pink-500 rounded-3xl overflow-hidden mb-12">
-            <div class="absolute inset-0 grid-pattern opacity-30"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-9xl">
-              🚀
-            </div>
-          </div>
           
           <div class="prose dark:prose-invert prose-lg max-w-none">
             
