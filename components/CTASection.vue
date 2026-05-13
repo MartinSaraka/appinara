@@ -14,7 +14,7 @@
           <span class="gradient-text block">biznis na ďalší level?</span>
         </h2>
         <p class="text-xl dark:text-slate-200 text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Napíšte mi o vašom projekte a dostanete nezáväznú konzultáciu zdarma. Spolu preberieme vaše potreby a nájdeme najlepšie riešenie.
+          Napíšte nám o vašom projekte a dostanete nezáväznú konzultáciu zdarma. Spolu preberieme vaše potreby a nájdeme najlepšie riešenie.
         </p>
         
         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">

@@ -55,9 +55,14 @@
       
       <!-- Bottom Bar -->
       <div class="pt-8 border-t dark:border-slate-800 border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="dark:text-slate-500 text-gray-500 text-sm">
-          © {{ currentYear }} Appinara. Všetky práva vyhradené.
-        </p>
+        <div class="flex flex-col gap-1 text-center md:text-left">
+          <p class="dark:text-slate-500 text-gray-500 text-sm">
+            © {{ currentYear }} Appinara s.r.o. Všetky práva vyhradené.
+          </p>
+          <p class="dark:text-slate-600 text-gray-400 text-xs">
+            Appinara s.r.o. · IČO: 57 623 252
+          </p>
+        </div>
         <div class="flex gap-6 text-sm">
           <NuxtLink to="/ochrana-udajov" class="dark:text-slate-500 text-gray-500 dark:hover:text-primary-400 hover:text-primary-600 transition-colors focus:outline-none dark:focus:text-primary-400 focus:text-primary-600 focus:underline">
             Ochrana údajov

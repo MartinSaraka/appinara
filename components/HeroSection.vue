@@ -8,18 +8,6 @@
     
     <div class="container mx-auto px-6 relative z-10 pt-20">
       <div class="max-w-5xl mx-auto text-center">
-        <!-- Badge -->
-        <div 
-          v-motion-fade-visible
-          class="inline-flex items-center gap-2 px-4 py-2 glass-effect rounded-full mb-8 animate-glow"
-        >
-          <span class="relative flex h-3 w-3">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-          </span>
-          <span class="text-sm font-medium text-gray-900 dark:text-white">Dostupný pre nové projekty</span>
-        </div>
-        
         <!-- Main Heading -->
         <h1 
           v-motion-fade-visible
@@ -59,31 +47,10 @@
             </svg>
           </a>
         </div>
-        
-        <!-- Stats -->
-        <div 
-          v-motion-fade-visible
-          :delay="600"
-          class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-24 max-w-3xl mx-auto"
-        >
-          <div 
-            v-for="stat in stats" 
-            :key="stat.label"
-            class="glass-effect rounded-2xl p-6 sm:p-8 card-hover"
-          >
-            <div class="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-3">{{ stat.value }}</div>
-            <div class="text-gray-700 dark:text-slate-300 text-sm sm:text-base leading-snug">{{ stat.label }}</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const stats = [
-  { value: '5+', label: 'Rokov skúseností' },
-  { value: '2-4', label: 'Týždne na realizáciu' },
-  { value: '24/7', label: 'Podpora pre klientov' },
-]
 </script>

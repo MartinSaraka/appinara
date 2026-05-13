@@ -26,7 +26,7 @@
           v-motion-fade-visible
           :delay="index * 100"
           @click="openProject(project)"
-          class="group relative glass-effect rounded-2xl overflow-hidden card-hover cursor-pointer"
+          class="group relative surface rounded-2xl overflow-hidden card-hover cursor-pointer"
         >
           <!-- Project Image with Gradient -->
           <div class="relative h-64 bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600 overflow-hidden">
@@ -156,7 +156,7 @@
                   </div>
                   
                   <!-- Key Results -->
-                  <div class="glass-effect rounded-2xl p-8">
+                  <div class="surface rounded-2xl p-8">
                     <h3 class="text-2xl font-display font-bold text-white mb-6 flex items-center gap-3">
                       <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -182,7 +182,7 @@
                       <div 
                         v-for="feature in selectedProject.features" 
                         :key="feature"
-                        class="flex items-start gap-3 glass-effect rounded-xl p-4"
+                        class="flex items-start gap-3 surface rounded-xl p-4"
                       >
                         <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -208,7 +208,7 @@
                   
                   <!-- Client Quote (if exists) -->
                   <div v-if="selectedProject.clientQuote" class="relative">
-                    <div class="glass-effect rounded-2xl p-8 border-l-4 border-primary-500">
+                    <div class="surface rounded-2xl p-8 border-l-4 border-primary-500">
                       <svg class="w-12 h-12 text-primary-500/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                       </svg>

@@ -8,8 +8,8 @@
   </a>
   
   <nav 
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 dark:bg-transparent bg-white/80 backdrop-blur-md"
-    :class="scrolled ? 'glass-effect shadow-lg' : 'border-b dark:border-transparent border-gray-200'"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 dark:bg-slate-950/40 bg-white/80 backdrop-blur-md"
+    :class="scrolled ? 'glass-effect shadow-lg dark:shadow-slate-900/50' : 'border-b dark:border-slate-700/60 border-gray-200'"
     role="navigation"
     aria-label="Hlavná navigácia"
   >

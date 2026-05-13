@@ -10,7 +10,7 @@
               <span class="gradient-text block">spolu</span>
             </h2>
             <p class="text-xl dark:text-slate-200 text-gray-700 mb-8 leading-relaxed">
-              Máte otázku alebo konkrétny projekt? Napíšte mi a do 24 hodín sa vám ozvem s návrhom riešenia. Prvá konzultácia je vždy zdarma.
+              Máte otázku alebo konkrétny projekt? Napíšte nám a do 24 hodín sa vám ozveme s návrhom riešenia. Prvá konzultácia je vždy zdarma.
             </p>
             
             <!-- Contact Info -->
@@ -32,25 +32,11 @@
               </div>
             </div>
             
-            <!-- Social Links -->
-            <div class="flex gap-4 mt-8">
-              <a 
-                v-for="social in socialLinks" 
-                :key="social.name"
-                :href="social.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:bg-primary-500/10 dark:hover:bg-primary-500/20 transition-all duration-300 hover:scale-110"
-                :aria-label="social.name"
-              >
-                <component :is="social.icon" class="w-6 h-6 dark:text-slate-300 text-gray-600" />
-              </a>
-            </div>
           </div>
           
           <!-- Right Side - Contact Form -->
           <div v-motion-fade-visible :delay="200">
-            <form @submit.prevent="handleSubmit" class="glass-effect rounded-2xl p-8 space-y-6" novalidate>
+            <form @submit.prevent="handleSubmit" class="surface rounded-2xl p-8 space-y-6" novalidate>
               <div>
                 <label for="name" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Meno
@@ -59,11 +45,10 @@
                   id="name"
                   v-model="form.name"
                   type="text"
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 border dark:bg-slate-800 bg-gray-50 dark:border-slate-600 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   placeholder="Vaše meno"
                   aria-label="Vaše meno"
                 />
-                <p class="text-xs dark:text-slate-400 text-gray-600 mt-1">Ako sa k vám mám oslovovať</p>
               </div>
               
               <div>
@@ -75,14 +60,14 @@
                   v-model="form.email"
                   @blur="validateEmail"
                   type="email"
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 border dark:bg-slate-800 bg-gray-50 dark:border-slate-600 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   :class="{ 'border-red-500 focus:ring-red-500': emailError || (validationError && !form.email && !form.phone), 'border-green-500': emailValid }"
                   placeholder="vas@email.com"
                   aria-label="Váš email"
                   aria-describedby="email-helper"
                 />
-                <p id="email-helper" class="text-xs mt-1" :class="emailError ? 'text-red-400' : emailValid ? 'text-green-400' : 'dark:text-slate-400 text-gray-600'">
-                  {{ emailError || (emailValid ? '✓ Email je platný' : 'Pre spätnú komunikáciu') }}
+                <p v-if="emailError" id="email-helper" class="text-xs text-red-400 mt-1">
+                  {{ emailError }}
                 </p>
               </div>
               
@@ -94,14 +79,14 @@
                   id="phone"
                   v-model="form.phone"
                   type="tel"
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 border dark:bg-slate-800 bg-gray-50 dark:border-slate-600 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   :class="{ 'border-red-500 focus:ring-red-500': validationError && !form.email && !form.phone }"
                   placeholder="+421 XXX XXX XXX"
                   aria-label="Váš telefón"
                   aria-describedby="phone-helper"
                 />
-                <p id="phone-helper" class="text-xs dark:text-slate-400 text-gray-600 mt-1">
-                  {{ validationError && !form.email && !form.phone ? '⚠️ Vyplňte aspoň email alebo telefón' : 'Pre rýchlejší kontakt' }}
+                <p v-if="validationError && !form.email && !form.phone" id="phone-helper" class="text-xs text-red-400 mt-1">
+                  ⚠️ Vyplňte aspoň email alebo telefón
                 </p>
               </div>
               
@@ -113,7 +98,7 @@
                   id="project"
                   v-model="form.projectType"
                   required
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 border dark:bg-slate-800 bg-gray-50 dark:border-slate-600 border-gray-300 rounded-xl dark:text-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   :class="{ 'border-red-500 focus:ring-red-500': projectTypeError }"
                   aria-label="Typ projektu"
                   aria-describedby="project-helper"
@@ -125,8 +110,8 @@
                   <option value="business-tool">Business nástroj / Dashboard</option>
                   <option value="other">Iné</option>
                 </select>
-                <p id="project-helper" class="text-xs mt-1" :class="projectTypeError ? 'text-red-400' : 'dark:text-slate-400 text-gray-600'">
-                  {{ projectTypeError || 'Pomôže mi pripraviť lepšiu ponuku' }}
+                <p v-if="projectTypeError" id="project-helper" class="text-xs text-red-400 mt-1">
+                  {{ projectTypeError }}
                 </p>
               </div>
               
@@ -139,16 +124,15 @@
                   v-model="form.message"
                   required
                   rows="4"
-                  class="w-full px-4 py-3 dark:bg-slate-900/50 bg-white dark:border-slate-700 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                  class="w-full px-4 py-3 border dark:bg-slate-800 bg-gray-50 dark:border-slate-600 border-gray-300 rounded-xl dark:text-white text-gray-900 dark:placeholder-slate-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
                   :class="{ 'border-red-500 focus:ring-red-500': messageError }"
-                  placeholder="Povedzte mi viac o vašom projekte..."
+                  placeholder="Povedzte nám viac o vašom projekte..."
                   aria-label="Vaša správa"
                   aria-describedby="message-helper"
                   maxlength="1000"
                 ></textarea>
-                <p id="message-helper" class="text-xs mt-1 flex justify-between" :class="messageError ? 'text-red-400' : 'dark:text-slate-400 text-gray-600'">
-                  <span>{{ messageError || 'Čím viac detailov, tým lepšie' }}</span>
-                  <span>{{ form.message.length }}/1000</span>
+                <p v-if="messageError" id="message-helper" class="text-xs text-red-400 mt-1">
+                  {{ messageError }}
                 </p>
               </div>
               
@@ -188,10 +172,6 @@ const LocationIcon = () => h('svg', { fill: 'none', stroke: 'currentColor', view
   h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M15 11a3 3 0 11-6 0 3 3 0 016 0z' })
 ])
 
-const LinkedInIcon = () => h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
-  h('path', { d: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' })
-])
-
 const contactInfo = [
   {
     label: 'Email',
@@ -211,10 +191,6 @@ const contactInfo = [
     href: '#',
     icon: LocationIcon
   }
-]
-
-const socialLinks = [
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/appinara/', icon: LinkedInIcon }
 ]
 
 const form = ref({

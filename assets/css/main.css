@@ -48,6 +48,12 @@
     @apply bg-gray-900/5 backdrop-blur-md border border-gray-200/20;
     @apply dark:bg-white/5 dark:border-white/10;
   }
+
+  /* Solid card surface — no blur, no translucency. Use on content cards. */
+  .surface {
+    @apply bg-white border border-gray-200 transition-colors duration-300;
+    @apply dark:bg-slate-900 dark:border-white/10;
+  }
   
   .card-hover {
     @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary-500/30;
@@ -118,6 +124,15 @@
     @apply border-l-4 border-primary-500 bg-gray-50 dark:bg-slate-800/50 text-gray-800 dark:text-slate-200;
   }
   
+  /* Blog editorial utilities */
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-widest dark:text-slate-500 text-gray-500;
+  }
+
+  .text-display-xl {
+    @apply text-4xl md:text-5xl lg:text-[3.5rem];
+  }
+
   /* Screen reader only utility */
   .sr-only {
     position: absolute;

@@ -27,6 +27,15 @@ export default {
           800: '#3730a3',
           900: '#312e81',
         },
+        cinnabar: {
+          300: '#FF8B70',
+          500: '#FF3B1F',
+          deep: '#C72308',
+          glow: '#FF5C3F',
+          soft: '#FFE4DD',
+        },
+        anthracite: '#0A0A0A',
+        bone: '#F2EDE4',
       },
       animation: {
         'gradient': 'gradient 8s linear infinite',

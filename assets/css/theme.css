@@ -1,0 +1,175 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Appinara — Editorial Brutalist tokens
+   Tier 1 (--ref-*) raw palette, Tier 2 (--color-*) semantic.
+   One canvas pair (paper / ink) + one acid accent (vermilion).
+   Sage and ochre are quiet counterpoints, used sparingly.
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* --- Tier 1 ------------------------------------------------------- */
+
+  /* Paper — warm off-white newsprint */
+  --ref-paper-50:   #FAF6EC;
+  --ref-paper-100:  #F2EDE4;   /* primary canvas */
+  --ref-paper-200:  #E8E1D2;
+  --ref-paper-300:  #D8D0BD;
+
+  /* Ink — true editorial black */
+  --ref-ink-50:    #DCD9D2;
+  --ref-ink-100:   #B5B2AB;
+  --ref-ink-300:   #6F6D67;
+  --ref-ink-500:   #3D3C38;
+  --ref-ink-700:   #1B1B19;
+  --ref-ink-900:   #0A0A0A;
+
+  /* Tar — inverted dark canvas */
+  --ref-tar-deep:  #050505;
+  --ref-tar:       #0A0A0A;
+  --ref-tar-elev:  #14140F;
+  --ref-tar-mist:  #232319;
+
+  /* Vermilion — single acid accent */
+  --ref-vermilion-tint: #FFE4DD;
+  --ref-vermilion-300:  #FF8B70;
+  --ref-vermilion-500:  #FF3B1F;
+  --ref-vermilion-deep: #C72308;
+  --ref-vermilion-glow: #FF5C3F;
+
+  /* Sage — secondary editorial accent (moss / olive) */
+  --ref-sage:        #3F4D2F;
+  --ref-sage-light:  #7A8E6B;
+
+  /* Ochre — tertiary accent (mustard) */
+  --ref-ochre:       #D4A036;
+  --ref-ochre-light: #E5B547;
+
+  /* --- Tier 2: light (paper) --------------------------------------- */
+  color-scheme: light;
+
+  --color-bg:           var(--ref-paper-100);
+  --color-bg-subtle:    var(--ref-paper-50);
+  --color-bg-muted:     var(--ref-paper-200);
+  --color-bg-elevated:  var(--ref-paper-50);
+  --color-bg-inverse:   var(--ref-ink-900);
+  --color-bg-deep:      var(--ref-tar);
+
+  --color-fg:           var(--ref-ink-900);
+  --color-fg-muted:     var(--ref-ink-700);
+  --color-fg-subtle:    var(--ref-ink-500);
+  --color-fg-meta:      var(--ref-ink-300);
+  --color-fg-inverse:   var(--ref-paper-100);
+
+  --color-rule:         var(--ref-ink-900);
+  --color-rule-soft:    rgba(10,10,10,0.18);
+  --color-rule-faint:   rgba(10,10,10,0.08);
+  --color-border:       var(--ref-ink-900);
+  --color-border-subtle: var(--ref-paper-300);
+
+  --color-accent:        var(--ref-vermilion-500);
+  --color-accent-hover:  var(--ref-vermilion-deep);
+  --color-accent-fg:     var(--ref-paper-50);
+  --color-accent-tint:   var(--ref-vermilion-tint);
+
+  --color-sage:          var(--ref-sage);
+  --color-ochre:         var(--ref-ochre);
+
+  --color-success:       var(--ref-sage);
+  --color-success-bg:    rgba(63,77,47,0.10);
+  --color-warning:       var(--ref-ochre);
+  --color-warning-bg:    rgba(212,160,54,0.14);
+  --color-danger:        var(--ref-vermilion-deep);
+  --color-danger-bg:     var(--ref-vermilion-tint);
+
+  --color-focus-ring:    var(--ref-vermilion-500);
+  --color-selection-bg:  var(--ref-vermilion-500);
+  --color-selection-fg:  var(--ref-paper-50);
+}
+
+/* System preference: dark unless user forced light */
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light):not(.light) {
+    color-scheme: dark;
+
+    --color-bg:           var(--ref-tar);
+    --color-bg-subtle:    var(--ref-tar-deep);
+    --color-bg-muted:     var(--ref-tar-elev);
+    --color-bg-elevated:  var(--ref-tar-elev);
+    --color-bg-inverse:   var(--ref-paper-100);
+    --color-bg-deep:      var(--ref-tar-deep);
+
+    --color-fg:           var(--ref-paper-100);
+    --color-fg-muted:     var(--ref-ink-50);
+    --color-fg-subtle:    var(--ref-ink-100);
+    --color-fg-meta:      var(--ref-ink-300);
+    --color-fg-inverse:   var(--ref-ink-900);
+
+    --color-rule:         var(--ref-paper-100);
+    --color-rule-soft:    rgba(242,237,228,0.20);
+    --color-rule-faint:   rgba(242,237,228,0.10);
+    --color-border:       var(--ref-paper-100);
+    --color-border-subtle: var(--ref-tar-mist);
+
+    --color-accent:        var(--ref-vermilion-glow);
+    --color-accent-hover:  var(--ref-vermilion-300);
+    --color-accent-fg:     var(--ref-tar-deep);
+    --color-accent-tint:   rgba(255,92,63,0.14);
+
+    --color-sage:          var(--ref-sage-light);
+    --color-ochre:         var(--ref-ochre-light);
+
+    --color-success:       var(--ref-sage-light);
+    --color-success-bg:    rgba(122,142,107,0.14);
+    --color-warning:       var(--ref-ochre-light);
+    --color-warning-bg:    rgba(229,181,71,0.14);
+    --color-danger:        var(--ref-vermilion-glow);
+    --color-danger-bg:     rgba(255,92,63,0.14);
+
+    --color-focus-ring:    var(--ref-vermilion-glow);
+    --color-selection-bg:  var(--ref-vermilion-glow);
+    --color-selection-fg:  var(--ref-tar-deep);
+  }
+}
+
+/* User-forced dark — applied via .dark or .theme-dark */
+:root.dark,
+:root.theme-dark {
+  color-scheme: dark;
+
+  --color-bg:           var(--ref-tar);
+  --color-bg-subtle:    var(--ref-tar-deep);
+  --color-bg-muted:     var(--ref-tar-elev);
+  --color-bg-elevated:  var(--ref-tar-elev);
+  --color-bg-inverse:   var(--ref-paper-100);
+  --color-bg-deep:      var(--ref-tar-deep);
+
+  --color-fg:           var(--ref-paper-100);
+  --color-fg-muted:     var(--ref-ink-50);
+  --color-fg-subtle:    var(--ref-ink-100);
+  --color-fg-meta:      var(--ref-ink-300);
+  --color-fg-inverse:   var(--ref-ink-900);
+
+  --color-rule:         var(--ref-paper-100);
+  --color-rule-soft:    rgba(242,237,228,0.20);
+  --color-rule-faint:   rgba(242,237,228,0.10);
+  --color-border:       var(--ref-paper-100);
+  --color-border-subtle: var(--ref-tar-mist);
+
+  --color-accent:        var(--ref-vermilion-glow);
+  --color-accent-hover:  var(--ref-vermilion-300);
+  --color-accent-fg:     var(--ref-tar-deep);
+  --color-accent-tint:   rgba(255,92,63,0.14);
+
+  --color-sage:          var(--ref-sage-light);
+  --color-ochre:         var(--ref-ochre-light);
+
+  --color-success:       var(--ref-sage-light);
+  --color-success-bg:    rgba(122,142,107,0.14);
+  --color-warning:       var(--ref-ochre-light);
+  --color-warning-bg:    rgba(229,181,71,0.14);
+  --color-danger:        var(--ref-vermilion-glow);
+  --color-danger-bg:     rgba(255,92,63,0.14);
+
+  --color-focus-ring:    var(--ref-vermilion-glow);
+  --color-selection-bg:  var(--ref-vermilion-glow);
+  --color-selection-fg:  var(--ref-tar-deep);
+}

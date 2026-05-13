@@ -28,11 +28,7 @@
           class="group relative"
         >
           <!-- Card -->
-          <div class="relative glass-effect rounded-2xl p-10 h-full hover:bg-gray-100/50 dark:hover:bg-white/10 transition-all duration-300">
-            <!-- Icon -->
-            <div class="w-20 h-20 bg-gradient-to-br from-primary-500/20 to-purple-600/20 border-2 border-primary-500/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <div class="text-4xl">{{ benefit.icon }}</div>
-            </div>
+          <div class="relative surface rounded-2xl p-10 h-full hover:border-primary-500/40 dark:hover:border-primary-400/40">
             
             <!-- Content -->
             <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-gray-900">
@@ -72,12 +68,12 @@
             class="relative flex gap-6 items-start group"
           >
             <!-- Step Number -->
-            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary-600 to-purple-600 rounded-2xl flex items-center justify-center font-bold text-2xl text-white shadow-lg shadow-primary-500/30 group-hover:scale-110 transition-transform duration-300">
-              {{ index + 1 }}
+            <div class="flex-shrink-0 w-16 flex items-start justify-start font-display font-bold text-5xl leading-none text-primary-600 dark:text-primary-400 tabular-nums group-hover:scale-105 transition-transform duration-300">
+              {{ String(index + 1).padStart(2, '0') }}
             </div>
             
             <!-- Step Content -->
-            <div class="flex-1 glass-effect rounded-2xl p-8 group-hover:bg-gray-100/50 dark:group-hover:bg-white/10 transition-all duration-300">
+            <div class="flex-1 surface rounded-2xl p-8 group-hover:border-primary-500/40 dark:group-hover:border-primary-400/40">
               <h4 class="text-xl font-display font-bold mb-2 dark:text-white text-gray-900">{{ step.title }}</h4>
               <p class="dark:text-slate-300 text-gray-700 leading-relaxed">{{ step.description }}</p>
               <div class="mt-3 dark:text-primary-400 text-primary-600 text-sm font-semibold">{{ step.duration }}</div>
@@ -104,7 +100,7 @@ const benefits = [
   {
     icon: '🎯',
     title: 'Zamerané na výsledky',
-    description: 'Nie len pekný dizajn, ale riešenia ktoré skutočně fungujú, prinášajú konverzie a zlepšujú vaše business metriky.'
+    description: 'Nie len pekný dizajn, ale riešenia ktoré skutočne fungujú, prinášajú konverzie a zlepšujú vaše business metriky.'
   },
   {
     icon: '🤝',
