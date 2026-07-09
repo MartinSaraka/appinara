@@ -1,9 +1,9 @@
 <template>
-  <div class="relative overflow-hidden min-h-screen dark:bg-anthracite bg-bone">
+  <div class="relative overflow-x-clip min-h-screen bg-white dark:bg-slate-950">
     <Navigation />
     <main id="main-content">
-      <section class="relative pt-32 md:pt-40 pb-12 md:pb-16 hero-surface film-grain overflow-hidden">
-        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[680px] h-[420px] mesh-1 rounded-full opacity-50 blur-3xl pointer-events-none" aria-hidden="true" />
+      <section class="relative pt-32 md:pt-40 pb-12 md:pb-16 overflow-hidden">
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[680px] h-[420px] soft-orb rounded-full opacity-80 pointer-events-none" aria-hidden="true" />
         <div class="absolute inset-0 grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div class="container mx-auto px-6 max-w-5xl text-center relative">
           <p class="eyebrow mb-4">Riešenia</p>
@@ -32,12 +32,12 @@
         v-for="(topic, index) in topics"
         :id="topic.id"
         :key="topic.id"
-        class="section-tall border-t border-gray-200/80 dark:border-slate-800 scroll-mt-28 overflow-hidden relative"
-        :class="index % 2 === 0 ? 'bg-bone dark:bg-anthracite' : 'bg-bone-50 dark:bg-anthracite-elev/60'"
+        class="py-24 md:py-32 border-t border-gray-200/80 dark:border-slate-800 scroll-mt-28 overflow-hidden relative"
+        :class="index % 2 === 0 ? 'bg-white dark:bg-slate-950' : 'bg-gray-50 dark:bg-slate-900'"
       >
         <div
-          class="absolute -top-32 w-[420px] h-[420px] rounded-full opacity-30 blur-3xl pointer-events-none"
-          :class="[index % 2 === 0 ? 'mesh-2 -right-32' : 'mesh-3 -left-32']"
+          class="absolute -top-32 w-[420px] h-[420px] rounded-full pointer-events-none"
+          :class="[index % 2 === 0 ? 'soft-orb -right-32' : 'soft-orb -left-32']"
           aria-hidden="true"
         />
 
@@ -58,7 +58,7 @@
             </div>
 
             <div class="md:col-span-7 space-y-5">
-              <div class="rounded-2xl border border-gray-200 dark:border-slate-700 bg-bone-50 dark:bg-anthracite-elev/70 p-6 md:p-7">
+              <div class="rounded-2xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 p-6 md:p-7">
                 <p class="eyebrow mb-3 text-amber-600 dark:text-amber-400">Signály, že to potrebujete</p>
                 <ul class="space-y-2">
                   <li v-for="signal in topic.signals" :key="signal" class="text-sm md:text-base text-gray-700 dark:text-slate-300 flex items-start gap-2.5">

@@ -1,6 +1,6 @@
 <template>
   <p
-    class="font-display font-normal text-ink-900 dark:text-bone-100 text-balance leading-[1.06]"
+    class="font-display font-semibold text-gray-900 dark:text-white text-balance leading-[1.1] tracking-tight"
     :class="sizeClass"
   >
     <slot />

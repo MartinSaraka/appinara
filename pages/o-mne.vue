@@ -1,16 +1,16 @@
 <template>
-  <div class="relative overflow-hidden min-h-screen dark:bg-anthracite bg-bone">
+  <div class="relative overflow-x-clip min-h-screen bg-white dark:bg-slate-950">
     <Navigation />
     <main id="main-content">
-      <section class="relative pt-32 md:pt-44 pb-16 md:pb-24 hero-surface film-grain overflow-hidden">
-        <div class="absolute -top-32 -right-24 w-[480px] h-[480px] mesh-1 rounded-full opacity-50 blur-3xl pointer-events-none" aria-hidden="true" />
+      <section class="relative pt-32 md:pt-44 pb-16 md:pb-24 overflow-hidden">
+        <div class="absolute -top-32 -right-24 w-[480px] h-[480px] soft-orb rounded-full opacity-80 pointer-events-none" aria-hidden="true" />
         <div class="absolute inset-0 grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
 
         <div class="container mx-auto px-6 max-w-6xl relative">
           <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
             <div class="md:col-span-5 order-2 md:order-1">
               <div class="relative max-w-sm mx-auto md:mx-0">
-                <div class="absolute -inset-4 mesh-1 rounded-3xl blur-2xl opacity-60 pointer-events-none" aria-hidden="true" />
+                <div class="absolute -inset-4 soft-orb rounded-3xl opacity-70 pointer-events-none" aria-hidden="true" />
                 <PhotoSlot
                   :src="null"
                   expected-path="public/photos/portrait.jpg"
@@ -48,7 +48,7 @@
         </div>
       </section>
 
-      <section class="section-tall border-t border-gray-200/80 dark:border-slate-800 bg-bone dark:bg-anthracite overflow-hidden">
+      <section class="py-24 md:py-32 border-t border-gray-200/80 dark:border-slate-800 bg-white dark:bg-slate-950 overflow-hidden">
         <div class="container mx-auto px-6 max-w-4xl">
           <p class="eyebrow mb-4">Princípy</p>
           <h2 class="text-display-lg font-display font-bold dark:text-white text-gray-900 mb-12 md:mb-16 text-balance">
@@ -87,7 +87,7 @@
         </div>
       </section>
 
-      <section class="section-tall border-t border-gray-200/80 dark:border-slate-800 bg-bone dark:bg-anthracite overflow-hidden">
+      <section class="py-24 md:py-32 border-t border-gray-200/80 dark:border-slate-800 bg-white dark:bg-slate-950 overflow-hidden">
         <div class="container mx-auto px-6 max-w-4xl">
           <p class="eyebrow mb-4">Ďalší krok</p>
           <h2 class="text-display-lg font-display font-bold dark:text-white text-gray-900 mb-10 text-balance">
@@ -112,7 +112,7 @@
 
             <NuxtLink
               to="/blog"
-              class="group rounded-2xl border border-gray-200 dark:border-slate-700 bg-bone-50 dark:bg-anthracite-elev/70 p-7 hover:border-gray-300 dark:hover:border-slate-600 transition-colors"
+              class="group rounded-2xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 p-7 hover:border-gray-300 dark:hover:border-slate-600 transition-colors"
             >
               <p class="eyebrow mb-3 text-gray-500 dark:text-slate-500">Pozrieť praktické články</p>
               <p class="text-2xl font-display font-bold dark:text-white text-gray-900 mb-2">Blog z praxe</p>
