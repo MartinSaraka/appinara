@@ -6,6 +6,26 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/motion/nuxt'
   ],
+  motion: {
+    directives: {
+      'reveal': {
+        initial: { opacity: 0, y: 36 },
+        visibleOnce: { opacity: 1, y: 0, transition: { duration: 650, ease: [0.22, 1, 0.36, 1] } }
+      },
+      'reveal-left': {
+        initial: { opacity: 0, x: -36 },
+        visibleOnce: { opacity: 1, x: 0, transition: { duration: 650, ease: [0.22, 1, 0.36, 1] } }
+      },
+      'reveal-right': {
+        initial: { opacity: 0, x: 36 },
+        visibleOnce: { opacity: 1, x: 0, transition: { duration: 650, ease: [0.22, 1, 0.36, 1] } }
+      },
+      'reveal-scale': {
+        initial: { opacity: 0, y: 28, scale: 0.96 },
+        visibleOnce: { opacity: 1, y: 0, scale: 1, transition: { duration: 700, ease: [0.22, 1, 0.36, 1] } }
+      }
+    }
+  },
   app: {
     head: {
       title: 'Appinara | AI Integrácie & Moderné Webové Riešenia',
@@ -45,7 +65,7 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap' }
       ]
     }
   },

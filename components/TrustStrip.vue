@@ -1,11 +1,17 @@
 <template>
   <section
     aria-label="Princípy spolupráce"
-    class="relative border-y border-gray-200/80 dark:border-slate-800 bg-bone dark:bg-anthracite py-6 md:py-7"
+    class="relative border-b border-gray-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 py-7 md:py-8"
   >
     <div class="container mx-auto px-6">
-      <ul class="flex flex-wrap justify-center md:justify-between items-center gap-x-8 gap-y-4 text-sm text-gray-600 dark:text-slate-400">
-        <li v-for="item in items" :key="item.label" class="flex items-center gap-2.5">
+      <ul class="flex flex-wrap justify-center items-center gap-x-12 lg:gap-x-16 gap-y-4 text-sm text-gray-600 dark:text-slate-400">
+        <li
+          v-for="(item, index) in items"
+          :key="item.label"
+          v-motion-reveal
+          :delay="index * 80"
+          class="flex items-center gap-2.5"
+        >
           <span
             class="w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-500/10 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0"
             aria-hidden="true"
@@ -56,7 +62,7 @@ const HandshakeIcon = () =>
 const items = [
   { label: 'Odpoveď do 24 h', detail: 'cez pracovný týždeň', icon: ClockIcon },
   { label: 'Slovenská firma', detail: 'priama komunikácia', icon: FlagIcon },
-  { label: 'Bez agentúrnej marže', detail: 'pracujem priamo pre vás', icon: HandshakeIcon },
+  { label: 'Bez agentúrnej marže', detail: 'pracujeme priamo pre vás', icon: HandshakeIcon },
   { label: 'GDPR-friendly', detail: 'bez tracking peklíka', icon: ShieldIcon }
 ]
 </script>

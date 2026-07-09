@@ -4,10 +4,11 @@
       <div class="max-w-6xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <!-- Left Side - Info -->
-          <div v-motion-fade-visible>
+          <div v-motion-reveal-left>
+            <p class="eyebrow mb-4">06 · Kontakt</p>
             <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 dark:text-white text-gray-900">
               Poďme rásť
-              <span class="gradient-text block">spolu</span>
+              <span class="accent-text block">spolu</span>
             </h2>
             <p class="text-xl dark:text-slate-200 text-gray-700 mb-8 leading-relaxed">
               Máte otázku alebo konkrétny projekt? Napíšte nám a do 24 hodín sa vám ozveme s návrhom riešenia. Prvá konzultácia je vždy zdarma.
@@ -35,7 +36,7 @@
           </div>
           
           <!-- Right Side - Contact Form -->
-          <div v-motion-fade-visible :delay="200">
+          <div v-motion-reveal-right :delay="150">
             <form @submit.prevent="handleSubmit" class="surface rounded-2xl p-8 space-y-6" novalidate>
               <div>
                 <label for="name" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">

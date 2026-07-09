@@ -11,8 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Outfit', 'sans-serif'],
+        sans: ['Instrument Sans', 'sans-serif'],
+        display: ['Bricolage Grotesque', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -34,8 +34,20 @@ export default {
           glow: '#FF5C3F',
           soft: '#FFE4DD',
         },
-        anthracite: '#0A0A0A',
-        bone: '#F2EDE4',
+        anthracite: {
+          DEFAULT: '#0A0A0A',
+          elev: '#14140F',
+          mist: '#232319',
+        },
+        bone: {
+          DEFAULT: '#F2EDE4',
+          50: '#FAF6EC',
+        },
+        mist: '#D8D0BD',
+      },
+      boxShadow: {
+        editorial: '0 24px 48px -16px rgba(15, 23, 42, 0.28), 0 2px 8px rgba(15, 23, 42, 0.08)',
+        'editorial-dark': '0 24px 48px -16px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.4)',
       },
       animation: {
         'gradient': 'gradient 8s linear infinite',

@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen">
+    <ScrollProgressBar />
     <NuxtPage />
   </div>
 </template>

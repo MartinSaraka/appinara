@@ -1,65 +1,69 @@
 <template>
-  <section id="services" class="relative py-32 dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 bg-gradient-to-b from-gray-50 via-white to-gray-50">
-    <div class="container mx-auto px-6">
+  <section id="services" class="relative py-32 overflow-hidden dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <!-- Decorative parallax orb (pre-blurred gradient — cheap to composite) -->
+    <div class="absolute inset-0 parallax-drift pointer-events-none" aria-hidden="true">
+      <div class="absolute top-10 right-[-10%] w-[560px] h-[560px] rounded-full soft-orb"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative">
       <!-- Section Header -->
       <div class="text-center mb-20">
-        <h2 
-          v-motion-fade-visible
+        <p v-motion-reveal class="eyebrow mb-4">01 · Služby</p>
+        <h2
+          v-motion-reveal
+          :delay="60"
           class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-gray-900"
         >
-          Ako vám môžeme <span class="gradient-text">pomôcť</span>
+          Ako vám môžeme <span class="accent-text">pomôcť</span>
         </h2>
-        <p 
-          v-motion-fade-visible
-          :delay="200"
+        <p
+          v-motion-reveal
+          :delay="120"
           class="text-xl text-gray-700 dark:text-slate-400 max-w-2xl mx-auto"
         >
           Riešenia, ktoré prinesú vášmu biznisu reálne výsledky a návratnosť investície
         </p>
       </div>
-      
-      <!-- Services Grid -->
-      <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-        <div 
-          v-for="(service, index) in services" 
+
+      <!-- Stacking cards — each pins below the nav and the next slides over it -->
+      <div class="max-w-3xl mx-auto flex flex-col gap-10">
+        <article
+          v-for="(service, index) in services"
           :key="service.title"
-          v-motion-fade-visible
-          :delay="index * 100"
-          class="group relative"
+          class="stack-card sticky surface rounded-3xl p-8 md:p-12"
+          :style="{ top: `calc(var(--stack-base) + ${index} * var(--stack-step))` }"
         >
-          <!-- Gradient border effect -->
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
-          
-          <div class="relative surface rounded-2xl p-10 h-full card-hover">
-            <!-- Content -->
-            <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-gray-900">
+          <div class="flex items-baseline justify-between gap-4 mb-4">
+            <h3 class="text-2xl md:text-3xl font-display font-bold dark:text-white text-gray-900">
               {{ service.title }}
             </h3>
-            <p class="dark:text-slate-300 text-gray-700 mb-6 leading-relaxed">
-              {{ service.description }}
-            </p>
-            
-            <!-- Features -->
-            <ul class="space-y-2">
-              <li 
-                v-for="feature in service.features" 
-                :key="feature"
-                class="flex items-start gap-2 dark:text-slate-300 text-gray-600 text-sm"
-              >
-                <svg class="w-5 h-5 dark:text-primary-400 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>{{ feature }}</span>
-              </li>
-            </ul>
+            <span class="font-display font-bold text-lg accent-text tabular-nums flex-shrink-0" aria-hidden="true">
+              0{{ index + 1 }}
+            </span>
           </div>
-        </div>
+          <p class="dark:text-slate-300 text-gray-700 mb-7 leading-relaxed max-w-xl">
+            {{ service.description }}
+          </p>
+          <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+            <li
+              v-for="feature in service.features"
+              :key="feature"
+              class="flex items-start gap-2 dark:text-slate-300 text-gray-600 text-sm"
+            >
+              <svg class="w-5 h-5 dark:text-primary-400 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{{ feature }}</span>
+            </li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+// (styles for stacking cards are at the bottom of this file)
 const services = [
   {
     title: 'AI Integrácie & Chatboty',
@@ -107,3 +111,27 @@ const services = [
   }
 ]
 </script>
+
+<style scoped>
+.stack-card {
+  --stack-base: 5.5rem;
+  --stack-step: 1.1rem;
+  min-height: 21rem;
+  /* solid elevation so covered cards read as a stack, not a blur */
+  box-shadow:
+    0 -10px 32px -18px rgba(15, 23, 42, 0.25),
+    0 28px 56px -28px rgba(15, 23, 42, 0.28);
+}
+.dark .stack-card {
+  box-shadow:
+    0 -10px 32px -18px rgba(0, 0, 0, 0.6),
+    0 28px 56px -28px rgba(0, 0, 0, 0.65);
+}
+@media (max-width: 640px) {
+  .stack-card {
+    --stack-base: 4.75rem;
+    --stack-step: 0.65rem;
+    min-height: 0;
+  }
+}
+</style>

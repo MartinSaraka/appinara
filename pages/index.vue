@@ -1,5 +1,6 @@
 <template>
-  <div class="relative overflow-hidden">
+  <!-- overflow-x-clip (not overflow-hidden) — hidden would break position: sticky -->
+  <div class="relative overflow-x-clip">
     <!-- Navigation -->
     <Navigation />
     
@@ -7,16 +8,28 @@
     <main id="main-content">
       <!-- Hero Section -->
       <HeroSection />
-    
+
     <!-- Services Section -->
     <ServicesSection />
-    
+
+    <!-- Showcase (scrollytelling) Section -->
+    <ShowcaseSection />
+
+    <!-- Portfolio — live demos -->
+    <PortfolioSection />
+
+    <!-- Manifesto — scroll-scrubbed statement -->
+    <ManifestoSection />
+
     <!-- Why Choose Us Section -->
     <WhyChooseUsSection />
     
+    <!-- FAQ Section -->
+    <FaqSection />
+
     <!-- CTA Section -->
     <CTASection />
-    
+
       <!-- Contact Section -->
       <ContactSection />
     </main>

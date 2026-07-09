@@ -74,7 +74,7 @@
           
           <a 
             href="/#contact"
-            class="px-6 py-2 bg-gradient-to-r from-primary-600 to-purple-600 rounded-full font-semibold text-white shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/50 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-400/50 focus:ring-offset-2 dark:focus:ring-offset-slate-950 focus:ring-offset-white"
+            class="px-6 py-2 bg-primary-600 hover:bg-primary-500 rounded-full font-semibold text-white shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/50 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-400/50 focus:ring-offset-2 dark:focus:ring-offset-slate-950 focus:ring-offset-white"
             aria-label="Kontaktovať Appinara"
           >
             Kontaktuj nás
@@ -153,7 +153,7 @@
           <a 
             href="/#contact"
             @click="mobileMenuOpen = false"
-            class="px-6 py-2 bg-gradient-to-r from-primary-600 to-purple-600 rounded-full font-semibold text-white shadow-lg shadow-primary-500/30 text-center"
+            class="px-6 py-2 bg-primary-600 hover:bg-primary-500 rounded-full font-semibold text-white shadow-lg shadow-primary-500/30 text-center transition-colors"
           >
             Kontaktuj nás
           </a>

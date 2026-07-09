@@ -6,12 +6,31 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Lenis takes over scrolling on desktop — native smooth would fight it */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
   
   body {
     @apply bg-white text-gray-900 font-sans antialiased;
     @apply dark:bg-slate-950 dark:text-slate-100;
     line-height: 1.7;
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Guard against horizontal overflow from decorative bleeds.
+     overflow-x: clip (not hidden) so position: sticky keeps working. */
+  html,
+  body {
+    overflow-x: clip;
   }
   
   /* Improved accessibility for reduced motion */
@@ -27,9 +46,15 @@
 }
 
 @layer components {
+  /* Signature gradient — two close stops, used sparingly (hero, logo, CTA) */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
-    @apply dark:from-primary-400 dark:via-purple-400 dark:to-pink-400;
+    @apply bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent;
+    @apply dark:from-primary-400 dark:to-violet-400;
+  }
+
+  /* Solid accent for section headings — calmer than a gradient everywhere */
+  .accent-text {
+    @apply text-primary-600 dark:text-primary-400;
   }
   
   .gradient-border {
@@ -61,7 +86,7 @@
   }
   
   .btn-primary {
-    @apply px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 rounded-full font-semibold text-white shadow-lg shadow-primary-500/50 hover:shadow-xl hover:shadow-primary-500/70 transition-all duration-300 hover:scale-[1.03];
+    @apply px-8 py-4 bg-primary-600 hover:bg-primary-500 rounded-full font-semibold text-white shadow-lg shadow-primary-500/40 hover:shadow-xl hover:shadow-primary-500/50 transition-all duration-300 hover:scale-[1.03];
   }
   
   .btn-secondary {
@@ -185,6 +210,53 @@
 .dark .animated-gradient {
   background: linear-gradient(-45deg, #1e1b4b, #312e81, #4c1d95, #1e293b);
   background-size: 400% 400%;
+}
+
+/* Pre-blurred decorative orb — use instead of filter: blur() on large layers */
+.soft-orb {
+  background: radial-gradient(circle closest-side, rgba(99, 102, 241, 0.12), rgba(99, 102, 241, 0.05) 55%, transparent 72%);
+}
+.dark .soft-orb {
+  background: radial-gradient(circle closest-side, rgba(99, 102, 241, 0.14), rgba(99, 102, 241, 0.06) 55%, transparent 72%);
+}
+
+/* Timeline fill — draws top-to-bottom while the timeline scrolls through view */
+.timeline-fill {
+  transform: scaleY(1);
+}
+@supports (animation-timeline: view()) {
+  .timeline-fill {
+    animation: timeline-grow linear both;
+    animation-timeline: view(block 90% 20%);
+  }
+  @keyframes timeline-grow {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-fill {
+    animation: none !important;
+    transform: scaleY(1);
+  }
+}
+
+/* Scroll-linked parallax for decorative elements (progressive enhancement) */
+@supports (animation-timeline: view()) {
+  .parallax-drift {
+    animation: parallax-drift linear both;
+    animation-timeline: view();
+  }
+  @keyframes parallax-drift {
+    from { transform: translateY(56px); }
+    to { transform: translateY(-56px); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-drift {
+    animation: none !important;
+  }
 }
 
 /* Grid pattern overlay */

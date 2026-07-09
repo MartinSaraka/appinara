@@ -1,45 +1,47 @@
 <template>
-  <section id="faq" class="relative section-tall border-t" style="border-color: var(--color-rule); background: var(--color-bg);">
-    <div class="container mx-auto px-6 max-w-6xl">
-      <div class="grid md:grid-cols-12 gap-6 mb-14 md:mb-20">
-        <div class="md:col-span-3">
-          <p class="folio">№ 07 / FAQ</p>
-        </div>
-        <div class="md:col-span-9">
-          <h2 class="font-display text-display-lg font-medium tracking-tight text-balance" style="color: var(--color-fg);">
-            Otázky, ktoré
-            <span class="accent-italic">padajú často.</span>
-          </h2>
-        </div>
+  <section id="faq" class="relative py-32 bg-white dark:bg-slate-950">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <p v-motion-reveal class="eyebrow mb-4">05 · FAQ</p>
+        <h2
+          v-motion-reveal
+          :delay="60"
+          class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-gray-900"
+        >
+          Otázky pred <span class="accent-text">rozhodnutím</span>
+        </h2>
+        <p
+          v-motion-reveal
+          :delay="120"
+          class="text-xl text-gray-700 dark:text-slate-400 max-w-2xl mx-auto"
+        >
+          To, čo sa nás firmy pýtajú najčastejšie — na rovinu a bez žargónu
+        </p>
       </div>
 
-      <div class="grid md:grid-cols-12 gap-0">
-        <div class="md:col-span-1 hidden md:block"></div>
-        <div class="md:col-span-11 border-t" style="border-color: var(--color-rule);">
-          <details
-            v-for="(item, index) in faqs"
-            :key="index"
-            class="group border-b transition-colors"
-            style="border-color: var(--color-rule-soft);"
-          >
-            <summary
-              class="cursor-pointer list-none flex items-baseline gap-6 py-6 md:py-7 px-2 md:px-4 focus:outline-none"
-            >
-              <span class="ordinal text-2xl md:text-[28px] shrink-0 w-10" style="color: var(--color-fg-meta);">
-                {{ String(index + 1).padStart(2, '0') }}
-              </span>
-              <span class="flex-1 font-display text-xl md:text-[26px] font-medium leading-tight" style="color: var(--color-fg);">
-                {{ item.q }}
-              </span>
-              <span class="font-mono text-2xl shrink-0 transition-transform group-open:rotate-45" style="color: var(--color-accent);" aria-hidden="true">+</span>
-            </summary>
-            <div class="grid md:grid-cols-12 px-2 md:px-4 pb-6 md:pb-7">
-              <div class="md:col-start-2 md:col-span-10 text-[15px] md:text-base leading-relaxed text-pretty" style="color: var(--color-fg-muted);">
-                {{ item.a }}
-              </div>
-            </div>
-          </details>
-        </div>
+      <!-- One reveal for the whole list — per-item tweens spike on anchor jumps -->
+      <div v-motion-reveal class="max-w-3xl mx-auto">
+        <details
+          v-for="(item, index) in faqs"
+          :key="item.q"
+          class="faq-item group surface rounded-2xl mb-4 overflow-hidden"
+        >
+          <summary class="cursor-pointer list-none flex items-center gap-5 px-6 md:px-8 py-5 md:py-6 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-400/50 rounded-2xl">
+            <span class="font-display font-bold text-sm text-primary-600 dark:text-primary-400 tabular-nums flex-shrink-0" aria-hidden="true">
+              {{ String(index + 1).padStart(2, '0') }}
+            </span>
+            <span class="flex-1 font-display font-bold text-lg md:text-xl leading-tight dark:text-white text-gray-900">
+              {{ item.q }}
+            </span>
+            <span
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-500/10 dark:bg-primary-500/15 text-primary-600 dark:text-primary-400 flex items-center justify-center text-xl font-medium transition-transform duration-300 group-open:rotate-45"
+              aria-hidden="true"
+            >+</span>
+          </summary>
+          <div class="px-6 md:px-8 pb-6 md:pb-7 pl-[4.25rem] md:pl-[4.75rem] text-gray-700 dark:text-slate-300 leading-relaxed">
+            {{ item.a }}
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -48,24 +50,55 @@
 <script setup lang="ts">
 const faqs = [
   {
-    q: 'Pre koho sú služby určené?',
-    a: 'Pre menšie a stredné firmy, ktoré chcú menej ručnej práce okolo dopytov, emailov alebo interných procesov.'
+    q: 'Koľko stojí nový web?',
+    a: 'Závisí od rozsahu. Jednoduchšie weby začínajú v stovkách eur, e-shopy a aplikácie naceňujeme individuálne. Po nezáväznej konzultácii dostanete do 2–3 dní presnú ponuku — a rozhodujete sa až potom.'
   },
   {
-    q: 'Musím už vedieť presný projekt?',
-    a: 'Nie. Stačí popísať situáciu — navrhnem rozumný ďalší krok.'
+    q: 'Ako dlho trvá, kým bude web hotový?',
+    a: 'Väčšinu projektov dodávame do 2–4 týždňov od schválenia návrhu. Počas vývoja dostávate pravidelné ukážky, takže presne viete, v akom stave projekt je.'
+  },
+  {
+    q: 'Musím presne vedieť, čo chcem?',
+    a: 'Nie. Stačí, keď nám popíšete svoj biznis a čo vás trápi — my navrhneme riešenie a vysvetlíme ho zrozumiteľne, bez IT žargónu.'
+  },
+  {
+    q: 'Čo ak sa mi návrh nebude páčiť?',
+    a: 'Konzultácia aj návrh sú nezáväzné. Na projekte pracujeme spolu — pripomienkujete priebežne počas vývoja, nie až na konci. Nič neplatíte, kým neschválite ponuku.'
   },
   {
     q: 'Viete sa napojiť na to, čo už používame?',
-    a: 'Áno, keď to dáva technický a biznisový zmysel — riešenia navrhujem s ohľadom na váš stack.'
+    a: 'Áno — rezervačné systémy, fakturáciu, CRM či sklad. Riešenia navrhujeme s ohľadom na nástroje, ktoré už vo firme máte.'
   },
   {
-    q: 'Robíte aj veci mimo AI?',
-    a: 'Áno — weby, e-commerce, dashboardy a vlastné nástroje sú bežná súčasť práce.'
+    q: 'Čo sa deje po spustení webu?',
+    a: 'Nezmizneme. Poskytujeme technickú podporu, drobné úpravy aj ďalší rozvoj podľa toho, ako váš biznis rastie.'
   }
 ]
+
+// FAQ structured data for search engines
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(f => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a }
+        }))
+      })
+    }
+  ]
+})
 </script>
 
 <style scoped>
-details > summary::-webkit-details-marker { display: none; }
+details > summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item[open] {
+  border-color: rgba(99, 102, 241, 0.4);
+}
 </style>
