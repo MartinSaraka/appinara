@@ -13,11 +13,11 @@
             <p class="text-xl dark:text-slate-200 text-gray-700 mb-8 leading-relaxed">
               Máte otázku alebo konkrétny projekt? Napíšte nám a do 24 hodín sa vám ozveme s návrhom riešenia. Prvá konzultácia je vždy zdarma.
             </p>
-            
+
             <!-- Contact Info -->
             <div class="space-y-6">
-              <div 
-                v-for="contact in contactInfo" 
+              <div
+                v-for="contact in contactInfo"
                 :key="contact.label"
                 class="flex items-center gap-4"
               >
@@ -32,9 +32,9 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
-          
+
           <!-- Right Side - Contact Form -->
           <div v-motion-reveal-right :delay="150">
             <form @submit.prevent="handleSubmit" class="surface rounded-2xl p-8 space-y-6" novalidate>
@@ -51,7 +51,7 @@
                   aria-label="Vaše meno"
                 />
               </div>
-              
+
               <div>
                 <label for="email" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Email <span class="dark:text-slate-500 text-gray-500">(aspoň email alebo telefón)</span>
@@ -71,7 +71,7 @@
                   {{ emailError }}
                 </p>
               </div>
-              
+
               <div>
                 <label for="phone" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Telefón <span class="dark:text-slate-500 text-gray-500">(voliteľné)</span>
@@ -90,7 +90,7 @@
                   ⚠️ Vyplňte aspoň email alebo telefón
                 </p>
               </div>
-              
+
               <div>
                 <label for="project" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Typ projektu <span class="text-red-400">*</span>
@@ -115,7 +115,7 @@
                   {{ projectTypeError }}
                 </p>
               </div>
-              
+
               <div>
                 <label for="message" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Správa <span class="text-red-400">*</span>
@@ -136,7 +136,7 @@
                   {{ messageError }}
                 </p>
               </div>
-              
+
               <button
                 type="submit"
                 class="w-full btn-primary text-center"
@@ -144,7 +144,7 @@
               >
                 {{ isSubmitting ? 'Odosielam...' : 'Odoslať správu' }}
               </button>
-              
+
               <p v-if="submitMessage" class="text-center text-sm" :class="submitSuccess ? 'text-green-400' : 'text-red-400'">
                 {{ submitMessage }}
               </p>
@@ -217,7 +217,7 @@ const validateEmail = () => {
     emailValid.value = false
     return
   }
-  
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(form.value.email)) {
     emailError.value = '⚠️ Neplatná emailová adresa'
@@ -234,7 +234,7 @@ const handleSubmit = async () => {
   emailError.value = ''
   projectTypeError.value = ''
   messageError.value = ''
-  
+
   // Validácia: aspoň email alebo telefón musí byť vyplnený
   if (!form.value.email && !form.value.phone) {
     validationError.value = true
@@ -245,7 +245,7 @@ const handleSubmit = async () => {
     }, 5000)
     return
   }
-  
+
   // Validácia emailu ak je vyplnený
   if (form.value.email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -256,7 +256,7 @@ const handleSubmit = async () => {
       return
     }
   }
-  
+
   // Validácia typu projektu
   if (!form.value.projectType) {
     projectTypeError.value = '⚠️ Vyberte typ projektu'
@@ -264,7 +264,7 @@ const handleSubmit = async () => {
     submitSuccess.value = false
     return
   }
-  
+
   // Validácia správy
   if (!form.value.message || form.value.message.trim().length < 10) {
     messageError.value = '⚠️ Správa musí mať aspoň 10 znakov'
@@ -274,13 +274,13 @@ const handleSubmit = async () => {
   }
   isSubmitting.value = true
   submitMessage.value = ''
-  
+
   try {
     // EmailJS configuration
     const serviceId = 'service_is1zj0v'
     const templateId = 'template_xjtb39p'
     const publicKey = 'OkHjN5RiYSgxDL-5S'
-    
+
     // Prepare template parameters
     const templateParams = {
       from_name: form.value.name,
@@ -290,10 +290,10 @@ const handleSubmit = async () => {
       message: form.value.message,
       to_email: 'appinarasolutions@gmail.com'
     }
-    
+
     // Send email via EmailJS
     await emailjs.send(serviceId, templateId, templateParams, publicKey)
-    
+
     // Success
     isSubmitting.value = false
     submitSuccess.value = true
@@ -303,7 +303,7 @@ const handleSubmit = async () => {
     projectTypeError.value = ''
     messageError.value = ''
     submitMessage.value = '✅ Správa bola úspešne odoslaná! Ozvem sa vám čoskoro.'
-    
+
     // Reset form
     form.value = {
       name: '',
@@ -312,7 +312,7 @@ const handleSubmit = async () => {
       projectType: '',
       message: ''
     }
-    
+
     // Clear message after 5 seconds
     setTimeout(() => {
       submitMessage.value = ''
@@ -323,7 +323,7 @@ const handleSubmit = async () => {
     isSubmitting.value = false
     submitSuccess.value = false
     submitMessage.value = '❌ Nepodarilo sa odoslať správu. Skúste to prosím znova alebo nás kontaktujte priamo na email.'
-    
+
     // Clear error message after 7 seconds
     setTimeout(() => {
       submitMessage.value = ''

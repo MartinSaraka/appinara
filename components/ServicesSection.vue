@@ -26,25 +26,29 @@
       </div>
 
       <!-- Stacking cards — each pins below the nav and the next slides over it -->
-      <div class="max-w-3xl mx-auto flex flex-col gap-10">
+      <div class="max-w-6xl mx-auto flex flex-col gap-10">
         <article
           v-for="(service, index) in services"
           :key="service.title"
-          class="stack-card sticky surface rounded-3xl p-8 md:p-12"
+          class="stack-card sticky surface overflow-hidden rounded-none p-0"
           :style="{ top: `calc(var(--stack-base) + ${index} * var(--stack-step))` }"
         >
-          <div class="flex items-baseline justify-between gap-4 mb-4">
-            <h3 class="text-2xl md:text-3xl font-display font-bold dark:text-white text-gray-900">
-              {{ service.title }}
-            </h3>
-            <span class="font-display font-bold text-lg accent-text tabular-nums flex-shrink-0" aria-hidden="true">
-              0{{ index + 1 }}
-            </span>
-          </div>
-          <p class="dark:text-slate-300 text-gray-700 mb-7 leading-relaxed max-w-xl">
-            {{ service.description }}
-          </p>
-          <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+          <div class="grid lg:grid-cols-[.9fr_1.1fr] min-h-[23rem]">
+            <ServiceVisual
+              :type="service.visual"
+              :number="`0${index + 1}`"
+              :caption="service.caption"
+              class="h-full min-h-[220px] lg:min-h-full"
+            />
+            <div class="p-8 md:p-12 flex flex-col justify-center">
+              <div class="flex items-baseline justify-between gap-4 mb-4">
+                <h3 class="text-2xl md:text-3xl font-display font-bold dark:text-white text-gray-900">
+                  {{ service.title }}
+                </h3>
+                <span class="font-display font-bold text-lg accent-text tabular-nums flex-shrink-0" aria-hidden="true">0{{ index + 1 }}</span>
+              </div>
+              <p class="dark:text-slate-300 text-gray-700 mb-7 leading-relaxed max-w-xl">{{ service.description }}</p>
+              <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
             <li
               v-for="feature in service.features"
               :key="feature"
@@ -55,7 +59,9 @@
               </svg>
               <span>{{ feature }}</span>
             </li>
-          </ul>
+              </ul>
+            </div>
+          </div>
         </article>
       </div>
     </div>
@@ -66,6 +72,8 @@
 // (styles for stacking cards are at the bottom of this file)
 const services = [
   {
+    visual: 'ai' as const,
+    caption: 'Automatizácia / 24—7',
     title: 'AI Integrácie & Chatboty',
     description: 'Automatizujte opakujúce sa úlohy, ušetrite čas a znížte náklady pomocou inteligentných AI riešení šitých na mieru vášmu biznisu.',
     features: [
@@ -77,6 +85,8 @@ const services = [
     ]
   },
   {
+    visual: 'web' as const,
+    caption: 'Web / Konverzia',
     title: 'Webové stránky & Aplikácie',
     description: 'Moderné webové stránky a aplikácie s dokonalým dizajnom a UX, ktoré premieňajú návštevníkov na zákazníkov. Od landing pages po komplexné platformy.',
     features: [
@@ -88,6 +98,8 @@ const services = [
     ]
   },
   {
+    visual: 'shop' as const,
+    caption: 'E-commerce / Predaj',
     title: 'E-commerce & Online predaj',
     description: 'Výkonný online obchod, ktorý predáva 24/7. S AI odporúčaniami produktov, automatickým skladom, platobnými bránami a prepojením na dopravu.',
     features: [
@@ -99,6 +111,8 @@ const services = [
     ]
   },
   {
+    visual: 'data' as const,
+    caption: 'Dáta / Rozhodnutia',
     title: 'Business nástroje & Dashboardy',
     description: 'Vlastné firemné systémy pre efektívnejšiu prácu. CRM, dashboardy, project management a automatizácie pre váš rast.',
     features: [

@@ -4,9 +4,8 @@
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <!-- Brand -->
         <div class="md:col-span-2">
-          <div class="text-2xl font-display font-bold mb-4">
-            <span class="gradient-text">Appi</span>
-            <span class="dark:text-white text-gray-900">nara</span>
+          <div class="mb-4">
+            <AppinaraLogo size="sm" />
           </div>
           <p class="dark:text-slate-400 text-gray-600 mb-4 max-w-md">
             Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.

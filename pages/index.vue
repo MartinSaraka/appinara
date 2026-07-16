@@ -27,9 +27,6 @@
     <!-- FAQ Section -->
     <FaqSection />
 
-    <!-- CTA Section -->
-    <CTASection />
-
       <!-- Contact Section -->
       <ContactSection />
     </main>

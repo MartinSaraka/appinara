@@ -46,7 +46,7 @@ export default defineNuxtConfig({
         { property: 'og:url', content: 'https://appinara.sk/' },
         { property: 'og:title', content: 'Appinara | AI Integrácie & Moderné Webové Riešenia' },
         { property: 'og:description', content: 'Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.' },
-        { property: 'og:image', content: 'https://appinara.sk/logo.svg' },
+        { property: 'og:image', content: 'https://appinara.sk/og-image.png' },
         { property: 'og:locale', content: 'sk_SK' },
         { property: 'og:site_name', content: 'Appinara' },
         
@@ -55,11 +55,10 @@ export default defineNuxtConfig({
         { name: 'twitter:url', content: 'https://appinara.sk/' },
         { name: 'twitter:title', content: 'Appinara | AI Integrácie & Moderné Webové Riešenia' },
         { name: 'twitter:description', content: 'Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.' },
-        { name: 'twitter:image', content: 'https://appinara.sk/logo.svg' }
+        { name: 'twitter:image', content: 'https://appinara.sk/og-image.png' }
       ],
       link: [
         { rel: 'canonical', href: 'https://appinara.sk/' },
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },

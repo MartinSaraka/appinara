@@ -265,10 +265,9 @@ const relatedPosts = computed(() => {
   color: #F2EDE4;
 }
 
-/* Dark mode: keep the box dark but tinted with cinnabar */
-:global(.dark) .article-prose :deep(.article-cta-title) {
-  @apply text-bone;
-}
+/* Dark mode: keep the box dark but tinted with cinnabar.
+   NOTE: html.dark selector via :global() doesn't compile in scoped styles;
+   this rule is duplicated in the unscoped block at the end of the file. */
 
 .article-prose :deep(ul) {
   @apply my-6 space-y-2.5 pl-0 list-none;
@@ -354,5 +353,11 @@ const relatedPosts = computed(() => {
 
 .article-prose :deep(.key-takeaway p) {
   @apply text-base md:text-lg leading-relaxed text-gray-900 dark:text-white my-2 font-medium;
+}
+</style>
+
+<style>
+.dark .article-prose .article-cta-title {
+  @apply text-bone;
 }
 </style>

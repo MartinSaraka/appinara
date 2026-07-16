@@ -184,6 +184,20 @@
           </div>
         </div>
       </div>
+
+      <!-- Inline CTA — catches interest built up by the showcase -->
+      <div v-motion-reveal class="mt-8 lg:mt-4 text-center">
+        <a
+          href="#contact"
+          class="group inline-flex items-center gap-2 font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+          aria-label="Prejsť na kontaktný formulár"
+        >
+          Niečo z tohto potrebujete? Konzultácia zdarma
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 </template>

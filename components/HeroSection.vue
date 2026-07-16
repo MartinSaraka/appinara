@@ -73,6 +73,19 @@
               <!-- Glow behind devices -->
               <div class="stage-glow"></div>
 
+              <!-- Generated brand artwork: workflow complexity becoming one clear system -->
+              <figure class="generated-art" aria-hidden="true">
+                <img
+                  src="/images/brand/appinara-ai-workflow-hero-v1.webp"
+                  alt=""
+                  width="1586"
+                  height="992"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+                <span class="generated-art-label">System / 01</span>
+              </figure>
+
               <!-- Laptop -->
               <div class="laptop">
                 <div class="laptop-screen">
@@ -386,6 +399,52 @@ onUnmounted(() => {
   inset: -8%;
   background: radial-gradient(ellipse 60% 55% at 55% 45%, rgba(99, 102, 241, 0.25), rgba(99, 102, 241, 0.08) 55%, transparent 75%);
   transform: translateZ(-60px);
+}
+.generated-art {
+  position: absolute;
+  z-index: -1;
+  inset: -17% -18% -12% 5%;
+  overflow: hidden;
+  border-radius: 34px;
+  opacity: 0.5;
+  transform: translateZ(-70px) rotate(1.5deg);
+  box-shadow: 0 34px 80px -35px rgba(49, 46, 129, 0.68);
+  -webkit-mask-image: radial-gradient(ellipse 82% 78% at 57% 52%, #000 52%, transparent 93%);
+  mask-image: radial-gradient(ellipse 82% 78% at 57% 52%, #000 52%, transparent 93%);
+}
+.generated-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(255,255,255,.78), transparent 38% 78%, rgba(255,255,255,.18));
+}
+.generated-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 54% center;
+  filter: saturate(.88) contrast(1.03);
+}
+.generated-art-label {
+  position: absolute;
+  z-index: 2;
+  right: 12%;
+  top: 11%;
+  padding: 5px 8px;
+  color: rgba(255,255,255,.82);
+  background: rgba(15,23,42,.46);
+  border: 1px solid rgba(255,255,255,.18);
+  font: 700 9px/1 ui-monospace, monospace;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+.dark .generated-art {
+  opacity: .64;
+  box-shadow: 0 34px 90px -34px rgba(99, 102, 241, .52);
+}
+.dark .generated-art::after {
+  background: linear-gradient(110deg, rgba(2,6,23,.52), transparent 42% 78%, rgba(2,6,23,.25));
 }
 
 /* Laptop */
@@ -739,6 +798,10 @@ onUnmounted(() => {
   .phone {
     right: -2%;
   }
+  .generated-art {
+    inset: -13% -10% -8% 1%;
+    opacity: .42;
+  }
 }
 @media (max-width: 480px) {
   .chip-1 {
@@ -746,6 +809,11 @@ onUnmounted(() => {
   }
   .phone {
     width: 38%;
+  }
+  .generated-art {
+    inset: -10% -5%;
+    border-radius: 24px;
+    opacity: .34;
   }
 }
 

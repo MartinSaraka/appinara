@@ -1,22 +1,27 @@
 <template>
   <section class="relative py-32 dark:bg-slate-900 bg-gray-50 overflow-hidden">
     <div class="container mx-auto px-6 relative z-10">
-      <!-- Gradient panel -->
+      <!-- Editorial conversion panel -->
       <div
         v-motion-reveal-scale
-        class="relative max-w-5xl mx-auto rounded-3xl overflow-hidden cta-panel border border-white/10"
+        class="relative max-w-6xl mx-auto overflow-hidden cta-panel border border-white/15"
       >
         <!-- Panel decorations -->
         <div class="absolute inset-0 grid-pattern opacity-[0.12]" aria-hidden="true"></div>
         <div class="absolute -top-32 -right-24 w-96 h-96 rounded-full cta-orb" aria-hidden="true"></div>
         <div class="absolute -bottom-40 -left-24 w-96 h-96 rounded-full cta-orb" aria-hidden="true"></div>
+        <div class="cta-monogram" aria-hidden="true">A</div>
+        <div class="cta-coordinate" aria-hidden="true">48.1486° N / 17.1077° E</div>
 
         <div class="relative px-8 py-16 md:px-16 md:py-20 text-center">
-          <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-5 leading-tight">
+          <div class="inline-flex items-center gap-3 mb-7 text-xs font-bold uppercase tracking-[.2em] text-primary-300">
+            <span class="w-2 h-2 bg-primary-400"></span> Začnime konkrétne
+          </div>
+          <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-5 leading-[1.02] tracking-tight">
             Zistite, čo by web a AI<br class="hidden md:block" />
             spravili pre váš biznis
           </h2>
-          <p class="text-lg md:text-xl text-indigo-100/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p class="text-lg md:text-xl text-stone-300 mb-10 max-w-2xl mx-auto leading-relaxed">
             Napíšte nám pár viet o svojej firme. Do 24 hodín sa ozveme
             s konkrétnym návrhom — nezáväzne a zdarma.
           </p>
@@ -41,7 +46,7 @@
             </a>
           </div>
 
-          <ul class="mt-10 flex flex-wrap gap-x-8 gap-y-2 justify-center text-sm text-indigo-100/80">
+          <ul class="mt-10 flex flex-wrap gap-x-8 gap-y-2 justify-center text-sm text-stone-400">
             <li v-for="point in trustPoints" :key="point" class="flex items-center gap-1.5">
               <svg class="w-4 h-4 text-emerald-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -124,11 +129,16 @@ const features = [
 /* Deep, desaturated panel — anchor, not neon billboard */
 .cta-panel {
   background:
-    radial-gradient(ellipse 90% 90% at 15% -20%, rgba(99, 102, 241, 0.35), transparent 60%),
-    linear-gradient(135deg, #1e1b4b 0%, #312e81 55%, #3b2b7a 100%);
-  box-shadow: 0 28px 64px -28px rgba(30, 27, 75, 0.55);
+    linear-gradient(rgba(242, 237, 228, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 237, 228, .055) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 90% at 15% -20%, rgba(99, 102, 241, 0.38), transparent 60%),
+    linear-gradient(135deg, #1e1b4b, #0f172a);
+  background-size: 56px 56px, 56px 56px, auto, auto;
+  box-shadow: 0 28px 64px -28px rgba(10, 10, 10, 0.65);
 }
 .cta-orb {
-  background: radial-gradient(circle closest-side, rgba(255, 255, 255, 0.10), transparent 72%);
+  background: radial-gradient(circle closest-side, rgba(139, 92, 246, 0.16), transparent 72%);
 }
+.cta-monogram { position: absolute; right: -2rem; bottom: -6rem; font: italic 800 24rem/1 'Bricolage Grotesque', sans-serif; color: rgba(242,237,228,.035); pointer-events: none; }
+.cta-coordinate { position: absolute; right: 1.5rem; top: 1.25rem; color: rgba(242,237,228,.36); font-size: 10px; font-weight: 700; letter-spacing: .16em; }
 </style>

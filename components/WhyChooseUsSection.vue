@@ -31,7 +31,7 @@
         >
           <!-- Card -->
           <div class="relative surface rounded-2xl p-10 h-full hover:border-primary-500/40 dark:hover:border-primary-400/40">
-            
+            <BenefitMark :type="benefit.icon" class="mb-7 transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105" />
             <!-- Content -->
             <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-gray-900">
               {{ benefit.title }}
@@ -101,32 +101,32 @@
 <script setup lang="ts">
 const benefits = [
   {
-    icon: '🚀',
+    icon: 'speed',
     title: 'Rýchla realizácia',
     description: 'Väčšinu projektov dodávame do 2-4 týždňov. Žiadne nekonečné čakanie, ale efektívny vývoj s pravidelnými update-mi.'
   },
   {
-    icon: '💡',
+    icon: 'tech',
     title: 'Moderné technológie',
     description: 'Využívame najnovšie overené technológie ako Vue.js, Nuxt, AI API a cloud riešenia pre maximálny výkon a škálovateľnosť.'
   },
   {
-    icon: '🎯',
+    icon: 'target',
     title: 'Zamerané na výsledky',
     description: 'Nie len pekný dizajn, ale riešenia ktoré skutočne fungujú, prinášajú konverzie a zlepšujú vaše business metriky.'
   },
   {
-    icon: '🤝',
+    icon: 'human',
     title: 'Osobný prístup',
     description: 'Nie ste len číslo v zozname. Komunikujeme priamo, rýchlo reagujeme a skutočne rozumieme vašim potrebám.'
   },
   {
-    icon: '💰',
+    icon: 'price',
     title: 'Férové ceny',
     description: 'Transparentné ceny bez skrytých poplatkov. Platíte za hodnotu ktorú dostanete, nie za zbytočne naťahované projekty.'
   },
   {
-    icon: '🛠️',
+    icon: 'support',
     title: 'Podpora po spustení',
     description: 'Neopustíme vás po odovzdaní. Poskytujeme technickú podporu, školenia a pomôžeme s ďalším rozvojom.'
   }

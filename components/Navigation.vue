@@ -16,14 +16,12 @@
     <div class="container mx-auto px-6 py-4">
       <div class="flex items-center justify-between">
         <!-- Logo -->
-        <a 
+        <a
           href="/"
-          v-motion-fade-visible
-          class="text-2xl font-display font-bold cursor-pointer hover:opacity-80 transition-opacity focus:outline-none focus:ring-4 focus:ring-primary-400/50 rounded-lg"
+          class="cursor-pointer hover:opacity-80 transition-opacity focus:outline-none focus:ring-4 focus:ring-primary-400/50 rounded-lg"
           aria-label="Appinara - Domovská stránka"
         >
-          <span class="gradient-text">Appi</span>
-          <span class="dark:text-white text-gray-900">nara</span>
+          <AppinaraLogo size="md" />
         </a>
         
         <!-- Desktop Navigation -->
