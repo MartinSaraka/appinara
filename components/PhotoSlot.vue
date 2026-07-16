@@ -19,7 +19,6 @@
       class="absolute inset-0 flex items-center justify-center photo-fallback"
       role="img"
       :aria-label="alt || label"
-      :title="`${ratioLabel} · ${expectedPath}`"
     >
       <span class="font-display font-extrabold text-6xl md:text-7xl text-white/90 select-none" aria-hidden="true">
         {{ initials }}

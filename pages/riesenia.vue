@@ -52,7 +52,7 @@
                 {{ topic.intro }}
               </p>
               <div class="flex flex-wrap gap-3">
-                <a href="/#contact" class="btn-primary">Mám už dopyt</a>
+                <a href="/#contact" class="btn-primary">{{ topic.cta }}</a>
                 <NuxtLink to="/blog" class="btn-secondary">Pozrieť blog</NuxtLink>
               </div>
             </div>
@@ -130,6 +130,7 @@ const topics = [
     ],
     scope: 'Audit + integrácia + automatizácie',
     timeline: '2–4 týždne',
+    cta: 'Strácajú sa mi dopyty',
     tags: ['Webhooks', 'OpenAI', 'n8n / Make', 'Pipedrive / HubSpot', 'PostgreSQL']
   },
   {
@@ -151,6 +152,7 @@ const topics = [
     ],
     scope: 'Bot + admin + napojenie',
     timeline: '1–3 týždne',
+    cta: 'Chcem chatbota',
     tags: ['OpenAI', 'Vue / Nuxt widget', 'Edge functions', 'Webhooks', 'Slack / Telegram']
   },
   {
@@ -172,6 +174,7 @@ const topics = [
     ],
     scope: 'MVP najprv, rozširovanie postupne',
     timeline: '2–6 týždňov',
+    cta: 'Potrebujem web či nástroj',
     tags: ['Nuxt 3', 'Vue 3', 'Tailwind', 'PostgreSQL', 'Supabase', 'Vercel']
   }
 ]

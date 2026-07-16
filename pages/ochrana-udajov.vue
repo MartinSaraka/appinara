@@ -25,7 +25,7 @@
           </p>
         </header>
 
-        <div class="prose prose-lg max-w-none">
+        <div class="prose legal-prose max-w-none">
           <h2>1. Úvod</h2>
           <p>
             Spoločnosť <strong>Appinara s.r.o.</strong> (ďalej len „my", „nás" alebo „naša spoločnosť") rešpektuje vaše súkromie a zaväzuje sa chrániť vaše osobné údaje. Tento dokument vás informuje o tom, ako spracovávame osobné údaje pri návšteve nášho webu a používaní našich služieb.
@@ -108,18 +108,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 useHead({
   title: 'Ochrana osobných údajov | Appinara',
   meta: [
     { name: 'description', content: 'Politika ochrany osobných údajov spoločnosti Appinara s.r.o. Ako spracovávame a chránime vaše osobné údaje podľa GDPR.' },
-    { name: 'robots', content: 'noindex, follow' }
-  ]
+    { name: 'robots', content: 'noindex, follow' },
+    { property: 'og:url', content: 'https://appinara.sk/ochrana-udajov' }
+  ],
+  link: [{ rel: 'canonical', href: 'https://appinara.sk/ochrana-udajov' }]
 })
 
-const currentDate = computed(() => {
-  const date = new Date()
-  return date.toLocaleDateString('sk-SK', { year: 'numeric', month: 'long', day: 'numeric' })
-})
+const currentDate = '16. júla 2026'
 </script>

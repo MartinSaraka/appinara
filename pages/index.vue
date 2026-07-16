@@ -37,6 +37,11 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  meta: [{ property: 'og:url', content: 'https://appinara.sk/' }],
+  link: [{ rel: 'canonical', href: 'https://appinara.sk/' }]
+})
+
 // SEO Structured Data (JSON-LD)
 useHead({
   script: [

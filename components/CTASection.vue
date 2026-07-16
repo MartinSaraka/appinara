@@ -28,7 +28,7 @@
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="#contact"
+              href="/#contact"
               class="px-8 py-4 bg-white text-gray-900 rounded-full font-bold shadow-xl shadow-black/20 hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 group"
               aria-label="Získať nezáväznú konzultáciu zdarma"
             >
@@ -38,7 +38,7 @@
               </svg>
             </a>
             <a
-              href="#portfolio"
+              href="/#portfolio"
               class="px-8 py-4 rounded-full font-semibold text-white border border-white/40 hover:bg-white/10 transition-all duration-300"
               aria-label="Pozrieť našu prácu"
             >

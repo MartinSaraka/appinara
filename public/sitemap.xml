@@ -4,130 +4,174 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Hlavná stránka -->
+  <!-- Hlavné stránky -->
   <url>
     <loc>https://appinara.sk/</loc>
-    <lastmod>2024-10-18</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Ochrana údajov -->
   <url>
-    <loc>https://appinara.sk/ochrana-udajov</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
+    <loc>https://appinara.sk/riesenia</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Obchodné podmienky -->
   <url>
-    <loc>https://appinara.sk/obchodne-podmienky</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
+    <loc>https://appinara.sk/o-mne</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
-  <!-- Blog -->
   <url>
     <loc>https://appinara.sk/blog</loc>
-    <lastmod>2024-11-15</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog Articles -->
+  <!-- Blog články -->
   <url>
-    <loc>https://appinara.sk/blog/faceless-ai-videa-navod</loc>
-    <lastmod>2024-11-16</lastmod>
+    <loc>https://appinara.sk/blog/chcem-airbnb-rozpocet-na-vizitku</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://appinara.sk/blog/udrzba-webu-prvy-rok-realita</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://appinara.sk/blog/google-business-profajl-vs-web-sk</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://appinara.sk/blog/ai-nastroj-pre-cely-tim-ma-to-zmysel</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://appinara.sk/blog/co-ostane-po-developerovy-pristupy</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://appinara.sk/blog/salon-meri1-pripadovka</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://appinara.sk/blog/co-som-sa-naucil-z-troch-ai-chatbotov</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://appinara.sk/blog/realny-cennik-webov-na-slovensku</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://appinara.sk/blog/faceless-ai-videa-navod</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/ai-vs-ludia-buducnost-prace</loc>
-    <lastmod>2024-11-16</lastmod>
+    <lastmod>2024-11-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/web-ai-trendy-2025</loc>
-    <lastmod>2024-11-16</lastmod>
+    <lastmod>2024-11-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/ai-chatbot-pre-maly-biznis</loc>
     <lastmod>2024-11-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/kolko-stoji-webova-stranka-2024</loc>
     <lastmod>2024-11-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/web-ktory-predava-checklist</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/preco-potrebuje-moja-firma-ai</loc>
     <lastmod>2024-11-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/eshop-vs-marketplace</loc>
     <lastmod>2024-11-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/automatizacia-pre-zaciatocnikov</loc>
     <lastmod>2024-11-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/ako-vybrat-web-developera</loc>
     <lastmod>2024-11-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/top-10-ai-nastrojov-2024</loc>
-    <lastmod>2024-10-28</lastmod>
+    <lastmod>2024-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://appinara.sk/blog/roi-modernizacie-webu</loc>
     <lastmod>2024-10-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Services Pages -->
-  <url>
-    <loc>https://appinara.sk/sluzby/ai-chatbot</loc>
-    <lastmod>2024-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
-

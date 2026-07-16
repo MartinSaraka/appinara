@@ -1,5 +1,5 @@
 <template>
-  <section aria-label="Manifest" class="relative py-32 md:py-44 bg-gray-50 dark:bg-slate-900">
+  <section aria-label="Manifest" class="relative py-20 md:py-28 bg-gray-50 dark:bg-slate-900">
     <div class="container mx-auto px-6">
       <p class="manifesto mx-auto max-w-4xl text-center font-display font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.18]">
         Žiadne šablóny. Žiadne vymyslené referencie. Len poctivá práca,

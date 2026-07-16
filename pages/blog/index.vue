@@ -107,8 +107,10 @@ useHead({
   title: 'Blog — weby, AI a automatizácia z praxe | Appinara',
   meta: [
     { name: 'description', content: 'Praktické články o weboch, AI a automatizácii pre slovenské firmy. Konkrétne rozhodnutia, rozpočty, riziká a skúsenosti z projektov.' },
-    { name: 'keywords', content: 'webový vývoj, AI automatizácia, firemný web, slovenský biznis, Appinara blog' }
-  ]
+    { name: 'keywords', content: 'webový vývoj, AI automatizácia, firemný web, slovenský biznis, Appinara blog' },
+    { property: 'og:url', content: 'https://appinara.sk/blog' }
+  ],
+  link: [{ rel: 'canonical', href: 'https://appinara.sk/blog' }]
 })
 
 </script>

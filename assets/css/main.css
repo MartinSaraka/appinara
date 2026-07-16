@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  /* Smooth anchor scroll len pre používateľov bez reduced-motion preferencie */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   /* Lenis takes over scrolling on desktop — native smooth would fight it */
@@ -87,6 +90,7 @@
   
   .btn-primary {
     @apply px-8 py-4 bg-primary-600 hover:bg-primary-500 rounded-full font-semibold text-white shadow-lg shadow-primary-500/40 hover:shadow-xl hover:shadow-primary-500/50 transition-all duration-300 hover:scale-[1.03];
+    @apply disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-primary-600 disabled:hover:shadow-lg;
   }
   
   .btn-secondary {
@@ -149,6 +153,32 @@
     @apply border-l-4 border-primary-500 bg-gray-50 dark:bg-slate-800/50 text-gray-800 dark:text-slate-200;
   }
   
+  /* Právne dokumenty — hierarchia pre nadpisy, zoznamy a odseky
+     (bez @tailwindcss/typography pluginu by bol obsah jednoliata stena textu) */
+  .legal-prose {
+    @apply text-base leading-relaxed;
+  }
+
+  .legal-prose h2 {
+    @apply font-display font-bold text-2xl md:text-3xl dark:text-white text-gray-900 mt-12 mb-4 first:mt-0;
+  }
+
+  .legal-prose h3 {
+    @apply font-display font-semibold text-lg md:text-xl dark:text-white text-gray-900 mt-8 mb-3;
+  }
+
+  .legal-prose p {
+    @apply mb-4 dark:text-slate-300 text-gray-700 max-w-[70ch];
+  }
+
+  .legal-prose ul {
+    @apply list-disc pl-6 mb-6 space-y-2 dark:text-slate-300 text-gray-700 max-w-[70ch];
+  }
+
+  .legal-prose ul li::marker {
+    @apply text-primary-500;
+  }
+
   /* Blog editorial utilities */
   .eyebrow {
     @apply text-xs font-bold uppercase tracking-widest dark:text-slate-500 text-gray-500;

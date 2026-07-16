@@ -38,12 +38,12 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.' },
         { name: 'keywords', content: 'AI integrácie, webové riešenia, vývoj aplikácií, chatboty, automatizácia, fullstack development, Nuxt, Vue, Slovensko' },
         { name: 'author', content: 'Appinara' },
-        { name: 'theme-color', content: '#6366f1' },
+        { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#020617', media: '(prefers-color-scheme: dark)' },
         { name: 'robots', content: 'index, follow' },
-        
-        // Open Graph / Facebook
+
+        // Open Graph / Facebook (og:url + canonical sa nastavujú per-page)
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://appinara.sk/' },
         { property: 'og:title', content: 'Appinara | AI Integrácie & Moderné Webové Riešenia' },
         { property: 'og:description', content: 'Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.' },
         { property: 'og:image', content: 'https://appinara.sk/og-image.png' },
@@ -52,19 +52,25 @@ export default defineNuxtConfig({
         
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:url', content: 'https://appinara.sk/' },
         { name: 'twitter:title', content: 'Appinara | AI Integrácie & Moderné Webové Riešenia' },
         { name: 'twitter:description', content: 'Pomáhame firmám rásť pomocou AI integrácií, moderných webov a vlastných aplikácií. Riešenia, ktoré skutočne fungujú a zarábajú.' },
         { name: 'twitter:image', content: 'https://appinara.sk/og-image.png' }
       ],
       link: [
-        { rel: 'canonical', href: 'https://appinara.sk/' },
+        { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap' }
+      ],
+      script: [
+        {
+          // Aplikuje dark triedu pred prvým paintom — bez bieleho záblesku pre dark používateľov
+          innerHTML: "(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()",
+          tagPriority: 'critical'
+        }
       ]
     }
   },

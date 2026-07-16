@@ -1,5 +1,6 @@
 <template>
-  <section id="services" class="relative py-32 overflow-hidden dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+  <!-- overflow-x-clip (not overflow-hidden) — hidden would break the sticky stacking cards -->
+  <section id="services" class="relative py-32 overflow-x-clip dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 bg-gradient-to-b from-gray-50 via-white to-gray-50">
     <!-- Decorative parallax orb (pre-blurred gradient — cheap to composite) -->
     <div class="absolute inset-0 parallax-drift pointer-events-none" aria-hidden="true">
       <div class="absolute top-10 right-[-10%] w-[560px] h-[560px] rounded-full soft-orb"></div>

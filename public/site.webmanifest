@@ -1,6 +1,9 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Appinara — AI integrácie a moderné weby",
+  "short_name": "Appinara",
+  "description": "Weby, e-shopy a AI automatizácie pre malé a stredné firmy na Slovensku.",
+  "lang": "sk",
+  "start_url": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

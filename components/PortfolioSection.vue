@@ -1,5 +1,5 @@
 <template>
-  <section id="portfolio" class="relative py-32 bg-gray-50 dark:bg-slate-900 overflow-hidden">
+  <section id="portfolio" class="relative pt-32 pb-20 bg-gray-50 dark:bg-slate-900 overflow-hidden">
     <!-- Decorative parallax orb -->
     <div class="absolute inset-0 parallax-drift pointer-events-none" aria-hidden="true">
       <div class="absolute -top-20 left-[-12%] w-[520px] h-[520px] rounded-full soft-orb"></div>

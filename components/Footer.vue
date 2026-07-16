@@ -86,11 +86,14 @@ const socialLinks = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/company/appinara/', icon: LinkedInIcon }
 ]
 
+// Kotvy s /-prefixom, aby fungovali aj mimo homepage
 const quickLinks = [
-  { label: 'Služby', href: '#services' },
-  { label: 'Prečo my', href: '#why-us' },
+  { label: 'Služby', href: '/#services' },
+  { label: 'Riešenia', href: '/riesenia' },
+  { label: 'Prečo my', href: '/#why-us' },
+  { label: 'O mne', href: '/o-mne' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Kontakt', href: '#contact' }
+  { label: 'Kontakt', href: '/#contact' }
 ]
 
 const services = [

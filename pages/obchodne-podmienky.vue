@@ -25,7 +25,7 @@
           </p>
         </header>
 
-        <div class="prose prose-lg max-w-none">
+        <div class="prose legal-prose max-w-none">
           <h2>1. Základné ustanovenia</h2>
           <p>
             Tieto obchodné podmienky upravujú vzťahy medzi poskytovateľom služieb:
@@ -182,18 +182,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 useHead({
   title: 'Obchodné podmienky | Appinara',
   meta: [
     { name: 'description', content: 'Obchodné podmienky spoločnosti Appinara s.r.o. Podmienky poskytovania služieb v oblasti vývoja webových aplikácií a AI integrácií.' },
-    { name: 'robots', content: 'noindex, follow' }
-  ]
+    { name: 'robots', content: 'noindex, follow' },
+    { property: 'og:url', content: 'https://appinara.sk/obchodne-podmienky' }
+  ],
+  link: [{ rel: 'canonical', href: 'https://appinara.sk/obchodne-podmienky' }]
 })
 
-const currentDate = computed(() => {
-  const date = new Date()
-  return date.toLocaleDateString('sk-SK', { year: 'numeric', month: 'long', day: 'numeric' })
-})
+const currentDate = '16. júla 2026'
 </script>

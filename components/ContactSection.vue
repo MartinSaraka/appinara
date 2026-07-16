@@ -26,9 +26,10 @@
                 </div>
                 <div>
                   <div class="text-sm dark:text-slate-400 text-gray-600">{{ contact.label }}</div>
-                  <a :href="contact.href" class="dark:text-white text-gray-900 font-medium dark:hover:text-primary-400 hover:text-primary-600 transition-colors">
+                  <a v-if="contact.href" :href="contact.href" class="dark:text-white text-gray-900 font-medium dark:hover:text-primary-400 hover:text-primary-600 transition-colors">
                     {{ contact.value }}
                   </a>
+                  <span v-else class="dark:text-white text-gray-900 font-medium">{{ contact.value }}</span>
                 </div>
               </div>
             </div>
@@ -65,9 +66,10 @@
                   :class="{ 'border-red-500 focus:ring-red-500': emailError || (validationError && !form.email && !form.phone), 'border-green-500': emailValid }"
                   placeholder="vas@email.com"
                   aria-label="Váš email"
-                  aria-describedby="email-helper"
+                  :aria-invalid="!!emailError || undefined"
+                  :aria-describedby="emailError ? 'email-helper' : undefined"
                 />
-                <p v-if="emailError" id="email-helper" class="text-xs text-red-400 mt-1">
+                <p v-if="emailError" id="email-helper" class="text-xs text-red-600 dark:text-red-400 mt-1">
                   {{ emailError }}
                 </p>
               </div>
@@ -84,16 +86,17 @@
                   :class="{ 'border-red-500 focus:ring-red-500': validationError && !form.email && !form.phone }"
                   placeholder="+421 XXX XXX XXX"
                   aria-label="Váš telefón"
-                  aria-describedby="phone-helper"
+                  :aria-invalid="(validationError && !form.email && !form.phone) || undefined"
+                  :aria-describedby="validationError && !form.email && !form.phone ? 'phone-helper' : undefined"
                 />
-                <p v-if="validationError && !form.email && !form.phone" id="phone-helper" class="text-xs text-red-400 mt-1">
+                <p v-if="validationError && !form.email && !form.phone" id="phone-helper" class="text-xs text-red-600 dark:text-red-400 mt-1">
                   ⚠️ Vyplňte aspoň email alebo telefón
                 </p>
               </div>
 
               <div>
                 <label for="project" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
-                  Typ projektu <span class="text-red-400">*</span>
+                  Typ projektu <span class="text-red-600 dark:text-red-400">*</span>
                 </label>
                 <select
                   id="project"
@@ -102,7 +105,8 @@
                   class="w-full px-4 py-3 border dark:bg-slate-800 bg-gray-50 dark:border-slate-600 border-gray-300 rounded-xl dark:text-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   :class="{ 'border-red-500 focus:ring-red-500': projectTypeError }"
                   aria-label="Typ projektu"
-                  aria-describedby="project-helper"
+                  :aria-invalid="!!projectTypeError || undefined"
+                  :aria-describedby="projectTypeError ? 'project-helper' : undefined"
                 >
                   <option value="">Vyberte typ projektu</option>
                   <option value="ai-integration">AI Integrácia & Chatbot</option>
@@ -111,14 +115,14 @@
                   <option value="business-tool">Business nástroj / Dashboard</option>
                   <option value="other">Iné</option>
                 </select>
-                <p v-if="projectTypeError" id="project-helper" class="text-xs text-red-400 mt-1">
+                <p v-if="projectTypeError" id="project-helper" class="text-xs text-red-600 dark:text-red-400 mt-1">
                   {{ projectTypeError }}
                 </p>
               </div>
 
               <div>
                 <label for="message" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
-                  Správa <span class="text-red-400">*</span>
+                  Správa <span class="text-red-600 dark:text-red-400">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -129,10 +133,11 @@
                   :class="{ 'border-red-500 focus:ring-red-500': messageError }"
                   placeholder="Povedzte nám viac o vašom projekte..."
                   aria-label="Vaša správa"
-                  aria-describedby="message-helper"
+                  :aria-invalid="!!messageError || undefined"
+                  :aria-describedby="messageError ? 'message-helper' : undefined"
                   maxlength="1000"
                 ></textarea>
-                <p v-if="messageError" id="message-helper" class="text-xs text-red-400 mt-1">
+                <p v-if="messageError" id="message-helper" class="text-xs text-red-600 dark:text-red-400 mt-1">
                   {{ messageError }}
                 </p>
               </div>
@@ -145,7 +150,8 @@
                 {{ isSubmitting ? 'Odosielam...' : 'Odoslať správu' }}
               </button>
 
-              <p v-if="submitMessage" class="text-center text-sm" :class="submitSuccess ? 'text-green-400' : 'text-red-400'">
+              <!-- Trvalo vykreslený live región — screen reader oznámi výsledok odoslania -->
+              <p role="status" aria-live="polite" class="text-center text-sm min-h-[1.25rem]" :class="submitSuccess ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'">
                 {{ submitMessage }}
               </p>
             </form>
@@ -189,7 +195,7 @@ const contactInfo = [
   {
     label: 'Lokácia',
     value: 'Slovensko',
-    href: '#',
+    href: '',
     icon: LocationIcon
   }
 ]
@@ -302,7 +308,7 @@ const handleSubmit = async () => {
     emailValid.value = false
     projectTypeError.value = ''
     messageError.value = ''
-    submitMessage.value = '✅ Správa bola úspešne odoslaná! Ozvem sa vám čoskoro.'
+    submitMessage.value = '✅ Správa bola úspešne odoslaná! Ozveme sa vám čoskoro.'
 
     // Reset form
     form.value = {

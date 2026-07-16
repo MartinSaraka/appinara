@@ -1,11 +1,11 @@
-﻿<template>
+<template>
   <BlogArticleLayout
     breadcrumb="Reálny cenník webov"
     category="Cenník"
     read-time="9 min"
     date="24. marec 2026"
     title="Reálny cenník: čo dostanete za"
-    title-accent="500, 1 500 a 5 000 € web."
+    title-accent="500, 1 500 a 5 000 € web."
     intro="Bez vety „závisí od náročnosti“. Tu je praktický pohľad na tri rozpočtové pásma: čo je v nich doma, čo sa nezmestí a ktoré skryté náklady sa zvyknú ukázať až po prvom porovnávaní ponúk."
     cta-title="Tieto tiery mám zabalené v balíčkoch."
     cta-text="Štart, Štandard a Premium majú presný rozsah, fixnú cenu a jasný deadline. Ak vám rozsah uteká niekam medzi, rieši sa custom odhad."

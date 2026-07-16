@@ -164,6 +164,13 @@ const currentSlug = computed(() => {
 
 const currentPost = computed(() => blogPosts.find(p => p.slug === currentSlug.value))
 
+// Každý článok kanonizuje sám na seba (globálny canonical v nuxt.config neexistuje)
+const canonicalUrl = computed(() => `https://appinara.sk${route.path.replace(/\/$/, '')}`)
+useHead({
+  meta: [{ property: 'og:url', content: canonicalUrl }],
+  link: [{ rel: 'canonical', href: canonicalUrl }]
+})
+
 const resolvedCover = computed(() => props.coverImage || currentPost.value?.image || '')
 
 // Pick 2 related posts (same category if possible, otherwise most recent others).

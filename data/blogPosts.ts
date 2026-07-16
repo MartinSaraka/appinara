@@ -13,10 +13,10 @@ export const blogPosts: BlogPost[] = [
     slug: 'chcem-airbnb-rozpocet-na-vizitku',
     title: 'Keď niekto chce „ako Airbnb“, ale rozpočet je na vizitku',
     excerpt: 'Kde končí prezentačný web a začína produkt. Účty, rezervácie a platby majú inú zodpovednosť než pekná landing page.',
-    category: 'Scope',
+    category: 'Rozsah',
     readTime: '8 min',
     date: '28. apríl 2026',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80'
+    image: '/images/blog/chcem-airbnb-rozpocet-na-vizitku.webp'
   },
   {
     slug: 'udrzba-webu-prvy-rok-realita',
@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Prevádzka',
     readTime: '9 min',
     date: '27. apríl 2026',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80'
+    image: '/images/blog/udrzba-webu-prvy-rok-realita.webp'
   },
   {
     slug: 'google-business-profajl-vs-web-sk',
@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Z praxe',
     readTime: '8 min',
     date: '26. apríl 2026',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1600&q=80'
+    image: '/images/blog/google-business-profajl-vs-web-sk.webp'
   },
   {
     slug: 'ai-nastroj-pre-cely-tim-ma-to-zmysel',
@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Nástroje',
     readTime: '9 min',
     date: '25. apríl 2026',
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80'
+    image: '/images/blog/ai-nastroj-pre-cely-tim-ma-to-zmysel.webp'
   },
   {
     slug: 'co-ostane-po-developerovy-pristupy',
@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Prevzatie projektu',
     readTime: '8 min',
     date: '24. apríl 2026',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&q=80'
+    image: '/images/blog/co-ostane-po-developerovy-pristupy.webp'
   },
   {
     slug: 'salon-meri1-pripadovka',
@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Prípadovka',
     readTime: '6 min',
     date: '14. apríl 2026',
-    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&q=80'
+    image: '/images/blog/salon-meri1-pripadovka.webp'
   },
   {
     slug: 'co-som-sa-naucil-z-troch-ai-chatbotov',
@@ -70,16 +70,17 @@ export const blogPosts: BlogPost[] = [
     category: 'Z praxe',
     readTime: '8 min',
     date: '7. apríl 2026',
-    image: 'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=1600&q=80'
+    image: '/images/blog/co-som-sa-naucil-z-troch-ai-chatbotov.webp'
   },
   {
     slug: 'realny-cennik-webov-na-slovensku',
-    title: 'Reálny cenník: čo dostanete za 500, 1 500 a 5 000 € web',
+    //   = nezalomiteľná medzera — drží „1 500" a „5 000" pokope v nadpisoch
+    title: 'Reálny cenník: čo dostanete za 500, 1 500 a 5 000 € web',
     excerpt: 'Tri rozpočtové pásma, ich limity a náklady, ktoré sa často objavia až po prvom porovnávaní ponúk.',
     category: 'Cenník',
     readTime: '9 min',
     date: '24. marec 2026',
-    image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1600&q=80'
+    image: '/images/blog/realny-cennik-webov-na-slovensku.webp'
   },
   {
     slug: 'faceless-ai-videa-navod',
@@ -87,8 +88,8 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'AI zrýchli scenár, titulky a strih. Nenahradí však názor, kontext a dôvod, prečo má video existovať.',
     category: 'Obsah',
     readTime: '7 min',
-    date: '16. november 2024',
-    image: 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=1600&q=80'
+    date: '22. november 2024',
+    image: '/images/blog/faceless-ai-videa-navod.webp'
   },
   {
     slug: 'ai-vs-ludia-buducnost-prace',
@@ -96,8 +97,8 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Namiesto paniky nad povolaniami sa oplatí pozrieť na úlohy: texty, sumarizácie, reporting a prvé drafty.',
     category: 'Budúcnosť práce',
     readTime: '8 min',
-    date: '16. november 2024',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80'
+    date: '20. november 2024',
+    image: '/images/blog/ai-vs-ludia-buducnost-prace.webp'
   },
   {
     slug: 'web-ai-trendy-2025',
@@ -105,8 +106,8 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Rýchlosť, jasné CTA, meranie a rozumná automatizácia sú pre väčšinu firiem dôležitejšie než ďalší efekt.',
     category: 'Trendy',
     readTime: '7 min',
-    date: '16. november 2024',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80'
+    date: '18. november 2024',
+    image: '/images/blog/web-ai-trendy-2025.webp'
   },
   {
     slug: 'ai-chatbot-pre-maly-biznis',
@@ -115,7 +116,7 @@ export const blogPosts: BlogPost[] = [
     category: 'AI v praxi',
     readTime: '8 min',
     date: '16. november 2024',
-    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1600&q=80'
+    image: '/images/blog/ai-chatbot-pre-maly-biznis.webp'
   },
   {
     slug: 'kolko-stoji-webova-stranka-2024',
@@ -124,7 +125,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Cenník',
     readTime: '8 min',
     date: '12. november 2024',
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1600&q=80'
+    image: '/images/blog/kolko-stoji-webova-stranka-2024.webp'
   },
   {
     slug: 'web-ktory-predava-checklist',
@@ -133,7 +134,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Konverzie',
     readTime: '8 min',
     date: '10. november 2024',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80'
+    image: '/images/blog/web-ktory-predava-checklist.webp'
   },
   {
     slug: 'preco-potrebuje-moja-firma-ai',
@@ -142,7 +143,7 @@ export const blogPosts: BlogPost[] = [
     category: 'AI v biznise',
     readTime: '7 min',
     date: '8. november 2024',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1600&q=80'
+    image: '/images/blog/preco-potrebuje-moja-firma-ai.webp'
   },
   {
     slug: 'eshop-vs-marketplace',
@@ -151,7 +152,7 @@ export const blogPosts: BlogPost[] = [
     category: 'E-commerce',
     readTime: '8 min',
     date: '5. november 2024',
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1600&q=80'
+    image: '/images/blog/eshop-vs-marketplace.webp'
   },
   {
     slug: 'automatizacia-pre-zaciatocnikov',
@@ -160,7 +161,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Automatizácia',
     readTime: '7 min',
     date: '3. november 2024',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80'
+    image: '/images/blog/automatizacia-pre-zaciatocnikov.webp'
   },
   {
     slug: 'ako-vybrat-web-developera',
@@ -169,7 +170,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Výber dodávateľa',
     readTime: '8 min',
     date: '1. november 2024',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=80'
+    image: '/images/blog/ako-vybrat-web-developera.webp'
   },
   {
     slug: 'top-10-ai-nastrojov-2024',
@@ -177,8 +178,8 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Nástroje sa menia. Stabilnejšie je vedieť, či riešite texty, meetingy, kód, dáta alebo support.',
     category: 'Nástroje',
     readTime: '8 min',
-    date: '16. november 2024',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1600&q=80'
+    date: '30. október 2024',
+    image: '/images/blog/top-10-ai-nastrojov-2024.webp'
   },
   {
     slug: 'roi-modernizacie-webu',
@@ -187,6 +188,6 @@ export const blogPosts: BlogPost[] = [
     category: 'ROI',
     readTime: '8 min',
     date: '26. október 2024',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80'
+    image: '/images/blog/roi-modernizacie-webu.webp'
   }
 ]
