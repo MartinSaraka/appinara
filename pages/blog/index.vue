@@ -2,6 +2,7 @@
   <div class="relative overflow-hidden dark:bg-anthracite bg-bone min-h-screen">
     <Navigation />
 
+    <main id="main-content">
     <section class="relative pt-32 pb-16 border-b border-gray-200/80 dark:border-slate-800">
       <div class="container mx-auto px-6">
         <div class="max-w-3xl">
@@ -43,7 +44,7 @@
               <p class="dark:text-slate-300 text-gray-700 leading-relaxed mb-6 text-pretty">
                 {{ blogPosts[0].excerpt }}
               </p>
-              <div class="flex items-center gap-2 text-cinnabar-500 dark:text-cinnabar-glow font-semibold text-sm">
+              <div class="flex items-center gap-2 text-cinnabar-500 dark:text-cinnabar-300 font-semibold text-sm">
                 Čítať článok
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -83,7 +84,7 @@
               </p>
               <div class="flex items-center justify-between pt-4 border-t dark:border-slate-800 border-gray-200/80">
                 <span class="text-xs dark:text-slate-500 text-gray-500">{{ post.date }}</span>
-                <span class="flex items-center gap-1 text-cinnabar-500 dark:text-cinnabar-glow text-sm font-medium">
+                <span class="flex items-center gap-1 text-cinnabar-500 dark:text-cinnabar-300 text-sm font-medium">
                   Čítať
                   <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -95,6 +96,7 @@
         </div>
       </div>
     </section>
+    </main>
 
     <Footer />
   </div>

@@ -2,6 +2,7 @@
   <div class="relative dark:bg-anthracite bg-bone min-h-screen">
     <Navigation />
 
+    <main id="main-content">
     <article class="relative pt-28 md:pt-36 pb-24">
       <!-- Top hero block with cover image -->
       <div class="container mx-auto px-6 max-w-3xl">
@@ -113,6 +114,7 @@
         </aside>
       </div>
     </article>
+    </main>
 
     <Footer />
   </div>
@@ -199,7 +201,7 @@ const relatedPosts = computed(() => {
 
 /* Drop cap on the very first letter of the very first paragraph */
 .article-prose :deep(> p:first-of-type::first-letter) {
-  @apply font-display font-bold float-left mr-3 leading-[0.85];
+  @apply font-display font-bold float-left mr-2 leading-[0.85];
   font-size: 4.5rem;
   background: linear-gradient(135deg, #FF3B1F, #FF5C3F);
   -webkit-background-clip: text;

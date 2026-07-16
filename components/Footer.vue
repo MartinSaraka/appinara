@@ -58,8 +58,8 @@
           <p class="dark:text-slate-500 text-gray-500 text-sm">
             © {{ currentYear }} Appinara s.r.o. Všetky práva vyhradené.
           </p>
-          <p class="dark:text-slate-600 text-gray-400 text-xs">
-            Appinara s.r.o. · IČO: 57 623 252
+          <p class="dark:text-slate-500 text-gray-500 text-xs">
+            IČO: 57 623 252
           </p>
         </div>
         <div class="flex gap-6 text-sm">

@@ -70,18 +70,30 @@
           <h2 class="text-display-md font-display font-bold dark:text-white text-gray-900 mb-10 text-balance">
             S čím <span class="italic font-medium gradient-text">pracujem.</span>
           </h2>
-          <div class="grid sm:grid-cols-2 gap-x-10 gap-y-3 text-sm md:text-base">
+          <div class="grid sm:grid-cols-2 gap-x-10 gap-y-8">
             <div>
-              <p class="font-mono text-[11px] uppercase tracking-wider text-gray-500 dark:text-slate-500 mb-3">Frontend & AI</p>
-              <ul class="space-y-1.5 text-gray-700 dark:text-slate-300">
-                <li v-for="item in stackPrimary" :key="item">{{ item }}</li>
-              </ul>
+              <p class="font-mono text-[11px] uppercase tracking-wider text-gray-500 dark:text-slate-500 mb-4">Frontend & AI</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="item in stackPrimary"
+                  :key="item"
+                  class="text-xs md:text-sm px-3 py-1.5 rounded-md bg-primary-50 dark:bg-primary-500/10 text-primary-700 dark:text-primary-300 font-medium border border-primary-100 dark:border-primary-500/20"
+                >
+                  {{ item }}
+                </span>
+              </div>
             </div>
             <div>
-              <p class="font-mono text-[11px] uppercase tracking-wider text-gray-500 dark:text-slate-500 mb-3">Automatizácie & backend</p>
-              <ul class="space-y-1.5 text-gray-700 dark:text-slate-300">
-                <li v-for="item in stackSecondary" :key="item">{{ item }}</li>
-              </ul>
+              <p class="font-mono text-[11px] uppercase tracking-wider text-gray-500 dark:text-slate-500 mb-4">Automatizácie & backend</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="item in stackSecondary"
+                  :key="item"
+                  class="text-xs md:text-sm px-3 py-1.5 rounded-md bg-white dark:bg-slate-900 text-gray-700 dark:text-slate-300 font-medium border border-gray-200 dark:border-slate-700"
+                >
+                  {{ item }}
+                </span>
+              </div>
             </div>
           </div>
         </div>

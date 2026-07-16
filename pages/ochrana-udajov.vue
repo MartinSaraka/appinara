@@ -2,7 +2,7 @@
   <div class="relative dark:bg-anthracite bg-bone min-h-screen">
     <Navigation />
 
-    <article class="relative pt-32 md:pt-40 pb-20">
+    <main id="main-content" class="relative pt-32 md:pt-40 pb-20">
       <div class="container mx-auto px-6 max-w-3xl">
         <nav class="mb-10 text-sm" aria-label="Drobky">
           <NuxtLink to="/" class="dark:text-slate-400 text-gray-600 hover:text-cinnabar-500 dark:hover:text-cinnabar-glow">
@@ -101,7 +101,7 @@
           </ul>
         </div>
       </div>
-    </article>
+    </main>
 
     <Footer />
   </div>

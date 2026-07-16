@@ -61,7 +61,8 @@
           </DeviceFrame>
 
           <div class="mt-6 px-2">
-            <div class="flex items-center justify-between gap-4">
+            <!-- Na mobile label pod titulkom — dlhá kategória inak tlačí titulok do zalomenia -->
+            <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
               <h3 class="text-xl font-display font-bold dark:text-white text-gray-900 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                 {{ project.title }}
               </h3>
