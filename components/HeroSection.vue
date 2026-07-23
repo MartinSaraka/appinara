@@ -9,8 +9,8 @@
     <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
 
-    <div class="container mx-auto px-6 relative z-10 pt-28 pb-20 lg:pt-32 lg:pb-24">
-      <div class="grid lg:grid-cols-12 gap-14 lg:gap-6 items-center">
+    <div class="container mx-auto px-6 relative z-10 pt-28 pb-14 lg:pt-32 lg:pb-24">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-6 items-center">
         <!-- ── Copy ──────────────────────────────────────────────────── -->
         <div class="hero-copy lg:col-span-6 text-center lg:text-left">
           <!-- Availability badge -->
@@ -356,7 +356,8 @@ onUnmounted(() => {
    As the page scrolls away, copy fades out faster while the device
    stage lags behind and shrinks — depth tied directly to scroll. */
 @supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
+  /* len desktop — na mobile je hero vysoké a rozplývajúci sa text pôsobí rušivo */
+  @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
     .hero-copy {
       animation: hero-copy-exit linear both;
       animation-timeline: scroll(root);
@@ -787,33 +788,29 @@ onUnmounted(() => {
   will-change: transform;
 }
 
-/* ── Small screens: calmer composition ───────────────────────────── */
+/* ── Small screens: simplified, quiet composition ─────────────────
+   Pod lg ostáva len laptop s mini-webom — telefón, chipy a artwork
+   by na mobile len naťahovali stránku a žrali batériu. */
 @media (max-width: 1023px) {
-  .tilt-group {
-    transform: rotateX(4deg) rotateY(-6deg) scale(0.94);
-  }
-  .chip-2 {
-    left: -2%;
-  }
-  .phone {
-    right: -2%;
-  }
+  .phone,
+  .chip,
   .generated-art {
-    inset: -13% -10% -8% 1%;
-    opacity: .42;
-  }
-}
-@media (max-width: 480px) {
-  .chip-1 {
     display: none;
   }
-  .phone {
-    width: 38%;
+  .tilt-group {
+    transform: rotateX(3deg) rotateY(-5deg);
   }
-  .generated-art {
-    inset: -10% -5%;
-    border-radius: 24px;
-    opacity: .34;
+  .hero-stage {
+    max-width: 480px;
+  }
+  /* Nekonečné animácie sú na mobile vypnuté — kompozícia je statická */
+  .hero-orb,
+  .mini-chart i {
+    animation: none;
+  }
+  .mini-chart i {
+    transform: scaleY(1);
+    opacity: 1;
   }
 }
 

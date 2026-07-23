@@ -1,8 +1,8 @@
 <template>
-  <section id="why-us" class="relative py-32 dark:bg-slate-950 bg-white">
+  <section id="why-us" class="relative py-20 md:py-32 dark:bg-slate-950 bg-white">
     <div class="container mx-auto px-6">
       <!-- Section Header -->
-      <div class="text-center mb-20">
+      <div class="text-center mb-12 md:mb-20">
         <p v-motion-reveal class="eyebrow mb-4">04 · Prečo my</p>
         <h2
           v-motion-reveal
@@ -21,7 +21,7 @@
       </div>
       
       <!-- Benefits Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 max-w-7xl mx-auto">
         <div
           v-for="(benefit, index) in benefits"
           :key="benefit.title"
@@ -30,7 +30,7 @@
           class="group relative"
         >
           <!-- Card -->
-          <div class="relative surface rounded-2xl p-10 h-full hover:border-primary-500/40 dark:hover:border-primary-400/40">
+          <div class="relative surface rounded-2xl p-7 md:p-10 h-full hover:border-primary-500/40 dark:hover:border-primary-400/40">
             <BenefitMark :type="benefit.icon" class="mb-7 transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105" />
             <!-- Content -->
             <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-gray-900">
@@ -44,8 +44,8 @@
       </div>
       
       <!-- Process Timeline -->
-      <div class="mt-32 max-w-5xl mx-auto">
-        <div class="text-center mb-16">
+      <div class="mt-20 md:mt-32 max-w-5xl mx-auto">
+        <div class="text-center mb-10 md:mb-16">
           <h3
             v-motion-reveal
             class="text-3xl md:text-5xl font-display font-bold mb-4 dark:text-white text-gray-900"
@@ -83,7 +83,7 @@
               </div>
 
               <!-- Step Content -->
-              <div class="flex-1 surface rounded-2xl p-8 group-hover:border-primary-500/40 dark:group-hover:border-primary-400/40 transition-colors">
+              <div class="flex-1 surface rounded-2xl p-6 md:p-8 group-hover:border-primary-500/40 dark:group-hover:border-primary-400/40 transition-colors">
                 <div class="flex flex-wrap items-baseline justify-between gap-2">
                   <h4 class="text-xl font-display font-bold dark:text-white text-gray-900">{{ step.title }}</h4>
                   <span class="text-sm font-semibold dark:text-primary-400 text-primary-600 whitespace-nowrap">{{ step.duration }}</span>

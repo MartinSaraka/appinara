@@ -1,13 +1,13 @@
 <template>
-  <section id="portfolio" class="relative pt-32 pb-20 bg-gray-50 dark:bg-slate-900 overflow-hidden">
+  <section id="portfolio" class="relative pt-20 pb-16 md:pt-32 md:pb-20 bg-gray-50 dark:bg-slate-900 overflow-hidden">
     <!-- Decorative parallax orb -->
-    <div class="absolute inset-0 parallax-drift pointer-events-none" aria-hidden="true">
+    <div class="hidden lg:block absolute inset-0 parallax-drift pointer-events-none" aria-hidden="true">
       <div class="absolute -top-20 left-[-12%] w-[520px] h-[520px] rounded-full soft-orb"></div>
     </div>
 
     <div class="container mx-auto px-6 relative">
       <!-- Section Header -->
-      <div class="text-center mb-20">
+      <div class="text-center mb-12 md:mb-20">
         <p v-motion-reveal class="eyebrow mb-4">03 · Portfólio</p>
         <h2
           v-motion-reveal
@@ -85,7 +85,7 @@
       </div>
 
       <!-- Demo playground -->
-      <div v-motion-reveal class="mt-20 max-w-6xl mx-auto">
+      <div v-motion-reveal class="mt-14 md:mt-20 max-w-6xl mx-auto">
         <div class="flex items-center gap-4 mb-8">
           <span class="eyebrow whitespace-nowrap">Demá na vyskúšanie</span>
           <span class="h-px flex-1 bg-gray-200 dark:bg-slate-800" aria-hidden="true"></span>

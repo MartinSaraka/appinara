@@ -1,7 +1,7 @@
 <template>
-  <section id="faq" class="relative py-32 bg-white dark:bg-slate-950">
+  <section id="faq" class="relative py-20 md:py-32 bg-white dark:bg-slate-950">
     <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
+      <div class="text-center mb-10 md:mb-16">
         <p v-motion-reveal class="eyebrow mb-4">05 · FAQ</p>
         <h2
           v-motion-reveal

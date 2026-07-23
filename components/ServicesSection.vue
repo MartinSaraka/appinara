@@ -1,14 +1,14 @@
 <template>
   <!-- overflow-x-clip (not overflow-hidden) — hidden would break the sticky stacking cards -->
-  <section id="services" class="relative py-32 overflow-x-clip dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+  <section id="services" class="relative py-20 md:py-32 overflow-x-clip dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 bg-gradient-to-b from-gray-50 via-white to-gray-50">
     <!-- Decorative parallax orb (pre-blurred gradient — cheap to composite) -->
-    <div class="absolute inset-0 parallax-drift pointer-events-none" aria-hidden="true">
+    <div class="hidden lg:block absolute inset-0 parallax-drift pointer-events-none" aria-hidden="true">
       <div class="absolute top-10 right-[-10%] w-[560px] h-[560px] rounded-full soft-orb"></div>
     </div>
 
     <div class="container mx-auto px-6 relative">
       <!-- Section Header -->
-      <div class="text-center mb-20">
+      <div class="text-center mb-12 md:mb-20">
         <p v-motion-reveal class="eyebrow mb-4">01 · Služby</p>
         <h2
           v-motion-reveal
@@ -26,15 +26,16 @@
         </p>
       </div>
 
-      <!-- Stacking cards — each pins below the nav and the next slides over it -->
-      <div class="max-w-6xl mx-auto flex flex-col gap-10">
+      <!-- Stacking cards — each pins below the nav and the next slides over it.
+           Sticky len na lg+ — na mobile sa dlhé karty prekrývali pri scrolle. -->
+      <div class="max-w-6xl mx-auto flex flex-col gap-8 md:gap-10">
         <article
           v-for="(service, index) in services"
           :key="service.title"
-          class="stack-card sticky surface overflow-hidden rounded-none p-0"
+          class="stack-card lg:sticky surface overflow-hidden rounded-none p-0"
           :style="{ top: `calc(var(--stack-base) + ${index} * var(--stack-step))` }"
         >
-          <div class="grid lg:grid-cols-[.9fr_1.1fr] min-h-[23rem]">
+          <div class="grid lg:grid-cols-[.9fr_1.1fr] lg:min-h-[23rem]">
             <ServiceVisual
               :type="service.visual"
               :number="`0${index + 1}`"
@@ -142,10 +143,9 @@ const services = [
     0 -10px 32px -18px rgba(0, 0, 0, 0.6),
     0 28px 56px -28px rgba(0, 0, 0, 0.65);
 }
-@media (max-width: 640px) {
+@media (max-width: 1023px) {
+  /* bez sticky netreba rezervovanú výšku — karta je len taká vysoká, aký má obsah */
   .stack-card {
-    --stack-base: 4.75rem;
-    --stack-step: 0.65rem;
     min-height: 0;
   }
 }
