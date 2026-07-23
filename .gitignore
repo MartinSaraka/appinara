@@ -34,7 +34,6 @@ logs
 !.yarn/versions
 pnpm-lock.yaml
 yarn.lock
-package-lock.json
 
 .salon-demo
 .salon-retro
