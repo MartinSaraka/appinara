@@ -9,7 +9,7 @@
     intro="Dobrý developer nevie iba písať kód. Vie ohraničiť rozsah, povedať nie, vysvetliť vlastníctvo projektu a nechať po sebe poriadok. Pri malom webe to rozhoduje viac než použitý framework."
     cta-title="Chcete druhý názor na ponuku?"
     cta-text="Ak už máte cenovú ponuku alebo brief, viem prejsť rozsah a upozorniť na veci, ktoré sa zvyknú zabudnúť: CMS, hosting, prístupy, údržba a vlastníctvo."
-    primary-label="Kontakt"
+    primary-label="Napísať dopyt"
     primary-to="/#contact"
     secondary-label="Cenník"
     secondary-to="/blog/realny-cennik-webov-na-slovensku"

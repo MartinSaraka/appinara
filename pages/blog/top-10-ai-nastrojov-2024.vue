@@ -3,7 +3,7 @@
     breadcrumb="AI nástroje pre firmy"
     category="Nástroje"
     read-time="8 min"
-    date="16. november 2024"
+    date="30. október 2024"
     title="AI nástroje pre firmu:"
     title-accent="nekupujte zoznam, vyberte workflow."
     intro="Zoznamy nástrojov rýchlo starnú. Lepšie je pozerať sa na typ práce: písanie, sumarizácia, obrázky, kód, support alebo automatizácia. Potom vyberáte nástroj podľa úlohy, nie podľa hype."
@@ -11,8 +11,6 @@
     cta-text="Prejdeme úlohy vo firme a vyberieme minimálny stack. Menej licencií, viac jasných pravidiel používania."
     primary-label="Napísať dopyt"
     primary-to="/#contact"
-    secondary-label="Kontakt"
-    secondary-to="/#contact"
   >
     <p>
       Firemný AI stack nemusí mať desať nástrojov. Často stačí jeden kvalitný chat pre texty a analýzu, jeden nástroj pre meetingy alebo dokumenty a jedna automatizácia tam, kde sa dá výstup bezpečne zapojiť do procesu.

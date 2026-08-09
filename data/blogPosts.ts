@@ -5,10 +5,42 @@ export interface BlogPost {
   category: string
   readTime: string
   date: string
+  /** ISO 8601 (YYYY-MM-DD) — pre JSON-LD a sitemapu; `date` je len na zobrazenie */
+  dateIso: string
   image: string
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: 'preco-nie-je-moj-web-v-google',
+    title: 'Prečo môj web nie je v Google a čo s tým viete spraviť',
+    excerpt: 'Väčšinou za tým nie je obsah, ale jedna technická vec: robots.txt, noindex, kanonická značka alebo sitemapa, ktorá klame.',
+    category: 'SEO',
+    readTime: '9 min',
+    date: '9. august 2026',
+    dateIso: '2026-08-09',
+    image: '/images/blog/preco-nie-je-moj-web-v-google.webp'
+  },
+  {
+    slug: 'wordpress-alebo-web-na-mieru',
+    title: 'WordPress alebo web na mieru: podľa čoho sa to naozaj láme',
+    excerpt: 'Nerozhoduje technológia, ale kto bude meniť obsah, čo web má robiť a koľko stojí prevádzka v druhom roku.',
+    category: 'Výber riešenia',
+    readTime: '9 min',
+    date: '9. august 2026',
+    dateIso: '2026-08-09',
+    image: '/images/blog/wordpress-alebo-web-na-mieru.webp'
+  },
+  {
+    slug: 'rezervacny-system-pre-malu-prevadzku',
+    title: 'Rezervačný systém pre malú prevádzku: kedy stačí telefón a kedy už nie',
+    excerpt: 'Formulár, hotový nástroj alebo vlastný systém. Tri úrovne, ich reálne náklady a signály, podľa ktorých sa rozhodnúť.',
+    category: 'Rezervácie',
+    readTime: '8 min',
+    date: '9. august 2026',
+    dateIso: '2026-08-09',
+    image: '/images/blog/rezervacny-system-pre-malu-prevadzku.webp'
+  },
   {
     slug: 'chcem-airbnb-rozpocet-na-vizitku',
     title: 'Keď niekto chce „ako Airbnb“, ale rozpočet je na vizitku',
@@ -16,6 +48,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Rozsah',
     readTime: '8 min',
     date: '28. apríl 2026',
+    dateIso: '2026-04-28',
     image: '/images/blog/chcem-airbnb-rozpocet-na-vizitku.webp'
   },
   {
@@ -25,6 +58,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Prevádzka',
     readTime: '9 min',
     date: '27. apríl 2026',
+    dateIso: '2026-04-27',
     image: '/images/blog/udrzba-webu-prvy-rok-realita.webp'
   },
   {
@@ -34,6 +68,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Z praxe',
     readTime: '8 min',
     date: '26. apríl 2026',
+    dateIso: '2026-04-26',
     image: '/images/blog/google-business-profajl-vs-web-sk.webp'
   },
   {
@@ -43,6 +78,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Nástroje',
     readTime: '9 min',
     date: '25. apríl 2026',
+    dateIso: '2026-04-25',
     image: '/images/blog/ai-nastroj-pre-cely-tim-ma-to-zmysel.webp'
   },
   {
@@ -52,6 +88,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Prevzatie projektu',
     readTime: '8 min',
     date: '24. apríl 2026',
+    dateIso: '2026-04-24',
     image: '/images/blog/co-ostane-po-developerovy-pristupy.webp'
   },
   {
@@ -61,6 +98,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Prípadovka',
     readTime: '6 min',
     date: '14. apríl 2026',
+    dateIso: '2026-04-14',
     image: '/images/blog/salon-meri1-pripadovka.webp'
   },
   {
@@ -70,6 +108,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Z praxe',
     readTime: '8 min',
     date: '7. apríl 2026',
+    dateIso: '2026-04-07',
     image: '/images/blog/co-som-sa-naucil-z-troch-ai-chatbotov.webp'
   },
   {
@@ -80,6 +119,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Cenník',
     readTime: '9 min',
     date: '24. marec 2026',
+    dateIso: '2026-03-24',
     image: '/images/blog/realny-cennik-webov-na-slovensku.webp'
   },
   {
@@ -89,6 +129,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Obsah',
     readTime: '7 min',
     date: '22. november 2024',
+    dateIso: '2024-11-22',
     image: '/images/blog/faceless-ai-videa-navod.webp'
   },
   {
@@ -98,6 +139,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Budúcnosť práce',
     readTime: '8 min',
     date: '20. november 2024',
+    dateIso: '2024-11-20',
     image: '/images/blog/ai-vs-ludia-buducnost-prace.webp'
   },
   {
@@ -107,6 +149,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Trendy',
     readTime: '7 min',
     date: '18. november 2024',
+    dateIso: '2024-11-18',
     image: '/images/blog/web-ai-trendy-2025.webp'
   },
   {
@@ -116,6 +159,7 @@ export const blogPosts: BlogPost[] = [
     category: 'AI v praxi',
     readTime: '8 min',
     date: '16. november 2024',
+    dateIso: '2024-11-16',
     image: '/images/blog/ai-chatbot-pre-maly-biznis.webp'
   },
   {
@@ -125,6 +169,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Cenník',
     readTime: '8 min',
     date: '12. november 2024',
+    dateIso: '2024-11-12',
     image: '/images/blog/kolko-stoji-webova-stranka-2024.webp'
   },
   {
@@ -134,6 +179,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Konverzie',
     readTime: '8 min',
     date: '10. november 2024',
+    dateIso: '2024-11-10',
     image: '/images/blog/web-ktory-predava-checklist.webp'
   },
   {
@@ -143,6 +189,7 @@ export const blogPosts: BlogPost[] = [
     category: 'AI v biznise',
     readTime: '7 min',
     date: '8. november 2024',
+    dateIso: '2024-11-08',
     image: '/images/blog/preco-potrebuje-moja-firma-ai.webp'
   },
   {
@@ -152,6 +199,7 @@ export const blogPosts: BlogPost[] = [
     category: 'E-commerce',
     readTime: '8 min',
     date: '5. november 2024',
+    dateIso: '2024-11-05',
     image: '/images/blog/eshop-vs-marketplace.webp'
   },
   {
@@ -161,6 +209,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Automatizácia',
     readTime: '7 min',
     date: '3. november 2024',
+    dateIso: '2024-11-03',
     image: '/images/blog/automatizacia-pre-zaciatocnikov.webp'
   },
   {
@@ -170,6 +219,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Výber dodávateľa',
     readTime: '8 min',
     date: '1. november 2024',
+    dateIso: '2024-11-01',
     image: '/images/blog/ako-vybrat-web-developera.webp'
   },
   {
@@ -179,6 +229,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Nástroje',
     readTime: '8 min',
     date: '30. október 2024',
+    dateIso: '2024-10-30',
     image: '/images/blog/top-10-ai-nastrojov-2024.webp'
   },
   {
@@ -188,6 +239,7 @@ export const blogPosts: BlogPost[] = [
     category: 'ROI',
     readTime: '8 min',
     date: '26. október 2024',
+    dateIso: '2024-10-26',
     image: '/images/blog/roi-modernizacie-webu.webp'
   }
 ]

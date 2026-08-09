@@ -7,11 +7,13 @@
     "node": "22.x"
   },
   "scripts": {
+    "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "sitemap": "node scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",

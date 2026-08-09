@@ -1,7 +1,7 @@
 ﻿<template>
   <BlogArticleLayout
     breadcrumb="Airbnb vs. rozpočet"
-    category="Scope"
+    category="Rozsah"
     read-time="8 min"
     date="28. apríl 2026"
     title="Keď niekto chce"

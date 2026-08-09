@@ -9,7 +9,7 @@
     intro="Prvá automatizácia nemá byť futuristická. Má odstrániť ručné kopírovanie, zabudnutý follow-up alebo opakované triedenie dát. Čím nudnejšia úloha, tým lepší prvý kandidát."
     cta-title="Máte proces, ktorý sa opakuje každý týždeň?"
     cta-text="Pošlite krátky popis: odkiaľ dáta prichádzajú, čo s nimi robíte a kam majú skončiť. Navrhnem najjednoduchšiu verziu automatizácie."
-    primary-label="Kontakt"
+    primary-label="Napísať dopyt"
     primary-to="/#contact"
     secondary-label="Riešenia"
     secondary-to="/riesenia"
@@ -37,6 +37,10 @@
 
     <p>
       Automatizácii procesu, ktorý sa ešte stále mení každý týždeň. Najprv ho popíšte, otestujte ručne a až potom zapájajte nástroje. Inak budete automatizovať zmätok a každá zmena bude bolieť.
+    </p>
+
+    <p>
+      Prečo má proces prísť pred nástrojom, rozoberáme v článku <NuxtLink to="/blog/preco-potrebuje-moja-firma-ai">prečo potrebuje firma AI</NuxtLink>.
     </p>
   </BlogArticleLayout>
 </template>

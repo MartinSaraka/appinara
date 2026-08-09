@@ -11,8 +11,6 @@
     cta-text="Pozrieme sa, ktoré úlohy sa oplatí automatizovať, ktoré stačí upratať a kde by AI skôr pridala riziko."
     primary-label="Napísať dopyt"
     primary-to="/#contact"
-    secondary-label="Kontakt"
-    secondary-to="/#contact"
   >
     <p>
       Najlepšia otázka nie je „ako nasadiť AI“, ale „ktorú prácu robíme zbytočne ručne každý týždeň“. Tam sa začína rozumná automatizácia.

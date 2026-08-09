@@ -11,8 +11,6 @@
     cta-text="Ak máte opakujúce sa otázky, sklad, katalóg alebo kvalifikačný flow, dá sa navrhnúť rozumný bot. Ak je každá odpoveď unikátna, možno je lepší formulár a človek."
     primary-label="Napísať dopyt"
     primary-to="/#contact"
-    secondary-label="Napísať priamo"
-    secondary-to="/#contact"
   >
     <p>
       Prvý bot bol pre e-shop s autodoplnkami. Mal produktovú databázu a veľa opakovaných otázok o skladovosti a kompatibilite. Po napojení na real-time dáta riešil väčšinu jednoduchých dopytov bez majiteľa.

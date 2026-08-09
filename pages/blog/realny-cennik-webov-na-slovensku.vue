@@ -46,6 +46,10 @@
     <p>
       Pred prvým hovorom si spíšte počet strán, kto bude meniť obsah, aké integrácie potrebujete a aký rozpočet máte aj na prevádzku. Ušetrí to viac peňazí než ďalšie porovnávanie pekných mockupov.
     </p>
+
+    <p>
+      Koľko stojí samotná prevádzka po prvom roku, rozoberáme v článku <NuxtLink to="/blog/udrzba-webu-prvy-rok-realita">údržba webu po prvom roku</NuxtLink>.
+    </p>
   </BlogArticleLayout>
 </template>
 

@@ -3,7 +3,7 @@
     breadcrumb="Web a AI trendy"
     category="Trendy"
     read-time="7 min"
-    date="16. november 2024"
+    date="18. november 2024"
     title="Web a AI trendy pre rok 2025:"
     title-accent="čo má zmysel sledovať bez naháňania módy."
     intro="Nie každý trend si zaslúži miesto v rozpočte. Pre väčšinu slovenských firiem sú dôležitejšie rýchlosť, jasné CTA, meranie a rozumná automatizácia než ďalší vizuálny efekt z Twitteru."
@@ -35,6 +35,10 @@
 
     <p>
       Pri každej novinke sa opýtajte: skráti cestu k dopytu, zvýši dôveru, zníži ručnú prácu alebo zlepší meranie? Ak nie, zatiaľ ju nepotrebujete.
+    </p>
+
+    <p>
+      Kde začať s prvou automatizáciou, ukazuje článok <NuxtLink to="/blog/automatizacia-pre-zaciatocnikov">automatizácia pre začiatočníkov</NuxtLink>.
     </p>
   </BlogArticleLayout>
 </template>

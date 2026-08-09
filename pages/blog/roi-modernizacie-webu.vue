@@ -9,7 +9,7 @@
     intro="Nový web sa neoplatí preto, že je nový. Oplatí sa vtedy, keď zlepší dopyty, zníži ručnú prácu, zvýši dôveru alebo odstráni technický problém, ktorý dnes brzdí rast."
     cta-title="Chcete vedieť, či sa redizajn oplatí?"
     cta-text="Pozrieme sa na súčasné čísla, dopyty, formuláre a obsah. Niekedy stačí úprava, nie celý nový web."
-    primary-label="Kontakt"
+    primary-label="Napísať dopyt"
     primary-to="/#contact"
     secondary-label="Cenník webov"
     secondary-to="/blog/realny-cennik-webov-na-slovensku"

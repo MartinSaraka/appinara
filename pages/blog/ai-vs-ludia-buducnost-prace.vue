@@ -3,7 +3,7 @@
     breadcrumb="AI a práca"
     category="Budúcnosť práce"
     read-time="8 min"
-    date="16. november 2024"
+    date="20. november 2024"
     title="AI nevezme všetku prácu."
     title-accent="Zmení najmä tú opakovateľnú a zle popísanú."
     intro="Debata o tom, či AI nahradí ľudí, je príliš hrubá. Užitočnejšia otázka znie: ktoré časti práce sú opakovateľné, textové, merateľné a bez jasného vlastníka kvality? Tam sa zmena deje najrýchlejšie."
@@ -11,8 +11,6 @@
     cta-text="Pozrieme sa na konkrétne procesy, nie na veľké predpovede. Výsledkom má byť zoznam úloh, ktoré sa oplatí zrýchliť, a úloh, kde má zostať človek."
     primary-label="Napísať dopyt"
     primary-to="/#contact"
-    secondary-label="Kontakt"
-    secondary-to="/#contact"
   >
     <p>
       Najviac ohrozené nie sú povolania ako názvy na vizitke. Ohrozené sú úlohy: prepisovanie, sumarizovanie, triedenie, prvé drafty, jednoduchý support, reporting bez interpretácie. Človek môže mať stále rovnakú pracovnú pozíciu, ale tretina jeho dňa sa zmení.

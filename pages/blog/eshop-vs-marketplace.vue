@@ -35,6 +35,10 @@
     <p>
       Firma si postaví e-shop, ale nemá plán získavania návštevnosti. Technicky je všetko hotové, no nikto neprichádza. Vlastný e-shop nie je predajný kanál sám o sebe. Je to infraštruktúra pre predajný kanál.
     </p>
+
+    <p>
+      Čo znižuje trenie na ceste k objednávke, rozoberá článok <NuxtLink to="/blog/web-ktory-predava-checklist">web, ktorý predáva</NuxtLink>.
+    </p>
   </BlogArticleLayout>
 </template>
 

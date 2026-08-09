@@ -11,8 +11,6 @@
     cta-text="Pozrieme sa na otázky zákazníkov, dáta, ktoré máte, a spôsob odovzdania na človeka. Až potom má zmysel riešiť model alebo widget."
     primary-label="Napísať dopyt"
     primary-to="/#contact"
-    secondary-label="Kontakt"
-    secondary-to="/#contact"
   >
     <p>
       Najlepší kandidát na chatbota má veľa podobných otázok. Sklad, cenník, dostupnosť termínov, postup služby, základná kvalifikácia leadu. Najhorší kandidát je firma, kde je každá odpoveď úplne individuálna a vyžaduje osobný odhad.

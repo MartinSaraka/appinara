@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/sluzby/ai-chatbot",
+      "destination": "/riesenia#chatbot",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.appinara.sk" }],
+      "destination": "https://appinara.sk/:path*",
+      "permanent": true
+    }
+  ]
+}

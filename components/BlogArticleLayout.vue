@@ -166,14 +166,83 @@ const currentSlug = computed(() => {
 
 const currentPost = computed(() => blogPosts.find(p => p.slug === currentSlug.value))
 
+const SITE = 'https://appinara.sk'
+
 // Každý článok kanonizuje sám na seba (globálny canonical v nuxt.config neexistuje)
-const canonicalUrl = computed(() => `https://appinara.sk${route.path.replace(/\/$/, '')}`)
-useHead({
-  meta: [{ property: 'og:url', content: canonicalUrl }],
-  link: [{ rel: 'canonical', href: canonicalUrl }]
-})
+const canonicalUrl = computed(() => `${SITE}${route.path.replace(/\/$/, '')}`)
 
 const resolvedCover = computed(() => props.coverImage || currentPost.value?.image || '')
+
+// Absolútna URL obálky pre OG a JSON-LD; ak článok obálku nemá, padáme na globálnu OG kartu.
+const absoluteCover = computed(() => {
+  const cover = resolvedCover.value
+  if (!cover) return `${SITE}/og-image.png`
+  return cover.startsWith('http') ? cover : `${SITE}${cover}`
+})
+
+// Titulok a popis berieme z blogPosts (jeden zdroj pravdy), props sú záloha.
+const seoTitle = computed(
+  () => currentPost.value?.title || [props.title, props.titleAccent].filter(Boolean).join(' ')
+)
+const seoDescription = computed(() => currentPost.value?.excerpt || props.intro)
+const publishedIso = computed(() => currentPost.value?.dateIso || '')
+
+// Escapovanie `<` aby reťazec nemohol predčasne uzavrieť <script> blok.
+const toJsonLd = (obj: Record<string, unknown>) => JSON.stringify(obj).replace(/</g, '\\u003c')
+
+useHead(() => ({
+  meta: [
+    { property: 'og:url', content: canonicalUrl.value },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:title', content: seoTitle.value },
+    { property: 'og:description', content: seoDescription.value },
+    { property: 'og:image', content: absoluteCover.value },
+    { property: 'article:section', content: props.category },
+    ...(publishedIso.value
+      ? [{ property: 'article:published_time', content: publishedIso.value }]
+      : []),
+    { name: 'twitter:title', content: seoTitle.value },
+    { name: 'twitter:description', content: seoDescription.value },
+    { name: 'twitter:image', content: absoluteCover.value }
+  ],
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: toJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: seoTitle.value,
+        description: seoDescription.value,
+        image: [absoluteCover.value],
+        articleSection: props.category,
+        inLanguage: 'sk-SK',
+        ...(publishedIso.value
+          ? { datePublished: publishedIso.value, dateModified: publishedIso.value }
+          : {}),
+        author: { '@type': 'Organization', name: 'Appinara', url: SITE },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Appinara',
+          logo: { '@type': 'ImageObject', url: `${SITE}/logo.svg` }
+        },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl.value }
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: toJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Domov', item: `${SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog` },
+          { '@type': 'ListItem', position: 3, name: props.breadcrumb, item: canonicalUrl.value }
+        ]
+      })
+    }
+  ]
+}))
 
 // Pick 2 related posts (same category if possible, otherwise most recent others).
 const relatedPosts = computed(() => {

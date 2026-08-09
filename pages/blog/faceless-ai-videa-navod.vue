@@ -3,16 +3,14 @@
     breadcrumb="Faceless videá"
     category="Obsah"
     read-time="7 min"
-    date="16. november 2024"
+    date="22. november 2024"
     title="Faceless AI videá:"
     title-accent="kedy dávajú zmysel a kedy len vyrábajú šum."
     intro="Videá bez tváre nie sú pasívny príjem v troch klikoch. Sú to malé obsahové procesy: výber témy, scenár, hlas, strih, distribúcia a meranie. AI vie zrýchliť časti práce, ale nenahradí uhol pohľadu."
     cta-title="Chcete obsahový workflow, nie len nástroj?"
     cta-text="Pomôžem navrhnúť jednoduchý systém na tvorbu videí, článkov alebo krátkych postov tak, aby mal vlastný tón a merateľný cieľ."
-    primary-label="Napísať priamo"
+    primary-label="Napísať dopyt"
     primary-to="/#contact"
-    secondary-label="Pozrieť blog"
-    secondary-to="/blog"
   >
     <p>
       Faceless video znamená, že vo videu nie je vaša tvár. Neznamená to, že vo videu nie je žiadny názor. Najslabšie kanály sú tie, ktoré iba spoja stock záber, generický voiceover a päť viet, ktoré by mohli byť o hocijakej téme.
@@ -43,6 +41,10 @@
 
     <p>
       Ak chcete obsah používať na získavanie klientov, radšej spravte desať videí s konkrétnymi prípadmi než sto prázdnych motivačných zostrihov. Publikum vie cítiť, či bol obsah spravený z dôvodu alebo iba z nástroja.
+    </p>
+
+    <p>
+      Výberu nástrojov podľa typu práce sa venuje článok <NuxtLink to="/blog/top-10-ai-nastrojov-2024">AI nástroje pre firmu</NuxtLink>.
     </p>
   </BlogArticleLayout>
 </template>

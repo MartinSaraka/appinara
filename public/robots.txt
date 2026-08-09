@@ -5,7 +5,5 @@ Allow: /
 # Sitemap
 Sitemap: https://appinara.sk/sitemap.xml
 
-# Blokované cesty (ak existujú)
-Disallow: /api/
-Disallow: /_nuxt/
-
+# Poznámka: /_nuxt/ zámerne NEblokujeme — sú tam JS a CSS bundly,
+# ktoré Googlebot potrebuje na vyrenderovanie stránky (web beží na SSR).
