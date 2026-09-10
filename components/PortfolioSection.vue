@@ -170,6 +170,15 @@ const projects = [
     urlLabel: 'dreamtangle.com',
     image: '/images/demos/dreamtangle.webp',
     tags: ['AI integrácia', 'Web aplikácia', 'Viacjazyčnosť', 'Vlastný produkt']
+  },
+  {
+    title: 'BecomeTen',
+    category: 'Vlastný AI produkt · web + Android',
+    description: 'AI hodnotenie tváre z jednej fotky: skóre, rozbor po črtách a realistický odhad, čo sa dá zmeniť bez operácie. Každé odporúčanie cituje štúdiu z PubMed; deväť bezplatných nástrojov beží priamo v prehliadači bez nahrávania fotky.',
+    url: 'https://becometen.com/',
+    urlLabel: 'becometen.com',
+    image: '/images/demos/becometen.webp',
+    tags: ['AI + MediaPipe', 'Stripe / RevenueCat', 'Capacitor Android', 'Vlastný produkt']
   }
 ]
 
