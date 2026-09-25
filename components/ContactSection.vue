@@ -39,6 +39,30 @@
           <!-- Right Side - Contact Form -->
           <div v-motion-reveal-right :delay="150">
             <form @submit.prevent="handleSubmit" class="surface rounded-2xl p-8 space-y-6" novalidate>
+              <!-- Balík vybraný v sekcii Balíky -->
+              <div
+                v-if="selectedPackage"
+                class="flex items-center justify-between gap-3 rounded-xl border border-primary-500/40 bg-primary-50 dark:bg-primary-500/10 px-4 py-3"
+                role="status"
+              >
+                <div class="min-w-0">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.14em] text-primary-600 dark:text-primary-400">Vybraný balík</p>
+                  <p class="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                    {{ selectedPackage.name }}
+                    <span class="font-normal text-gray-600 dark:text-slate-400">· {{ selectedPackage.priceLine }}</span>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="flex-shrink-0 rounded-full p-1.5 text-gray-500 hover:text-gray-900 hover:bg-white dark:hover:bg-slate-800 dark:text-slate-400 dark:hover:text-white transition-colors"
+                  aria-label="Zrušiť výber balíka"
+                  @click="clearPackage"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
               <div>
                 <label for="name" class="block text-sm font-medium dark:text-slate-300 text-gray-700 mb-2">
                   Meno
@@ -113,6 +137,7 @@
                   <option value="web-app">Webová stránka / Aplikácia</option>
                   <option value="ecommerce">E-shop / E-commerce</option>
                   <option value="business-tool">Business nástroj / Dashboard</option>
+                  <option value="maintenance">Správa existujúceho webu</option>
                   <option value="other">Iné</option>
                 </select>
                 <p v-if="projectTypeError" id="project-helper" class="text-xs text-red-600 dark:text-red-400 mt-1">
@@ -208,6 +233,24 @@ const form = ref({
   message: ''
 })
 
+// Predvyplnenie z balíka — prepíše len prázdne polia a len našu vlastnú úvodnú vetu,
+// nikdy nie text, ktorý už návštevník napísal.
+const selectedPackage = useSelectedPackage()
+let lastPrefill = ''
+watch(selectedPackage, (pkg) => {
+  if (!pkg) return
+  form.value.projectType = pkg.projectType
+  const intro = `Dobrý deň, mám záujem o balík ${pkg.name} (${pkg.priceLine}). `
+  if (!form.value.message || form.value.message === lastPrefill) {
+    form.value.message = intro
+    lastPrefill = intro
+  }
+})
+function clearPackage() {
+  if (form.value.message === lastPrefill) form.value.message = ''
+  selectedPackage.value = null
+}
+
 const isSubmitting = ref(false)
 const submitMessage = ref('')
 const submitSuccess = ref(false)
@@ -293,6 +336,7 @@ const handleSubmit = async () => {
       from_email: form.value.email,
       phone: form.value.phone,
       project_type: form.value.projectType,
+      package: selectedPackage.value ? `${selectedPackage.value.category} / ${selectedPackage.value.name} (${selectedPackage.value.priceLine})` : '',
       message: form.value.message,
       to_email: 'appinarasolutions@gmail.com'
     }
@@ -311,6 +355,7 @@ const handleSubmit = async () => {
     submitMessage.value = '✅ Správa bola úspešne odoslaná! Ozveme sa vám čoskoro.'
 
     // Reset form
+    selectedPackage.value = null
     form.value = {
       name: '',
       email: '',
