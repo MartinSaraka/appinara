@@ -1,0 +1,143 @@
+Spustenie JEDNOSTUPŇOVÉHO follow-up sequence pre Appinara cold outreach.
+
+ŽELEZNÉ PRAVIDLO (aktualizované 02.08.2026 Martinom): max 2 maily na prospekta
+CELKOVO (úvodný + FU1). ŽIADNE FU2, FU3 ani breakup maily neexistujú. Kto
+odpísal, už nikdy nedostane follow-up. Kto neodpísal ani po FU1, ostáva navždy
+na pokoji — status "FU1 odoslané" je TERMINÁLNY. Statusy "FU2 odoslané" a
+"FU3 odoslané (breakup)" sú historické a tiež terminálne — týchto prospektov
+sa NIKDY nedotýkaj.
+
+POVINNÉ ČÍTANIE PRED PRÁCOU: Read C:\Users\Martin\Desktop\biznis\
+OUTREACH-QUALITY-GUIDE.md (najmä §1 železné pravidlá, §8.5 teplý tón,
+§6 social proof). Bez toho nezačínaj.
+
+GMAIL: appinarasolutions@gmail.com (Chrome u/2)
+GMAIL API: mcp__b8da53ea-d193-4dc8-8ab6-fcb866f4d051__* (search_threads,
+get_thread, list_drafts, create_draft, update_draft)
+EXCEL: C:\Users\Martin\Desktop\biznis\Appinara_Prospekti_a_Outreach.xlsx
+(hárok "Prospekti")
+DNES: today = date.today()
+
+==============================================
+KROK 0: Pre-flight (povinné)
+==============================================
+1. Over zapisovateľnosť Excelu (openpyxl open + no-op save). Ak zlyhá → STOP,
+   nič neposielaj — odoslaný FU bez zápisu statusu = riziko duplicitného FU.
+2. Záloha Excelu do C:\Users\Martin\Desktop\biznis\backup\
+   Appinara_Prospekti_{YYYY-MM-DD_HHMM}.xlsx (drž max 10 záloh).
+3. Táto úloha NIKDY nesmie bežať súčasne s odosielacou úlohou cold outreach.
+
+==============================================
+KROK 1: Identifikácia kandidátov na FU1
+==============================================
+Načítaj Excel. Pre každý riadok (od 2): K=Status, L=Posledný kontakt,
+N=Pôvodné odoslané, E=Email, C=Firma, M=Poznámky (konkrétne fakty z researchu
+— POUŽI ich vo FU!). Dátumy môžu byť string "DD.MM.YYYY" aj datetime — ošetri oboje.
+
+Ak N chýba a Status == "Odoslané": použi L ako fallback a N doplň (+ ulož).
+
+Kandidáti = Status == "Odoslané" a Odosielateľ (O) == "gmail" (prázdne O ber
+ako "gmail"; riadky "appinara.sk" majú vlastnú follow-up úlohu).
+OKNO PODĽA VEKU (days = today − N):
+- 4–14 dní → FU1: nadviaže na pôvodný postreh zo stĺpca M, pridá JEDEN
+  nový uhol
+- > 14 dní → ŽIADNY mail: Status = "Expirované" (TERMINÁLNY), do Poznámky
+  "Expirované {dátum} — bez FU", ulož Excel, vypíš v reporte.
+  (Re-engagement ZRUŠENÝ 04.08.2026 rozhodnutím Martina — kto vypadne z okna,
+  ostáva navždy na pokoji. Expirácie v reporte = signál, že behy vypadávali.)
+
+Po odoslaní FU1 VŽDY terminálny status "FU1 odoslané".
+Prioritizuj najstarších. MAX 15 mailov / beh.
+
+==============================================
+KROK 2: Reply-check (pred KAŽDÝM kandidátom)
+==============================================
+1. Nájdi pôvodný thread: search_threads "to:{email} from:me" → threadId.
+2. get_thread(threadId): ak thread obsahuje AKÚKOĽVEK správu, ktorej odosielateľ
+   nie je appinarasolutions@gmail.com → prospekt odpovedal (zachytí aj odpoveď
+   kolegu z inej adresy v tom istom threade).
+3. Doplnkovo hľadaj odpoveď aj MIMO pôvodného threadu:
+   - prospekt s VLASTNOU doménou → search_threads "from:{doména} newer_than:90d"
+     (zachytí aj odpoveď kolegu z inej adresy tej istej firmy)
+   - freemail adresa (gmail.com, azet.sk, zoznam.sk, centrum.sk, pobox.sk,
+     outlook.com, hotmail.com, yahoo.com…) → LEN presná adresa
+     "from:{email} newer_than:90d" — doménový check by tu za "odpoveď" označil
+     hocijaký mail od hocikoho z daného freemailu.
+AK odpovedal:
+   * Status = "Odpoveď", Posledný kontakt = today, do Poznámky "Odpovedal {dátum}"
+   * Ulož Excel. SKIP — a už NIKDY žiadny ďalší mail.
+AK nie → KROK 3.
+
+==============================================
+KROK 3: Vytvor / oprav FU1 draft (reply to thread)
+==============================================
+1. Z KROKU 2 máš threadId + messageId najnovšej mojej správy.
+2. NAJPRV list_drafts: ak v tomto threade visí neodoslaný FU draft z minulého
+   behu → NEvytváraj druhý; existujúci update_draft na dnešné znenie (alebo
+   zmaž a vytvor nanovo). V threade smie byť vždy MAX 1 čakajúci draft.
+3. create_draft (resp. update_draft) s replyToMessageId=messageId, podľa
+   FU1 šablóny nižšie. Konkrétny fakt ber VŽDY zo stĺpca M alebo zo snippetu
+   pôvodného mailu — ak žiadny nemáš, draft NEVYTVÁRAJ, do M poznač
+   "FU odložený — chýba konkrétny fakt {dátum}" a prospekta preskoč.
+
+PÄTIČKA: v podpise čisté "appinara.sk" ako text, NIKDY google.com/url redirect.
+Pošli aj htmlBody (raw HTML, <p>/<br>), pätička obyčajný text:
+"Appinara s.r.o. | appinara.sk | +421 917 566 722".
+
+ŠABLÓNA FU1 — Subject "Re: [pôvodný subject]", stojí na KONKRÉTNOM fakte
+zo stĺpca M (finálne znenie je aj v guide §11; pôvodná šablóna odstránená —
+"viac vás nebudem zaťažovať" porušovala §8.5 v tom istom prompte):
+
+"Dobrý deň,
+
+vraciam sa k môjmu mailu ohľadom [konkrétny nápad/postreh z M]. Medzitým mi
+k tomu napadol ešte jeden uhol: [JEDEN nový, konkrétny bod naviazaný na M —
+nie zopakovanie pôvodného, nie druhá featura].
+
+[CTA z rotácie guide §7 — nie tá istá v každom maile dňa.]
+
+Pekný deň,
+Martin Saraka
+Appinara s.r.o. | appinara.sk | +421 917 566 722"
+
+==============================================
+KROK 4: Odošli drafty cez Chrome
+==============================================
+- Over Chrome cez mcp__claude-in-chrome__list_connected_browsers.
+- Ak Chrome nie je pripojený → STOP; drafty zostali v Gmaili (ďalší beh ich
+  vďaka KROKU 3 bodu 2 zaktualizuje, nie zduplikuje).
+- Inak:
+  * Najprv over ÚČET: screenshotom skontroluj, že vpravo hore je prihlásený
+    appinarasolutions@gmail.com — index u/2 sa posunie pri pridaní/odhlásení
+    Google účtu. Ak nesedí, nájdi správny index u/0–u/4; ak sa nedá, STOP.
+  * Otvor https://mail.google.com/mail/u/2/#drafts
+  * Pre každý dnešný FU draft (max 15 / beh):
+    - klikni riadok draftu, scrollni na SPODOK threadu
+    - over SCREENSHOTOM: spodný draft je dnešný FU1 a adresát sedí s Excelom
+    - klikni jeho Odoslať a over screenshotom, že sa odoslal (draft zmizol /
+      toast). BEZ potvrdenia nezapisuj nič — poznámka "Odoslanie neisté {dátum}".
+    - IHNEĎ po potvrdení aktualizuj Excel a ULOŽ SÚBOR:
+      Status: "Odoslané" → "FU1 odoslané" (TERMINÁLNY)
+      Posledný kontakt = today; do Poznámky "FU1 odoslané {dátum}"
+    - počkaj NÁHODNE 60–180 s pred ďalším sendom (dĺžku vždy zmeň)
+
+==============================================
+PRAVIDLÁ (železné)
+==============================================
+- MAX 2 MAILY NA PROSPEKTA CELKOVO (úvodný + FU1). Po FU1 koniec navždy.
+- NIKDY neposielaj FU niekomu, kto odpovedal (reply-check pred každým).
+- ŽIADNE vymyslené čísla ("247 leadov", "−62% času", "+18%", "ROI za 6 týždňov").
+- MAX 15 follow-upov / beh; prioritizuj najstarších.
+- Randomizovaná pauza 60–180 s medzi sendmi, NIKDY menej než 60 s.
+- Pätička vždy čisté "appinara.sk" — žiadny google redirect link.
+- Pri chybe pre prospekta — skip + poznámka, pokračuj.
+- Tón teplý a formálny "Dobrý deň" (nie "Ahoj"), láskavý záver — NIKDY
+  "nebudem otravovať" v sebaznevažujúcom zmysle (§8.5).
+
+==============================================
+VÝSTUP — report (max 200 slov)
+==============================================
+- Počet kandidátov / koľko odpovedalo (skip) / koľko odoslaných + zoznam
+- Počet FU1 odoslaných / novo "Expirované" — POVINNE, aj keď nula
+- Chyby
+- Pipeline counters z Excelu (Odoslané / FU1 / Odpoveď / Klient)

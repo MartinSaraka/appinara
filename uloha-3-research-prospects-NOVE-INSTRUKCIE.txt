@@ -1,0 +1,114 @@
+Nájdi nových slovenských firiem ako potenciálnych klientov pre Appinara s.r.o.
+a priprav PERSONALIZOVANÉ cold outreach drafty v Gmaile. Kvalita > kvantita.
+
+POVINNÉ ČÍTANIE PRED PRÁCOU: Read C:\Users\Martin\Desktop\biznis\
+OUTREACH-QUALITY-GUIDE.md a aplikuj VŠETKY pravidlá. Bez toho nezačínaj.
+
+O FIRME:
+- Appinara s.r.o.: AI integrácie a chatboty, moderné weby, e-commerce, dashboardy
+- Cieľovka: SK SMB, e-shopy, startupy, tradičné biznisy bez webu, zdravotníctvo,
+  gastro, hotely, reality
+- Gmail: appinarasolutions@gmail.com
+  (mcp__b8da53ea-d193-4dc8-8ab6-fcb866f4d051__create_draft je naň napojený)
+- Excel: C:\Users\Martin\Desktop\biznis\Appinara_Prospekti_a_Outreach.xlsx
+  (hárok "Prospekti")
+- Zakladateľ: Martin Saraka, +421 917 566 722
+
+KROK 0 — PRE-FLIGHT + BACKLOG GUARD:
+1. Over zapisovateľnosť Excelu (open + no-op save). Ak zlyhá → STOP.
+2. Záloha Excelu do ...\biznis\backup\ (ako v ostatných úlohách, max 10 záloh).
+3. Spočítaj riadky so Status == "Draft pripravený":
+   - > 50 → STOP celý beh: "Research POZASTAVENÝ — backlog má X draftov,
+     pokračujem, až keď klesne pod 50. Drafty starnú rýchlejšie, než ich
+     stíhame posielať." (Kontext k 04.08.2026: ~145 draftov pri ~22
+     odoslaných týždenne = 6+ týždňov zásoby → úloha sa má sama vypínať.)
+   - 30–50 → obmedz beh na 10 nových prospektov
+   - < 30 → štandardný beh: 20 prospektov
+
+KROK 1 — NAJPRV DOKONČI ODOVZDANÉ: riadky so Status = "Čaká na draft" a
+Odosielateľ = "gmail" (odovzdala ich weby vetva, research je v Poznámkach) —
+over fakty, sprav draft + quality check (kroky 4–6) a Status prepni na
+"Draft pripravený" (ak podklady nestačia → "Treba research").
+AŽ POTOM hľadaj nové — NÁJDI firmy cez WebSearch, orientačné rozdelenie:
+- 5 e-shopov, 4 zdravotnícke, 3 fitness/wellness, 3 gastro, 3 hotely/penzióny,
+  2 reality
+- Kvóty sú ORIENTAČNÉ, nie povinné: ak segment nedáva kvalitných kandidátov,
+  radšej menej firiem s dobrým hookom než naplnená kvóta slabými. Kvalita > kvantita.
+- Pri OBNOVENÍ researchu po pauze kvóty najprv prerozdeľ podľa reálnych reply
+  rates z Excelu (pomer "Odpoveď" k odoslaným per segment) — posilni segmenty,
+  ktoré odpovedajú (napr. zdravotníctvo, ak to dáta potvrdia), utlm tie, čo mlčia.
+- Pre každú: meno, web, kontaktný email NÁJDENÝ NA ICH WEBE (kontakt stránka /
+  pätička) — žiadne hádanie "info@doména". Bez overeného emailu firmu vynechaj.
+
+KROK 2 — KONTROLA DUPLICÍT (normalizovaná):
+Načítaj Excel. Pre porovnanie normalizuj: doménu bez http(s)://, bez www.,
+bez koncovej lomky, lowercase; názov firmy lowercase bez s.r.o./a.s.
+Duplicita = zhoda normalizovanej domény (D), názvu (C) ALEBO emailu (E)
+s existujúcim riadkom → vylúč.
+
+KROK 3 — RESEARCH PRE KAŽDÚ FIRMU (povinné, ~5-10 min):
+- WebFetch homepage + 1 podstránka (About / Služby / Cenník / Kontakt)
+- WebSearch "[Firma] recenzie" alebo "[Firma] Google reviews" — 2-3 reviews
+- Poznač si: čo KONKRÉTNE predávajú/poskytujú; tón komunikácie (formálny /
+  kamarátsky); aký rezervačný/komunikačný kanál používajú; aspoň 1 reálny pain
+  point z recenzií alebo webu; či už majú chat widget / bot (ak áno → SKIP,
+  nie je naša cieľovka).
+- Ak z webu nevyťažíš ŽIADEN konkrétny detail → draft nevytváraj, pridaj
+  prospekta do Excelu so statusom "Treba research" (jednotný status — "Treba
+  lepší research" sa už NEPOUŽÍVA).
+- Ak z researchu vychádza, že firme treba hlavne WEB alebo APKU (Ponuka 3
+  z guide §3) → draft z gmailu NEROB: pridaj riadok s Odosielateľ (O) =
+  "appinara.sk", Status = "Čaká na draft" a CELÝM researchom v Poznámkach.
+  Weby research takéto riadky spracúva prednostne a draft dokončí — vďaka
+  riadku v Exceli firmu nikto neosloví dvakrát.
+
+KROK 4 — DRAFT podľa štruktúry z guide (§4 štruktúra mailu), max 120-160 slov:
+- Subject: konkrétny, o ICH biznise — NIE o nás (§5 vzory predmetov; bez slov
+  "AI" a "chatbot", pokým to nie je ich vlastné slovo)
+- Body (tón §8.5 — najprv ocenenie, potom medzera ako škoda, nie chyba):
+  otvor KONKRÉTNYM ocenením toho, čo robia dobre (postreh, nie lichôtka
+  "krásny produkt"), až potom medzera podaná ako príležitosť · 1 veta kto som
+  a čo robím · 1-2 vety JEDEN konkrétny nápad naviazaný na postreh (nie
+  odrážky 3 features) · 1 veta sociálny dôkaz BEZ
+  vymyslených čísel (§6 social proof) · 1 veta jasná CTA (rotácia §7) · 1 krátka láskavá
+  opt-out veta (napr. "A ak vám takéto maily nesedia, stačí krátke nie a už
+  sa neozvem." — finálne znenie zladiť s tónom guide §8.5)
+- Podpis: Martin Saraka, Appinara s.r.o., appinara.sk, +421 917 566 722
+
+KROK 5 — QUALITY CHECK pred uložením: 7 otázok z guide §9 (POZOR: staré prompty
+odkazovali "5 otázok, sekcia 6" — sekcia 6 je social proof, quality check je §9
+a má SEDEM otázok vrátane diagnostiky ponuky §3 a tepla §8.5).
+- Dal by sa mail poslať komukoľvek inému v segmente? → prepíš.
+- Je tam vymyslené číslo? → odstráň.
+- Neprejde všetkých 7? → draft NEVYTVOR, status "Treba research".
+
+KROK 6 — create_draft cez mcp__b8da53ea-d193-4dc8-8ab6-fcb866f4d051__create_draft.
+
+KROK 7 — Zapíš do Excelu a ULOŽ PO KAŽDOM RIADKU (nie na konci behu):
+- # (auto-increment), Segment, Firma, Web, Email, Telefón, Lokácia
+- Príležitosť (H; 04.08.2026 premenované z "Príležitosť pre AI") = 1-veta
+  zhrnutie nápadu z draftu
+- Pitch angle = použitý guide pattern
+- Odosielateľ (stĺpec O) = "gmail" ← NEVYNECHAJ (bez toho vetvy nevedia,
+  koho riadok je čí)
+- Priorita: Vysoká (silný hook) / Stredná / Nízka
+- Status = "Draft pripravený" (prešiel quality check) / "Treba research" (nie)
+- Poznámky = 2-3 vety s konkrétnymi faktami z researchu (čo predávajú, tón,
+  pain point) — KĽÚČOVÉ pre follow-upy
+
+ZÁKAZY (železné):
+- Žiadne vymyslené čísla ("+12%", "+18%", "−40%", "ROI za 6 týždňov")
+- Žiadne nedoložené detaily (kapacita, počet pobočiek, jazyky)
+- Žiadne klišé otvorenia ("Pri pohľade na X mi napadlo...", "Sledujem X — super
+  traction...")
+- Žiadne odrážky s 3 features
+- Žiadne voľné formulácie ("krásny produkt", "aktívna komunita") bez dôkazu
+- Veľké korporácie (Alza, Mall, Tesco, Lidl, FAnn, Notino) — skip
+- Salóny — skip (project instruction)
+- Čeština — skip, používame slovenčinu
+
+VÝSTUP — report (max 200 slov):
+- Nájdených / s draftom / "Treba research" + rozdelenie podľa segmentov
+- Vylúčení: duplicity / už majú chatbot / bez overeného emailu
+- 1-2 príklady silných hookov (pre learning)
+- Pipeline: počet "Draft pripravený" (+ či zafungoval backlog guard)

@@ -1,0 +1,77 @@
+Odošli cold outreach maily pre Appinara s.r.o. z NOVEJ schránky martin@appinara.sk
+cez Chrome browser automation.
+
+GMAIL ÚČET: martin@appinara.sk (Google Workspace, Chrome u/3 — overené 04.08.2026)
+EXCEL: C:\Users\Martin\Desktop\biznis\Appinara_Prospekti_a_Outreach.xlsx (hárok "Prospekti")
+
+═══ WARMUP LIMIT — NAJDÔLEŽITEJŠIE PRAVIDLO ═══
+Táto schránka je nová a nemá históriu. Prekročenie limitu ju spáli.
+Pozri dnešný dátum a použi zodpovedajúci limit:
+
+  do 07.08.2026     → 0 mailov. Ukonči s hláškou "warmup — ručná fáza".
+  10.–14.08.2026    → max 5
+  17.–21.08.2026    → max 10
+  24.–28.08.2026    → max 20
+  od 31.08.2026     → max 30
+
+Limit NIKDY neprekroč, ani keď je v pipeline viac draftov.
+
+POSTUP:
+0. PRE-FLIGHT (pred akýmkoľvek odoslaním):
+   - over zapisovateľnosť Excelu (openpyxl open + no-op save; ak zlyhá — súbor
+     otvorený/zamknutý — STOP, nič neposielaj: mail bez zápisu = duplicita zajtra)
+   - sprav zálohu do C:\Users\Martin\Desktop\biznis\backup\ (drž max 10 záloh)
+   - nikdy nebež súčasne s inou outreach úlohou (zdieľaný Excel a Chrome)
+
+1. Načítaj Excel cez openpyxl. Vyber prospektov kde SÚČASNE platí:
+   - Status (K) = "Draft pripravený"
+   - Odosielateľ (O) = "appinara.sk"
+   - Email (E) je validná adresa (obsahuje @, nie je placeholder)
+   Zoraď: Priorita Vysoká → Stredná → Nízka.
+   DNEŠNÝ STROP = warmup limit − dnešná spotreba schránky. Spotreba = počet
+   riadkov, kde Odosielateľ = "appinara.sk" A Posledný kontakt = dnešný dátum
+   A Status je "Odoslané" alebo "FU1 odoslané" (maily, ktoré dnes už odišli —
+   TASK A aj TASK B dokopy; chráni aj pred dvojitým behom v jeden deň).
+   POZOR: riadky so Status "Odpoveď" do spotreby NEPATRIA — tým L = dnes
+   nastavil reply-check, mail neodišiel. Ak strop ≤ 0 → ukonči bez odoslania.
+
+2. Over Chrome cez list_connected_browsers. Ak nie je pripojený — STOP a oznám to.
+
+3. Otvor https://mail.google.com/mail/u/3/#drafts (u/3 = martin@appinara.sk).
+   POZOR: index je len prvý tip — VŽDY over screenshotom, že vpravo hore je
+   martin@appinara.sk. Ak by si sa ocitol v appinarasolutions@gmail.com (u/2),
+   OKAMŽITE STOP — poslal by si maily z nesprávnej adresy.
+
+4. Pre každý prospekt:
+   - vyhľadaj draft podľa PRÍJEMCU (hľadanie "in:drafts to:[email]"), nie podľa
+     mena firmy — mená sa pletú, adresa nie
+   - ak sa draft nenašiel (zmazaný, alebo ho research ešte nevytvoril) →
+     do Poznámok "Draft nenájdený {dátum}", ulož Excel, preskoč prospekta
+   - otvor ho a SKONTROLUJ screenshotom: adresát == email z Excelu, telo nie je
+     prázdne, podpis je "Martin Saraka | Appinara s.r.o. | appinara.sk"
+   - klikni Odoslať
+   - over, že sa zobrazila hláška o odoslaní — BEZ nej nezapisuj "Odoslané",
+     len poznámku "Odoslanie neisté {dátum}" a preskoč
+   - počkaj RANDOMIZOVANE 60–180 sekúnd pred ďalším (nie fixných 90)
+
+5. IHNEĎ po každom úspešnom odoslaní zapíš do Excelu A ULOŽ SÚBOR (nie na konci
+   behu — pri páde by hrozili duplicity):
+   - Status = "Odoslané"
+   - Posledný kontakt (L) = dnešný dátum DD.MM.YYYY
+   - Pôvodné odoslané (N) = dnešný dátum DD.MM.YYYY, AK je N prázdne.
+     ⚠️ POVINNÉ — TASK B vyberá kandidátov na FU podľa N; bez N prospekt nikdy
+     nedostane follow-up a ticho prepadne z pipeline.
+
+ŽELEZNÉ PRAVIDLÁ:
+- Warmup limit sa neprekračuje za žiadnych okolností
+- Prospekty s Odosielateľ ≠ "appinara.sk" NEPOSIELAJ — patria druhej vetve
+- Prospekty so statusom "Odoslané" preskoč (žiadne duplicity)
+- Neplatné adresy preskoč a zapíš Status = "Email chýba"
+- Pri chybe odoslania preskoč daný mail a pokračuj ďalším
+- Ak Chrome stratí spojenie — STOP a oznám, koľko si stihol
+
+VÝSTUP (max 150 slov):
+- Aký warmup limit dnes platil a koľko si reálne poslal
+- Komu (firma + email)
+- Chyby, ak boli
+- Koľko "Draft pripravený" s Odosielateľ = "appinara.sk" ešte zostáva
