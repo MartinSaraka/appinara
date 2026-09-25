@@ -51,7 +51,7 @@
 const faqs = [
   {
     q: 'Koľko stojí nový web?',
-    a: 'Závisí od rozsahu. Jednoduchšie weby začínajú v stovkách eur, e-shopy a aplikácie naceňujeme individuálne. Po nezáväznej konzultácii dostanete do 2–3 dní presnú ponuku — a rozhodujete sa až potom.'
+    a: 'Web pre živnostníka začína od 490 €, firemný web s AI asistentom od 1 490 € a e-shop od 1 290 €, k tomu mesačná správa od 19 €. Všetky balíky nájdete v sekcii Balíky vyššie. Presnú sumu potvrdíme po krátkom hovore a rozhodujete sa až potom.'
   },
   {
     q: 'Ako dlho trvá, kým bude web hotový?',
