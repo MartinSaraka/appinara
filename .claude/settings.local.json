@@ -44,6 +44,7 @@
       "Bash(wmic process *)",
       "Bash(tasklist *)",
       "PowerShell(Get-Process *)"
-    ]
+    ],
+    "defaultMode": "bypassPermissions"
   }
 }
