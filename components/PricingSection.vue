@@ -104,8 +104,8 @@ const plans: Plan[] = [
   {
     name: 'Štart',
     for: 'Pre živnostníkov a malé prevádzky, ktoré potrebujú byť dohľadateľné.',
-    setup: '800 €',
-    monthly: '49 €',
+    setup: '490 €',
+    monthly: '19 €',
     items: [
       'Jednostránkový web, mobil aj desktop',
       'Kontaktný alebo rezervačný formulár',
@@ -117,28 +117,28 @@ const plans: Plan[] = [
   {
     name: 'Biznis',
     for: 'Pre firmy, ktoré chcú, aby web prinášal dopyty a šetril čas.',
-    setup: '2 200 €',
-    monthly: '149 €',
+    setup: '1 490 €',
+    monthly: '59 €',
     featured: true,
     items: [
       'Viacstránkový web s úpravou obsahu',
       'AI asistent, ktorý odpovedá zákazníkom 24/7',
       'Online objednávanie alebo rezervácie',
       'Meranie návštevnosti a dopytov',
-      '2 hodiny úprav mesačne v cene'
+      '1 hodina úprav mesačne v cene'
     ]
   },
   {
     name: 'Rast',
     for: 'Pre firmy, ktoré chcú automatizovať procesy a prepojiť systémy.',
-    setup: '5 500 €',
-    monthly: '290 €',
+    setup: '3 490 €',
+    monthly: '149 €',
     items: [
       'Web alebo aplikácia na mieru',
       'Integrácie (platby, CRM, sklad, kalendár)',
       'Automatizácia opakovanej práce',
       'Prioritná podpora a mesačný report',
-      '5 hodín vývoja mesačne v cene'
+      '3 hodiny vývoja mesačne v cene'
     ]
   }
 ]
