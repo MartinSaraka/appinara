@@ -1,7 +1,17 @@
 <template>
-  <section id="baliky" class="relative py-20 md:py-32 dark:bg-slate-950 bg-white">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-12 md:mb-20">
+  <!-- Balíky — vizuálne súrodenec sekcie Služby: blueprint mriežka, index v rohu,
+       štítok v rámčeku, fialové fajky. Nič nové do dizajnového systému nepridáva. -->
+  <section
+    id="baliky"
+    class="relative py-20 md:py-32 overflow-x-clip dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 bg-gradient-to-b from-gray-50 via-white to-gray-50"
+  >
+    <div class="hidden lg:block absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-24 left-[-12%] w-[520px] h-[520px] rounded-full soft-orb"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative">
+      <!-- Header -->
+      <div class="text-center mb-10 md:mb-14">
         <p v-motion-reveal class="eyebrow mb-4">05 · Balíky</p>
         <h2
           v-motion-reveal
@@ -13,78 +23,152 @@
         <p
           v-motion-reveal
           :delay="120"
-          class="text-xl text-gray-700 dark:text-slate-300 max-w-2xl mx-auto"
+          class="text-xl text-gray-700 dark:text-slate-400 max-w-2xl mx-auto"
         >
-          Jednorazová cena za spustenie a mesačná správa, aby web fungoval aj po roku. Presnú sumu potvrdíme po krátkom hovore.
+          Jednorazová cena za spustenie a mesačná správa, aby všetko fungovalo aj po roku. Presnú sumu potvrdíme po krátkom hovore.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto items-stretch">
+      <!-- Kategórie -->
+      <div v-motion-reveal :delay="160" class="flex justify-center mb-10 md:mb-14">
         <div
-          v-for="(plan, index) in plans"
-          :key="plan.name"
-          v-motion-reveal-scale
-          :delay="index * 100"
-          class="relative"
+          role="tablist"
+          aria-label="Kategórie balíkov"
+          class="pricing-tabs inline-flex max-w-full overflow-x-auto gap-1 p-1 rounded-full surface"
         >
-          <div
-            class="relative surface rounded-2xl p-7 md:p-9 h-full flex flex-col"
-            :class="plan.featured ? 'border-primary-500/60 dark:border-primary-400/60 ring-1 ring-primary-500/30' : ''"
+          <button
+            v-for="(cat, i) in categories"
+            :id="`tab-${cat.id}`"
+            :key="cat.id"
+            role="tab"
+            type="button"
+            :aria-selected="active === i"
+            :aria-controls="`panel-${cat.id}`"
+            :tabindex="active === i ? 0 : -1"
+            class="whitespace-nowrap rounded-full px-4 md:px-6 py-2.5 text-sm font-semibold transition-colors duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-400/50"
+            :class="active === i
+              ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/30'
+              : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white'"
+            @click="active = i"
+            @keydown.right.prevent="move(1)"
+            @keydown.left.prevent="move(-1)"
           >
-            <span
-              v-if="plan.featured"
-              class="absolute -top-3 left-7 rounded-full bg-gradient-to-r from-primary-500 to-violet-500 px-3 py-1 text-xs font-semibold text-white"
-            >
-              Najčastejšia voľba
-            </span>
-
-            <h3 class="text-2xl font-display font-bold mb-2 dark:text-white text-gray-900">
-              {{ plan.name }}
-            </h3>
-            <p class="text-gray-700 dark:text-slate-400 mb-6 leading-relaxed">
-              {{ plan.for }}
-            </p>
-
-            <div class="mb-1">
-              <span class="text-sm text-gray-600 dark:text-slate-400">od </span>
-              <span class="text-4xl font-display font-bold dark:text-white text-gray-900">{{ plan.setup }}</span>
-              <span class="text-gray-600 dark:text-slate-400"> jednorazovo</span>
-            </div>
-            <p class="mb-7 text-gray-700 dark:text-slate-300">
-              + <strong class="dark:text-white text-gray-900">{{ plan.monthly }}</strong> mesačne za správu
-            </p>
-
-            <ul class="space-y-3 mb-8 flex-1">
-              <li
-                v-for="item in plan.items"
-                :key="item"
-                class="flex gap-3 text-gray-700 dark:text-slate-300"
-              >
-                <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-br from-primary-500 to-violet-500" aria-hidden="true" />
-                <span>{{ item }}</span>
-              </li>
-            </ul>
-
-            <a
-              href="#contact"
-              :class="plan.featured ? 'btn-primary' : 'btn-secondary'"
-              class="text-center w-full"
-            >
-              Chcem {{ plan.name }}
-            </a>
-          </div>
+            {{ cat.label }}
+          </button>
         </div>
       </div>
 
-      <div class="max-w-3xl mx-auto mt-12 md:mt-16 text-center">
-        <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
-          <strong class="dark:text-white text-gray-900">Čo je v mesačnej správe:</strong>
-          hosting, SSL a zálohy, bezpečnostné aktualizácie, drobné úpravy textov a fotiek, mesačný prehľad návštevnosti a dopytov.
-          Správu môžete zrušiť s mesačnou výpovednou lehotou. Web aj dáta zostávajú vaše.
-        </p>
-        <p class="mt-4 text-sm text-gray-600 dark:text-slate-400">
-          Ceny sú bez DPH. Ak potrebujete niečo mimo balíkov, napíšte, pripravíme ponuku na mieru.
-        </p>
+      <!-- Karty -->
+      <Transition name="plans" mode="out-in">
+        <div
+          :id="`panel-${current.id}`"
+          :key="current.id"
+          role="tabpanel"
+          :aria-labelledby="`tab-${current.id}`"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch"
+        >
+          <article
+            v-for="(plan, index) in current.plans"
+            :key="plan.name"
+            class="plan-card surface flex flex-col overflow-hidden"
+            :class="plan.featured ? 'is-featured' : ''"
+          >
+            <!-- Blueprint hlavička s cenou -->
+            <div class="plan-visual">
+              <span class="plan-index">0{{ index + 1 }}</span>
+              <span v-if="plan.featured" class="plan-flag">Najčastejšia voľba</span>
+
+              <div class="plan-body relative z-[2] px-7 md:px-8">
+                <h3 class="text-2xl font-display font-bold dark:text-white text-gray-900 mb-1.5">
+                  {{ plan.name }}
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-slate-400 leading-relaxed min-h-[2.75rem]">
+                  {{ plan.for }}
+                </p>
+
+                <div class="mt-6 flex items-baseline gap-2 flex-wrap">
+                  <span v-if="plan.from" class="text-sm font-semibold text-gray-500 dark:text-slate-500">od</span>
+                  <span class="text-4xl md:text-5xl font-display font-bold tabular-nums dark:text-white text-gray-900">
+                    {{ plan.price }}
+                  </span>
+                  <span class="text-sm text-gray-500 dark:text-slate-500">{{ plan.priceNote }}</span>
+                </div>
+                <p v-if="plan.monthly" class="mt-2 text-sm text-gray-700 dark:text-slate-300">
+                  + <strong class="accent-text font-bold">{{ plan.monthly }}</strong> mesačne za správu
+                </p>
+              </div>
+
+              <span class="plan-caption">{{ plan.caption }}</span>
+            </div>
+
+            <!-- Obsah -->
+            <div class="p-7 md:p-8 flex flex-col flex-1">
+              <ul class="space-y-2.5 mb-8 flex-1">
+                <li
+                  v-for="item in plan.items"
+                  :key="item"
+                  class="flex items-start gap-2 dark:text-slate-300 text-gray-700 text-sm"
+                >
+                  <svg class="w-5 h-5 dark:text-primary-400 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+
+              <a
+                href="#contact"
+                :class="plan.featured ? 'btn-primary' : 'btn-secondary'"
+                class="text-center w-full !py-3.5"
+              >
+                Chcem {{ plan.name }}
+              </a>
+            </div>
+          </article>
+        </div>
+      </Transition>
+
+      <!-- Čo je v správe -->
+      <div class="max-w-6xl mx-auto mt-14 md:mt-20">
+        <div class="grid lg:grid-cols-[.9fr_1.1fr] surface overflow-hidden plan-note">
+          <div class="plan-visual flex items-center">
+            <span class="plan-index">+</span>
+            <div class="relative z-[2] p-8 md:p-10">
+              <h3 class="text-2xl md:text-3xl font-display font-bold dark:text-white text-gray-900 mb-3">
+                Čo je v mesačnej správe
+              </h3>
+              <p class="text-gray-700 dark:text-slate-400 leading-relaxed">
+                Web sa nekončí spustením. Správa znamená, že sa oň niekto stará, kým vy robíte svoju prácu.
+              </p>
+            </div>
+            <span class="plan-caption">Prevádzka / Pokoj</span>
+          </div>
+          <div class="p-8 md:p-10">
+            <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+              <li
+                v-for="item in careItems"
+                :key="item"
+                class="flex items-start gap-2 dark:text-slate-300 text-gray-700 text-sm"
+              >
+                <svg class="w-5 h-5 dark:text-primary-400 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+            <p class="mt-7 text-sm text-gray-500 dark:text-slate-500">
+              Správu môžete zrušiť s mesačnou výpovednou lehotou. Web, doména aj dáta zostávajú vaše. Ceny sú bez DPH.
+            </p>
+          </div>
+        </div>
+
+        <!-- Nerozhodnutý? -->
+        <div class="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <p class="text-gray-700 dark:text-slate-300">
+            Neviete, ktorý balík sedí? Za 20 minút vám povieme, čo naozaj potrebujete, a čo nie.
+          </p>
+          <a href="#contact" class="btn-primary !py-3 !px-6 whitespace-nowrap">Konzultácia zdarma</a>
+        </div>
       </div>
     </div>
   </section>
@@ -94,52 +178,373 @@
 interface Plan {
   name: string
   for: string
-  setup: string
-  monthly: string
+  price: string
+  from?: boolean
+  priceNote: string
+  monthly?: string
+  caption: string
   featured?: boolean
   items: string[]
 }
 
-const plans: Plan[] = [
+interface Category {
+  id: string
+  label: string
+  plans: Plan[]
+}
+
+const categories: Category[] = [
   {
-    name: 'Štart',
-    for: 'Pre živnostníkov a malé prevádzky, ktoré potrebujú byť dohľadateľné.',
-    setup: '490 €',
-    monthly: '19 €',
-    items: [
-      'Jednostránkový web, mobil aj desktop',
-      'Kontaktný alebo rezervačný formulár',
-      'Napojenie na Google profil a mapu',
-      'Základné SEO a rýchle načítanie',
-      'Spustenie do 2 týždňov'
+    id: 'weby',
+    label: 'Weby',
+    plans: [
+      {
+        name: 'Štart',
+        for: 'Pre živnostníkov a malé prevádzky, ktoré potrebujú byť dohľadateľné.',
+        price: '490 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '19 €',
+        caption: 'Web / Vizitka',
+        items: [
+          'Jednostránkový web, mobil aj desktop',
+          'Kontaktný alebo rezervačný formulár',
+          'Napojenie na Google profil a mapu',
+          'Základné SEO a rýchle načítanie',
+          'Spustenie do 2 týždňov'
+        ]
+      },
+      {
+        name: 'Biznis',
+        for: 'Pre firmy, ktoré chcú, aby web prinášal dopyty a šetril čas.',
+        price: '1 490 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '59 €',
+        caption: 'Web / Konverzia',
+        featured: true,
+        items: [
+          'Viacstránkový web s úpravou obsahu',
+          'AI asistent, ktorý odpovedá zákazníkom 24/7',
+          'Online objednávanie alebo rezervácie',
+          'Meranie návštevnosti a dopytov',
+          '1 hodina úprav mesačne v cene'
+        ]
+      },
+      {
+        name: 'Rast',
+        for: 'Pre firmy, ktoré chcú automatizovať procesy a prepojiť systémy.',
+        price: '3 490 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '149 €',
+        caption: 'Web / Na mieru',
+        items: [
+          'Web alebo aplikácia na mieru',
+          'Integrácie (platby, CRM, sklad, kalendár)',
+          'Automatizácia opakovanej práce',
+          'Prioritná podpora a mesačný report',
+          '3 hodiny vývoja mesačne v cene'
+        ]
+      }
     ]
   },
   {
-    name: 'Biznis',
-    for: 'Pre firmy, ktoré chcú, aby web prinášal dopyty a šetril čas.',
-    setup: '1 490 €',
-    monthly: '59 €',
-    featured: true,
-    items: [
-      'Viacstránkový web s úpravou obsahu',
-      'AI asistent, ktorý odpovedá zákazníkom 24/7',
-      'Online objednávanie alebo rezervácie',
-      'Meranie návštevnosti a dopytov',
-      '1 hodina úprav mesačne v cene'
+    id: 'eshop',
+    label: 'E-shopy',
+    plans: [
+      {
+        name: 'E-shop Štart',
+        for: 'Pre prvý online predaj s menším sortimentom.',
+        price: '1 290 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '39 €',
+        caption: 'Predaj / Prvé objednávky',
+        items: [
+          'Do 50 produktov s variantmi',
+          'Platba kartou a na dobierku',
+          'Doprava cez Packetu alebo kuriéra',
+          'Automatické e-maily k objednávke',
+          'Obchodné podmienky a GDPR pripravené'
+        ]
+      },
+      {
+        name: 'E-shop Biznis',
+        for: 'Pre obchody, ktoré chcú predávať viac bez viac práce.',
+        price: '2 490 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '79 €',
+        caption: 'Predaj / Automatizácia',
+        featured: true,
+        items: [
+          'Neobmedzený počet produktov',
+          'Faktúry a sklad bez ručného prepisovania',
+          'AI odporúčania a opustené košíky',
+          'Zľavové kódy a zákaznícke účty',
+          '2 hodiny úprav mesačne v cene'
+        ]
+      },
+      {
+        name: 'E-shop Pro',
+        for: 'Pre obchody s vlastnými procesmi, skladom a viacerými kanálmi.',
+        price: '4 990 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '149 €',
+        caption: 'Predaj / Škálovanie',
+        items: [
+          'Prepojenie s účtovníctvom a ERP',
+          'Predaj aj na marketplacoch',
+          'Vlastné pravidlá cien a dopravy',
+          'Dashboard tržieb a marže',
+          'Prioritná podpora a mesačný report'
+        ]
+      }
     ]
   },
   {
-    name: 'Rast',
-    for: 'Pre firmy, ktoré chcú automatizovať procesy a prepojiť systémy.',
-    setup: '3 490 €',
-    monthly: '149 €',
-    items: [
-      'Web alebo aplikácia na mieru',
-      'Integrácie (platby, CRM, sklad, kalendár)',
-      'Automatizácia opakovanej práce',
-      'Prioritná podpora a mesačný report',
-      '3 hodiny vývoja mesačne v cene'
+    id: 'ai',
+    label: 'AI & automatizácia',
+    plans: [
+      {
+        name: 'AI chatbot',
+        for: 'Doplnok k vášmu existujúcemu webu. Odpovedá, kým vy spíte.',
+        price: '390 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '29 €',
+        caption: 'AI / 24—7',
+        items: [
+          'Naučený na vaše služby, ceny a FAQ',
+          'Funguje na akomkoľvek webe',
+          'Posiela dopyty rovno na váš e-mail',
+          'Po slovensky, česky aj anglicky',
+          'Mesačný prehľad otázok zákazníkov'
+        ]
+      },
+      {
+        name: 'Automatizácia',
+        for: 'Keď sa v tíme opakovane prepisujú rovnaké údaje.',
+        price: '690 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '39 €',
+        caption: 'Procesy / Čas',
+        featured: true,
+        items: [
+          'Formuláre a e-maily rovno do tabuľky či CRM',
+          'Automatické faktúry a pripomienky',
+          'Spracovanie objednávok a dokumentov',
+          'Upozornenia na to, čo treba riešiť',
+          'Úspora hodín mesačne, ktorú viete zmerať'
+        ]
+      },
+      {
+        name: 'AI pre tím',
+        for: 'Interný asistent, ktorý pozná vaše dokumenty a postupy.',
+        price: '1 290 €',
+        from: true,
+        priceNote: 'jednorazovo',
+        monthly: '79 €',
+        caption: 'AI / Firemné znalosti',
+        items: [
+          'Odpovedá z vašich smerníc a dokumentov',
+          'Pomoc pri e-mailoch, ponukách a reportoch',
+          'Prístup len pre váš tím',
+          'Dáta zostávajú vaše, bez tréningu modelov',
+          'Zaškolenie tímu v cene'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'sprava',
+    label: 'Správa webu',
+    plans: [
+      {
+        name: 'Údržba',
+        for: 'Pre existujúci web, ktorý má bežať bez starostí.',
+        price: '29 €',
+        priceNote: 'mesačne',
+        caption: 'Prevádzka / Istota',
+        items: [
+          'Hosting, SSL a denné zálohy',
+          'Bezpečnostné aktualizácie',
+          'Monitoring dostupnosti webu',
+          'Oprava chýb do 48 hodín',
+          'Aj pre weby, ktoré sme nerobili my'
+        ]
+      },
+      {
+        name: 'Správa+',
+        for: 'Keď chcete web meniť bez toho, aby ste sa to učili.',
+        price: '79 €',
+        priceNote: 'mesačne',
+        caption: 'Prevádzka / Úpravy',
+        featured: true,
+        items: [
+          'Všetko z balíka Údržba',
+          '2 hodiny úprav mesačne v cene',
+          'Nové texty, fotky, akcie a cenníky',
+          'Mesačný prehľad návštevnosti a dopytov',
+          'Reakcia do 24 hodín'
+        ]
+      },
+      {
+        name: 'Rastový paušál',
+        for: 'Pre firmy, ktoré chcú, aby ich web každý mesiac rástol.',
+        price: '199 €',
+        priceNote: 'mesačne',
+        caption: 'Prevádzka / Rast',
+        items: [
+          'Všetko z balíka Správa+',
+          '2 nové články mesačne pre Google',
+          'SEO a optimalizácia konverzie',
+          'Mesačný hovor nad číslami',
+          '4 hodiny práce mesačne v cene'
+        ]
+      }
     ]
   }
 ]
+
+const careItems = [
+  'Hosting, SSL a denné zálohy',
+  'Bezpečnostné aktualizácie',
+  'Drobné úpravy textov a fotiek',
+  'Monitoring, že web beží',
+  'Mesačný prehľad návštevnosti a dopytov',
+  'Jeden kontakt, ktorý web pozná'
+]
+
+const active = ref(0)
+const current = computed(() => categories[active.value])
+
+function move(dir: number) {
+  active.value = (active.value + dir + categories.length) % categories.length
+  nextTick(() => {
+    document.getElementById(`tab-${categories[active.value].id}`)?.focus()
+  })
+}
 </script>
+
+<style scoped>
+.plan-card,
+.plan-note {
+  --visual-fg: #1e293b;
+  --visual-bg: #ffffff;
+  --visual-muted: #f8fafc;
+  --visual-rule: rgba(99, 102, 241, .18);
+  --visual-rule-soft: rgba(15, 23, 42, .13);
+  --visual-accent: #6366f1;
+  box-shadow:
+    0 -10px 32px -18px rgba(15, 23, 42, 0.18),
+    0 28px 56px -28px rgba(15, 23, 42, 0.26);
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s ease, border-color .3s ease;
+}
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 -10px 32px -18px rgba(15, 23, 42, 0.2),
+    0 36px 64px -28px rgba(79, 70, 229, 0.35);
+}
+.plan-card.is-featured {
+  border-color: var(--visual-accent);
+  box-shadow:
+    0 0 0 1px var(--visual-accent),
+    0 36px 70px -30px rgba(79, 70, 229, 0.45);
+}
+
+/* Blueprint hlavička — rovnaká mriežka ako ServiceVisual */
+.plan-visual {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(var(--visual-rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--visual-rule) 1px, transparent 1px),
+    var(--visual-muted);
+  background-size: 28px 28px;
+  border-bottom: 1px solid var(--visual-rule-soft);
+}
+.plan-note .plan-visual {
+  border-bottom: 0;
+  border-right: 1px solid var(--visual-rule-soft);
+  min-height: 220px;
+}
+.plan-visual::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--visual-rule-soft);
+  pointer-events: none;
+}
+.plan-index {
+  position: absolute;
+  top: 17px;
+  right: 20px;
+  z-index: 3;
+  font: 700 11px/1 var(--font-sans, sans-serif);
+  letter-spacing: .12em;
+  color: var(--visual-accent);
+}
+.plan-caption,
+.plan-flag {
+  position: absolute;
+  z-index: 3;
+  padding: 5px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.plan-caption {
+  left: 20px;
+  bottom: 16px;
+  background: var(--visual-bg);
+  border: 1px solid var(--visual-rule-soft);
+  color: var(--visual-fg);
+}
+.plan-flag {
+  left: 20px;
+  top: 14px;
+  background: var(--visual-accent);
+  color: #fff;
+}
+/* Miesto hore pre štítok „Najčastejšia voľba“ a index, dole pre caption */
+.plan-body { padding-top: 3.25rem; padding-bottom: 3.5rem; }
+
+.pricing-tabs { scrollbar-width: none; }
+.pricing-tabs::-webkit-scrollbar { display: none; }
+
+/* Prepnutie kategórie */
+.plans-enter-active,
+.plans-leave-active { transition: opacity .28s ease, transform .28s ease; }
+.plans-enter-from { opacity: 0; transform: translateY(14px); }
+.plans-leave-to { opacity: 0; transform: translateY(-8px); }
+
+@media (max-width: 1023px) {
+  .plan-note .plan-visual { border-right: 0; border-bottom: 1px solid var(--visual-rule-soft); min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan-card,
+  .plans-enter-active,
+  .plans-leave-active { transition: none; }
+  .plan-card:hover { transform: none; }
+}
+</style>
+
+<!-- Dark overrides unscoped — rovnaký dôvod ako v ServiceVisual.vue -->
+<style>
+.dark .plan-card,
+.dark .plan-note {
+  --visual-fg: #e2e8f0;
+  --visual-bg: #0f172a;
+  --visual-muted: #111827;
+  --visual-rule: rgba(129, 140, 248, .12);
+  --visual-rule-soft: rgba(255, 255, 255, .12);
+  --visual-accent: #818cf8;
+}
+</style>
