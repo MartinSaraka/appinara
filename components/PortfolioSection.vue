@@ -37,6 +37,7 @@
           v-motion-reveal-scale
           :delay="index * 130"
           class="group block focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-400/50 rounded-2xl"
+          :class="{ 'lg:col-span-2 lg:w-[calc(50%-2rem)] lg:mx-auto': projects.length % 2 === 1 && index === projects.length - 1 }"
           :aria-label="`Otvoriť projekt: ${project.title}`"
         >
           <DeviceFrame device="browser" :url="project.urlLabel" container-class="transition-transform duration-500 group-hover:-translate-y-2">
@@ -163,6 +164,15 @@ const projects = [
     tags: ['Reálny klient', 'Rezervácie', 'Lokálne SEO', 'Dizajn na mieru']
   },
   {
+    title: 'ELITE MOVE',
+    category: 'Klientsky web · Trenčín',
+    description: 'Web pre privátne tréningové centrum: služby, tím, cenník, kalkulačky a blog. Majiteľ si texty, ceny aj články mení sám cez vlastný administračný panel, bez programátora.',
+    url: 'https://www.elitemove.pro/',
+    urlLabel: 'elitemove.pro',
+    image: '/images/demos/elitemove.webp',
+    tags: ['Reálny klient', 'Administrácia obsahu', 'Blog', 'Dizajn na mieru']
+  },
+  {
     title: 'Dreamtangle',
     category: 'Vlastný AI produkt',
     description: 'AI aplikácia na výklad snov, ktorú sme navrhli a postavili celú — od ilustrovaného dizajnu cez AI integráciu až po viacjazyčnú podporu. Ukážka toho, čo s AI vieme.',
@@ -179,6 +189,15 @@ const projects = [
     urlLabel: 'becometen.com',
     image: '/images/demos/becometen.webp',
     tags: ['AI + MediaPipe', 'Stripe / RevenueCat', 'Capacitor Android', 'Vlastný produkt']
+  },
+  {
+    title: 'MiraSkinLab',
+    category: 'Vlastný AI produkt',
+    description: 'Z deviatich otázok a jednej selfie zostaví osobný plán starostlivosti o pleť a vlasy. Každý krok cituje overenú štúdiu, platba je jednorazová cez Stripe a web beží v angličtine aj slovenčine.',
+    url: 'https://miraskinlab.com/',
+    urlLabel: 'miraskinlab.com',
+    image: '/images/demos/miraskinlab.webp',
+    tags: ['AI analýza', 'Stripe', 'EN / SK', 'Vlastný produkt']
   }
 ]
 
