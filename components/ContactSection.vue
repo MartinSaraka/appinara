@@ -5,7 +5,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <!-- Left Side - Info -->
           <div v-motion-reveal-left>
-            <p class="eyebrow mb-4">06 · Kontakt</p>
+            <p class="eyebrow mb-4">07 · Kontakt</p>
             <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 dark:text-white text-gray-900">
               Poďme rásť
               <span class="accent-text block">spolu</span>

@@ -174,6 +174,7 @@ const navItems = [
   { label: 'Služby', href: '/#services' },
   { label: 'Riešenia', href: '/riesenia' },
   { label: 'Prečo my', href: '/#why-us' },
+  { label: 'Balíky', href: '/#baliky' },
   { label: 'Blog', href: '/blog' },
 ]
 

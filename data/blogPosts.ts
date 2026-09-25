@@ -12,6 +12,26 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'najlepsie-ai-aplikacie-na-tvar-a-plet',
+    title: 'Najlepšie AI aplikácie na tvár a pleť v roku 2026: čo reálne vedia z jednej fotky',
+    excerpt: 'BecomeTen, MiraSkinLab, Umax a YouCam. Čo robia s vašou fotkou, koľko stoja a podľa čoho si vybrať.',
+    category: 'AI aplikácie',
+    readTime: '9 min',
+    date: '25. september 2026',
+    dateIso: '2026-09-25',
+    image: '/images/blog/najlepsie-ai-aplikacie-na-tvar-a-plet.webp'
+  },
+  {
+    slug: 'ako-sme-postavili-tri-ai-aplikacie',
+    title: 'Ako sme postavili tri AI aplikácie: BecomeTen, MiraSkinLab a Dreamtangle',
+    excerpt: 'Hodnotenie tváre, plán starostlivosti o pleť a výklad snov. Rozhodnutia o AI, platbách a súkromí a čo sme sa naučili.',
+    category: 'Prípadová štúdia',
+    readTime: '10 min',
+    date: '25. september 2026',
+    dateIso: '2026-09-25',
+    image: '/images/blog/ako-sme-postavili-tri-ai-aplikacie.webp'
+  },
+  {
     slug: 'preco-nie-je-moj-web-v-google',
     title: 'Prečo môj web nie je v Google a čo s tým viete spraviť',
     excerpt: 'Väčšinou za tým nie je obsah, ale jedna technická vec: robots.txt, noindex, kanonická značka alebo sitemapa, ktorá klame.',

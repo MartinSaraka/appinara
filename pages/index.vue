@@ -24,6 +24,9 @@
     <!-- Why Choose Us Section -->
     <WhyChooseUsSection />
     
+    <!-- Pricing — packages -->
+    <PricingSection />
+
     <!-- FAQ Section -->
     <FaqSection />
 
