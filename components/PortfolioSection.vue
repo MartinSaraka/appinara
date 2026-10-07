@@ -174,8 +174,8 @@ const projects = [
   },
   {
     title: 'Dreamtangle',
-    category: 'AI aplikácia · 7 jazykov',
-    description: 'AI aplikácia na výklad snov, ktorú sme navrhli a postavili celú — od ilustrovaného dizajnu cez AI integráciu až po viacjazyčnú podporu. Ukážka toho, čo s AI vieme.',
+    category: 'Web + aplikácia · 7 jazykov',
+    description: 'Výklad snov pomocou AI: sen napíšete alebo nadiktujete a do pár sekúnd dostanete osobný výklad symbolov a emócií. Ilustrovaný dizajn, slovník s vyše 340 symbolmi a podpora siedmich jazykov.',
     url: 'https://dreamtangle.com/',
     urlLabel: 'dreamtangle.com',
     image: '/images/demos/dreamtangle.webp',
@@ -183,7 +183,7 @@ const projects = [
   },
   {
     title: 'BecomeTen',
-    category: 'AI aplikácia · web + Android',
+    category: 'Web + Android aplikácia',
     description: 'AI hodnotenie tváre z jednej fotky: skóre, rozbor po črtách a realistický odhad, čo sa dá zmeniť bez operácie. Každé odporúčanie cituje štúdiu z PubMed; deväť bezplatných nástrojov beží priamo v prehliadači bez nahrávania fotky.',
     url: 'https://becometen.com/',
     urlLabel: 'becometen.com',
@@ -192,7 +192,7 @@ const projects = [
   },
   {
     title: 'MiraSkinLab',
-    category: 'AI aplikácia · web',
+    category: 'Web + aplikácia · EN / SK',
     description: 'Z deviatich otázok a jednej selfie zostaví osobný plán starostlivosti o pleť a vlasy. Každý krok cituje overenú štúdiu, platba je jednorazová cez Stripe a web beží v angličtine aj slovenčine.',
     url: 'https://miraskinlab.com/',
     urlLabel: 'miraskinlab.com',
