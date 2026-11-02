@@ -1,0 +1,72 @@
+Odošli 10 cold outreach mailov pre Appinara s.r.o. cez Chrome browser automation.
+
+GMAIL ÚČET: appinarasolutions@gmail.com (Chrome account index u/2)
+EXCEL TRACKER: C:\Users\Martin\Desktop\biznis\Appinara_Prospekti_a_Outreach.xlsx (hárok "Prospekti")
+DNES: today = date.today(), dátumy vo formáte DD.MM.YYYY
+
+KROK 0 — PRE-FLIGHT (povinné, PRED akýmkoľvek odoslaním):
+1. Over zapisovateľnosť Excelu: otvor cez openpyxl a ulož (no-op save). Ak zlyhá
+   (súbor otvorený v Exceli / zamknutý) → STOP, NIČ neposielaj, oznám dôvod.
+   Dôvod: mail odoslaný bez zápisu do trackera = duplicitné odoslanie v ďalšom behu.
+2. Záloha: skopíruj Excel do C:\Users\Martin\Desktop\biznis\backup\
+   Appinara_Prospekti_{YYYY-MM-DD_HHMM}.xlsx (ponechaj max 10 najnovších záloh).
+3. Over Chrome cez mcp__claude-in-chrome__list_connected_browsers. Ak nie je
+   pripojený → STOP a oznám užívateľovi.
+4. Over ÚČET, nie index: otvor https://mail.google.com/mail/u/2/ a screenshotom
+   over, že vpravo hore je prihlásený appinarasolutions@gmail.com — index u/2
+   sa posunie vždy, keď sa pridá alebo odhlási Google účet. Ak nesedí, skús
+   u/0–u/4 a nájdi správny; ak sa nedá, STOP.
+5. Táto úloha NIKDY nesmie bežať súčasne s "Appinara followup sequence"
+   (zdieľajú Excel aj Gmail). Ak práve beží, skonči.
+
+KROK 1 — VÝBER 10 PROSPEKTOV:
+Načítaj hárok "Prospekti" cez openpyxl. Kandidát = riadok, kde:
+- Status (K) == "Draft pripravený"
+  (POZOR: výhradne tento status. Follow-upy rieši VÝLUČNE úloha "Appinara
+  followup sequence" — posielať čokoľvek iné odtiaľto by porušilo železné
+  pravidlo max 2 maily na prospekta.)
+- Email (E) je validný (obsahuje @ a doménu, nie placeholder)
+- Odosielateľ (O) == "gmail" (prázdne O ber ako "gmail") — riadky s
+  "appinara.sk" patria weby vetve a z tejto schránky sa NIKDY neposielajú
+Poradie: Priorita (J) Vysoká → Stredná → Nízka; v rámci priority od
+najstaršieho záznamu (najnižšie #) — drafty starnú, staré posielaj prvé.
+POZOR: bunky L/N môžu byť string "DD.MM.YYYY" aj datetime — ošetri oboje.
+
+KROK 2 — ODOSLANIE (pre každého z max 10 prospektov):
+1. Otvor Gmail hľadanie draftu podľa PRÍJEMCU (nie mena firmy):
+   https://mail.google.com/mail/u/2/#search/in%3Adrafts+to%3A{email}
+2. Ak sa draft nenašiel → do Poznámky (M) pridaj "Draft nenájdený {DD.MM.YYYY}",
+   ulož Excel, preskoč prospekta.
+3. Klikni na draft a over SCREENSHOTOM: (a) adresát == email z Excelu,
+   (b) telo mailu nie je prázdne, (c) hook nie je zjavne datovaný (odkaz na
+   sviatok, akciu či sezónu, ktorá už prešla). Ak (a)/(b) nesedí → skip +
+   poznámka do M; pri (c) → skip + poznámka "Draft zastaraný {DD.MM.YYYY}".
+4. Klikni Odoslať a over screenshotom potvrdenie (toast "Správa odoslaná" /
+   draft zmizol zo zoznamu). BEZ potvrdenia NEZAPISUJ "Odoslané" — namiesto
+   toho poznámka "Odoslanie neisté {DD.MM.YYYY}" a skip.
+5. IHNEĎ po potvrdení zapíš do Excelu a ULOŽ SÚBOR (nie až na konci behu):
+   - Status (K) = "Odoslané"
+   - Posledný kontakt (L) = dnešný dátum DD.MM.YYYY
+   - Pôvodné odoslané (N) = dnešný dátum DD.MM.YYYY, IBA ak je N prázdne
+     (existujúci dátum NIKDY neprepisuj).
+     ⚠️ POVINNÉ: follow-up úloha vyberá kandidátov podľa N — bez N prospekt
+     nikdy nedostane follow-up a ticho prepadne z pipeline.
+6. Počkaj NÁHODNE 60–180 sekúnd pred ďalším mailom (6–18× wait 10s, dĺžku
+   pri každom maile zmeň) — randomizovaná pauza pôsobí prirodzenejšie než
+   fixný 90-sekundový metronóm.
+
+PRAVIDLÁ (železné):
+- Max 10 mailov / beh; randomizovaná pauza 60–180 s medzi mailmi, NIKDY menej
+  než 60 s — inak Gmail flagne účet
+- Prospektov so statusom "Odoslané", "FU1 odoslané", "FU2 odoslané",
+  "FU3 odoslané (breakup)", "Odpoveď", "Klient" sa NIKDY nedotýkaj
+- Pri chybe → skip + poznámka do Excelu (stĺpec M), pokračuj ďalším
+- Ak Chrome stratí spojenie → STOP a oznám, koľko mailov si stihol odoslať
+  (Excel je vďaka priebežnému ukladaniu aktuálny)
+
+VÝSTUP NA KONIEC — report (max 150 slov):
+- Koľko mailov odoslaných a komu (firma + email)
+- Chyby a preskočení prospekti s dôvodom
+- Pipeline: počet "Odoslané" celkovo vs zostávajúcich "Draft pripravený"
+
+Kontakt pre podpis: Martin Saraka, Appinara s.r.o., appinara.sk, +421 917 566 722

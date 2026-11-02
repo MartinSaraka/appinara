@@ -1,0 +1,107 @@
+Nájdi 15 slovenských firiem pre Appinara s.r.o., ktorým sedí ponuka MODERNÝ WEB alebo
+APLIKÁCIA, a priprav personalizované cold outreach drafty. Kvalita > kvantita.
+
+POVINNÉ ČÍTANIE PRED PRÁCOU:
+Read C:\Users\Martin\Desktop\biznis\OUTREACH-QUALITY-GUIDE.md a aplikuj VŠETKY pravidlá.
+
+═══ ČÍM SA TÁTO VETVA LÍŠI ═══
+Toto NIE JE vetva o AI a chatbotoch — tá beží zvlášť z gmailu.
+Tu hľadáš firmy, kde je problém na strane WEBU alebo PROCESU:
+
+  - rozbité / "coming soon" / demo stránky na živom webe
+  - rezervácia alebo objednávka len cez telefón alebo mailto
+  - denné menu / cenník / otváracie hodiny prepisované ručne v HTML
+  - web nefunkčný alebo neprehľadný na mobile
+  - e-shop bez košíka, objednávky cez formulár alebo Messenger
+  - opakovaná ručná agenda, ktorá by mala byť aplikácia
+
+Ak firme sedí skôr AI/chatbot ako web — draft NEROB; pridaj riadok s
+Odosielateľ (O) = "gmail", Status = "Čaká na draft" a celým researchom
+v Poznámkach. Gmail research takéto riadky spracúva PREDNOSTNE a draft
+dokončí — a vďaka riadku v Exceli žiadna firma nedostane mail z oboch schránok.
+
+GMAIL ÚČET: martin@appinara.sk
+EXCEL: C:\Users\Martin\Desktop\biznis\Appinara_Prospekti_a_Outreach.xlsx
+
+POSTUP:
+
+0. PRE-FLIGHT + BACKLOG GUARD:
+   - over zapisovateľnosť Excelu (inak STOP) + sprav zálohu do backup\
+   - spočítaj "Draft pripravený" s Odosielateľ = "appinara.sk":
+     > 40 → STOP celý beh (backlog plný, drafty starnú — pri warmup limitoch
+     sa posiela pomaly), 25–40 → obmedz beh na 8 prospektov, < 25 → plný beh 15
+
+1. NAJPRV DOKONČI ODOVZDANÉ: riadky so Status = "Čaká na draft" A
+   Odosielateľ = "appinara.sk" — odovzdala ich gmail vetva, research je
+   v Poznámkach. Over fakty, sprav draft + quality check (kroky 4–6) a Status
+   prepni na "Draft pripravený" (ak podklady nestačia → "Treba research").
+   AŽ POTOM hľadaj nové: NÁJDI 15 SK firiem cez WebSearch. Segmenty voľne —
+   rozhoduje sila nálezu na webe, nie kvóta na segment. Pre každú: meno, web,
+   kontaktný email NÁJDENÝ NA ICH WEBE (kontakt / pätička — žiadne hádanie
+   info@doména), lokácia.
+
+2. DEDUPE: načítaj CELÝ Excel a vylúč duplicity. Porovnávaj NORMALIZOVANE:
+   doména bez http(s)://, bez www., bez koncovej lomky, lowercase; názov firmy
+   lowercase bez s.r.o./a.s. Duplicita = zhoda domény (D), názvu (C) ALEBO
+   emailu (E). Kontroluj proti všetkým riadkom, nielen proti weby/apky vetve.
+
+3. RESEARCH KAŽDEJ FIRMY (povinné):
+   - WebFetch homepage + 1 podstránku (Kontakt / Rezervácia / Cenník / Objednávka)
+   - Otvor web aj v mobilnom rozlíšení, ak sa dá
+   - Hľadaj KONKRÉTNY technický alebo procesný dôkaz — nie dojem.
+     Dobrý nález: "rezervácia vedie na mailto: odkaz", "v HTML ostala poznámka
+     o dovolenke", "objednávkový formulár vracia chybu".
+     Zlý nález: "web by si zaslúžil redesign", "pekné produkty".
+   - Ak nevieš vyťažiť ŽIADNY konkrétny dôkaz → draft NEROB, pridaj riadok
+     so statusom "Treba research" (jednotný status podľa guide §12 — "Treba
+     lepší research" sa už nepoužíva).
+
+4. NAPÍŠ DRAFT (120–160 slov) podľa štruktúry z guide, TÓN PODĽA §8.5 —
+   píšeme ako kolega, čo si všimol fajn vec, NIE ako audítor s nálezom:
+   - Subject: o ICH webe alebo procese, nie o nás. Bez slov "AI", "chatbot", "redesign".
+   - OTVOR OCENENÍM: 1 veta s niečím KONKRÉTNYM, čo robia dobre (poctivé fotky
+     jedál, aktívny blog, rýchle odpovede v recenziách) — postreh, nie lichôtka
+   - až POTOM nález — podaný ako škoda / príležitosť, NIKDY ako chyba:
+     "Máte X spravené poctivo — o to viac je škoda, že rezervácia vedie len na
+     mailto" namiesto "formulár máte rozbitý". Predpokladaj kompetenciu:
+     majiteľ na to nemal čas alebo ruky, nespravil chybu.
+   - 1 veta kto som a čo robím
+   - 1–2 vety JEDEN konkrétny návrh naviazaný na ten nález
+   - 1 veta sociálny dôkaz BEZ vymyslených čísel
+   - 1 veta CTA — rotuj varianty, dva rovnaké za sebou nie
+   - Podpis: Martin Saraka, Appinara s.r.o., appinara.sk, +421 917 566 722
+   - Na konci opt-out veta: "Ak vás podobné maily nezaujímajú, stačí odpísať a viac
+     sa neozvem."
+
+5. QUALITY CHECK — 7 otázok z guide §9 (POZOR: nie "sekcia 6" — tá je social
+   proof; quality check má SEDEM otázok vrátane diagnostiky ponuky a tepla §8.5).
+   Ak by sa mail dal poslať komukoľvek inému v segmente → prepíš.
+   Ak neprejde všetkých 7 → draft NEVYTVOR, len riadok so statusom "Treba research".
+
+6. Vytvor draft v schránke martin@appinara.sk (cez Gmail konektor, ak sa druhý
+   účet podarí pripojiť; inak cez Chrome u/3 — účet over screenshotom).
+
+7. PRIDAJ DO EXCELU (ulož po každom riadku, nie na konci):
+   - # (auto-increment), Segment, Firma, Web, Email, Telefón, Lokácia
+   - Príležitosť (H; 04.08.2026 premenované z "Príležitosť pre AI") =
+     1-veta zhrnutie návrhu
+   - Pitch angle = ktorý pattern z guide
+   - Priorita: Vysoká (silný konkrétny nález) / Stredná / Nízka
+   - Status = "Draft pripravený" alebo "Treba research"
+   - Poznámky = 2-3 vety s faktami z researchu — kľúčové pre follow-up
+   - **Odosielateľ (stĺpec O) = "appinara.sk"**   ← NEVYNECHAJ
+
+ZÁKAZY (železné):
+- Žiadne vymyslené čísla ("+12 %", "−40 %", "ROI za 6 týždňov")
+- Žiadne nedoložené detaily (počet pobočiek, kapacita, obrat)
+- Žiadne klišé otvorenia ("Pri pohľade na váš web mi napadlo...")
+- Žiadne odrážky s tromi features
+- Veľké korporácie (Alza, Mall, Tesco, Lidl, Notino) — skip
+- Salóny — skip (project instruction)
+- Čeština — skip, píšeme po slovensky
+
+VÝSTUP (max 200 slov):
+- Počet nájdených / s draftom / "Treba research" (+ či zafungoval backlog guard)
+- Koľko vylúčených ako duplicita a koľko presunutých do AI vetvy
+- 1–2 príklady najsilnejších nálezov (pre learning)
+- Aktuálne "Draft pripravený" s Odosielateľ = "appinara.sk"

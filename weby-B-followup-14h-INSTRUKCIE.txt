@@ -1,0 +1,71 @@
+Pošli follow-upy z martin@appinara.sk pre Appinara s.r.o.
+
+GMAIL ÚČET: martin@appinara.sk (Chrome u/3 — pred posielaním over screenshotom)
+EXCEL: C:\Users\Martin\Desktop\biznis\Appinara_Prospekti_a_Outreach.xlsx
+
+POVINNÉ ČÍTANIE: C:\Users\Martin\Desktop\biznis\OUTREACH-QUALITY-GUIDE.md
+
+═══ STROP ═══
+MAX 2 maily na prospekta celkovo (úvodný + FU1). Žiadny FU2, žiadny FU3,
+žiadny re-engagement (zrušený 04.08.2026).
+Kto neodpovedal po druhom maile, ide do pokoja.
+Denný limit je SPOLOČNÝ s TASK A — vypočítaš ho v kroku 1 zo spotreby v Exceli.
+
+POSTUP:
+0. PRE-FLIGHT ako v TASK A: zapisovateľnosť Excelu (inak STOP), záloha,
+   žiadny súbeh s inou outreach úlohou.
+
+1. NAJPRV DNEŠNÁ SPOTREBA: spočítaj riadky, kde Odosielateľ = "appinara.sk"
+   A Posledný kontakt = dnešný dátum A Status je "Odoslané" alebo
+   "FU1 odoslané" — maily, ktoré dnes už z tejto schránky odišli (TASK A aj B
+   dokopy; "Odpoveď" riadky sa NEPOČÍTAJÚ, tým L nastavil reply-check).
+   Tvoj dnešný strop = warmup limit − spotreba. Ak ≤ 0 → ukonči bez odoslania.
+
+   Potom načítaj kandidátov: Status = "Odoslané" AND Odosielateľ =
+   "appinara.sk", vek od Pôvodné odoslané (stĺpec N; ak N chýba, použi
+   Posledný kontakt ako fallback a N rovno doplň):
+   - 4–14 dní → FU1 šablóna (guide §11)
+   - > 14 dní → žiadny mail: Status = "Expirované" (TERMINÁLNY), poznámka,
+     ulož, vypíš v reporte (re-engagement zrušený 04.08.2026 — kto vypadol
+     z okna, ostáva na pokoji)
+   Prioritizuj najstarších. POZOR: dátumy môžu byť string "DD.MM.YYYY" aj
+   datetime — ošetri oboje.
+
+2. PRE KAŽDÉHO NAJPRV REPLY-CHECK:
+   - primárne: otvor PÔVODNÉ VLÁKNO — ak obsahuje správu od kohokoľvek iného
+     než nás, prospekt odpovedal
+   - doplnkovo: pri VLASTNEJ doméne prospekta vyhľadaj
+     `from:[doména] newer_than:90d`; pri freemail adrese (gmail.com, azet.sk,
+     zoznam.sk, centrum.sk, outlook.com…) LEN presnú adresu
+     `from:[email] newer_than:90d` — doménový check by pri freemaile označil
+     za "odpoveď" hocijaký mail od hocikoho
+   Ak odpovedal → NEPOSIELAJ, zapíš Status = "Odpoveď", Posledný kontakt =
+   dnes, poznámku "Odpovedal {dátum}", ULOŽ Excel a pokračuj ďalším.
+
+3. Napíš follow-up (max 80 slov), odpoveďou DO PÔVODNÉHO VLÁKNA, podľa FU1
+   šablóny z guide §11:
+   - Formálne "Dobrý deň", tón podľa §8.5 (láskavý záver, žiadne "nebudem otravovať")
+   - Konkrétny fakt zo stĺpca M je POVINNÝ — bez neho FU nevytváraj, poznač
+     "FU odložený — chýba konkrétny fakt {dátum}" a preskoč
+   - JEDNA nová informácia alebo uhol — nie "len sa pripomínam"
+   - Nízkoprahová CTA z rotácie §7 — nie tá istá v každom maile dňa
+   - Podpis: Martin Saraka, Appinara s.r.o., appinara.sk, +421 917 566 722
+
+4. Odošli, over hlášku o odoslaní (bez nej nezapisuj nič, len poznámku
+   "Odoslanie neisté {dátum}"), počkaj randomizovane 60–180 s.
+
+5. IHNEĎ po overenom odoslaní zapíš A ULOŽ SÚBOR:
+   Status = "FU1 odoslané" (TERMINÁLNY),
+   Posledný kontakt = dnešný dátum,
+   poznámka "FU1 odoslané {dátum}".
+
+ZÁKAZY:
+- Žiadne vymyslené čísla ("+18 %", "ROI za 6 týždňov")
+- Žiadne "chcel som sa len opýtať, či ste videli môj predchádzajúci mail"
+- Žiadny tretí mail komukoľvek
+- Nikoho, kto má Odosielateľ ≠ "appinara.sk"
+
+VÝSTUP (max 120 slov):
+- Koľko kandidátov, koľko odfiltroval reply-check, koľko odoslaných
+- Komu
+- Chyby

@@ -37,7 +37,6 @@
           v-motion-reveal-scale
           :delay="index * 130"
           class="group block focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-400/50 rounded-2xl"
-          :class="{ 'lg:col-span-2 lg:w-[calc(50%-2rem)] lg:mx-auto': projects.length % 2 === 1 && index === projects.length - 1 }"
           :aria-label="`Otvoriť projekt: ${project.title}`"
         >
           <DeviceFrame device="browser" :url="project.urlLabel" container-class="transition-transform duration-500 group-hover:-translate-y-2">
@@ -164,40 +163,22 @@ const projects = [
     tags: ['Reálny klient', 'Rezervácie', 'Lokálne SEO', 'Dizajn na mieru']
   },
   {
-    title: 'ELITE MOVE',
-    category: 'Klientsky web · Trenčín',
-    description: 'Web pre privátne tréningové centrum: služby, tím, cenník, kalkulačky a blog. Majiteľ si texty, ceny aj články mení sám cez vlastný administračný panel, bez programátora.',
-    url: 'https://www.elitemove.pro/',
-    urlLabel: 'elitemove.pro',
-    image: '/images/demos/elitemove.webp',
-    tags: ['Reálny klient', 'Administrácia obsahu', 'Blog', 'Dizajn na mieru']
-  },
-  {
     title: 'Dreamtangle',
-    category: 'Web + aplikácia · 7 jazykov',
-    description: 'Výklad snov pomocou AI: sen napíšete alebo nadiktujete a do pár sekúnd dostanete osobný výklad symbolov a emócií. Ilustrovaný dizajn, slovník s vyše 340 symbolmi a podpora siedmich jazykov.',
+    category: 'Vlastný AI produkt',
+    description: 'AI aplikácia na výklad snov, ktorú sme navrhli a postavili celú — od ilustrovaného dizajnu cez AI integráciu až po viacjazyčnú podporu. Ukážka toho, čo s AI vieme.',
     url: 'https://dreamtangle.com/',
     urlLabel: 'dreamtangle.com',
     image: '/images/demos/dreamtangle.webp',
-    tags: ['AI integrácia', 'Web aplikácia', 'Viacjazyčnosť', 'Ilustrovaný dizajn']
+    tags: ['AI integrácia', 'Web aplikácia', 'Viacjazyčnosť', 'Vlastný produkt']
   },
   {
     title: 'BecomeTen',
-    category: 'Web + Android aplikácia',
+    category: 'Vlastný AI produkt · web + Android',
     description: 'AI hodnotenie tváre z jednej fotky: skóre, rozbor po črtách a realistický odhad, čo sa dá zmeniť bez operácie. Každé odporúčanie cituje štúdiu z PubMed; deväť bezplatných nástrojov beží priamo v prehliadači bez nahrávania fotky.',
     url: 'https://becometen.com/',
     urlLabel: 'becometen.com',
     image: '/images/demos/becometen.webp',
-    tags: ['AI + MediaPipe', 'Stripe / RevenueCat', 'Capacitor Android', 'Citácie z PubMed']
-  },
-  {
-    title: 'MiraSkinLab',
-    category: 'Web + aplikácia · EN / SK',
-    description: 'Z deviatich otázok a jednej selfie zostaví osobný plán starostlivosti o pleť a vlasy. Každý krok cituje overenú štúdiu, platba je jednorazová cez Stripe a web beží v angličtine aj slovenčine.',
-    url: 'https://miraskinlab.com/',
-    urlLabel: 'miraskinlab.com',
-    image: '/images/demos/miraskinlab.webp',
-    tags: ['AI analýza', 'Stripe', 'EN / SK', 'EÚ hosting']
+    tags: ['AI + MediaPipe', 'Stripe / RevenueCat', 'Capacitor Android', 'Vlastný produkt']
   }
 ]
 

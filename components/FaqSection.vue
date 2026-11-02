@@ -51,7 +51,7 @@
 const faqs = [
   {
     q: 'Koľko stojí nový web?',
-    a: 'Web pre živnostníka začína od 490 €, firemný web s AI asistentom od 1 490 € a e-shop od 1 290 €, k tomu mesačná správa od 19 €. Všetky balíky nájdete v sekcii Balíky vyššie. Presnú sumu potvrdíme po krátkom hovore a rozhodujete sa až potom.'
+    a: 'Web pre živnostníka začína od 390 €, firemný web s AI asistentom od 990 € a e-shop od 990 €, k tomu mesačná správa od 15 €. Všetky balíky nájdete v sekcii Balíky vyššie. Presnú sumu potvrdíme po krátkom hovore a rozhodujete sa až potom.'
   },
   {
     q: 'Ako dlho trvá, kým bude web hotový?',

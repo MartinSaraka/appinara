@@ -227,10 +227,10 @@ const categories: Category[] = [
       {
         name: 'Štart',
         for: 'Pre živnostníkov a malé prevádzky, ktoré potrebujú byť dohľadateľné.',
-        price: '490 €',
+        price: '390 €',
         from: true,
         priceNote: 'jednorazovo',
-        monthly: '19 €',
+        monthly: '15 €',
         caption: 'Web / Vizitka',
         items: [
           'Jednostránkový web, mobil aj desktop',
@@ -243,10 +243,10 @@ const categories: Category[] = [
       {
         name: 'Biznis',
         for: 'Pre firmy, ktoré chcú, aby web prinášal dopyty a šetril čas.',
-        price: '1 490 €',
+        price: '990 €',
         from: true,
         priceNote: 'jednorazovo',
-        monthly: '59 €',
+        monthly: '39 €',
         caption: 'Web / Konverzia',
         featured: true,
         items: [
@@ -260,10 +260,10 @@ const categories: Category[] = [
       {
         name: 'Rast',
         for: 'Pre firmy, ktoré chcú automatizovať procesy a prepojiť systémy.',
-        price: '3 490 €',
+        price: '2 490 €',
         from: true,
         priceNote: 'jednorazovo',
-        monthly: '149 €',
+        monthly: '99 €',
         caption: 'Web / Na mieru',
         items: [
           'Web alebo aplikácia na mieru',
@@ -284,7 +284,7 @@ const categories: Category[] = [
       {
         name: 'E-shop Štart',
         for: 'Pre prvý online predaj s menším sortimentom.',
-        price: '1 290 €',
+        price: '990 €',
         from: true,
         priceNote: 'jednorazovo',
         monthly: '39 €',
@@ -300,10 +300,10 @@ const categories: Category[] = [
       {
         name: 'E-shop Biznis',
         for: 'Pre obchody, ktoré chcú predávať viac bez viac práce.',
-        price: '2 490 €',
+        price: '1 890 €',
         from: true,
         priceNote: 'jednorazovo',
-        monthly: '79 €',
+        monthly: '69 €',
         caption: 'Predaj / Automatizácia',
         featured: true,
         items: [
@@ -317,10 +317,10 @@ const categories: Category[] = [
       {
         name: 'E-shop Pro',
         for: 'Pre obchody s vlastnými procesmi, skladom a viacerými kanálmi.',
-        price: '4 990 €',
+        price: '3 490 €',
         from: true,
         priceNote: 'jednorazovo',
-        monthly: '149 €',
+        monthly: '99 €',
         caption: 'Predaj / Škálovanie',
         items: [
           'Prepojenie s účtovníctvom a ERP',
@@ -357,10 +357,10 @@ const categories: Category[] = [
       {
         name: 'Automatizácia',
         for: 'Keď sa v tíme opakovane prepisujú rovnaké údaje.',
-        price: '690 €',
+        price: '490 €',
         from: true,
         priceNote: 'jednorazovo',
-        monthly: '39 €',
+        monthly: '29 €',
         caption: 'Procesy / Čas',
         featured: true,
         items: [
@@ -374,10 +374,10 @@ const categories: Category[] = [
       {
         name: 'AI pre tím',
         for: 'Interný asistent, ktorý pozná vaše dokumenty a postupy.',
-        price: '1 290 €',
+        price: '990 €',
         from: true,
         priceNote: 'jednorazovo',
-        monthly: '79 €',
+        monthly: '59 €',
         caption: 'AI / Firemné znalosti',
         items: [
           'Odpovedá z vašich smerníc a dokumentov',
@@ -398,7 +398,7 @@ const categories: Category[] = [
       {
         name: 'Údržba',
         for: 'Pre existujúci web, ktorý má bežať bez starostí.',
-        price: '29 €',
+        price: '19 €',
         priceNote: 'mesačne',
         caption: 'Prevádzka / Istota',
         items: [
@@ -412,7 +412,7 @@ const categories: Category[] = [
       {
         name: 'Správa+',
         for: 'Keď chcete web meniť bez toho, aby ste sa to učili.',
-        price: '79 €',
+        price: '59 €',
         priceNote: 'mesačne',
         caption: 'Prevádzka / Úpravy',
         featured: true,
@@ -427,7 +427,7 @@ const categories: Category[] = [
       {
         name: 'Rastový paušál',
         for: 'Pre firmy, ktoré chcú, aby ich web každý mesiac rástol.',
-        price: '199 €',
+        price: '149 €',
         priceNote: 'mesačne',
         caption: 'Prevádzka / Rast',
         items: [
